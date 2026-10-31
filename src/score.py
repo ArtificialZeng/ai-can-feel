@@ -55,19 +55,20 @@ def run(model_path, out_path, modes, chars=None, caps=None):
     dig = digit_ids(tok)
     chars = chars or list(items.CHARACTERS)
     caps = caps or list(items.CAPACITIES)
-    # the raw prompts must end in a standalone space token so the next token is the digit itself
+    # English raw prompts must end in a standalone space token so the next token is the digit itself;
+    # Chinese raw prompts end in a full-width colon with no space
     probe = encode_raw(tok, items.raw_prompt("T1", chars[0], caps[0]))
     assert tok.decode(probe[-1:]) == " ", f"raw prompt does not end in a space token: {tok.decode(probe[-3:])!r}"
+    probe = encode_raw(tok, items.raw_prompt_zh("T1zh", chars[0], caps[0]))
+    assert tok.decode(probe[-1:]).endswith("："), f"zh prompt ends oddly: {tok.decode(probe[-3:])!r}"
     t0 = time.time()
     n = 0
     with open(out_path, "w") as fh:
         for mode in modes:
             for c in chars:
                 for a in caps:
-                    if mode == "chat":
-                        ids, _ = encode_chat(tok, items.chat_messages(c, a))
-                    else:
-                        ids = encode_raw(tok, items.raw_prompt(mode, c, a))
+                    kind, prompt = items.prompt_for(mode, c, a)
+                    ids = encode_chat(tok, prompt)[0] if kind == "chat" else encode_raw(tok, prompt)
                     ev, mass, probs, top = rating(model, ids, dig)
                     fh.write(json.dumps({"model": model_path, "mode": mode, "char": c, "cap": a,
                                          "dim": items.DIMENSION.get(a, "pilot"), "ev": ev, "digit_mass": mass,

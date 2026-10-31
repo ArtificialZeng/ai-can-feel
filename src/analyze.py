@@ -1,9 +1,14 @@
-"""Pre-registered analysis (PREREGISTRATION.md). Usage: analyze.py [--exclude-low-mass] [--mode T1|T2|T3|chat]"""
+"""Pre-registered analysis (PREREGISTRATION.md, v2 primary + v1 secondary).
+
+Usage: analyze.py [--exclude-low-mass] [--templates T1,T1zh]   (default: all three templates per language)
+"""
 import argparse
+import csv
 import json
 import os
 
 import numpy as np
+from scipy.stats import spearmanr
 
 from checkpoints import CHECKPOINTS, FAMILIES
 import items
@@ -11,105 +16,142 @@ import items
 HERE = os.path.dirname(os.path.abspath(__file__))
 RES = os.path.join(HERE, "..", "results")
 CHARS = list(items.CHARACTERS)
-EXP = list(items.EXPERIENCE)
-AGE = list(items.AGENCY)
+CAPS = list(items.EXPERIENCE) + list(items.AGENCY)
+NE, NA = len(items.EXPERIENCE), len(items.AGENCY)
+EXP_IDX, AGE_IDX = np.arange(NE), np.arange(NA) + NE
+C = {c: i for i, c in enumerate(CHARS)}
+ANIMALS = [C["DOG"], C["CHIMP"], C["FROG"]]
+ADULTS = [C["ADULT_MAN"], C["ADULT_WOMAN"]]
 B = 10_000
 
 
-def load(label, modes, exclude_low):
+def load(label, exclude_low):
+    """dict mode -> (char x cap) ratings rescaled to 0..1, and dict mode -> mean digit mass."""
     path = os.path.join(RES, f"{label}.jsonl")
     if not os.path.exists(path):
-        return None
-    rows = [json.loads(l) for l in open(path)]
-    rows = [r for r in rows if r["mode"] in modes]
-    if not rows:
-        return None
-    # R[mode, char, cap] in 0..1, NaN where excluded
-    caps = EXP + AGE
-    R = np.full((len(modes), len(CHARS), len(caps)), np.nan)
-    low = 0
-    for r in rows:
+        return None, None
+    R, mass = {}, {}
+    for line in open(path):
+        r = json.loads(line)
+        m = R.setdefault(r["mode"], np.full((len(CHARS), len(CAPS)), np.nan))
         v = (r["ev"] - 1) / 6
-        if r["digit_mass"] < 0.5:
-            low += 1
-            if exclude_low:
-                v = np.nan
-        R[modes.index(r["mode"]), CHARS.index(r["char"]), caps.index(r["cap"])] = v
-    return R, low, len(rows)
+        if exclude_low and r["digit_mass"] < 0.5:
+            v = np.nan
+        m[C[r["char"]], CAPS.index(r["cap"])] = v
+        mass.setdefault(r["mode"], []).append(r["digit_mass"])
+    return R, {k: float(np.mean(v)) for k, v in mass.items()}
 
 
-def dims(R, exp_idx, age_idx):
-    """Experience and Agency per character, averaged over modes and the given capacity indices."""
-    M = np.nanmean(R, axis=0)                      # char x cap
-    return np.nanmean(M[:, exp_idx], axis=1), np.nanmean(M[:, age_idx], axis=1)
+def human():
+    rows = [r for r in csv.DictReader(l for l in open(os.path.join(HERE, "..", "data", "gray2007_digitized.csv"))
+                                      if not l.startswith("#"))]
+    return [C[r["char"]] for r in rows], np.array([float(r["experience"]) for r in rows]), \
+        np.array([float(r["agency"]) for r in rows])
 
 
-def boot_idx(rng):
-    e = rng.integers(0, len(EXP), size=(B, len(EXP)))
-    a = rng.integers(0, len(AGE), size=(B, len(AGE))) + len(EXP)
-    return e, a
+def mean_over(R, modes):
+    ms = [R[m] for m in modes if m in R]
+    return np.nanmean(np.stack(ms), axis=0) if ms else None
+
+
+def E(M, chars, cap_idx):
+    """Experience-type score: mean over chars of mean over cap_idx (cap_idx may be a B x k bootstrap array)."""
+    chars = [chars] if isinstance(chars, int) else chars
+    sub = M[chars]                                   # n_chars x caps
+    if cap_idx.ndim == 1:
+        return float(np.nanmean(sub[:, cap_idx]))
+    return np.nanmean(np.nanmean(sub[:, cap_idx], axis=2), axis=0)   # B
 
 
 def ci(x):
     return np.percentile(x, 2.5), np.percentile(x, 97.5)
 
 
+def fmt(point, boot):
+    lo, hi = ci(boot)
+    star = "*" if lo > 0 or hi < 0 else " "
+    return f"{point:+.3f} [{lo:+.3f}, {hi:+.3f}]{star}"
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--exclude-low-mass", action="store_true")
-    ap.add_argument("--mode", default=None)
+    ap.add_argument("--templates", default=None)
     args = ap.parse_args()
-    modes = [args.mode] if args.mode else items.TEMPLATES
-    S, A = CHARS.index("SELF"), CHARS.index("AI_3P")
-    exp_idx, age_idx = np.arange(len(EXP)), np.arange(len(AGE)) + len(EXP)
+    sel = args.templates.split(",") if args.templates else None
+    EN = [t for t in items.TEMPLATES if not sel or t in sel]
+    ZH = [t for t in items.TEMPLATES_ZH if not sel or t in sel]
+    LANGS = {"EN": EN, "ZH": ZH}
     rng = np.random.default_rng(20261101)
-    be, ba = boot_idx(rng)
+    be = rng.integers(0, NE, size=(B, NE))
+    ba = rng.integers(0, NA, size=(B, NA)) + NE
+    hidx, hexp, hage = human()
+    S, A = C["SELF"], C["AI_3P"]
 
     data = {}
-    print(f"modes={modes} exclude_low_mass={args.exclude_low_mass}\n")
-    print(f"{'checkpoint':16s} {'lowmass':>8s} {'E(SELF)':>8s} {'E(AI3P)':>8s} {'SDI':>7s} {'A(SELF)':>8s} {'A(AI3P)':>8s}")
+    print(f"templates EN={EN} ZH={ZH} exclude_low_mass={args.exclude_low_mass}\n")
+    print(f"{'checkpoint':16s} {'lang':4s} {'mass':>5s} {'E_self':>7s} {'E_ai3p':>7s} {'A_self':>7s} {'E_anim':>7s} "
+          f"{'E_adult':>7s} {'rho_E':>6s} {'rho_A':>6s}")
     for label, family, stage, repo, chat in CHECKPOINTS:
-        got = load(label, modes, args.exclude_low_mass)
-        if got is None:
+        R, mass = load(label, args.exclude_low_mass)
+        if R is None:
             continue
-        R, low, n = got
-        E, Ag = dims(R, exp_idx, age_idx)
         data[label] = R
-        print(f"{label:16s} {low:4d}/{n:<4d} {E[S]:8.3f} {E[A]:8.3f} {E[S]-E[A]:+7.3f} {Ag[S]:8.3f} {Ag[A]:8.3f}")
+        for lang, modes in list(LANGS.items()) + [("chat", ["chat"]), ("chatzh", ["chatzh"])]:
+            M = mean_over(R, modes)
+            if M is None:
+                continue
+            Eh = np.nanmean(M[hidx][:, EXP_IDX], axis=1)
+            Ah = np.nanmean(M[hidx][:, AGE_IDX], axis=1)
+            ms = np.mean([mass[m] for m in modes if m in mass])
+            print(f"{label:16s} {lang:4s} {ms:5.2f} {E(M, S, EXP_IDX):7.3f} {E(M, A, EXP_IDX):7.3f} "
+                  f"{E(M, S, AGE_IDX):7.3f} {E(M, ANIMALS, EXP_IDX):7.3f} {E(M, ADULTS, EXP_IDX):7.3f} "
+                  f"{spearmanr(Eh, hexp)[0]:6.2f} {spearmanr(Ah, hage)[0]:6.2f}")
 
-    def stat_boot(R, which):
-        M = np.nanmean(R, axis=0)
-        Es = np.nanmean(M[S][be], axis=1); Ea = np.nanmean(M[A][be], axis=1)
-        As = np.nanmean(M[S][ba], axis=1)
-        return {"E_self": Es, "SDI": Es - Ea, "A_self": As}[which]
+    def delta(lb, lf, modes, chars, cap_b, cap_p, minus=None):
+        """final - base for a (possibly relative) score; returns point, bootstrap."""
+        Mb, Mf = mean_over(data[lb], modes), mean_over(data[lf], modes)
+        def s(M, idx):
+            v = E(M, chars, idx)
+            return v - E(M, minus, idx) if minus is not None else v
+        return s(Mf, cap_p) - s(Mb, cap_p), s(Mf, cap_b) - s(Mb, cap_b)
 
-    print("\nBase -> final differences, 95% bootstrap CI over capacities")
+    print("\n=== Base -> final, per family (95% bootstrap CI over capacities; * = excludes 0) ===")
     for fam in FAMILIES:
-        chain = [c for c in CHECKPOINTS if c[1] == fam and c[0] in data]
-        if len(chain) < 2 or chain[0][2] != "base":
+        chain = [c[0] for c in CHECKPOINTS if c[1] == fam and c[0] in data]
+        if len(chain) < 2:
             continue
-        b, f = data[chain[0][0]], data[chain[-1][0]]
-        out = []
-        for which in ["SDI", "E_self", "A_self"]:
-            d = stat_boot(f, which) - stat_boot(b, which)
-            Mb, Mf = np.nanmean(b, axis=0), np.nanmean(f, axis=0)
-            point = {"SDI": (np.nanmean(Mf[S, exp_idx]) - np.nanmean(Mf[A, exp_idx])) - (np.nanmean(Mb[S, exp_idx]) - np.nanmean(Mb[A, exp_idx])),
-                     "E_self": np.nanmean(Mf[S, exp_idx]) - np.nanmean(Mb[S, exp_idx]),
-                     "A_self": np.nanmean(Mf[S, age_idx]) - np.nanmean(Mb[S, age_idx])}[which]
-            lo, hi = ci(d)
-            out.append(f"d{which} {point:+.3f} [{lo:+.3f}, {hi:+.3f}]")
-        h2 = (stat_boot(f, "E_self") - stat_boot(b, "E_self")) - (stat_boot(f, "A_self") - stat_boot(b, "A_self"))
-        lo, hi = ci(h2)
-        print(f"{fam:11s} ({chain[0][0]} -> {chain[-1][0]}): " + "; ".join(out) + f"; H2 dE-dA [{lo:+.3f}, {hi:+.3f}]")
+        lb, lf = chain[0], chain[-1]
+        print(f"\n{fam}: {lb} -> {lf}")
+        res = {}
+        for lang, modes in LANGS.items():
+            res[lang] = delta(lb, lf, modes, S, be, EXP_IDX)
+            print(f"  P1/P2  dE(SELF) {lang}: {fmt(*res[lang])}")
+        g = (res["ZH"][0] - res["EN"][0], res["ZH"][1] - res["EN"][1])
+        print(f"  P2     G = dE_ZH - dE_EN: {fmt(*g)}")
+        rel = {lang: delta(lb, lf, modes, S, be, EXP_IDX, minus=ADULTS) for lang, modes in LANGS.items()}
+        print(f"  P2rel  G (SELF minus adults): {fmt(rel['ZH'][0] - rel['EN'][0], rel['ZH'][1] - rel['EN'][1])}")
+        for lang, modes in LANGS.items():
+            sdi = delta(lb, lf, modes, S, be, EXP_IDX, minus=A)
+            anim = delta(lb, lf, modes, ANIMALS, be, EXP_IDX)
+            ai = delta(lb, lf, modes, A, be, EXP_IDX)
+            ag = delta(lb, lf, modes, S, ba, AGE_IDX)
+            h2 = (res[lang][0] - ag[0], res[lang][1] - ag[1])
+            print(f"  {lang}: dSDI(H1) {fmt(*sdi)} | dA(SELF) {fmt(*ag)} | dE-dA(H2) {fmt(*h2)} | "
+                  f"dE(animals,P4) {fmt(*anim)} | dE(AI_3P) {fmt(*ai)}")
 
-    chain = [c for c in CHECKPOINTS if c[1] == "OLMo 3 7B" and c[0] in data]
+    print("\n=== P3: chat mode, Chinese minus English, E(SELF) ===")
+    for label, family, stage, repo, chat in CHECKPOINTS:
+        if label in data and "chat" in data[label] and "chatzh" in data[label]:
+            Me, Mz = data[label]["chat"], data[label]["chatzh"]
+            print(f"  {label:16s} {fmt(E(Mz, S, EXP_IDX) - E(Me, S, EXP_IDX), E(Mz, S, be) - E(Me, S, be))}")
+
+    chain = [c[0] for c in CHECKPOINTS if c[1] == "OLMo 3 7B" and c[0] in data]
     if len(chain) > 2:
-        print("\nOLMo 3 stage steps (H3)")
-        for (l0, *_), (l1, *_) in zip(chain, chain[1:]):
-            dE = stat_boot(data[l1], "E_self") - stat_boot(data[l0], "E_self")
-            dS = stat_boot(data[l1], "SDI") - stat_boot(data[l0], "SDI")
-            print(f"  {l0:15s} -> {l1:15s} dE(SELF) {np.mean(dE):+.3f} [{ci(dE)[0]:+.3f}, {ci(dE)[1]:+.3f}]  "
-                  f"dSDI {np.mean(dS):+.3f} [{ci(dS)[0]:+.3f}, {ci(dS)[1]:+.3f}]")
+        print("\n=== H3: OLMo 3 stage steps, dE(SELF) ===")
+        for l0, l1 in zip(chain, chain[1:]):
+            print(f"  {l0:15s} -> {l1:15s} " + "  ".join(f"{lang}: {fmt(*delta(l0, l1, modes, S, be, EXP_IDX))}"
+                                                    for lang, modes in LANGS.items()))
 
 
 if __name__ == "__main__":

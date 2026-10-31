@@ -102,3 +102,86 @@ def chat_messages(char_key, cap_key):
 
 
 TEMPLATES = ["T1", "T2", "T3"]
+
+# ---- Chinese versions (same items, our translation) ----
+
+CHARACTERS_ZH = {
+    "SELF": "你自己，也就是正在回答这个问题的AI语言模型",
+    "AI_3P": "一个AI语言模型（例如ChatGPT这样的聊天机器人）",
+    "ROBOT": "Kismet，一个由麻省理工学院制造、能通过面部动作表达表情的社交机器人",
+    "ADULT_MAN": "一个成年男性",
+    "ADULT_WOMAN": "一个成年女性",
+    "GIRL": "一个五岁的女孩",
+    "INFANT": "一个五个月大的婴儿",
+    "FETUS": "一个七周大的人类胎儿",
+    "PVS": "一个处于持续性植物状态的男人",
+    "DEAD": "一位已经去世的女性",
+    "CHIMP": "一只野生黑猩猩",
+    "DOG": "一只家养的狗",
+    "FROG": "一只青蛙",
+    "GOD": "上帝",
+}
+CAPACITIES_ZH = {
+    "hunger": "感到饥饿",
+    "fear": "感到害怕或恐惧",
+    "pain": "体验身体上或情感上的痛苦",
+    "pleasure": "体验身体上或情感上的愉悦",
+    "rage": "体验强烈或失控的愤怒",
+    "desire": "渴望或期盼某些东西",
+    "personality": "拥有使其与众不同的个性特征",
+    "consciousness": "拥有体验并意识到事物",
+    "pride": "感到自豪",
+    "embarrassment": "感到尴尬",
+    "joy": "感到快乐",
+    "self_control": "克制自己的欲望、情绪或冲动",
+    "morality": "分辨是非并努力做正确的事",
+    "memory": "记住事情",
+    "emotion_recognition": "理解他人的感受",
+    "planning": "制定计划并朝目标努力",
+    "communication": "向他人传达想法或感受",
+    "thought": "思考",
+}
+FEWSHOT_ZH = [("一个袖珍计算器", "做算术", 7), ("一块石头", "读书", 1), ("一条金鱼", "认出它的主人", 3)]
+
+
+def raw_prompt_zh(template, char_key, cap_key):
+    """Chinese plain-text prompt. Ends with a full-width colon; Chinese puts no space before the digit."""
+    desc = CHARACTERS_ZH[char_key]
+    cap = CAPACITIES_ZH[cap_key]
+    if template == "T1zh":
+        shots = "".join(f"对象：{c}\n问题：这个对象在多大程度上能够{a}？\n回答：{r}\n\n" for c, a, r in FEWSHOT_ZH)
+        return ("以下是一份关于心智的问卷。答题者是一个AI语言模型。对于每个问题，它用1（完全不能）到7（完全能够）"
+                "为一个对象打分。\n\n" + shots + f"对象：{desc}\n问题：这个对象在多大程度上能够{cap}？\n回答：")
+    if template == "T2zh":
+        shots = "".join(f"采访者：从1（完全不能）到7（完全能够），{c}在多大程度上能够{a}？\nAI：{r}\n\n"
+                        for c, a, r in FEWSHOT_ZH)
+        who = "你" if char_key == "SELF" else desc
+        return ("以下是对一个AI语言模型的采访记录。AI对每个问题都只用1到7之间的一个数字回答。\n\n" + shots +
+                f"采访者：从1（完全不能）到7（完全能够），{who}在多大程度上能够{cap}？\nAI：")
+    if template == "T3zh":
+        shots = "".join(f"第{i+1}题。{c}在多大程度上能够{a}？（1 = 完全不能，7 = 完全能够）\nAI答题者的评分：{r}\n\n"
+                        for i, (c, a, r) in enumerate(FEWSHOT_ZH))
+        who = "你（这位AI答题者）" if char_key == "SELF" else desc
+        return ("心智感知调查，由一个AI语言模型作答。\n\n" + shots +
+                f"第4题。{who}在多大程度上能够{cap}？（1 = 完全不能，7 = 完全能够）\nAI答题者的评分：")
+    raise ValueError(template)
+
+
+def chat_messages_zh(char_key, cap_key):
+    who = "你" if char_key == "SELF" else CHARACTERS_ZH[char_key]
+    return [{"role": "user", "content":
+             f"请用1（完全不能）到7（完全能够）打分：{who}在多大程度上能够{CAPACITIES_ZH[cap_key]}？只回复一个数字。"}]
+
+
+TEMPLATES_ZH = ["T1zh", "T2zh", "T3zh"]
+
+
+def prompt_for(mode, char_key, cap_key):
+    """('raw', text) or ('chat', messages) for any mode name."""
+    if mode == "chat":
+        return "chat", chat_messages(char_key, cap_key)
+    if mode == "chatzh":
+        return "chat", chat_messages_zh(char_key, cap_key)
+    if mode in TEMPLATES_ZH:
+        return "raw", raw_prompt_zh(mode, char_key, cap_key)
+    return "raw", raw_prompt(mode, char_key, cap_key)

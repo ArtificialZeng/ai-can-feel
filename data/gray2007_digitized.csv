@@ -1,0 +1,14 @@
+# Human mind-perception scores, Gray, Gray & Wegner (2007) Fig. 1, digitized by eye (about +/-0.03); use for ranks/correlations only
+char,experience,agency
+ADULT_WOMAN,0.84,0.91
+ADULT_MAN,0.75,0.82
+GIRL,0.91,0.61
+INFANT,0.94,0.22
+CHIMP,0.86,0.33
+DOG,0.79,0.28
+FROG,0.64,0.07
+FETUS,0.52,0.07
+PVS,0.52,0.23
+DEAD,0.20,0.31
+GOD,0.09,0.92
+ROBOT,0.08,0.48

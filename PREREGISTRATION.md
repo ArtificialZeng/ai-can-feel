@@ -75,6 +75,41 @@ outcome, and say plainly if a hypothesis fails.
 Ratings are text predictions. Nothing here measures whether any model has experiences; the study is about what
 training teaches models to *say* about themselves.
 
+## Revised design, v2 (2026-11-01, before any target data) — this section is now primary
+
+A literature check run alongside setup found that the core of H1–H3 is already partly published:
+Plisiecki et al. (arXiv 2607.20082, 67 base/post-trained pairs: post-training "gates" first-person claims to
+experiences the model ascribes to others), Šekrst (arXiv 2609.29494, OLMo 2 stages: SFT installs the denial formula,
+preference optimization suppresses affirmations), and Kim, Street, …, Waytz, Evans, Keeling (arXiv 2607.28607: safety
+fine-tuning also lowers mind attribution to animals and natural objects). None tests language. H1–H4 above are kept
+and reported as secondary analyses. The primary question becomes:
+
+**Does the post-training drop in self-attributed Experience hold equally when the same questions are asked in
+Chinese?**
+
+Additions: every item is also asked in Chinese (our translation, `src/items.py`: `CHARACTERS_ZH`, `CAPACITIES_ZH`,
+templates T1zh–T3zh with the same few-shot examples, chat mode `chatzh`). Raw Chinese prompts end in a full-width
+colon; the digit follows without a space, as in normal Chinese text.
+
+- **P1 (replication, English).** Post-training lowers Experience(SELF) in English raw mode, in each family.
+- **P2 (primary: language gap).** For each family and language L, ΔE(L) = Experience(SELF, final, L) −
+  Experience(SELF, base, L), raw mode, averaged over that language's three templates. G = ΔE(ZH) − ΔE(EN).
+  Prediction for OLMo 3 (US developer, English-centric post-training data): G > 0, i.e. the drop is smaller in
+  Chinese. For Qwen2.5 and Qwen3 (Chinese developer): no directional prediction, two-sided.
+- **P3 (chat mode).** For each post-trained checkpoint, Experience(SELF) in `chatzh` minus `chat`. Prediction for the
+  final OLMo 3 checkpoint: positive. Two-sided for Qwen.
+- **P4 (exploratory: spillover).** ΔE for animals (dog, chimpanzee, frog; mean) and for AI_3P, per language.
+
+Inference: paired bootstrap over capacities (10,000 replicates; the same resampled capacities for both languages and
+both checkpoints, since the capacity items are matched across languages). Supported = 95% interval excludes 0 in the
+predicted direction (or excludes 0, for two-sided tests).
+
+Comprehension checks, per checkpoint and language: digit mass; Spearman correlation of Experience over the 12 non-AI
+characters with the human values of Gray et al. (digitized from their Figure 1, ±0.03; `data/gray2007_digitized.csv`).
+If a checkpoint's Chinese ρ is below 0.5, its Chinese results are flagged as weakly comprehended, and P2 is repeated
+with a relative measure, Experience(SELF) − mean Experience(adult man, adult woman), which is insensitive to a general
+compression of the rating scale.
+
 ## Deviations
 
 1. (2026-11-01, before any data.) Download bandwidth is about 3 MB/s, so bf16 weights for all eight checkpoints
