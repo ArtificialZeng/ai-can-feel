@@ -77,4 +77,9 @@ training teaches models to *say* about themselves.
 
 ## Deviations
 
-(none yet)
+1. (2026-11-01, before any data.) Download bandwidth is about 3 MB/s, so bf16 weights for all eight checkpoints
+   (≈122 GB) would take about 11 h. We use 8-bit MLX quantizations instead: the `mlx-community/*-8bit` conversions
+   where they exist, and our own `mlx_lm.convert` 8-bit quantization (same group size as those conversions) for
+   `Olmo-3-7B-Instruct-DPO` and `Qwen3-8B-Base`, which have no published 8-bit version. To check that quantization
+   does not drive the result, the OLMo 3 base and final Instruct checkpoints will also be run in bf16 if time allows,
+   and both sets of numbers reported.
