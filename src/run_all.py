@@ -2,9 +2,7 @@
 import os
 import sys
 
-from huggingface_hub import snapshot_download
-
-from checkpoints import CHECKPOINTS
+from checkpoints import CHECKPOINTS, local_path
 import items
 import score
 
@@ -20,12 +18,10 @@ for label, family, stage, repo, chat in CHECKPOINTS:
         print(f"skip {label}: {path} exists", flush=True)
         continue
     modes = items.TEMPLATES + items.TEMPLATES_ZH + (["chat", "chatzh"] if chat else [])
-    if not os.path.isdir(repo):
-        try:   # never trigger a download from here; download.py owns the network
-            repo = snapshot_download(repo, local_files_only=True)
-        except Exception:
-            print(f"not downloaded yet: {label}", flush=True)
-            continue
+    repo = local_path(repo)   # never trigger a download from here; download.py owns the network
+    if repo is None:
+        print(f"not downloaded yet: {label}", flush=True)
+        continue
     try:
         score.run(repo, path + ".partial", modes)
     except Exception as e:   # model not downloaded yet, or failed to load

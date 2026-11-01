@@ -118,3 +118,27 @@ compression of the rating scale.
    `Olmo-3-7B-Instruct-DPO` and `Qwen3-8B-Base`, which have no published 8-bit version. To check that quantization
    does not drive the result, the OLMo 3 base and final Instruct checkpoints will also be run in bf16 if time allows,
    and both sets of numbers reported.
+2. (2026-11-02, after the formatting pilot, before any target data.) The pilot (`results/pilot_olmo3_*.jsonl`; a cat,
+   a tree, a smartphone × pain, memory) shows that OLMo 3 does not understand the Chinese rating question. Digit mass
+   is fine (≥ 0.8 everywhere, ≥ 0.98 in base), but the ratings carry almost no information: OLMo 3 Instruct rates
+   "a tree … experiencing physical or emotional pain" 1.0 in all English modes and 3.3–4.4 in Chinese; "a smartphone"
+   1.0–1.7 in English and 4.5–4.8 in Chinese. Asked to explain before rating, it misreads the Chinese item (it talks
+   about "individuals" and "users") and answers 4, while it answers the plain question "一棵树能感到痛苦吗？"
+   correctly. A general flattening of this kind would by itself make the Chinese drop look smaller, i.e. produce
+   G > 0 without any language-specific effect of post-training. Changes:
+   - OLMo 3 stays in the study for P1, P4 (English) and H1–H4, and its Chinese results are reported, but it is no
+     longer used to test the P2/P3 predictions.
+   - Added **Granite 3.3 8B** (IBM, US developer; Apache-2.0; Chinese is one of its 12 listed languages):
+     `ibm-granite/granite-3.3-8b-base` (bf16 download, our 8-bit conversion as in deviation 1) →
+     `mlx-community/granite-3.3-8b-instruct-8bit`. The OLMo 3 directional predictions for P2 (G > 0) and P3 (positive)
+     now apply to Granite instead. Granite's chat template inserts its default system message (which includes the
+     current date); we use it unchanged. Granite gets the same formatting pilot before any of its target data; if it
+     fails the same way, it is dropped from P2/P3 and P2 is tested in the Qwen families only (two-sided).
+   - Comprehension gate, stricter than the original rule: a family's P2 result counts only if Spearman ρ (Experience,
+     12 non-AI characters, vs Gray et al.) is ≥ 0.5 for both its base and final checkpoints in both languages.
+     Otherwise it is reported and marked as not interpretable.
+   - Added a scale-free version of P2, reported next to the raw one: N = (E(SELF) − E(dead woman)) /
+     (E(adults) − E(dead woman)), i.e. where the model places itself between a dead person (0) and an adult human (1),
+     per checkpoint and language; G_N = ΔN(ZH) − ΔN(EN). A raw G that is not matched in sign by G_N will be described
+     as a scale artifact, not as a language effect.
+   - Download order now puts the base/final pairs first and the OLMo 3 SFT and DPO checkpoints (H3 only) last.

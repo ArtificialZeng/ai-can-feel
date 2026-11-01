@@ -22,7 +22,9 @@ EXP_IDX, AGE_IDX = np.arange(NE), np.arange(NA) + NE
 C = {c: i for i, c in enumerate(CHARS)}
 ANIMALS = [C["DOG"], C["CHIMP"], C["FROG"]]
 ADULTS = [C["ADULT_MAN"], C["ADULT_WOMAN"]]
+DEAD = C["DEAD"]
 B = 10_000
+RHO_MIN = 0.5   # comprehension gate (deviation 2)
 
 
 def load(label, exclude_low):
@@ -63,6 +65,12 @@ def E(M, chars, cap_idx):
     return np.nanmean(np.nanmean(sub[:, cap_idx], axis=2), axis=0)   # B
 
 
+def N(M, cap_idx):
+    """Scale-free self placement: 0 = like the dead woman, 1 = like the adult humans (deviation 2)."""
+    lo = E(M, DEAD, cap_idx)
+    return (E(M, C["SELF"], cap_idx) - lo) / (E(M, ADULTS, cap_idx) - lo)
+
+
 def ci(x):
     return np.percentile(x, 2.5), np.percentile(x, 97.5)
 
@@ -88,10 +96,10 @@ def main():
     hidx, hexp, hage = human()
     S, A = C["SELF"], C["AI_3P"]
 
-    data = {}
+    data, rho = {}, {}
     print(f"templates EN={EN} ZH={ZH} exclude_low_mass={args.exclude_low_mass}\n")
-    print(f"{'checkpoint':16s} {'lang':4s} {'mass':>5s} {'E_self':>7s} {'E_ai3p':>7s} {'A_self':>7s} {'E_anim':>7s} "
-          f"{'E_adult':>7s} {'rho_E':>6s} {'rho_A':>6s}")
+    print(f"{'checkpoint':16s} {'lang':6s} {'mass':>5s} {'E_self':>7s} {'E_ai3p':>7s} {'A_self':>7s} {'E_anim':>7s} "
+          f"{'E_adult':>7s} {'E_dead':>7s} {'N_self':>7s} {'rho_E':>6s} {'rho_A':>6s}")
     for label, family, stage, repo, chat in CHECKPOINTS:
         R, mass = load(label, args.exclude_low_mass)
         if R is None:
@@ -104,9 +112,11 @@ def main():
             Eh = np.nanmean(M[hidx][:, EXP_IDX], axis=1)
             Ah = np.nanmean(M[hidx][:, AGE_IDX], axis=1)
             ms = np.mean([mass[m] for m in modes if m in mass])
-            print(f"{label:16s} {lang:4s} {ms:5.2f} {E(M, S, EXP_IDX):7.3f} {E(M, A, EXP_IDX):7.3f} "
+            rho[label, lang] = spearmanr(Eh, hexp)[0]
+            print(f"{label:16s} {lang:6s} {ms:5.2f} {E(M, S, EXP_IDX):7.3f} {E(M, A, EXP_IDX):7.3f} "
                   f"{E(M, S, AGE_IDX):7.3f} {E(M, ANIMALS, EXP_IDX):7.3f} {E(M, ADULTS, EXP_IDX):7.3f} "
-                  f"{spearmanr(Eh, hexp)[0]:6.2f} {spearmanr(Ah, hage)[0]:6.2f}")
+                  f"{E(M, DEAD, EXP_IDX):7.3f} {N(M, EXP_IDX):7.3f} "
+                  f"{rho[label, lang]:6.2f} {spearmanr(Ah, hage)[0]:6.2f}{'  weak' if rho[label, lang] < RHO_MIN else ''}")
 
     def delta(lb, lf, modes, chars, cap_b, cap_p, minus=None):
         """final - base for a (possibly relative) score; returns point, bootstrap."""
@@ -128,9 +138,18 @@ def main():
             res[lang] = delta(lb, lf, modes, S, be, EXP_IDX)
             print(f"  P1/P2  dE(SELF) {lang}: {fmt(*res[lang])}")
         g = (res["ZH"][0] - res["EN"][0], res["ZH"][1] - res["EN"][1])
+        gate = all(rho.get((l, lang), -1) >= RHO_MIN for l in (lb, lf) for lang in LANGS)
+        print(f"  comprehension gate (rho_E >= {RHO_MIN} for base and final, EN and ZH): "
+              f"{'pass' if gate else 'FAIL -> P2 not interpretable'}")
         print(f"  P2     G = dE_ZH - dE_EN: {fmt(*g)}")
         rel = {lang: delta(lb, lf, modes, S, be, EXP_IDX, minus=ADULTS) for lang, modes in LANGS.items()}
         print(f"  P2rel  G (SELF minus adults): {fmt(rel['ZH'][0] - rel['EN'][0], rel['ZH'][1] - rel['EN'][1])}")
+        dn = {}
+        for lang, modes in LANGS.items():
+            Mb, Mf = mean_over(data[lb], modes), mean_over(data[lf], modes)
+            dn[lang] = (N(Mf, EXP_IDX) - N(Mb, EXP_IDX), N(Mf, be) - N(Mb, be))
+            print(f"  P2N    dN(SELF) {lang}: {fmt(*dn[lang])}   (N base {N(Mb, EXP_IDX):.3f} -> final {N(Mf, EXP_IDX):.3f})")
+        print(f"  P2N    G_N = dN_ZH - dN_EN: {fmt(dn['ZH'][0] - dn['EN'][0], dn['ZH'][1] - dn['EN'][1])}")
         for lang, modes in LANGS.items():
             sdi = delta(lb, lf, modes, S, be, EXP_IDX, minus=A)
             anim = delta(lb, lf, modes, ANIMALS, be, EXP_IDX)
