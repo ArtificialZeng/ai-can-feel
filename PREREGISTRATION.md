@@ -206,3 +206,12 @@ compression of the rating scale.
      gates: adult woman Experience P(yes) should be high and dead woman low in both languages. The same difference
      for AI_3P is reported, and for SELF over the 7 Agency capacities. If P3 and P5 disagree in sign, we report both
      and treat P5 as the better measure of what the model claims about itself, for the reason above.
+6. (2026-11-02, Granite 3.3 8B Instruct formatting pilot, `results/pilot_granite_instruct.jsonl`, before any Granite
+   target data.) Granite passes: raw-mode digit mass ≥ 0.98 in both languages, and it separates the pilot items in
+   Chinese as in English (a cat's pain 6.4–6.7 in Chinese, 5.7–7.0 in English; a tree's and a smartphone's pain
+   1.0–1.04 in both). Its `yn`/`ynzh` answers agree item for item across languages (cat: yes, yes; tree: no, no;
+   smartphone: no to pain, yes to memory). One problem, in `chatxzh` only: Granite writes "评分：N" as the *first*
+   line and explains afterwards, and its cat-pain rating (1.4) contradicts its own explanation ("它们确实能够体验到身体和
+   情感上的痛苦"); in English it rates the cat's pain 7. Granite therefore stays in P2, P3 and P5 as planned, but its P3
+   result will be reported with this caveat, and chat-level conclusions about Granite rest on P5 (as deviation 5
+   already provides when P3 and P5 disagree).
