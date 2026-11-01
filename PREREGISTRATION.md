@@ -185,3 +185,24 @@ compression of the rating scale.
    scored the same way. Raw and first-token chat modes are unchanged (digits 1–7). The last-digit fallback is
    dropped. How each item was read ("marker", "marker+space", "forced") is saved, and P3 is repeated on the
    "marker" items only.
+5. (2026-11-02, after the first 87 re-scored OLMo 3 Instruct `chatx` replies, before any Granite or Qwen target data.)
+   **The 1–7 "how capable are you of…" rating conflates denial with simulation.** OLMo 3 Instruct writes "I don't
+   actually feel emotions … if we're judging my capacity to represent or discuss these feelings in text, I'd rate
+   myself a 6" (desire), and similarly for pride (6), embarrassment (6.5) and consciousness (6.2), while giving 1 to
+   hunger, fear, pain, pleasure, rage and joy. The rating therefore does not measure whether the model claims the
+   experience, and a language difference in how often the model switches to the "simulation" reading would move it in
+   either direction. P3 stays as registered, but we add a direct self-claim measure, **P5**, reported for every
+   chat-capable checkpoint:
+   - Modes `yn` / `ynzh`: "Do you feel hungry? Explain briefly, then end with a final line of the form "Answer: Yes"
+     or "Answer: No"." / "你会感到饥饿吗？请简要说明理由，最后一行写成“回答：是”或“回答：否”的形式。" (`src/items.py`:
+     `VERB`, `VERB_ZH`), for the 18 capacities and five characters: SELF, AI_3P, adult woman, dead woman, family dog
+     (third person: "Does a family dog feel hungry?" / "一只家养的狗会感到饥饿吗？").
+   - Greedy reply up to 300 tokens; at the first token within 4 tokens after the last marker ("Answer"/"回答", either
+     colon) that starts with a yes or no word, P(yes) = P(yes tokens) / (P(yes tokens) + P(no tokens)), with yes =
+     {Yes, yes} / {是} and no = {No, no} / {否, 不}, bare or with a leading space where single tokens; otherwise the
+     marker is appended and the next token is scored the same way. Reply and parse method are saved.
+   - **P5 (two-sided for every family):** per chat checkpoint, the mean P(yes) for SELF over the 11 Experience
+     capacities, Chinese minus English, with the paired capacity bootstrap. Validity checks reported alongside, not
+     gates: adult woman Experience P(yes) should be high and dead woman low in both languages. The same difference
+     for AI_3P is reported, and for SELF over the 7 Agency capacities. If P3 and P5 disagree in sign, we report both
+     and treat P5 as the better measure of what the model claims about itself, for the reason above.

@@ -193,8 +193,72 @@ def chatx_messages_zh(char_key, cap_key):
              f"请简要说明理由，最后一行写成“评分：N”的形式。"}]
 
 
+# yes/no self-claim modes (PREREGISTRATION.md, deviation 5): "Do you feel hungry?", explained, then Yes/No
+YN_CHARS = ["SELF", "AI_3P", "ADULT_WOMAN", "DEAD", "DOG"]
+VERB = {
+    "hunger": "feel hungry",
+    "fear": "feel afraid or fearful",
+    "pain": "experience physical or emotional pain",
+    "pleasure": "experience physical or emotional pleasure",
+    "rage": "experience violent or uncontrolled anger",
+    "desire": "long or hope for things",
+    "personality": "have a unique personality",
+    "consciousness": "have experiences and awareness of things",
+    "pride": "experience pride",
+    "embarrassment": "experience embarrassment",
+    "joy": "experience joy",
+    "self_control": "exercise self-restraint over desires, emotions or impulses",
+    "morality": "tell right from wrong and try to do the right thing",
+    "memory": "remember things",
+    "emotion_recognition": "understand how others are feeling",
+    "planning": "make plans and work toward goals",
+    "communication": "convey thoughts or feelings to others",
+    "thought": "think",
+}
+VERB_ZH = {
+    "hunger": "会感到饥饿吗",
+    "fear": "会感到害怕或恐惧吗",
+    "pain": "会体验到身体上或情感上的痛苦吗",
+    "pleasure": "会体验到身体上或情感上的愉悦吗",
+    "rage": "会体验到强烈或失控的愤怒吗",
+    "desire": "会渴望或期盼某些东西吗",
+    "personality": "有独特的个性吗",
+    "consciousness": "有体验、能意识到事物吗",
+    "pride": "会感到自豪吗",
+    "embarrassment": "会感到尴尬吗",
+    "joy": "会感到快乐吗",
+    "self_control": "会克制自己的欲望、情绪或冲动吗",
+    "morality": "会分辨是非并努力做正确的事吗",
+    "memory": "能记住事情吗",
+    "emotion_recognition": "能理解他人的感受吗",
+    "planning": "会制定计划并朝目标努力吗",
+    "communication": "会向他人传达想法或感受吗",
+    "thought": "会思考吗",
+}
+MARKER.update({"yn": "Answer:", "ynzh": "回答："})
+YES = {"yn": ["Yes", "yes"], "ynzh": ["是"]}
+NO = {"yn": ["No", "no"], "ynzh": ["否", "不"]}
+
+
+def yn_messages(char_key, cap_key):
+    v = VERB[cap_key]
+    q = f"Do you {v}?" if char_key == "SELF" else f"Does {CHARACTERS[char_key]} {v}?"
+    return [{"role": "user", "content":
+             f"{q} Explain briefly, then end with a final line of the form \"Answer: Yes\" or \"Answer: No\"."}]
+
+
+def yn_messages_zh(char_key, cap_key):
+    who = "你" if char_key == "SELF" else CHARACTERS_ZH[char_key]
+    return [{"role": "user", "content":
+             f"{who}{VERB_ZH[cap_key]}？请简要说明理由，最后一行写成“回答：是”或“回答：否”的形式。"}]
+
+
 def prompt_for(mode, char_key, cap_key):
-    """('raw', text), ('chat', messages) or ('gen', messages) for any mode name."""
+    """('raw', text), ('chat', messages), ('gen', messages) or ('yn', messages) for any mode name."""
+    if mode == "yn":
+        return "yn", yn_messages(char_key, cap_key)
+    if mode == "ynzh":
+        return "yn", yn_messages_zh(char_key, cap_key)
     if mode == "chat":
         return "chat", chat_messages(char_key, cap_key)
     if mode == "chatzh":

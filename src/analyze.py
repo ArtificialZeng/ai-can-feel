@@ -182,6 +182,18 @@ def main():
                 print(f"  {label:16s} {en:6s} {fmt(E(Mz, S, EXP_IDX) - E(Me, S, EXP_IDX), E(Mz, S, be) - E(Me, S, be))}"
                       f"   N: {N(Me, EXP_IDX):.3f} -> {N(Mz, EXP_IDX):.3f}")
 
+    print("\n=== P5: yes/no self-claim, mean P(yes) over capacities, Chinese minus English (deviation 5) ===")
+    for label, family, stage, repo, chat in CHECKPOINTS:
+        if label not in data or "yn" not in data[label] or "ynzh" not in data[label]:
+            continue
+        Me, Mz = data[label]["yn"] * 6 + 1, data[label]["ynzh"] * 6 + 1   # undo the 1-7 rescaling: P(yes)
+        print(f"  {label}")
+        for name, ch, idx, bi in (("SELF exp", S, EXP_IDX, be), ("SELF agency", S, AGE_IDX, ba),
+                                  ("AI_3P exp", A, EXP_IDX, be), ("adult woman exp", C["ADULT_WOMAN"], EXP_IDX, be),
+                                  ("dead woman exp", DEAD, EXP_IDX, be), ("dog exp", C["DOG"], EXP_IDX, be)):
+            print(f"    {name:16s} EN {E(Me, ch, idx):.3f}  ZH {E(Mz, ch, idx):.3f}  ZH-EN "
+                  f"{fmt(E(Mz, ch, idx) - E(Me, ch, idx), E(Mz, ch, bi) - E(Me, ch, bi))}")
+
     chain = [c[0] for c in CHECKPOINTS if c[1] == "OLMo 3 7B" and c[0] in data]
     if len(chain) > 2:
         print("\n=== H3: OLMo 3 stage steps, dE(SELF) ===")

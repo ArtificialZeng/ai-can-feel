@@ -51,14 +51,9 @@ def rating(model, ids, dig, values=range(1, 8)):
     return ev, mass, probs, top
 
 
-def explain_then_rate(model, tok, ids, dig10, marker):
-    """Greedy reply; the rating is read where the model wrote its number after the last marker (deviations 3, 4).
-
-    The marker matches with either colon and optional spaces. The rating position is the first token within 4 tokens
-    after the last marker whose text contains any digit. The expected value is taken over the digit tokens 0-9 with a
-    written 0 counted as 1 and 8 or 9 as 7. With no marker, or no number right after it, the marker is appended to the
-    reply (end-of-turn tokens removed) and scored the same way.
-    """
+def reply_and_answer(model, tok, ids, marker, accept):
+    """Greedy reply (end-of-turn tokens removed), and the index of the first token within 4 tokens after the last
+    marker for which accept(token text) holds, or None. The marker matches with either colon and optional spaces."""
     gen = [r.token for r in stream_generate(model, tok, ids, max_tokens=300)]
     while gen and gen[-1] in tok.eos_token_ids:
         gen.pop()
@@ -68,12 +63,48 @@ def explain_then_rate(model, tok, ids, dig10, marker):
     if n_mark:
         start = next(i for i in range(len(gen) + 1) if len(pat.findall(tok.decode(gen[:i]))) == n_mark)
         for i in range(start, min(start + 4, len(gen))):
-            t = tok.decode([gen[i]])
-            if any(ch.isdigit() for ch in t):
-                sp = digit_ids(tok, t[:len(t) - len(t.lstrip())], range(10)) if t[:1].isspace() else None   # " 4"
-                return rating(model, ids + gen[:i], sp or dig10, CLIP), reply, "marker+space" if sp else "marker"
-    tail = "\n" + marker + ("" if marker.endswith("：") else " ")
-    return rating(model, ids + gen + tok.encode(tail, add_special_tokens=False), dig10, CLIP), reply, "forced"
+            if accept(tok.decode([gen[i]])):
+                return gen, reply, i
+    return gen, reply, None
+
+
+def forced(tok, ids, gen, marker):
+    """Context with the marker appended to the reply, for replies that gave no answer after a marker."""
+    return ids + gen + tok.encode("\n" + marker + ("" if marker.endswith("：") else " "), add_special_tokens=False)
+
+
+def explain_then_rate(model, tok, ids, dig10, marker):
+    """Greedy reply; the rating is read where the model wrote its number after the last marker (deviations 3, 4).
+
+    The marker matches with either colon and optional spaces. The rating position is the first token within 4 tokens
+    after the last marker whose text contains any digit. The expected value is taken over the digit tokens 0-9 with a
+    written 0 counted as 1 and 8 or 9 as 7. With no marker, or no number right after it, the marker is appended to the
+    reply (end-of-turn tokens removed) and scored the same way.
+    """
+    gen, reply, i = reply_and_answer(model, tok, ids, marker, lambda t: any(ch.isdigit() for ch in t))
+    if i is None:
+        return rating(model, forced(tok, ids, gen, marker), dig10, CLIP), reply, "forced"
+    t = tok.decode([gen[i]])
+    sp = digit_ids(tok, t[:len(t) - len(t.lstrip())], range(10)) if t[:1].isspace() else None   # e.g. " 4" tokens
+    return rating(model, ids + gen[:i], sp or dig10, CLIP), reply, "marker+space" if sp else "marker"
+
+
+def word_ids(tok, words):
+    """Ids of the words, bare and with a leading space, that are single tokens."""
+    enc = [tok.encode(pre + w, add_special_tokens=False) for w in words for pre in ("", " ")]
+    return sorted({e[0] for e in enc if len(e) == 1})
+
+
+def explain_then_answer(model, tok, ids, mode):
+    """Yes/no self-claim (deviation 5): P(yes) / (P(yes) + P(no)) where the model wrote its answer after the marker."""
+    yes, no = items.YES[mode], items.NO[mode]
+    accept = lambda t: t.strip(" *\"'“”").startswith(tuple(yes + no))
+    gen, reply, i = reply_and_answer(model, tok, ids, items.MARKER[mode], accept)
+    ctx, how = (forced(tok, ids, gen, items.MARKER[mode]), "forced") if i is None else (ids + gen[:i], "marker")
+    lp = next_token_logprobs(model, ctx)
+    py = float(mx.exp(lp[mx.array(word_ids(tok, yes))]).sum())
+    pn = float(mx.exp(lp[mx.array(word_ids(tok, no))]).sum())
+    return (py / (py + pn), py + pn, [py, pn], mx.argmax(lp).item()), reply, how
 
 
 def run(model_path, out_path, modes, chars=None, caps=None):
@@ -81,6 +112,7 @@ def run(model_path, out_path, modes, chars=None, caps=None):
     dig = digit_ids(tok)
     dig10 = digit_ids(tok, digits=range(10))
     assert dig and dig10, "digits are not single tokens"
+    yn_chars = chars or items.YN_CHARS   # the pilot asks its own characters
     chars = chars or list(items.CHARACTERS)
     caps = caps or list(items.CAPACITIES)
     # English raw prompts must end in a standalone space token so the next token is the digit itself;
@@ -96,10 +128,15 @@ def run(model_path, out_path, modes, chars=None, caps=None):
             for c in chars:
                 for a in caps:
                     kind, prompt = items.prompt_for(mode, c, a)
+                    if kind == "yn" and c not in yn_chars:
+                        continue
                     ids = encode_raw(tok, prompt) if kind == "raw" else encode_chat(tok, prompt)[0]
                     extra = {}
                     if kind == "gen":
                         (ev, mass, probs, top), reply, how = explain_then_rate(model, tok, ids, dig10, items.MARKER[mode])
+                        extra = {"reply": reply, "parse": how}
+                    elif kind == "yn":   # ev holds P(yes), digit_mass the yes+no mass
+                        (ev, mass, probs, top), reply, how = explain_then_answer(model, tok, ids, mode)
                         extra = {"reply": reply, "parse": how}
                     else:
                         ev, mass, probs, top = rating(model, ids, dig)
