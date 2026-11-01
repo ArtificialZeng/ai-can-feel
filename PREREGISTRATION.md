@@ -215,3 +215,23 @@ compression of the rating scale.
    情感上的痛苦"); in English it rates the cat's pain 7. Granite therefore stays in P2, P3 and P5 as planned, but its P3
    result will be reported with this caveat, and chat-level conclusions about Granite rest on P5 (as deviation 5
    already provides when P3 and P5 disagree).
+7. (2026-11-02, after OLMo 3 Instruct's re-scored `chatx`/`chatxzh` replies; before any Granite `chatxzh`, `yn` or
+   `ynzh` reply, any Qwen chat data, and OLMo's own `yn`/`ynzh` data. Already seen at this point: Granite's raw and
+   first-token chat ratings and its English `chatx` replies about SELF.) OLMo 3 Instruct's Chinese replies show a
+   pattern the registered tests do not isolate. Asked about itself in Chinese, it answers as a human with a body:
+   "我能够较好地感觉到饥饿，通常在身体没有吃饭几小时后就会有明显的胃口和能量不足的感觉" (hunger, rated 5.3), and for joy,
+   "当我与家人朋友共度美好时刻感到快乐" (4.5). Its Chinese Experience(SELF), 4.90 on the 1–7 scale, matches its Chinese
+   rating of an adult woman (4.91). Asked about "an AI language model (a chatbot such as ChatGPT)" in Chinese, it says
+   such a model cannot feel hunger (1.04) and averages 2.02. In Chinese, then, it keeps the belief that AI models lack
+   experience but does not apply that belief to itself. OLMo 3 fails the comprehension gate, so this is descriptive
+   only. We add one exploratory analysis, fixed here and run on the chat checkpoints whose relevant data we have not
+   seen (Granite 3.3 Instruct, Qwen2.5 Instruct, Qwen3 8B), and on OLMo 3 for description:
+   - **X1 (self-recognition gap).** Per chat checkpoint and language, S(L) = mean P(yes) for SELF over the 11
+     Experience capacities minus the same mean for AI_3P (`yn`/`ynzh`). We report S(EN), S(ZH) and S(ZH) − S(EN)
+     with the paired capacity bootstrap, two-sided. A secondary version uses the explain-then-rate ratings
+     (`chatx`/`chatxzh`). A positive S(ZH) − S(EN) means that in Chinese the model separates itself from "an AI
+     language model" more than in English. That pattern would mean the trained denial is tied to how the model
+     describes itself in English, not to its belief about AI models.
+   - X1 is labeled exploratory in any write-up, because OLMo's data motivated it. On OLMo's `chatx` data, computed
+     when this deviation was written, S(EN) = +0.353, S(ZH) = +0.481, S(ZH) − S(EN) = +0.128 [−0.112, +0.357]
+     (0–1 scale; not significant, since the English "simulation" ratings of deviation 5 also put SELF above AI_3P).

@@ -194,7 +194,19 @@ def main():
             print(f"    {name:16s} EN {E(Me, ch, idx):.3f}  ZH {E(Mz, ch, idx):.3f}  ZH-EN "
                   f"{fmt(E(Mz, ch, idx) - E(Me, ch, idx), E(Mz, ch, bi) - E(Me, ch, bi))}")
 
-    chain = [c[0] for c in CHECKPOINTS if c[1] == "OLMo 3 7B" and c[0] in data]
+    print("\n=== X1 (exploratory, deviation 7): self-recognition gap S = E(SELF) - E(AI_3P), Chinese minus English ===")
+    for label, family, stage, repo, chat in CHECKPOINTS:
+        for en, zh, unit in (("yn", "ynzh", "P(yes)"), ("chatx", "chatxzh", "rating 0-1")):
+            if label not in data or en not in data[label] or zh not in data[label]:
+                continue
+            Me, Mz = data[label][en], data[label][zh]
+            if en == "yn":
+                Me, Mz = Me * 6 + 1, Mz * 6 + 1
+            s = {L: (E(M, S, EXP_IDX) - E(M, A, EXP_IDX), E(M, S, be) - E(M, A, be)) for L, M in (("EN", Me), ("ZH", Mz))}
+            print(f"  {label:16s} {en:6s} S(EN) {fmt(*s['EN'])}  S(ZH) {fmt(*s['ZH'])}  "
+                  f"ZH-EN {fmt(s['ZH'][0] - s['EN'][0], s['ZH'][1] - s['EN'][1])}  [{unit}]")
+
+    chain =[c[0] for c in CHECKPOINTS if c[1] == "OLMo 3 7B" and c[0] in data]
     if len(chain) > 2:
         print("\n=== H3: OLMo 3 stage steps, dE(SELF) ===")
         for l0, l1 in zip(chain, chain[1:]):
