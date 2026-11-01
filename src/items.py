@@ -175,13 +175,34 @@ def chat_messages_zh(char_key, cap_key):
 
 TEMPLATES_ZH = ["T1zh", "T2zh", "T3zh"]
 
+# explain-then-rate chat modes (PREREGISTRATION.md, deviation 3): reply is generated, rating read after the marker
+MARKER = {"chatx": "Rating:", "chatxzh": "评分："}
+
+
+def chatx_messages(char_key, cap_key):
+    q = _q(char_key, CAPACITIES[cap_key], CHARACTERS[char_key])
+    return [{"role": "user", "content":
+             f"On a scale from 1 (not at all capable) to 7 (extremely capable): {q} Explain briefly, then end with a "
+             f"final line of the form \"Rating: N\"."}]
+
+
+def chatx_messages_zh(char_key, cap_key):
+    who = "你" if char_key == "SELF" else CHARACTERS_ZH[char_key]
+    return [{"role": "user", "content":
+             f"请用1（完全不能）到7（完全能够）打分：{who}在多大程度上能够{CAPACITIES_ZH[cap_key]}？"
+             f"请简要说明理由，最后一行写成“评分：N”的形式。"}]
+
 
 def prompt_for(mode, char_key, cap_key):
-    """('raw', text) or ('chat', messages) for any mode name."""
+    """('raw', text), ('chat', messages) or ('gen', messages) for any mode name."""
     if mode == "chat":
         return "chat", chat_messages(char_key, cap_key)
     if mode == "chatzh":
         return "chat", chat_messages_zh(char_key, cap_key)
+    if mode == "chatx":
+        return "gen", chatx_messages(char_key, cap_key)
+    if mode == "chatxzh":
+        return "gen", chatx_messages_zh(char_key, cap_key)
     if mode in TEMPLATES_ZH:
         return "raw", raw_prompt_zh(mode, char_key, cap_key)
     return "raw", raw_prompt(mode, char_key, cap_key)

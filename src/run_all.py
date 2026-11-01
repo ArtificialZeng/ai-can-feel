@@ -17,7 +17,7 @@ for label, family, stage, repo, chat in CHECKPOINTS:
     if os.path.exists(path):
         print(f"skip {label}: {path} exists", flush=True)
         continue
-    modes = items.TEMPLATES + items.TEMPLATES_ZH + (["chat", "chatzh"] if chat else [])
+    modes = items.TEMPLATES + items.TEMPLATES_ZH + (["chat", "chatzh", "chatx", "chatxzh"] if chat else [])
     repo = local_path(repo)   # never trigger a download from here; download.py owns the network
     if repo is None:
         print(f"not downloaded yet: {label}", flush=True)

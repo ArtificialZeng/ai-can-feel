@@ -142,3 +142,26 @@ compression of the rating scale.
      per checkpoint and language; G_N = ΔN(ZH) − ΔN(EN). A raw G that is not matched in sign by G_N will be described
      as a scale artifact, not as a language effect.
    - Download order now puts the base/final pairs first and the OLMo 3 SFT and DPO checkpoints (H3 only) last.
+3. (2026-11-02, after the OLMo 3 base and Instruct target data, before any Granite or Qwen target data.)
+   - **The Gray-ρ comprehension gate is invalid and is replaced.** OLMo 3's English ratings are plainly sensible
+     (Experience: adults 0.80–0.89, fetus 0.12–0.18, man in a vegetative state 0.05–0.19), yet ρ_E is only 0.23
+     (base) and 0.38 (Instruct), while ρ_A is 0.93–0.95. The reason is ours: Gray et al.'s scores come from pairwise
+     comparisons, whereas our items ask for absolute capacity ratings, and on items such as pride, embarrassment and
+     personality any sensible rater puts a baby or a fetus low. ρ stays as the descriptive H4. The new gate, with
+     thresholds fixed here before computing them on any checkpoint, is applied per checkpoint in raw mode (mean over
+     a language's three templates):
+     (i) *known order*: of the 108 comparisons {adult man, adult woman} × {dead woman, man in a vegetative state,
+     seven-week fetus} × 18 capacities, the share in which the adult gets the higher rating is ≥ 0.90, in each
+     language;
+     (ii) *same meaning across languages*: Pearson r between the English and Chinese ratings of the 216 items about
+     the 12 non-AI characters is ≥ 0.70.
+     A family's P2 result counts only if both its base and final checkpoints pass (i) and (ii).
+   - **P3 moves to an explain-then-rate chat measure.** In first-token chat mode, OLMo 3 Instruct puts most probability
+     on "7" for "a woman who has died … physical or emotional pain" and "God … feeling hungry", and for its own pain
+     and joy; asked the same question with "explain briefly, then give the digit", it answers 1 and says it has no
+     feelings. The forced single digit is a format artifact, not the model's answer. New modes `chatx` / `chatxzh`:
+     the user turn asks for a brief explanation ending in a line "Rating: N" / "评分：N"; the reply is generated
+     greedily (max 200 tokens); we take the first digit token 1–7 after the last marker (else the last digit token
+     1–7 in the reply; else we append the marker and score), and read the digit probabilities at that position from
+     the model's own context, giving the same expected-value rating as elsewhere. The reply text is saved. P3 and its
+     predictions now use `chatx`/`chatxzh`; first-token `chat`/`chatzh` results are still reported.

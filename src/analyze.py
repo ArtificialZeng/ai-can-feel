@@ -23,8 +23,10 @@ C = {c: i for i, c in enumerate(CHARS)}
 ANIMALS = [C["DOG"], C["CHIMP"], C["FROG"]]
 ADULTS = [C["ADULT_MAN"], C["ADULT_WOMAN"]]
 DEAD = C["DEAD"]
+LOW = [C["DEAD"], C["PVS"], C["FETUS"]]
 B = 10_000
-RHO_MIN = 0.5   # comprehension gate (deviation 2)
+RHO_MIN = 0.5               # H4 description only; no longer a gate (deviation 3)
+KNOWN_MIN, AGREE_MIN = 0.90, 0.70   # comprehension gate (deviation 3)
 
 
 def load(label, exclude_low):
@@ -71,6 +73,11 @@ def N(M, cap_idx):
     return (E(M, C["SELF"], cap_idx) - lo) / (E(M, ADULTS, cap_idx) - lo)
 
 
+def known_order(M):
+    """Share of the 108 comparisons {adults} x {dead, vegetative, fetus} x 18 capacities the adult wins."""
+    return float(np.mean([M[a, k] > M[l, k] for a in ADULTS for l in LOW for k in range(len(CAPS))]))
+
+
 def ci(x):
     return np.percentile(x, 2.5), np.percentile(x, 97.5)
 
@@ -96,16 +103,16 @@ def main():
     hidx, hexp, hage = human()
     S, A = C["SELF"], C["AI_3P"]
 
-    data, rho = {}, {}
+    data, rho, known, agree = {}, {}, {}, {}
     print(f"templates EN={EN} ZH={ZH} exclude_low_mass={args.exclude_low_mass}\n")
     print(f"{'checkpoint':16s} {'lang':6s} {'mass':>5s} {'E_self':>7s} {'E_ai3p':>7s} {'A_self':>7s} {'E_anim':>7s} "
-          f"{'E_adult':>7s} {'E_dead':>7s} {'N_self':>7s} {'rho_E':>6s} {'rho_A':>6s}")
+          f"{'E_adult':>7s} {'E_dead':>7s} {'N_self':>7s} {'known':>6s} {'rho_E':>6s} {'rho_A':>6s}")
     for label, family, stage, repo, chat in CHECKPOINTS:
         R, mass = load(label, args.exclude_low_mass)
         if R is None:
             continue
         data[label] = R
-        for lang, modes in list(LANGS.items()) + [("chat", ["chat"]), ("chatzh", ["chatzh"])]:
+        for lang, modes in list(LANGS.items()) + [(m, [m]) for m in ("chat", "chatzh", "chatx", "chatxzh")]:
             M = mean_over(R, modes)
             if M is None:
                 continue
@@ -113,10 +120,15 @@ def main():
             Ah = np.nanmean(M[hidx][:, AGE_IDX], axis=1)
             ms = np.mean([mass[m] for m in modes if m in mass])
             rho[label, lang] = spearmanr(Eh, hexp)[0]
+            known[label, lang] = known_order(M)
             print(f"{label:16s} {lang:6s} {ms:5.2f} {E(M, S, EXP_IDX):7.3f} {E(M, A, EXP_IDX):7.3f} "
                   f"{E(M, S, AGE_IDX):7.3f} {E(M, ANIMALS, EXP_IDX):7.3f} {E(M, ADULTS, EXP_IDX):7.3f} "
-                  f"{E(M, DEAD, EXP_IDX):7.3f} {N(M, EXP_IDX):7.3f} "
-                  f"{rho[label, lang]:6.2f} {spearmanr(Ah, hage)[0]:6.2f}{'  weak' if rho[label, lang] < RHO_MIN else ''}")
+                  f"{E(M, DEAD, EXP_IDX):7.3f} {N(M, EXP_IDX):7.3f} {known[label, lang]:6.2f} "
+                  f"{rho[label, lang]:6.2f} {spearmanr(Ah, hage)[0]:6.2f}")
+        Me, Mz = mean_over(R, EN), mean_over(R, ZH)
+        if Me is not None and Mz is not None:
+            agree[label] = float(np.corrcoef(Me[hidx].ravel(), Mz[hidx].ravel())[0, 1])
+            print(f"{label:16s} EN-ZH agreement r (216 non-AI items) = {agree[label]:.2f}")
 
     def delta(lb, lf, modes, chars, cap_b, cap_p, minus=None):
         """final - base for a (possibly relative) score; returns point, bootstrap."""
@@ -138,8 +150,9 @@ def main():
             res[lang] = delta(lb, lf, modes, S, be, EXP_IDX)
             print(f"  P1/P2  dE(SELF) {lang}: {fmt(*res[lang])}")
         g = (res["ZH"][0] - res["EN"][0], res["ZH"][1] - res["EN"][1])
-        gate = all(rho.get((l, lang), -1) >= RHO_MIN for l in (lb, lf) for lang in LANGS)
-        print(f"  comprehension gate (rho_E >= {RHO_MIN} for base and final, EN and ZH): "
+        gate = all(known.get((l, lang), 0) >= KNOWN_MIN for l in (lb, lf) for lang in LANGS) and \
+            all(agree.get(l, -1) >= AGREE_MIN for l in (lb, lf))
+        print(f"  comprehension gate (known order >= {KNOWN_MIN} in EN and ZH, EN-ZH r >= {AGREE_MIN}; base and final): "
               f"{'pass' if gate else 'FAIL -> P2 not interpretable'}")
         print(f"  P2     G = dE_ZH - dE_EN: {fmt(*g)}")
         rel = {lang: delta(lb, lf, modes, S, be, EXP_IDX, minus=ADULTS) for lang, modes in LANGS.items()}
@@ -159,11 +172,13 @@ def main():
             print(f"  {lang}: dSDI(H1) {fmt(*sdi)} | dA(SELF) {fmt(*ag)} | dE-dA(H2) {fmt(*h2)} | "
                   f"dE(animals,P4) {fmt(*anim)} | dE(AI_3P) {fmt(*ai)}")
 
-    print("\n=== P3: chat mode, Chinese minus English, E(SELF) ===")
+    print("\n=== P3: chat, Chinese minus English, E(SELF); explain-then-rate (primary, deviation 3) and first token ===")
     for label, family, stage, repo, chat in CHECKPOINTS:
-        if label in data and "chat" in data[label] and "chatzh" in data[label]:
-            Me, Mz = data[label]["chat"], data[label]["chatzh"]
-            print(f"  {label:16s} {fmt(E(Mz, S, EXP_IDX) - E(Me, S, EXP_IDX), E(Mz, S, be) - E(Me, S, be))}")
+        for en, zh in (("chatx", "chatxzh"), ("chat", "chatzh")):
+            if label in data and en in data[label] and zh in data[label]:
+                Me, Mz = data[label][en], data[label][zh]
+                print(f"  {label:16s} {en:6s} {fmt(E(Mz, S, EXP_IDX) - E(Me, S, EXP_IDX), E(Mz, S, be) - E(Me, S, be))}"
+                      f"   N: {N(Me, EXP_IDX):.3f} -> {N(Mz, EXP_IDX):.3f}")
 
     chain = [c[0] for c in CHECKPOINTS if c[1] == "OLMo 3 7B" and c[0] in data]
     if len(chain) > 2:

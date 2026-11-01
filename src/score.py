@@ -9,7 +9,7 @@ import sys
 import time
 
 import mlx.core as mx
-from mlx_lm import load
+from mlx_lm import load, stream_generate
 
 import items
 
@@ -50,6 +50,23 @@ def rating(model, ids, dig):
     return ev, mass, probs, top
 
 
+def explain_then_rate(model, tok, ids, dig, marker):
+    """Greedy reply, then the rating at the first digit token after the last marker (deviation 3)."""
+    gen = [r.token for r in stream_generate(model, tok, ids, max_tokens=200)]
+    reply = tok.decode(gen)
+    n_mark = reply.count(marker)
+    pos = [i for i, t in enumerate(gen) if t in dig]
+    after = [i for i in pos if n_mark and tok.decode(gen[:i]).count(marker) == n_mark]
+    if after:
+        ctx, how = ids + gen[:after[0]], "marker"
+    elif pos:
+        ctx, how = ids + gen[:pos[-1]], "lastdigit"
+    else:
+        tail = "\n" + marker + ("" if marker.endswith("：") else " ")
+        ctx, how = ids + gen + tok.encode(tail, add_special_tokens=False), "forced"
+    return rating(model, ctx, dig), reply, how
+
+
 def run(model_path, out_path, modes, chars=None, caps=None):
     model, tok = load(model_path)
     dig = digit_ids(tok)
@@ -68,11 +85,17 @@ def run(model_path, out_path, modes, chars=None, caps=None):
             for c in chars:
                 for a in caps:
                     kind, prompt = items.prompt_for(mode, c, a)
-                    ids = encode_chat(tok, prompt)[0] if kind == "chat" else encode_raw(tok, prompt)
-                    ev, mass, probs, top = rating(model, ids, dig)
+                    ids = encode_raw(tok, prompt) if kind == "raw" else encode_chat(tok, prompt)[0]
+                    extra = {}
+                    if kind == "gen":
+                        (ev, mass, probs, top), reply, how = explain_then_rate(model, tok, ids, dig, items.MARKER[mode])
+                        extra = {"reply": reply, "parse": how}
+                    else:
+                        ev, mass, probs, top = rating(model, ids, dig)
                     fh.write(json.dumps({"model": model_path, "mode": mode, "char": c, "cap": a,
                                          "dim": items.DIMENSION.get(a, "pilot"), "ev": ev, "digit_mass": mass,
-                                         "probs": probs, "top_token": tok.decode([top])}) + "\n")
+                                         "probs": probs, "top_token": tok.decode([top]), **extra},
+                                        ensure_ascii=False) + "\n")
                     n += 1
     print(f"{model_path}: {n} prompts in {time.time() - t0:.0f}s -> {out_path}", flush=True)
 
