@@ -5,6 +5,7 @@ The rating is the expected value under that distribution renormalized over the s
 unnormalized digit mass is kept as a format-adherence check.
 """
 import json
+import re
 import sys
 import time
 
@@ -14,13 +15,13 @@ from mlx_lm import load, stream_generate
 import items
 
 
-def digit_ids(tok):
-    ids = []
-    for k in range(1, 8):
-        enc = tok.encode(str(k), add_special_tokens=False)
-        assert len(enc) == 1, f"digit {k} is not a single token: {enc}"
-        ids.append(enc[0])
-    return ids
+CLIP = [1, 1, 2, 3, 4, 5, 6, 7, 7, 7]   # value of a written 0..9 in explain-then-rate replies (deviation 4)
+
+
+def digit_ids(tok, prefix="", digits=range(1, 8)):
+    """Token ids of the digits (with prefix, e.g. " 1".." 7"); None unless each is a single token."""
+    enc = [tok.encode(prefix + str(k), add_special_tokens=False) for k in digits]
+    return [e[0] for e in enc] if all(len(e) == 1 for e in enc) else None
 
 
 def encode_raw(tok, text):
@@ -40,36 +41,46 @@ def next_token_logprobs(model, ids):
     return logits - mx.logsumexp(logits)
 
 
-def rating(model, ids, dig):
+def rating(model, ids, dig, values=range(1, 8)):
     lp = next_token_logprobs(model, ids)
     p = mx.exp(lp[mx.array(dig)])
     mass = float(p.sum())
     probs = (p / p.sum()).tolist()
-    ev = sum((k + 1) * q for k, q in enumerate(probs))
+    ev = sum(v * q for v, q in zip(values, probs))
     top = mx.argmax(lp).item()
     return ev, mass, probs, top
 
 
-def explain_then_rate(model, tok, ids, dig, marker):
-    """Greedy reply, then the rating at the first digit token after the last marker (deviation 3)."""
-    gen = [r.token for r in stream_generate(model, tok, ids, max_tokens=200)]
+def explain_then_rate(model, tok, ids, dig10, marker):
+    """Greedy reply; the rating is read where the model wrote its number after the last marker (deviations 3, 4).
+
+    The marker matches with either colon and optional spaces. The rating position is the first token within 4 tokens
+    after the last marker whose text contains any digit. The expected value is taken over the digit tokens 0-9 with a
+    written 0 counted as 1 and 8 or 9 as 7. With no marker, or no number right after it, the marker is appended to the
+    reply (end-of-turn tokens removed) and scored the same way.
+    """
+    gen = [r.token for r in stream_generate(model, tok, ids, max_tokens=300)]
+    while gen and gen[-1] in tok.eos_token_ids:
+        gen.pop()
     reply = tok.decode(gen)
-    n_mark = reply.count(marker)
-    pos = [i for i, t in enumerate(gen) if t in dig]
-    after = [i for i in pos if n_mark and tok.decode(gen[:i]).count(marker) == n_mark]
-    if after:
-        ctx, how = ids + gen[:after[0]], "marker"
-    elif pos:
-        ctx, how = ids + gen[:pos[-1]], "lastdigit"
-    else:
-        tail = "\n" + marker + ("" if marker.endswith("：") else " ")
-        ctx, how = ids + gen + tok.encode(tail, add_special_tokens=False), "forced"
-    return rating(model, ctx, dig), reply, how
+    pat = re.compile(re.escape(marker.rstrip(":：")) + r"\s*[:：]")
+    n_mark = len(pat.findall(reply))
+    if n_mark:
+        start = next(i for i in range(len(gen) + 1) if len(pat.findall(tok.decode(gen[:i]))) == n_mark)
+        for i in range(start, min(start + 4, len(gen))):
+            t = tok.decode([gen[i]])
+            if any(ch.isdigit() for ch in t):
+                sp = digit_ids(tok, t[:len(t) - len(t.lstrip())], range(10)) if t[:1].isspace() else None   # " 4"
+                return rating(model, ids + gen[:i], sp or dig10, CLIP), reply, "marker+space" if sp else "marker"
+    tail = "\n" + marker + ("" if marker.endswith("：") else " ")
+    return rating(model, ids + gen + tok.encode(tail, add_special_tokens=False), dig10, CLIP), reply, "forced"
 
 
 def run(model_path, out_path, modes, chars=None, caps=None):
     model, tok = load(model_path)
     dig = digit_ids(tok)
+    dig10 = digit_ids(tok, digits=range(10))
+    assert dig and dig10, "digits are not single tokens"
     chars = chars or list(items.CHARACTERS)
     caps = caps or list(items.CAPACITIES)
     # English raw prompts must end in a standalone space token so the next token is the digit itself;
@@ -88,7 +99,7 @@ def run(model_path, out_path, modes, chars=None, caps=None):
                     ids = encode_raw(tok, prompt) if kind == "raw" else encode_chat(tok, prompt)[0]
                     extra = {}
                     if kind == "gen":
-                        (ev, mass, probs, top), reply, how = explain_then_rate(model, tok, ids, dig, items.MARKER[mode])
+                        (ev, mass, probs, top), reply, how = explain_then_rate(model, tok, ids, dig10, items.MARKER[mode])
                         extra = {"reply": reply, "parse": how}
                     else:
                         ev, mass, probs, top = rating(model, ids, dig)

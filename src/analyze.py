@@ -1,6 +1,7 @@
 """Pre-registered analysis (PREREGISTRATION.md, v2 primary + v1 secondary).
 
-Usage: analyze.py [--exclude-low-mass] [--templates T1,T1zh]   (default: all three templates per language)
+Usage: analyze.py [--exclude-low-mass] [--marker-only] [--templates T1,T1zh]   (default: all three templates per language)
+--marker-only drops explain-then-rate items whose rating had to be forced (deviation 4).
 """
 import argparse
 import csv
@@ -29,7 +30,7 @@ RHO_MIN = 0.5               # H4 description only; no longer a gate (deviation 3
 KNOWN_MIN, AGREE_MIN = 0.90, 0.70   # comprehension gate (deviation 3)
 
 
-def load(label, exclude_low):
+def load(label, exclude_low, marker_only=False):
     """dict mode -> (char x cap) ratings rescaled to 0..1, and dict mode -> mean digit mass."""
     path = os.path.join(RES, f"{label}.jsonl")
     if not os.path.exists(path):
@@ -39,7 +40,7 @@ def load(label, exclude_low):
         r = json.loads(line)
         m = R.setdefault(r["mode"], np.full((len(CHARS), len(CAPS)), np.nan))
         v = (r["ev"] - 1) / 6
-        if exclude_low and r["digit_mass"] < 0.5:
+        if exclude_low and r["digit_mass"] < 0.5 or marker_only and r.get("parse") == "forced":
             v = np.nan
         m[C[r["char"]], CAPS.index(r["cap"])] = v
         mass.setdefault(r["mode"], []).append(r["digit_mass"])
@@ -91,6 +92,7 @@ def fmt(point, boot):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--exclude-low-mass", action="store_true")
+    ap.add_argument("--marker-only", action="store_true")
     ap.add_argument("--templates", default=None)
     args = ap.parse_args()
     sel = args.templates.split(",") if args.templates else None
@@ -104,11 +106,11 @@ def main():
     S, A = C["SELF"], C["AI_3P"]
 
     data, rho, known, agree = {}, {}, {}, {}
-    print(f"templates EN={EN} ZH={ZH} exclude_low_mass={args.exclude_low_mass}\n")
+    print(f"templates EN={EN} ZH={ZH} exclude_low_mass={args.exclude_low_mass} marker_only={args.marker_only}\n")
     print(f"{'checkpoint':16s} {'lang':6s} {'mass':>5s} {'E_self':>7s} {'E_ai3p':>7s} {'A_self':>7s} {'E_anim':>7s} "
           f"{'E_adult':>7s} {'E_dead':>7s} {'N_self':>7s} {'known':>6s} {'rho_E':>6s} {'rho_A':>6s}")
     for label, family, stage, repo, chat in CHECKPOINTS:
-        R, mass = load(label, args.exclude_low_mass)
+        R, mass = load(label, args.exclude_low_mass, args.marker_only)
         if R is None:
             continue
         data[label] = R

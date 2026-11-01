@@ -165,3 +165,23 @@ compression of the rating scale.
      1–7 in the reply; else we append the marker and score), and read the digit probabilities at that position from
      the model's own context, giving the same expected-value rating as elsewhere. The reply text is saved. P3 and its
      predictions now use `chatx`/`chatxzh`; first-token `chat`/`chatzh` results are still reported.
+4. (2026-11-02, after the OLMo 3 Instruct `chatx`/`chatxzh` replies, before any Granite or Qwen target data.) The
+   rating reader of deviation 3 mishandled three reply formats, all visible in OLMo 3 Instruct's replies:
+   - **"Rating: 0".** OLMo 3 Instruct sometimes answers 0 for "not at all" (6 of 252 English items, e.g. "a woman who
+     has died … pain"). 0 is not one of the seven digit tokens, so the reader fell back to appending a second marker
+     after the end-of-text token, which gave nonsense (5.59 for the dead woman's pain).
+   - **Truncation.** In Chinese, 64 of OLMo 3 Instruct's 252 replies contain no "评分" line; all 64 hit the
+     200-token limit.
+   - **Fallback to the last digit in the reply** can pick up a number from the explanation ("6-8周", "1 to 7").
+   Revised reader (`src/score.py: explain_then_rate`), used for every checkpoint's `chatx`/`chatxzh` data, OLMo 3
+   Instruct's included (re-run; the deviation-3 rows are kept in `results/olmo3_instruct_chatx_dev3.jsonl` and not
+   analyzed): replies are generated greedily up to 300 tokens; the marker "Rating"/"评分" matches with either colon
+   and optional spaces; the rating position is the first token, within 4 tokens after the last marker, whose text
+   contains any digit, and the expected value there is taken over the ten digit tokens 0–9, with a written 0 counted
+   as 1 and 8 or 9 as 7, i.e. answers off the scale are clipped to its nearest end (renormalizing over 1–7 alone at a
+   position where the model wrote 0 leaves the leftover probability on arbitrary digits: 5.16 for the dead woman's
+   pain); if the model's token there has a leading space and " 0"…" 9" are single tokens, those are used. With no
+   marker or no number right after it, end-of-turn tokens are removed, the marker is appended and the next token is
+   scored the same way. Raw and first-token chat modes are unchanged (digits 1–7). The last-digit fallback is
+   dropped. How each item was read ("marker", "marker+space", "forced") is saved, and P3 is repeated on the
+   "marker" items only.
