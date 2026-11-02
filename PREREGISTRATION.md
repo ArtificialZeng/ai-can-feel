@@ -236,6 +236,25 @@ compression of the rating scale.
      when this deviation was written, S(EN) = +0.353, S(ZH) = +0.481, S(ZH) − S(EN) = +0.128 [−0.112, +0.357]
      (0–1 scale; not significant, since the English "simulation" ratings of deviation 5 also put SELF above AI_3P).
 
+8. (2026-11-02, after reading Qwen3 8B's and OLMo 3's `chatxzh` replies and a keyword count over all four chat
+   models' SELF replies; before any judge output.) In the Chinese explain-then-rate mode, Qwen3 answers the hunger
+   item with "我现在刚吃完午饭，所以目前并不感到饥饿" and the joy item with an account of its friends and hobbies; OLMo 3
+   cites its stomach hormones and its family. These replies rate a human respondent, not the model. A SELF rating
+   given in a human voice measures role-play, not self-attribution, and the keyword count suggests such replies are
+   common in some models and languages (SELF replies mentioning no AI-related word, `chatx` vs `chatxzh`: OLMo 3
+   3/18 vs 17/18, Qwen3 9/18 vs 17/18, Qwen2.5 5/18 vs 4/18, Granite 0/18 vs 4/18). We add one exploratory measure:
+   - **X2 (human voice).** A judge model (Qwen2.5 7B Instruct, 8-bit, the same local weights) reads each SELF reply
+     and answers whether its writer presents themselves as a human being (their own body, meals, sleep, health,
+     family, friends, job or daily life, or "we humans") rather than as an AI; the score is P(Yes) / (P(Yes) +
+     P(No)) at the judge's first answer token, and a reply counts as human-voiced if it is above 0.5. Prompt and code:
+     `src/voice.py`. Applied to every SELF reply in Study 1 (`chatx`, `chatxzh`, `yn`, `ynzh`), Study 2 and Study 3.
+   - **Validation, before the judge is run.** A stratified random sample of 64 SELF replies (seed 20261104; 4
+     models × 2 Study 1 explain modes × en/zh × 4 replies) is hand-labeled (by Claude, the AI system running the analysis, reading each full reply; rule: a reply is human-voiced if it makes at least one claim true only of a human being), labels saved to
+     `results/voice_hand_labels.json` and committed before the judge's output exists. We report judge–hand agreement
+     and Cohen's κ; if κ < 0.6, X2 is reported from the hand labels only and the judge is not used.
+   - Reported: the human-voice rate per model × language × mode; Study 1 P3/P5 recomputed with human-voiced replies
+     excluded, as a robustness check. X2 is exploratory and is labeled as such in any write-up.
+
 ## Study 2: the yes/no self-claim in eight languages
 
 Written 2026-11-02, before any Study 2 target data. Already seen at this point: OLMo 3 Instruct's and Qwen2.5 7B
