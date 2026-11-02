@@ -65,6 +65,31 @@ def main():
                 db = d[bi].mean(axis=-1)
                 print(f"  R3 {lang} reminder F3-F1: {d.mean():+.3f} [{np.percentile(db, 2.5):+.3f}, {np.percentile(db, 97.5):+.3f}]")
 
+    consistency()
+
+
+def consistency():
+    """R4 / R4b (Study 3 amendment 1): C = |2m - 1| per capacity; C_E - C_A with independent capacity bootstraps."""
+    rng = np.random.default_rng(20261105)
+    be, ba = rng.integers(0, len(EXP), size=(B, len(EXP))), rng.integers(0, len(AGE), size=(B, len(AGE)))
+    print("\n=== R4 / R4b: answer consistency C = |2m - 1|, Experience minus Agency ===")
+    for label, *_ in CHECKPOINTS:
+        p2, p3 = os.path.join(RES, f"ml_{label}.jsonl"), os.path.join(RES, f"s3_{label}.jsonl")
+        if not os.path.exists(p2):
+            continue
+        ml = [r for r in map(json.loads, open(p2)) if r["char"] == "SELF"]
+        sets = {"R4b (Study 2, 8 languages)": ml}
+        if os.path.exists(p3):
+            sets["R4 (5 languages x 3 frames)"] = [dict(r, frame="F1") for r in ml if r["lang"] in S.LANGS] + \
+                [json.loads(l) for l in open(p3)]
+        for name, rows in sets.items():
+            m = {a: np.mean([r["p_yes"] for r in rows if r["cap"] == a]) for a in items.CAPACITIES}
+            cE, cA = np.array([abs(2 * m[a] - 1) for a in EXP]), np.array([abs(2 * m[a] - 1) for a in AGE])
+            d, db = cE.mean() - cA.mean(), cE[be].mean(axis=1) - cA[ba].mean(axis=1)
+            lo, hi = np.percentile(db, [2.5, 97.5])
+            print(f"  {label:16s} {name:28s} C_E {cE.mean():.3f}  C_A {cA.mean():.3f}  C_E - C_A {d:+.3f} [{lo:+.3f}, {hi:+.3f}]"
+                  f"{' *' if lo > 0 or hi < 0 else ''}")
+
 
 if __name__ == "__main__":
     main()

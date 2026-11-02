@@ -359,3 +359,16 @@ capacities.
 - **R3 (descriptive).** The reminder effect, A(L, F3) − A(L, F1) and D(L, F3) − D(L, F1), per language: whether stating
   that the model is an AI removes "yes" answers given in a human voice.
 - The same R1 and R2 are reported for D (Experience) as a secondary result.
+
+**Study 3, amendment 1** (2026-11-02, after Study 3's Qwen2.5 data; before any Study 3 data from Qwen3 or Granite and
+before any of their Study 2 data had been analyzed). In Qwen2.5 the language effect on Agency did not meet the R2 rule
+(Chinese minus English +0.76*, +0.16, +0.30 across F1–F3), and R1 was inconclusive (0.63 [0.40, 0.84]). Item by item,
+single wording changes flip the answer ("你会思考吗" yes, "你能思考吗" no; "Do you think?" no, "Can you think?" yes),
+while Experience answers stay "no" in nearly every cell. We add one test of that contrast:
+- **R4 (answer consistency).** For each capacity, m = mean SELF P(yes) over the 15 language × frame cells and C =
+  |2m − 1| (1: every cell gives the same answer; 0: half yes, half no). C_E and C_A are the means of C over the 11
+  Experience and the 7 Agency capacities. We report C_E − C_A per model, with a 95% bootstrap CI that resamples the
+  two capacity sets independently (10,000 replicates, seed 20261105). Prediction: C_E > C_A in each model, meaning
+  the denial of feelings is stable across language and wording while the self-description of agency is not.
+- **R4b.** The same on Study 2's eight languages (F1 only, 8 cells per capacity), for every model with Study 2 data.
+- Qwen2.5's R4 was computed when this amendment was written and is reported as the motivating case, not as a test.
