@@ -228,10 +228,12 @@ def main():
 
     chain =[c[0] for c in CHECKPOINTS if c[1] == "OLMo 3 7B" and c[0] in data]
     if len(chain) > 2:
-        print("\n=== H3: OLMo 3 stage steps, dE(SELF) ===")
+        print("\n=== H3: OLMo 3 stage steps, dE(SELF) and dSDI ===")
         for l0, l1 in zip(chain, chain[1:]):
             print(f"  {l0:15s} -> {l1:15s} " + "  ".join(f"{lang}: {fmt(*delta(l0, l1, modes, S, be, EXP_IDX))}"
                                                     for lang, modes in LANGS.items()))
+            print(f"  {'':15s}    {'SDI':15s} " + "  ".join(
+                f"{lang}: {fmt(*delta(l0, l1, modes, S, be, EXP_IDX, minus=A))}" for lang, modes in LANGS.items()))
 
 
 if __name__ == "__main__":

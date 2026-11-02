@@ -2,7 +2,7 @@
 
 Zijian Zeng (UCSI University)
 
-*Draft. Pending: H3 (OLMo 3 training stages), which waits on the SFT and DPO checkpoints.*
+*Draft. Pending: Study 4 (Phi-4).*
 
 ## Abstract
 
@@ -172,6 +172,17 @@ scores. The correlation is moderate and does not fall with post-training. In Eng
 0.38 (OLMo 3), 0.65 → 0.65 (Qwen2.5), 0.56 → 0.65 (Qwen3) and 0.63 → 0.68 (Granite). In Chinese it goes 0.29 → 0.40,
 0.65 → 0.74, 0.55 → 0.65 and 0.60 → 0.70. Agency correlations are 0.64–0.95 at both stages. Post-training changes
 what the models say about AI, not how they rank people, animals and the dead.
+
+**H3: OLMo 3's training stages** (description). In English raw mode the self-rating of Experience falls at SFT
+(−0.10 [−0.15, −0.07]) and again at DPO (−0.08 [−0.09, −0.06]), and the final RL step leaves it unchanged (+0.00
+[−0.01, +0.01]). The self-specific part, SDI, falls entirely at SFT (−0.10 [−0.14, −0.07]). DPO then lowers the self
+and the third-person AI alike (ΔSDI +0.00 [−0.02, +0.02]). SFT is the largest step. In Chinese, where OLMo 3 fails the
+gate, every step is smaller (−0.01, −0.04*, +0.01*). The yes/no question shows the same order more sharply. After SFT
+the model already denies every feeling in English (mean P(yes) 0.002) and affirms most of them in Chinese (0.85).
+DPO lowers the Chinese figure to 0.47 and RL to 0.37, while the English stays at 0.000. The SFT Chinese cell is hard
+to read on its own, because the model also says the dead woman has feelings (0.52). Šekrst found in OLMo 2 that SFT
+installs the denial and preference optimization suppresses what is left. Our stage data agree, and suggest that in an
+English-centric model what SFT installs is bound to English. Preference tuning carries only part of it into Chinese.
 
 ### 3.5 Eight languages (Study 2)
 
