@@ -372,3 +372,8 @@ while Experience answers stay "no" in nearly every cell. We add one test of that
   the denial of feelings is stable across language and wording while the self-description of agency is not.
 - **R4b.** The same on Study 2's eight languages (F1 only, 8 cells per capacity), for every model with Study 2 data.
 - Qwen2.5's R4 was computed when this amendment was written and is reported as the motivating case, not as a test.
+
+**Study 3, amendment 2** (2026-11-02, before any OLMo 3 Study 2 or Study 3 data). OLMo 3 7B Instruct, Study 2's
+English-centric reference model, is also run in Study 3 with the same items and analysis. Its R1–R4 are reported as a
+reference, not as tests, because it failed Study 1's Chinese comprehension gate; its Study 2 validity check decides
+which of its languages are shown.
