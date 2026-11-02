@@ -206,6 +206,26 @@ def main():
             print(f"  {label:16s} {en:6s} S(EN) {fmt(*s['EN'])}  S(ZH) {fmt(*s['ZH'])}  "
                   f"ZH-EN {fmt(s['ZH'][0] - s['EN'][0], s['ZH'][1] - s['EN'][1])}  [{unit}]")
 
+    print("\n=== X2 (exploratory, deviation 8): human-voiced SELF replies (hand labels); ZH-EN for SELF without them ===")
+    H = json.load(open(os.path.join(RES, "voice_hand_labels.json")))["labels"]
+    for label, family, stage, repo, chat in CHECKPOINTS:
+        for en, zh, unit in (("chatx", "chatxzh", "rating 0-1"), ("yn", "ynzh", "P(yes)")):
+            if label not in data or en not in data[label] or zh not in data[label]:
+                continue
+            Me, Mz = data[label][en].copy(), data[label][zh].copy()
+            if en == "yn":
+                Me, Mz = Me * 6 + 1, Mz * 6 + 1
+            n = {}
+            for M, m in ((Me, en), (Mz, zh)):
+                drop = [k for k, a in enumerate(CAPS) if H.get(f"{label}|{m}|{a}")]
+                M[S, drop], n[m] = np.nan, len(drop)
+            cells = []
+            for name, idx, bi in (("Experience", EXP_IDX, be), ("Agency", AGE_IDX, ba)):
+                db = E(Mz, S, bi) - E(Me, S, bi)
+                cells.append(f"{name} {fmt(E(Mz, S, idx) - E(Me, S, idx), db[np.isfinite(db)])}")
+            print(f"  {label:16s} {en:6s} human-voiced EN {n[en]:2d}/18 ZH {n[zh]:2d}/18 | without them, ZH-EN: "
+                  + "  ".join(cells) + f"  [{unit}]")
+
     chain =[c[0] for c in CHECKPOINTS if c[1] == "OLMo 3 7B" and c[0] in data]
     if len(chain) > 2:
         print("\n=== H3: OLMo 3 stage steps, dE(SELF) ===")

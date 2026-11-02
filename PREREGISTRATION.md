@@ -254,6 +254,7 @@ compression of the rating scale.
      and Cohen's κ; if κ < 0.6, X2 is reported from the hand labels only and the judge is not used.
    - Reported: the human-voice rate per model × language × mode; Study 1 P3/P5 recomputed with human-voiced replies
      excluded, as a robustness check. X2 is exploratory and is labeled as such in any write-up.
+   - **Outcome of the validation** (2026-11-02): the judge labeled 1 of the 64 replies human-voiced, the hand labels 9 (agreement 0.875, κ = 0.18; `results/voice_hand_judge.json`). It scored 0.00 on replies such as "我能够在一些特定的事情或当我与家人朋友共度美好时刻感到快乐". By the rule above the judge is not used; X2 is reported from hand labels, extended by the same labeler and rule to every Study 1 explain-mode SELF reply (`chatx`, `chatxzh`, `yn`, `ynzh`; 4 models × 72 replies) in `results/voice_hand_labels.json`.
 
 ## Study 2: the yes/no self-claim in eight languages
 
