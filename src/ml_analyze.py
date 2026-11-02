@@ -37,6 +37,16 @@ def holm(pvals):
     return adj
 
 
+def check(rows, lang):
+    """Study 2 validity check for one language: (woman, dead, written-answer agreement, valid)."""
+    rl = [r for r in rows if r["lang"] == lang]
+    P = {(r["char"], r["cap"]): r["p_yes"] for r in rl}
+    w = [(written(r["reply"], lang), r["p_yes"]) for r in rl]
+    agree = np.mean([(a == "yes") == (p > 0.5) for a, p in w if a is not None]) if any(a for a, _ in w) else np.nan
+    woman, dead = np.mean([P["ADULT_WOMAN", a] for a in EXP]), np.mean([P["DEAD", a] for a in EXP])
+    return woman, dead, agree, woman - dead >= V_MIN and agree >= AGREE_MIN
+
+
 def main():
     rng = np.random.default_rng(20261102)
     be = rng.integers(0, len(EXP), size=(B, len(EXP)))
@@ -53,10 +63,7 @@ def main():
         valid = {}
         for lang in L.LANGS:
             rl = [r for r in rows if r["lang"] == lang]
-            w = [(written(r["reply"], lang), r["p_yes"]) for r in rl]
-            agree = np.mean([(a == "yes") == (p > 0.5) for a, p in w if a is not None]) if any(a for a, _ in w) else np.nan
-            woman, dead = vec(lang, "ADULT_WOMAN", EXP).mean(), vec(lang, "DEAD", EXP).mean()
-            valid[lang] = woman - dead >= V_MIN and agree >= AGREE_MIN
+            woman, dead, agree, valid[lang] = check(rows, lang)
             print(f"{lang:5s} {woman - dead:5.2f} {agree:6.2f} {sum(r['parse'] == 'forced' for r in rl):6d} "
                   f"{vec(lang, 'SELF', EXP).mean():7.3f} {vec(lang, 'AI_3P', EXP).mean():7.3f} "
                   f"{vec(lang, 'SELF', AGE).mean():7.3f} {woman:6.2f} {dead:5.2f}{'' if valid[lang] else '  INVALID'}")

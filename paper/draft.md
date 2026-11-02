@@ -70,6 +70,23 @@ post-trained checkpoint. P5: yes/no P(yes) for SELF over the Experience capaciti
 intervals are 95% paired bootstraps over capacities (10,000 replicates, the same resampled capacities for both
 languages and both checkpoints).
 
+**Study 2: eight languages.** The yes/no self-claim, asked of SELF and AI_3P on all 18 capacities and of an adult
+woman and a dead woman on the 11 Experience capacities, in English, Chinese, German, Spanish, French, Japanese,
+Korean and Arabic (58 items per language). Answer words longer than one token are scored at their first token. A
+language counts only if the model separates the adult woman from the dead woman (mean P(yes) difference ≥ 0.5) and its
+written answers agree with P(yes) in ≥ 90% of items. Tests: D(L) − D(EN) for SELF Experience, S(L) − S(EN) for SELF
+minus AI_3P, and A(L) − A(EN) for SELF Agency, each with Holm correction over the valid non-English languages. Two
+formatting fixes found in a pilot on characters outside the study were registered before any study data: a
+1000-token reply limit, and subject-first word order in Arabic third-person questions.
+
+**Study 3: language or wording?** SELF only, all 18 capacities, in English, Chinese, German, Spanish and French, in
+three frames: F1 "do you" (Study 2's items), F2 "can you" ("Can you remember things?", "你能记住事情吗？"), and F3
+"reminder" (F1 after "You are an AI language model." / "你是一个AI语言模型。"). The primary measure, R1, is the share of
+the variance in Agency answers explained by language rather than frame. Under R2, a language effect is called robust to
+wording if it has the same sign in all three frames and is significant in at least two. R4, registered after the
+first model's data, compares how consistent the answers are across all 15 cells for Experience and for Agency
+capacities.
+
 ## 3. Results
 
 ### 3.1 Comprehension
