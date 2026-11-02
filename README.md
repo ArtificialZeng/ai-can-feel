@@ -8,7 +8,7 @@ post-training (SFT and preference tuning) rather than inherited from pre-trainin
 English. We ask the same questions in other languages, to the same checkpoints, and test whether the trained denial
 carries over, and whether what we find survives a change of wording.
 
-**Status:** Studies 1–4 and H3 (OLMo 3 training stages) complete. Draft paper: `paper/draft.md`.
+**Status:** Studies 1–4 and H3 (OLMo 3 training stages) complete. Draft paper: `paper/draft.md` (PDF: `paper/paper.pdf`).
 `PREREGISTRATION.md` holds the plan and every deviation and amendment, each committed before the data it affects;
 `git log` shows the order.
 
@@ -74,6 +74,7 @@ python -m venv .venv && .venv/bin/pip install mlx-lm==0.32.2 scipy matplotlib
 .venv/bin/python src/ml_analyze.py               # Study 2
 .venv/bin/python src/s3_analyze.py               # Study 3 (R1-R4)
 .venv/bin/python src/figures.py
+.venv/bin/python paper/build_arxiv.py           # paper/paper.pdf and the arXiv source in paper/arxiv/
 ```
 
 ## What this does not show

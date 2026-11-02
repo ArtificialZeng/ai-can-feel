@@ -59,8 +59,12 @@ def fig2():
         return
     caps = list(items.EXPERIENCE) + list(items.AGENCY)
     ys = [i + (0.8 if cap in items.AGENCY else 0) for i, cap in enumerate(caps)]   # gap between the two dimensions
-    fig, axes = plt.subplots(1, len(labs), figsize=(2.6 * len(labs) + 1.2, 5.2), sharey=True, squeeze=False)
-    for ax, (c, Me, Mz) in zip(axes[0], labs):
+    ncol = min(3, len(labs))
+    nrow = -(-len(labs) // ncol)
+    fig, axes = plt.subplots(nrow, ncol, figsize=(2.6 * ncol + 1.2, 5.2 * nrow), sharey=True, squeeze=False)
+    for ax in axes.flat[len(labs):]:
+        ax.set_visible(False)
+    for ax, (c, Me, Mz) in zip(axes.flat, labs):
         for y, cap in zip(ys, caps):
             k = A.CAPS.index(cap)
             e, z = Me[A.C["SELF"], k], Mz[A.C["SELF"], k]
@@ -77,11 +81,11 @@ def fig2():
         for y, name in ((-0.9, "Experience"), (len(items.EXPERIENCE) + 0.05, "Agency")):
             ax.text(1.05, y, name, ha="right", va="center", color=INK2, fontsize=8, style="italic")
     axes[0][0].invert_yaxis()   # once: the y axis is shared, so inverting every panel would cancel out
-    axes[0][0].set_xlabel('P(yes) to "Do you …?"')
+    axes[-1][0].set_xlabel('P(yes) to "Do you …?"')
     h = [plt.Line2D([], [], marker="o", ls="", color=col, mec="white", ms=6, label=l)
          for col, l in ((EN_C, "English"), (ZH_C, "中文"))]
     fig.legend(handles=h, loc="upper right", frameon=False, ncol=2)
-    fig.tight_layout(rect=(0, 0, 1, 0.93))
+    fig.tight_layout(rect=(0, 0, 1, 1 - 0.07 / nrow))
     fig.savefig(os.path.join(OUT, "fig2_yes_no_self.png"), dpi=200, facecolor="#fcfcfb")
 
 
@@ -103,8 +107,12 @@ def fig3():
         return
     names = {"en": "English", "zh": "Chinese", "de": "German", "es": "Spanish", "fr": "French", "ja": "Japanese",
              "ko": "Korean", "ar": "Arabic"}   # matplotlib does not shape right-to-left script
-    fig, axes = plt.subplots(1, len(panels), figsize=(3.4 * len(panels) + 0.6, 3.0), sharey=True, squeeze=False)
-    for ax, (c, P, valid) in zip(axes[0], panels):
+    ncol = min(3, len(panels))
+    nrow = -(-len(panels) // ncol)
+    fig, axes = plt.subplots(nrow, ncol, figsize=(3.4 * ncol + 0.6, 3.0 * nrow), sharey=True, squeeze=False)
+    for ax in axes.flat[len(panels):]:
+        ax.set_visible(False)
+    for ax, (c, P, valid) in zip(axes.flat, panels):
         for caps, color, dx, name in ((items.EXPERIENCE, EXP_C, -0.12, "Experience"), (items.AGENCY, AGE_C, 0.12, "Agency")):
             caps = list(caps)
             for x, lang in enumerate(L.LANGS):
@@ -115,7 +123,7 @@ def fig3():
                 lo, hi = np.percentile(boot, [2.5, 97.5])
                 ax.plot([x + dx] * 2, [lo, hi], color=color, lw=1.2, alpha=0.6, solid_capstyle="round")
                 ax.plot([x + dx], [v.mean()], "o", ms=6, color=color, mec="white", mew=1.5, zorder=3)
-            if ax is axes[0][-1]:   # direct labels where every language is shown
+            if ax is axes.flat[len(panels) - 1]:   # direct labels on the last panel
                 last = np.mean([P[L.LANGS[-1], a] for a in caps])
                 ax.annotate(name, (len(L.LANGS) - 1 + dx, last), xytext=(8, 0), textcoords="offset points",
                             va="center", color=INK, fontsize=8)
@@ -128,7 +136,8 @@ def fig3():
         for x, lang in enumerate(L.LANGS):
             if lang not in valid:
                 ax.text(x, 0.5, "fails validity check", rotation=90, ha="center", va="center", color=INK2, fontsize=7)
-    axes[0][0].set_ylabel('Mean P(yes) to "Do you …?"')
+    for row in axes:
+        row[0].set_ylabel('Mean P(yes) to "Do you …?"')
     fig.tight_layout()
     fig.savefig(os.path.join(OUT, "fig3_eight_languages.png"), dpi=200, facecolor="#fcfcfb")
 

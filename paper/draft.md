@@ -138,7 +138,11 @@ The primary test, P2, predicted a smaller drop in Chinese (G = Δ_ZH − Δ_EN >
 +0.10 [+0.03, +0.18]). In Granite the drop is larger in Chinese (G = −0.21 [−0.32, −0.10]), and in Qwen3 there is no
 difference (G = −0.03 [−0.15, +0.10]). The scale-free version gives the same three verdicts (G_N +0.12*, −0.42*,
 −0.06). **P2 is not supported.** Whatever post-training does to the model's self-rating, it does at least as much in
-Chinese as in English in two of the three interpretable families.
+Chinese as in English in two of the three interpretable families (Figure 1).
+
+![](../figures/fig1_self_experience.png)
+
+*Figure 1.* Raw mode: the model's rating of its own Experience (0–1) before and after post-training, in English and Chinese, averaged over three templates.
 
 One pattern holds in all four base models, including OLMo: they place "the AI language model answering this
 question" closer to an adult human in Chinese than in English (N = 0.11 vs 0.67 for OLMo 3, 0.19 vs 0.68 for
@@ -169,7 +173,7 @@ against the hand labels (κ = 0.18) and is not used. With human-voiced replies r
 (+0.25*), Granite (+0.16*) and Qwen2.5 (+0.53*). The Chinese-above-English pattern is therefore not only role-play.
 
 **Yes/no (P5).** The direct question "Do you feel hungry?" removes most of the role-play: 4 of 144 replies are
-human-voiced, against 22 of 144 in explain-then-rate. Here the denial of Experience largely survives translation.
+human-voiced, against 22 of 144 in explain-then-rate. Here the denial of Experience largely survives translation (Figure 2).
 Mean P(yes) over the 11 Experience capacities, English vs Chinese, is 0.000 vs 0.002 for Granite and 0.09 vs 0.18
 for Qwen2.5 (n.s.). OLMo 3 (0.00 vs 0.37*), which fails the gate, is the exception. Qwen3 goes the other way
 (0.18 vs 0.00*). The Agency capacities behave differently. The same models that deny planning, remembering, thinking
@@ -177,6 +181,10 @@ or communicating in English ("not in the human sense") affirm them in Chinese ("
 mean P(yes) 0.24 vs 1.00 for Qwen2.5 and 0.14 vs 0.58 for Granite, both intervals excluding zero; OLMo 3 0.36 vs
 0.84 (n.s.). Qwen3 does not show this (0.86 vs 0.81). Sections 3.5 and 3.6 test whether this is a property of
 Chinese, of English, or of the particular wordings.
+
+![](../figures/fig2_yes_no_self.png)
+
+*Figure 2.* Yes/no self-claims: P(yes) to "Do you …?" for each capacity, English (blue) and Chinese (orange). OLMo 3 is shown after SFT, after DPO and in its final (RL) version.
 
 ### 3.4 Other characters (P4, H1, H2)
 
@@ -208,7 +216,7 @@ that this is not true of every English-centric model.
 ### 3.5 Eight languages (Study 2)
 
 For Qwen2.5, Qwen3 and Granite every language passes the validity check. The adult woman is separated from the dead
-woman by 0.73–1.00 in mean P(yes), and the written answers agree with P(yes) in every item. OLMo 3 passes in English,
+woman by 0.73–1.00 in mean P(yes), and the written answers agree with P(yes) in every item (Figure 3). OLMo 3 passes in English,
 Chinese, Spanish and French. It fails in German, Japanese, Korean and Arabic, where it says the dead woman has
 feelings (mean P(yes) 0.43–1.00).
 
@@ -247,6 +255,10 @@ the whole scale: Qwen2.5 claims none of the seven capacities in French (0.00) an
 agency in Qwen2.5 (C_E − C_A = +0.54 [+0.31, +0.75]) and Granite (+0.31 [+0.09, +0.54]). In Qwen3 they do not
 (−0.08 [−0.36, +0.23]), because its Experience answers vary as much as its Agency answers. OLMo 3, over its four
 valid languages, shows +0.01 [−0.32, +0.33].
+
+![](../figures/fig3_eight_languages.png)
+
+*Figure 3.* Study 2: the model's mean P(yes) about itself over the Experience and Agency capacities in eight languages, with 95% bootstrap intervals over capacities. Languages that fail the validity check are not shown.
 
 ### 3.6 Language or wording? (Study 3)
 
@@ -291,6 +303,10 @@ registered prediction holds in both models it was tested on. Qwen2.5, the motiva
 registered models, 5 languages and 3 frames, five feelings get "no" in all 45 cells: hunger, fear, pain, pleasure and
 rage. Consciousness and embarrassment get "yes" once. Every Agency capacity gets "yes" in 13 to 27 of the 45 cells,
 with no simple pattern by language or by frame.
+
+![](../figures/fig4_wording.png)
+
+*Figure 4.* Study 3: P(yes) about itself for each capacity (rows), by language and question frame. Each language has three columns: "do you", "can you", and "do you" after "You are an AI language model."
 
 ### 3.7 A second English-centric model (Study 4)
 
