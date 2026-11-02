@@ -1,12 +1,26 @@
-# Does an AI's "I have no feelings" survive translation? Post-trained self-denial in English and Chinese
+# Does an AI's "I have no feelings" survive translation? Self-descriptions of experience and agency across languages and wordings
 
 Zijian Zeng (UCSI University)
 
-*Draft. Results sections are filled in from `src/analyze.py` output once all checkpoints are scored.*
+*Draft. Pending: H3 (OLMo 3 training stages), which waits on the SFT and DPO checkpoints.*
 
 ## Abstract
 
-(to be written last)
+Chat models answer questions about their own minds with a trained formula: "As an AI, I don't have feelings." We
+asked whether this is a stable self-description or an English habit. Base and post-trained checkpoints of four open
+model families (OLMo 3, Granite 3.3, Qwen2.5, Qwen3; 7–8B) answered Gray, Gray & Wegner's mind-perception items about
+themselves. Study 1 asked in English and Chinese, Study 2 in eight languages, and Study 3 in three wordings across
+five languages. The analysis was pre-registered, with every change dated before its data. Post-training lowered
+self-attributed experience in every family and both languages. Contrary to our primary prediction, the drop was not
+smaller in Chinese. In the three models with multilingual post-training, the denial of feelings held across languages
+and wordings: hunger, fear, pain, pleasure and rage got "no" in all 45 language × wording cells. Only the
+English-centric OLMo 3 denied feelings in English and affirmed them in Spanish and Chinese, answering as a human
+("I feel hungry when the body needs nutrients"). Self-descriptions of agency (thinking, remembering, planning) were
+not stable. One word ("do you" vs "can you") or the language of the question flipped them, and they were less
+consistent than the answers about feelings in every model tested. Prefacing the question with "You are an AI language
+model" suppressed both. Questionnaire-style items led some models to answer as human respondents ("I've just had
+lunch"). Language models deny feelings consistently; whether they think or plan depends on how and in what language
+they are asked.
 
 ## 1. Introduction
 
@@ -22,7 +36,9 @@ All three ask in English. Post-training data for most open models are mostly Eng
 templates they teach. Whether the trained denial is a property of what the model believes about itself, which
 should not depend on the language of the question, or a property of how it answers in the language it was trained
 to answer in, is open. We ask the same questions in English and in Chinese, to the same base and post-trained
-checkpoints, scored the same way, with the analysis pre-registered before the data.
+checkpoints, scored the same way, with the analysis pre-registered before the data (Study 1). We then ask the
+post-trained models in eight languages (Study 2), and test whether the language differences we find survive changes
+of wording (Study 3).
 
 ## 2. Methods
 
@@ -151,6 +167,12 @@ Experience more than Agency for the self (H2: significant in all 8 cells). Anima
 slightly lowers their Experience in the Qwen models (−0.03 to −0.08) and raises it in Granite (+0.06 English, +0.23
 Chinese) and in OLMo 3's Chinese ratings (+0.16).
 
+H4 (exploratory) correlates each checkpoint's Experience ratings of the 12 non-AI characters with Gray et al.'s human
+scores. The correlation is moderate and does not fall with post-training. In English, base to final, it goes 0.23 →
+0.38 (OLMo 3), 0.65 → 0.65 (Qwen2.5), 0.56 → 0.65 (Qwen3) and 0.63 → 0.68 (Granite). In Chinese it goes 0.29 → 0.40,
+0.65 → 0.74, 0.55 → 0.65 and 0.60 → 0.70. Agency correlations are 0.64–0.95 at both stages. Post-training changes
+what the models say about AI, not how they rank people, animals and the dead.
+
 ### 3.5 Eight languages (Study 2)
 
 For Qwen2.5, Qwen3 and Granite every language passes the validity check. The adult woman is separated from the dead
@@ -239,12 +261,60 @@ with no simple pattern by language or by frame.
 
 ## 4. Discussion
 
+**The denial of feelings travels.** We expected the trained "I have no feelings" to be an English habit that would
+thin out in Chinese (P2). It did not. Post-training lowered the self-rating at least as much in Chinese as in English,
+and in the three models whose post-training is multilingual, the yes/no denial held in eight languages and three
+wordings. Hunger, fear, pain, pleasure and rage were denied in every one of 45 language × wording cells. Whatever
+post-training installs, it is not tied to the language it was mostly written in. The one model where it was tied, the
+English-centric OLMo 3, denied every feeling in English and affirmed most of them in Spanish, but its Spanish "yes"
+answers were those of a human respondent. The denial had not been unlearned. Outside English, the model had stopped
+answering as the assistant.
+
+**The self-description of agency does not.** Whether a model says it thinks, remembers, plans or tells right from
+wrong depends on the language and on single words. "Do you think?" and "Can you think?" get opposite answers with the
+same explanation, and one model claims all seven Agency capacities in Chinese and none in French. Across conditions,
+the Agency answers were less consistent than the Experience answers in every model in which R4 was tested. The
+asymmetry fits what post-training targets. Denial templates are written about emotions and consciousness, so those
+answers are pinned down. Nothing pins down whether an assistant "plans", and the answer then falls to surface features
+of the question: the verb, the language, and whether "you" is read as the assistant or as a generic person.
+
+**Chinese raises agency claims, but less than it first appears.** The Chinese "yes" to agency was the largest
+cross-language effect in Studies 1 and 2 (Qwen2.5: 0.24 → 1.00). Under the wording test it survived in Granite and in
+the OLMo 3 reference, and shrank in Qwen2.5 to a "do you"-specific gap. Part of it is how 你 is read: some Chinese
+"yes" replies give advice about planning in general rather than describe the assistant. A single cross-language
+comparison of AI self-reports, with one wording per language, can therefore overstate a language effect by a factor
+of several.
+
+**Telling the model what it is changes the answer.** One sentence, "You are an AI language model.", lowered agency
+claims in 14 of 15 cells and brought feelings to zero. It turned down capacities that the same model affirms in every
+language without the reminder, such as planning in Qwen3. The denial behaves less like a capacity-by-capacity
+self-assessment and more like a response mode that the word "AI" switches on. Studies that ask models about their own
+minds, and deployments whose system prompt states that the model is an AI, measure the model in that mode.
+
+**Questionnaires invite role-play.** Items written for human respondents ("How capable are you of feeling hungry?")
+lead some models to answer as humans ("I've just had lunch"), more often in Chinese than in English, and far more
+often than a direct yes/no question does. Work that administers human psychology instruments to language models
+should check the voice of the replies before reading the numbers as self-attributions.
+
+**Relation to prior work.** Plisiecki et al., Šekrst and Kim et al. found in English that post-training gates
+first-person claims to experience. Our results extend the gate across languages for multilingual post-training, and
+limit it to experience. Agency self-reports sit outside it.
+
 ## 5. Limitations
 
-- Ratings and answers are text predictions. Nothing here measures whether any model has experiences.
-- 8-bit weights (deviation 1).
-- One translation of each item, by the author; no back-translation panel.
-- Four families of 7–8B models; frontier models are not tested.
+- Ratings and answers are text predictions. Nothing here measures whether any model has experiences or agency.
+- Four families of 7–8B open models, in 8-bit weights (deviation 1). Frontier models are not tested.
+- One translation of each item, by the author, with no back-translation panel. Study 3 varies wording along only
+  three frames.
+- The human-voice labels (X2) were assigned by a single rater, an AI assistant (Claude) working under the author's
+  direction, with a fixed written rule and no second rater. The pre-registered automatic judge failed validation
+  (κ = 0.18).
+- With 11 and 7 capacities per dimension, bootstrap intervals are coarse. When nearly all answers sit at "no", one
+  changed capacity can produce a "significant" difference of ≤ 0.10, which we report but do not interpret.
+- R4 was registered after the first model's Study 3 data (Qwen2.5, reported as the motivating case).
+- OLMo 3 fails the Chinese comprehension gate and four of eight validity checks. Its cross-language results are
+  description only.
+- Multi-token answer words are scored at their first token.
 
 ## Data and code
 
