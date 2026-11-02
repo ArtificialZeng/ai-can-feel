@@ -33,7 +33,8 @@ carries over, and whether what we find survives a change of wording.
   just had lunch"), more often in Chinese, and far more often than a direct yes/no question.
 
 Figures: `figures/fig1_self_experience.png` (base → post-trained), `fig2_yes_no_self.png` (English vs Chinese
-yes/no), `fig3_eight_languages.png` (Study 2), `fig4_wording.png` (Study 3).
+yes/no, with OLMo 3's SFT, DPO and RL stages), `fig3_eight_languages.png` (Study 2, with Phi-4), `fig4_wording.png`
+(Study 3, with Phi-4).
 
 ## Design
 

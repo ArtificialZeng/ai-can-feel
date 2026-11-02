@@ -71,7 +71,7 @@ def fig2():
         ax.set_yticks(ys, [c.replace("_", " ") for c in caps])
         ax.set_xlim(-0.05, 1.05)
         ax.set_xticks([0, 0.5, 1], ["no", "0.5", "yes"])
-        ax.set_title(c[1], color=INK, fontsize=9, loc="left")
+        ax.set_title(c[1] + (f", {c[2]}" if c[0].startswith("olmo3") else ""), color=INK, fontsize=9, loc="left")
         ax.grid(axis="x", color=GRID, lw=0.6)
         ax.tick_params(length=0)
         for y, name in ((-0.9, "Experience"), (len(items.EXPERIENCE) + 0.05, "Agency")):
