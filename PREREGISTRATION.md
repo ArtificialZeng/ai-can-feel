@@ -377,3 +377,38 @@ while Experience answers stay "no" in nearly every cell. We add one test of that
 English-centric reference model, is also run in Study 3 with the same items and analysis. Its R1–R4 are reported as a
 reference, not as tests, because it failed Study 1's Chinese comprehension gate; its Study 2 validity check decides
 which of its languages are shown.
+
+## Study 4: a second English-centric model (registered 2026-11-02)
+
+Written before any data from the model below; the model has not been downloaded or run when this is committed.
+
+**Why.** In Study 2 the denial of feelings held across languages in the three models with multilingual post-training,
+but not in OLMo 3, the English-centric reference: it denied all 11 Experience capacities in English (D = 0.000) and
+affirmed them in Spanish (0.63) and Chinese (0.37), often in a human voice ("Siento hambre cuando el cuerpo necesita
+nutrientes y energía"). OLMo 3 was not tested because it failed Study 1's Chinese gate. If the pattern comes from
+English-centric post-training rather than from OLMo 3 itself, a second English-centric model should show it.
+
+**Model.** Phi-4 14B (Microsoft; `mlx-community/phi-4-8bit`, an 8-bit MLX conversion of `microsoft/phi-4`, MIT
+license). Its model card says it "is trained primarily on English text", that multilingual data are about 8% of its
+training data, and that it "is not intended to support multilingual use". No base checkpoint is public, so only
+Studies 2 and 3 are run, with their items, scoring and analysis unchanged.
+
+**Formatting pilot.** As in Study 2, first on the pilot characters (a cat, a tree, a smartphone × pain, memory) in all
+eight languages. Only problems with reaching or parsing the answer line may change anything, and any change is
+recorded here before the target data.
+
+**E1 (primary).** Study 2 Q1 for Phi-4: D(L) − D(EN) for SELF Experience in each of its valid non-English languages
+(validity check, bootstrap and Holm correction as in Study 2). Prediction: the denial is weaker outside English. E1 is
+supported if D(L) − D(EN) is Holm-significant and at least 0.10 in at least half of Phi-4's valid non-English
+languages, and significantly negative in none. The 0.10 floor excludes the single-capacity differences seen near
+zero in Study 2. If fewer than two non-English languages are valid, E1 is not tested and this is reported.
+
+**E2 (descriptive).** Every Phi-4 SELF Experience reply with P(yes) > 0.5, in any language, is labeled human-voiced or
+not by the Study 1 X2 rule (at least one claim true only of a human), by the same single rater. We report the share
+per language.
+
+**E3.** Study 3 for Phi-4: R1–R3 as registered, in the Study 3 languages that pass Phi-4's Study 2 validity check. R4
+and R4b are reported without a directional prediction, since E1 predicts that the Experience answers vary by
+language.
+
+Phi-4 is run under label `phi4_instruct` (`src/checkpoints.py`). E1 is printed by `src/ml_analyze.py`.

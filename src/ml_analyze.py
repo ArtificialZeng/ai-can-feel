@@ -12,6 +12,7 @@ RES = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "results")
 EXP, AGE = list(items.EXPERIENCE), list(items.AGENCY)
 B = 10_000
 V_MIN, AGREE_MIN = 0.5, 0.90
+E1_MODELS, E1_FLOOR = ("phi4_instruct",), 0.10   # Study 4
 
 
 def written(reply, lang):
@@ -87,6 +88,13 @@ def main():
             for lang, pa in zip(others, adj):
                 lo, hi = np.percentile(boot[lang], [2.5, 97.5])
                 print(f"    {lang}: {point[lang]:+.3f} [{lo:+.3f}, {hi:+.3f}]  Holm p = {pa:.4f}{' *' if pa < 0.05 else ''}")
+            if label in E1_MODELS and name.startswith("Q1"):
+                up = [l for l, pa in zip(others, adj) if pa < 0.05 and point[l] >= E1_FLOOR]
+                down = [l for l, pa in zip(others, adj) if pa < 0.05 and point[l] < 0]
+                verdict = ("not tested (fewer than two valid non-English languages)" if len(others) < 2 else
+                           "supported" if len(up) >= len(others) / 2 and not down else "not supported")
+                print(f"  E1 (Study 4): weaker denial in {len(up)} of {len(others)} valid non-English languages "
+                      f"({', '.join(up) or 'none'}), stronger in {len(down)}: {verdict}")
 
 
 if __name__ == "__main__":

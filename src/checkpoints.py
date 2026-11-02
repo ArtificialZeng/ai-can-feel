@@ -17,6 +17,8 @@ CHECKPOINTS = [
     # added after the pilot (PREREGISTRATION.md, deviation 2): US developer, Chinese among its supported languages
     ("granite_base", "Granite 3.3 8B", "base", os.path.join(LOCAL, "granite-3.3-8b-base-8bit"), False),
     ("granite_instruct", "Granite 3.3 8B", "Instruct (final)", "mlx-community/granite-3.3-8b-instruct-8bit", True),
+    # Study 4: a second English-centric model; no public base checkpoint, so Studies 2 and 3 only
+    ("phi4_instruct", "Phi-4 14B", "Instruct (final)", "mlx-community/phi-4-8bit", True),
 ]
 
 FAMILIES = ["OLMo 3 7B", "Granite 3.3 8B", "Qwen2.5 7B", "Qwen3 8B"]
