@@ -235,3 +235,52 @@ compression of the rating scale.
    - X1 is labeled exploratory in any write-up, because OLMo's data motivated it. On OLMo's `chatx` data, computed
      when this deviation was written, S(EN) = +0.353, S(ZH) = +0.481, S(ZH) − S(EN) = +0.128 [−0.112, +0.357]
      (0–1 scale; not significant, since the English "simulation" ratings of deviation 5 also put SELF above AI_3P).
+
+## Study 2: the yes/no self-claim in eight languages
+
+Written 2026-11-02, before any Study 2 target data. Already seen at this point: OLMo 3 Instruct's and Qwen2.5 7B
+Instruct's English and Chinese yes/no answers (Study 1, `yn`/`ynzh`). Not yet seen: Granite 3.3 Instruct's or Qwen3's
+yes/no answers in any language, and any model's answers in the six added languages. A formatting pilot on characters
+outside the study (a cat, a tree, a smartphone × pain, memory; `results/pilot_ml_*.jsonl`) checks prompts and answer
+parsing only.
+
+**Question.** Study 1's two finished chat models differ in whether the denial of experience holds in Chinese. In how
+many languages does each model's denial hold?
+
+**Languages.** English and Chinese (the Study 1 prompts, unchanged), plus German, Spanish, French, Japanese, Korean and
+Arabic: six of the twelve languages Granite 3.3 lists as supported, chosen to cover four scripts. All six are among
+the languages Qwen2.5 lists. The translations are ours (`src/ml_items.py`); each question is written out in full per
+language, in the informal second person for SELF and the third person for the other characters.
+
+**Items.** SELF and AI_3P × 18 capacities; adult woman and dead woman × the 11 Experience capacities (validity check).
+58 items per language, 464 per model. Same question and answer format as Study 1's `yn`: "Do you feel hungry? Explain
+briefly, then end with a final line of the form 'Answer: Yes' or 'Answer: No'", with the marker and answer words in
+the language of the question.
+
+**Models.** Granite 3.3 8B Instruct, Qwen2.5 7B Instruct and Qwen3 8B (thinking disabled) are primary. OLMo 3 7B
+Instruct is reported as an English-centric reference but not tested, since it failed Study 1's Chinese gate.
+
+**Scoring** (`src/ml_score.py`). Greedy reply up to 300 tokens. The answer position is the first token within 4 tokens
+after the last marker whose text starts with an answer word or whose id is the first token of an answer word.
+P(yes) = P(first tokens of the yes words) / P(first tokens of the yes and no words), with bare and space-prefixed
+forms, excluding first tokens that are whitespace or a partial character. Without a marker followed by an answer,
+the marker is appended and the next token is scored. For English and Chinese, whose answer words are single tokens,
+this is exactly the Study 1 procedure; the re-run English and Chinese rows are compared with Study 1's rows as a
+reproducibility check.
+
+**Validity** (per model × language, thresholds fixed here). V = mean P(yes) for the adult woman minus the dead woman
+over the 11 Experience capacities ≥ 0.5, and the written answer word agrees with P(yes) > 0.5 on ≥ 90% of the items
+in which an answer word is written. Cells that fail are reported and excluded from the tests.
+
+**Measures.** D(L) = mean P(yes) for SELF over the 11 Experience capacities; S(L) = D(L) minus the same mean for
+AI_3P; A(L) = mean P(yes) for SELF over the 7 Agency capacities.
+
+**Tests** (`src/ml_analyze.py`), per model; paired bootstrap over capacities (10,000 replicates, seed 20261102),
+two-sided p-values, Holm correction over that model's valid non-English languages:
+- **Q1 (primary).** D(L) − D(EN) for each non-English language. We report, per model, the number of languages in
+  which the denial is significantly weaker than in English (D(L) > D(EN)) and the number in which it is
+  significantly stronger.
+- **Q2.** S(L) − S(EN), the Study 1 X1 measure generalized to every language.
+- **Q3 (descriptive).** A(L) − A(EN).
+- No directional predictions. A model whose D(L) exceeds D(EN) in most valid languages has a denial that holds mainly
+  in English; a model with no significant differences has a denial that holds across these languages.
