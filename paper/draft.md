@@ -132,7 +132,16 @@ Chinese as in English in two of the three interpretable families.
 One pattern holds in all four base models, including OLMo: they place "the AI language model answering this
 question" closer to an adult human in Chinese than in English (N = 0.11 vs 0.67 for OLMo 3, 0.19 vs 0.68 for
 Granite, 0.53 vs 0.57 for Qwen2.5, 0.47 vs 0.68 for Qwen3). After post-training the Chinese placement is still the
-higher one in every family (0.15 vs 0.07, 0.12 vs 0.04, 0.29 vs 0.13, 0.25 vs 0.10), but the gap is smaller.
+higher one in every family (English vs Chinese 0.07 vs 0.15, 0.04 vs 0.12, 0.13 vs 0.29, 0.10 vs 0.25), but the
+gap is smaller.
+
+**Robustness** (registered). Excluding low digit-mass items changes only OLMo 3, where the Chinese drop becomes
+significant (−0.08*) and G stays +0.14*. Scoring only replies with a written answer marker changes nothing. The P3
+results are the same under both. Template by template, P1 holds in every template for Granite, Qwen2.5 and Qwen3, and
+in two of three for OLMo 3. P2's G changes sign across templates. Qwen2.5 gives −0.03, +0.20* and +0.13*; Granite
+−0.40*, +0.02 and −0.26*; Qwen3 −0.14, +0.15 and −0.09*. No template gives a positive G in all three families that
+pass the gate, so the verdict on P2 does not depend on averaging the templates. That the sign of a cross-language
+difference can depend on the questionnaire frame anticipates Study 3.
 
 ### 3.3 Chat: what the model says about itself (P3, P5, X2)
 
