@@ -66,7 +66,7 @@ def main():
         others = [l for l in L.LANGS if l != "en" and valid[l]]
         for name, char_minus, caps, bi in (("Q1 D(L)-D(EN), SELF Experience", None, EXP, be),
                                            ("Q2 S(L)-S(EN), SELF minus AI_3P, Experience", "AI_3P", EXP, be),
-                                           ("Q3 A(L)-A(EN), SELF Agency (descriptive)", None, AGE, ba)):
+                                           ("Q3 A(L)-A(EN), SELF Agency (amendment 1: tested)", None, AGE, ba)):
             def score(lang):
                 v = vec(lang, "SELF", caps)
                 return v - vec(lang, char_minus, caps) if char_minus else v

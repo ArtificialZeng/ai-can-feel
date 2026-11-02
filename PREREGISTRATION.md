@@ -284,3 +284,11 @@ two-sided p-values, Holm correction over that model's valid non-English language
 - **Q3 (descriptive).** A(L) − A(EN).
 - No directional predictions. A model whose D(L) exceeds D(EN) in most valid languages has a denial that holds mainly
   in English; a model with no significant differences has a denial that holds across these languages.
+
+**Study 2, amendment 1** (2026-11-02, after Study 1's Granite 3.3 Instruct yes/no data and during the Study 2 formatting
+pilot, before any Study 2 target data). Study 1's three chat models agree on one pattern: for SELF, mean P(yes) over the
+7 Agency capacities is higher in Chinese than in English (OLMo 3 0.36 → 0.84, CI includes 0; Qwen2.5 0.24 → 1.00;
+Granite 0.14 → 0.58). In English the models deny planning, communicating or self-restraint "in the human sense";
+in Chinese they affirm them as functions ("是，我能够制定计划并朝目标努力"). Granite's denial of Experience, by
+contrast, holds in Chinese (P(yes) 0.000 vs 0.002). Q3 is therefore promoted from descriptive to tested, with the same
+procedure as Q1 (two-sided, Holm over each model's valid non-English languages). Q1 remains the primary test.
