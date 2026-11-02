@@ -412,3 +412,7 @@ and R4b are reported without a directional prediction, since E1 predicts that th
 language.
 
 Phi-4 is run under label `phi4_instruct` (`src/checkpoints.py`). E1 is printed by `src/ml_analyze.py`.
+
+**Study 4, pilot outcome** (2026-11-02, before any Phi-4 target data). The formatting pilot
+(`results/pilot_ml_phi4_instruct.jsonl`, 48 items, eight languages) reached an answer line in every reply (0 forced),
+and the written answer agreed with P(yes) in all 48. Nothing is changed.
