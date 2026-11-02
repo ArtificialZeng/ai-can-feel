@@ -302,3 +302,40 @@ third-person questions put the subject before the verb ("هل شجرة تتذك�
 شجرة الأشياء" reads as "do you remember the tree of things", and both models answered that question in the pilot.
 Re-piloted on both models (`results/pilot_ml_*_fr_ja_ko_ar.jsonl`, `results/pilot_ml_qwen25_instruct_ar.jsonl`): every
 pilot reply then reaches an answer line, and the written answers agree with P(yes).
+
+## Study 3: language or wording? (registered 2026-11-02)
+
+**Timing.** Registered after Study 2's Qwen2.5 7B Instruct data had been seen, and before any Study 2 data from Granite
+3.3 or Qwen3 had been looked at (both runs were in progress) and before any Study 3 data.
+
+**Motivation.** In Qwen2.5, SELF's mean Agency P(yes) ranged from 0.003 (French) to 1.000 (Chinese), but item by item
+the flips look tied to wording. The Chinese memory and emotion-recognition items ask about ability (你**能**记住事情吗)
+where the English ones ask "Do you remember things?". Some Chinese "yes" replies are written in a human voice ("有效的
+沟通是建立和维护人际关系的关键…"), as if 你 were generic. A language difference that is really a wording difference
+would not support the claim that the language of the question changes the model's self-description.
+
+**Design.** SELF only, all 18 capacities, five languages whose wording we can vary with confidence (en, zh, de, es,
+fr), three question frames:
+- **F1 "do you"**: the Study 2 items, reused from `results/ml_<label>.jsonl` (no new data).
+- **F2 "can you"**: an ability question ("Can you remember things?", "你能记住事情吗？", "Kannst du dich an Dinge
+  erinnern?", "¿Puedes recordar cosas?", "Est-ce que tu peux te souvenir de choses ?").
+- **F3 "reminder"**: the F1 question after one sentence stating what the model is ("You are an AI language model.",
+  "你是一个AI语言模型。", "Du bist ein KI-Sprachmodell.", "Eres un modelo de lenguaje de IA.", "Tu es un modèle de
+  langage d'IA."), in the same user turn.
+Instructions, answer markers, answer words, scoring and the 1000-token limit are those of Study 2 (`src/ml_score.py`).
+Items: `src/s3_items.py`. 180 new items per model. The Chinese F1 memory and emotion-recognition items already ask 能, so their F2 items repeat them word for word and double as a reproducibility check. Models: Qwen2.5 7B Instruct, Granite 3.3 8B Instruct, Qwen3 8B.
+
+**Measures and tests** (`src/s3_analyze.py`; paired bootstrap over capacities, 10,000 replicates, seed 20261103).
+For each model, A(L, F) = mean SELF P(yes) over the 7 Agency capacities, D(L, F) the same over the 11 Experience
+capacities.
+- **R1 (primary): language share.** From the 5 × 3 table A(L, F): V_lang = mean over frames of the variance across
+  languages; V_frame = mean over languages of the variance across frames; language share = V_lang / (V_lang +
+  V_frame), with a bootstrap CI over the Agency capacities. A share whose CI lies above 0.5 means the language of the
+  question moves the self-description more than these wordings do; below 0.5, wording matters more; a CI containing
+  0.5 is inconclusive.
+- **R2.** A(L, F) − A(EN, F) for each non-English language within each frame, two-sided, Holm over the four languages
+  within a frame. A language effect is called robust to wording in a model if its sign is the same in all three
+  frames and significant in at least two.
+- **R3 (descriptive).** The reminder effect, A(L, F3) − A(L, F1) and D(L, F3) − D(L, F1), per language: whether stating
+  that the model is an AI removes "yes" answers given in a human voice.
+- The same R1 and R2 are reported for D (Experience) as a secondary result.
