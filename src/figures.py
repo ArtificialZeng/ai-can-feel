@@ -139,7 +139,7 @@ def fig4():
     import s3_items as S
     from matplotlib.colors import LinearSegmentedColormap
     ramp = LinearSegmentedColormap.from_list("blue", ["#f3f7fd", "#9ec5f4", "#3987e5", "#1c5cab", "#0d366b"])   # sequential blue
-    labels = [c for c in CHECKPOINTS if c[0] in ("qwen25_instruct", "qwen3_chat", "granite_instruct")
+    labels = [c for c in CHECKPOINTS if c[0] in ("qwen25_instruct", "qwen3_chat", "granite_instruct", "phi4_instruct")
               and os.path.exists(os.path.join(A.RES, f"s3_{c[0]}.jsonl"))]
     if not labels:
         return

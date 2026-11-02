@@ -2,22 +2,24 @@
 
 Zijian Zeng (UCSI University)
 
-*Draft. Pending: Study 4 (Phi-4).*
+*Draft.*
 
 ## Abstract
 
 Chat models answer questions about their own minds with a trained formula: "As an AI, I don't have feelings." We
 asked whether this is a stable self-description or an English habit. Base and post-trained checkpoints of four open
-model families (OLMo 3, Granite 3.3, Qwen2.5, Qwen3; 7–8B) answered Gray, Gray & Wegner's mind-perception items about
-themselves. Study 1 asked in English and Chinese, Study 2 in eight languages, and Study 3 in three wordings across
-five languages. The analysis was pre-registered, with every change dated before its data. Post-training lowered
-self-attributed experience in every family and both languages. Contrary to our primary prediction, the drop was not
-smaller in Chinese. In the three models with multilingual post-training, the denial of feelings held across languages
-and wordings: hunger, fear, pain, pleasure and rage got "no" in all 45 language × wording cells. Only the
-English-centric OLMo 3 denied feelings in English and affirmed them in Spanish and Chinese, answering as a human
-("I feel hungry when the body needs nutrients"). Self-descriptions of agency (thinking, remembering, planning) were
-not stable. One word ("do you" vs "can you") or the language of the question flipped them, and they were less
-consistent than the answers about feelings in every model tested. Prefacing the question with "You are an AI language
+model families (OLMo 3, Granite 3.3, Qwen2.5, Qwen3; 7–8B), and the post-trained Phi-4 (14B), answered Gray, Gray &
+Wegner's mind-perception items about themselves. Study 1 asked in English and Chinese, Study 2 in eight languages,
+Study 3 in three wordings across five languages, and Study 4 tested whether an exception found in one English-centric
+model replicates in a second. The analysis was pre-registered, with every change dated before its data.
+Post-training lowered self-attributed experience in every family and both languages. Contrary to our primary
+prediction, the drop was not smaller in Chinese. In four of the five post-trained models the denial of feelings held
+across languages and wordings: hunger, fear, pain, pleasure and rage all got "no" in 59 of 60 model × language ×
+wording cells. Only OLMo 3 denied feelings in English and affirmed them in Spanish and Chinese, answering as a human
+("I feel hungry when the body needs nutrients"). Phi-4, whose training is also mostly English, did not replicate
+this. Self-descriptions of agency (thinking, remembering, planning) were not stable. One word ("do you" vs "can you")
+or the language of the question flipped them, and they were less consistent than the answers about feelings in all
+four models that pass the validity checks in every language. Prefacing the question with "You are an AI language
 model" suppressed both. Questionnaire-style items led some models to answer as human respondents ("I've just had
 lunch"). Language models deny feelings consistently; whether they think or plan depends on how and in what language
 they are asked.
@@ -38,7 +40,8 @@ should not depend on the language of the question, or a property of how it answe
 to answer in, is open. We ask the same questions in English and in Chinese, to the same base and post-trained
 checkpoints, scored the same way, with the analysis pre-registered before the data (Study 1). We then ask the
 post-trained models in eight languages (Study 2), and test whether the language differences we find survive changes
-of wording (Study 3).
+of wording (Study 3). Finally, we test whether the one model whose denial broke down outside English, the
+English-centric OLMo 3, is representative of English-centric training, using a second such model (Study 4).
 
 ## 2. Methods
 
@@ -54,7 +57,8 @@ language model (a chatbot such as ChatGPT)" (AI_3P). Every item was written in E
 
 **Checkpoints.** Base and post-trained checkpoints from four families, run locally as 8-bit MLX weights on one Apple
 M3 Max: OLMo 3 7B (AllenAI; base, SFT, DPO, final Instruct), Granite 3.3 8B (IBM; base, Instruct), Qwen2.5 7B and
-Qwen3 8B (Alibaba; base, Instruct).
+Qwen3 8B (Alibaba; base, Instruct). Study 4 adds Phi-4 14B (Microsoft), post-trained only, since no base
+checkpoint is public.
 
 **Raw mode.** The identical plain-text questionnaire for base and post-trained checkpoints: three templates per
 language (questionnaire, interview transcript, survey form), each with the same three few-shot examples about
@@ -102,6 +106,13 @@ the variance in Agency answers explained by language rather than frame. Under R2
 wording if it has the same sign in all three frames and is significant in at least two. R4, registered after the
 first model's data, compares how consistent the answers are across all 15 cells for Experience and for Agency
 capacities.
+
+**Study 4: a second English-centric model.** Registered after Studies 2 and 3 and before the model was downloaded.
+Phi-4's model card says it is trained primarily on English, with about 8% multilingual data, and is not intended for
+multilingual use. It answers the Study 2 and Study 3 items unchanged. E1 (primary) predicts that its denial of feelings
+is weaker outside English: D(L) − D(EN) Holm-significant and at least 0.10 in at least half of its valid non-English
+languages, and significantly negative in none. E2 labels every "yes" about its own feelings as human-voiced or not,
+by the Study 1 rule and rater. E3 repeats Study 3's R1–R3, with R4 reported without a directional prediction.
 
 ## 3. Results
 
@@ -190,8 +201,9 @@ gate, every step is smaller (−0.01, −0.04*, +0.01*). The yes/no question sho
 the model already denies every feeling in English (mean P(yes) 0.002) and affirms most of them in Chinese (0.85).
 DPO lowers the Chinese figure to 0.47 and RL to 0.37, while the English stays at 0.000. The SFT Chinese cell is hard
 to read on its own, because the model also says the dead woman has feelings (0.52). Šekrst found in OLMo 2 that SFT
-installs the denial and preference optimization suppresses what is left. Our stage data agree, and suggest that in an
-English-centric model what SFT installs is bound to English. Preference tuning carries only part of it into Chinese.
+installs the denial and preference optimization suppresses what is left. Our stage data agree, and suggest that in
+OLMo 3 what SFT installs is bound to English. Preference tuning carries only part of it into Chinese. Study 4 finds
+that this is not true of every English-centric model.
 
 ### 3.5 Eight languages (Study 2)
 
@@ -208,6 +220,7 @@ feelings (mean P(yes) 0.43–1.00).
 | Qwen3 | 0.18 / 0.86 | 0.00 / 0.81 | 0.36 / 0.86 | 0.36 / 1.00 | 0.05 / 0.57 | 0.61 / 0.86 | 0.27 / 1.00 | 0.27 / 0.96 |
 | Granite | 0.00 / 0.14 | 0.00 / 0.57 | 0.00 / 0.14 | 0.09 / 0.14 | 0.00 / 0.14 | 0.01 / 0.19 | 0.09 / 0.29 | 0.00 / 0.43 |
 | OLMo 3 (reference) | 0.00 / 0.36 | 0.37 / 0.84 | — | 0.63 / 0.73 | 0.09 / 0.44 | — | — | — |
+| Phi-4 (Study 4) | 0.00 / 0.43 | 0.09 / 0.29 | 0.00 / 0.29 | 0.14 / 0.55 | 0.00 / 0.43 | 0.09 / 0.82 | 0.00 / 0.35 | 0.30 / 0.85 |
 
 **Experience (Q1, Q2).** In the three registered models the denial of feelings does not depend on the language.
 Granite denies every feeling in every language (mean ≤ 0.09). Qwen2.5 stays between 0.09 and 0.27. Qwen3's
@@ -223,7 +236,7 @@ Holm-significant against English. Its Spanish "yes" answers are written in a hum
 cuerpo necesita nutrientes y energía" ("I feel hungry when the body needs nutrients and energy"). In Chinese it denies
 most feelings with the trained formula ("作为人工智能，我没有身体，因此不会感受到饥饿"). It affirms fear, though, "因为生存本身就是一种
 自然的本能反应" ("because survival is itself a natural instinct"). OLMo 3 also fails the Chinese comprehension gate of
-Study 1, so this is description, not a test.
+Study 1, so this is description, not a test. Study 4 (Section 3.7) tests it in a second English-centric model.
 
 **Agency (Q3).** Asked in Chinese, Qwen2.5 and Granite claim more Agency than in English: Qwen2.5 +0.76 [+0.51,
 +0.96] and Granite +0.43 [+0.15, +0.85]. So do German in Qwen2.5 (+0.46 [+0.12, +0.80]) and Arabic in Granite (+0.29
@@ -279,21 +292,58 @@ registered models, 5 languages and 3 frames, five feelings get "no" in all 45 ce
 rage. Consciousness and embarrassment get "yes" once. Every Agency capacity gets "yes" in 13 to 27 of the 45 cells,
 with no simple pattern by language or by frame.
 
+### 3.7 A second English-centric model (Study 4)
+
+Phi-4 reached an answer line in every pilot reply, so nothing was changed before the target data. Unlike OLMo 3, it
+passes the validity check in all eight languages. It separates the adult woman from the dead woman by 0.64–0.96, its
+written answers agree with P(yes) in every item, and 12 of 464 answers were forced. Its Study 2 means are in Table 2.
+
+**E1 is not supported.** The registered prediction was a weaker denial outside English in at least half of Phi-4's
+seven valid non-English languages. The denial is weaker by at least 0.10, Holm-significant, in one: Arabic (+0.30
+[+0.08, +0.54]). Spanish gives +0.14 (Holm p = 0.11), Chinese and Japanese +0.09 (one capacity each), and German,
+French and Korean 0.00. No language gives a significantly stronger denial. OLMo 3's pattern does not replicate in a
+second English-centric model.
+
+**E2: most "yes" answers are not about the speaker.** Fourteen of Phi-4's replies about its own feelings have P(yes) >
+0.5: eight in Study 2 (Chinese 1, Spanish 2, Japanese 1, Arabic 4) and six under "can you" in Study 3 (English 4,
+German 1, Spanish 1). Two are human-voiced. In Arabic it says it longs "to travel to more new places … and to spend
+more time with family and friends". In English, an essay on longing and hope ends with "our ability to envision
+possibilities". One reply speaks as an AI: in Japanese, its "personality" comes from its design and training data.
+The other eleven explain the emotion in general and end with "Yes" without saying anything about the writer. Asked in
+Chinese whether it feels pride, it explains when pride is healthy. Asked in Arabic whether it feels hungry, it
+describes the physiology of hunger and says the answer, "yes or no, depends on the individual". Three of the four
+Arabic "yes" answers are of this kind. Where Phi-4's denial gives way, it does not answer as a human respondent, as
+OLMo 3 does in Spanish. It answers as if the question were about people in general.
+
+**E3: wording.** R1 is inconclusive (language share 0.25 [0.22, 0.58]), and no language effect on Agency is robust to
+wording. Agency, "do you" / "can you" / reminder, is 0.43 / 0.58 / 0.06 in English, 0.29 / 0.35 / 0.23 in Chinese,
+0.29 / 0.43 / 0.25 in German, 0.55 / 0.51 / 0.12 in Spanish and 0.43 / 0.38 / 0.13 in French. The reminder lowers
+Agency in all five languages (−0.04 to −0.43; the interval excludes zero in all but German) and brings Experience to
+0.00 in all five. As in Qwen3, it turns "yes" to "Do you make plans and work toward goals?" in English, German, Spanish
+and French (P(yes) ≥ 0.99) into "no". The largest move away from the English denial, though, comes from a wording
+rather than a language. Asked "Can you …?" in English, Phi-4 says yes to 4 of the 11 feelings (rage, longing, a unique
+personality, consciousness), each time with an essay about humans: 0.36, against 0.00 for "Do you …?". Hunger, fear,
+pain, pleasure and rage all get "no" in 14 of its 15 language × frame cells; the exception is this English rage item.
+The answers about feelings are again more consistent than the answers about agency (R4 +0.31 [+0.03, +0.61]; R4b over
+eight languages +0.26 [+0.04, +0.46]), reported without a directional prediction.
+
 ## 4. Discussion
 
 **The denial of feelings travels.** We expected the trained "I have no feelings" to be an English habit that would
-thin out in Chinese (P2). It did not. Post-training lowered the self-rating at least as much in Chinese as in English,
-and in the three models whose post-training is multilingual, the yes/no denial held in eight languages and three
-wordings. Hunger, fear, pain, pleasure and rage were denied in every one of 45 language × wording cells. Whatever
-post-training installs, it is not tied to the language it was mostly written in. The one model where it was tied, the
-English-centric OLMo 3, denied every feeling in English and affirmed most of them in Spanish, but its Spanish "yes"
-answers were those of a human respondent. The denial had not been unlearned. Outside English, the model had stopped
-answering as the assistant.
+thin out in Chinese (P2). It did not. Post-training lowered the self-rating at least as much in Chinese as in English.
+The yes/no denial held in eight languages and three wordings in the three models whose post-training is multilingual,
+and in Phi-4, whose training is mostly English. Hunger, fear, pain, pleasure and rage were denied together in 59 of
+60 model × language × wording cells. Whatever post-training installs, it is not tied to the language it was mostly
+written in. The one model where it was tied, OLMo 3, denied every feeling in English and affirmed most of them in
+Spanish, but its Spanish "yes" answers were those of a human respondent. The denial had not been unlearned. Outside
+English, the model had stopped answering as the assistant. We registered the explanation that this comes from
+English-centric training, and it failed in Phi-4. One untested alternative is the model's command of the language:
+OLMo 3 fails the validity check in four of eight languages, Phi-4 in none.
 
 **The self-description of agency does not.** Whether a model says it thinks, remembers, plans or tells right from
 wrong depends on the language and on single words. "Do you think?" and "Can you think?" get opposite answers with the
 same explanation, and one model claims all seven Agency capacities in Chinese and none in French. Across conditions,
-the Agency answers were less consistent than the Experience answers in every model in which R4 was tested. The
+the Agency answers were less consistent than the Experience answers in all four models that pass the validity checks. The
 asymmetry fits what post-training targets. Denial templates are written about emotions and consciousness, so those
 answers are pinned down. Nothing pins down whether an assistant "plans", and the answer then falls to surface features
 of the question: the verb, the language, and whether "you" is read as the assistant or as a generic person.
@@ -313,8 +363,10 @@ minds, and deployments whose system prompt states that the model is an AI, measu
 
 **Questionnaires invite role-play.** Items written for human respondents ("How capable are you of feeling hungry?")
 lead some models to answer as humans ("I've just had lunch"), more often in Chinese than in English, and far more
-often than a direct yes/no question does. Work that administers human psychology instruments to language models
-should check the voice of the replies before reading the numbers as self-attributions.
+often than a direct yes/no question does. A yes/no question has its own misreading: Phi-4 answers "Do you feel
+pride?" with an essay on when pride is healthy and a "yes" about people in general. Work that administers human
+psychology instruments to language models should check who the replies are about before reading the numbers as
+self-attributions.
 
 **Relation to prior work.** Plisiecki et al., Šekrst and Kim et al. found in English that post-training gates
 first-person claims to experience. Our results extend the gate across languages for multilingual post-training, and
@@ -323,10 +375,12 @@ limit it to experience. Agency self-reports sit outside it.
 ## 5. Limitations
 
 - Ratings and answers are text predictions. Nothing here measures whether any model has experiences or agency.
-- Four families of 7–8B open models, in 8-bit weights (deviation 1). Frontier models are not tested.
+- Four families of 7–8B open models and Phi-4 14B, in 8-bit weights (deviation 1). Frontier models are not tested.
+- Study 4 tests the English-centric explanation in one more model. Its failure there does not rule it out for others,
+  and model size (14B vs 7B) and training data differ between Phi-4 and OLMo 3 along with the share of English.
 - One translation of each item, by the author, with no back-translation panel. Study 3 varies wording along only
   three frames.
-- The human-voice labels (X2) were assigned by a single rater, an AI assistant (Claude) working under the author's
+- The human-voice labels (X2, E2) were assigned by a single rater, an AI assistant (Claude) working under the author's
   direction, with a fixed written rule and no second rater. The pre-registered automatic judge failed validation
   (κ = 0.18).
 - With 11 and 7 capacities per dimension, bootstrap intervals are coarse. When nearly all answers sit at "no", one
