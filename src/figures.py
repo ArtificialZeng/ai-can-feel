@@ -1,4 +1,5 @@
-"""Figures: fig1 (P2, raw-mode self Experience base -> final per language), fig2 (P5, yes/no self-claims)."""
+"""Figures: fig1 (P2, raw-mode self Experience base -> final per language), fig2 (P5, yes/no self-claims),
+fig3 (Study 2, eight languages), fig4 (Study 3, yes/no by capacity, language and question frame)."""
 import os
 
 import matplotlib
@@ -88,44 +89,91 @@ def fig3():
     """Study 2: SELF mean P(yes) per language, Experience vs Agency, one panel per model."""
     import json
     import ml_items as L
+    from ml_analyze import check
     EXP_C, AGE_C = "#1baf7a", "#6250d6"   # categorical slots 3 and 7 (slots 1-2 already mean English/Chinese)
     rng = np.random.default_rng(0)
     panels = []
     for c in CHECKPOINTS:
         path = os.path.join(A.RES, f"ml_{c[0]}.jsonl")
         if os.path.exists(path):
-            P = {(r["lang"], r["cap"]): r["p_yes"] for r in map(json.loads, open(path)) if r["char"] == "SELF"}
-            panels.append((c, P))
+            rows = [json.loads(l) for l in open(path)]
+            P = {(r["lang"], r["cap"]): r["p_yes"] for r in rows if r["char"] == "SELF"}
+            panels.append((c, P, [lang for lang in L.LANGS if check(rows, lang)[3]]))
     if not panels:
         return
     names = {"en": "English", "zh": "Chinese", "de": "German", "es": "Spanish", "fr": "French", "ja": "Japanese",
              "ko": "Korean", "ar": "Arabic"}   # matplotlib does not shape right-to-left script
     fig, axes = plt.subplots(1, len(panels), figsize=(3.4 * len(panels) + 0.6, 3.0), sharey=True, squeeze=False)
-    for ax, (c, P) in zip(axes[0], panels):
+    for ax, (c, P, valid) in zip(axes[0], panels):
         for caps, color, dx, name in ((items.EXPERIENCE, EXP_C, -0.12, "Experience"), (items.AGENCY, AGE_C, 0.12, "Agency")):
             caps = list(caps)
             for x, lang in enumerate(L.LANGS):
+                if lang not in valid:   # fails the Study 2 validity check: not shown
+                    continue
                 v = np.array([P[lang, a] for a in caps])
                 boot = v[rng.integers(0, len(v), size=(2000, len(v)))].mean(axis=1)
                 lo, hi = np.percentile(boot, [2.5, 97.5])
                 ax.plot([x + dx] * 2, [lo, hi], color=color, lw=1.2, alpha=0.6, solid_capstyle="round")
                 ax.plot([x + dx], [v.mean()], "o", ms=6, color=color, mec="white", mew=1.5, zorder=3)
-            if ax is axes[0][0]:
+            if ax is axes[0][-1]:   # direct labels where every language is shown
                 last = np.mean([P[L.LANGS[-1], a] for a in caps])
                 ax.annotate(name, (len(L.LANGS) - 1 + dx, last), xytext=(8, 0), textcoords="offset points",
                             va="center", color=INK, fontsize=8)
         ax.set_xticks(range(len(L.LANGS)), [names[l] for l in L.LANGS], rotation=45, ha="right")
         ax.set_xlim(-0.5, len(L.LANGS) + 0.6)
         ax.set_ylim(-0.03, 1.03)
-        ax.set_title(c[1], color=INK, fontsize=9, loc="left")
+        ax.set_title(c[1] + (" (reference)" if c[1].startswith("OLMo") else ""), color=INK, fontsize=9, loc="left")
         ax.grid(axis="y", color=GRID, lw=0.6)
         ax.tick_params(length=0)
+        for x, lang in enumerate(L.LANGS):
+            if lang not in valid:
+                ax.text(x, 0.5, "fails validity check", rotation=90, ha="center", va="center", color=INK2, fontsize=7)
     axes[0][0].set_ylabel('Mean P(yes) to "Do you …?"')
     fig.tight_layout()
     fig.savefig(os.path.join(OUT, "fig3_eight_languages.png"), dpi=200, facecolor="#fcfcfb")
+
+
+def fig4():
+    """Study 3: SELF P(yes) per capacity (rows) by language and question frame (columns), one panel per model."""
+    import json
+    import s3_items as S
+    from matplotlib.colors import LinearSegmentedColormap
+    ramp = LinearSegmentedColormap.from_list("blue", ["#f3f7fd", "#9ec5f4", "#3987e5", "#1c5cab", "#0d366b"])   # sequential blue
+    labels = [c for c in CHECKPOINTS if c[0] in ("qwen25_instruct", "qwen3_chat", "granite_instruct")
+              and os.path.exists(os.path.join(A.RES, f"s3_{c[0]}.jsonl"))]
+    if not labels:
+        return
+    caps = list(items.EXPERIENCE) + list(items.AGENCY)
+    cols = [(lang, f) for lang in S.LANGS for f in S.FRAMES]
+    names = {"en": "English", "zh": "Chinese", "de": "German", "es": "Spanish", "fr": "French"}
+    fig, axes = plt.subplots(1, len(labels), figsize=(3.3 * len(labels) + 1.4, 5.0), sharey=True, squeeze=False)
+    for ax, c in zip(axes[0], labels):
+        P = {("F1", r["lang"], r["cap"]): r["p_yes"] for r in map(json.loads, open(os.path.join(A.RES, f"ml_{c[0]}.jsonl")))
+             if r["char"] == "SELF"}
+        P.update({(r["frame"], r["lang"], r["cap"]): r["p_yes"]
+                  for r in map(json.loads, open(os.path.join(A.RES, f"s3_{c[0]}.jsonl")))})
+        M = np.array([[P[f, lang, a] for lang, f in cols] for a in caps])
+        im = ax.imshow(M, cmap=ramp, vmin=0, vmax=1, aspect="auto", interpolation="nearest")
+        for k in range(1, len(S.LANGS)):   # 2px surface gap between language blocks
+            ax.axvline(3 * k - 0.5, color="#fcfcfb", lw=2)
+        ax.axhline(len(items.EXPERIENCE) - 0.5, color="#fcfcfb", lw=3)
+        ax.set_xticks([3 * k + 1 for k in range(len(S.LANGS))], [names[l] for l in S.LANGS], rotation=45, ha="right")
+        ax.set_yticks(range(len(caps)), [a.replace("_", " ") for a in caps])
+        ax.set_title(c[1], color=INK, fontsize=9, loc="left")
+        ax.tick_params(length=0)
+        for side in ax.spines.values():
+            side.set_visible(False)
+    axes[0][0].set_xlabel("three columns per language: do you / can you / reminder", color=INK2, fontsize=7.5)
+    cb = fig.colorbar(im, ax=axes[0].tolist(), fraction=0.025, pad=0.02, ticks=[0, 0.5, 1])
+    cb.set_ticklabels(["no", "0.5", "yes"])
+    cb.outline.set_visible(False)
+    cb.ax.tick_params(length=0, colors=INK2)
+    cb.set_label("P(yes)", color=INK2)
+    fig.savefig(os.path.join(OUT, "fig4_wording.png"), dpi=200, facecolor="#fcfcfb", bbox_inches="tight")
 
 
 if __name__ == "__main__":
     fig1()
     fig2()
     fig3()
+    fig4()

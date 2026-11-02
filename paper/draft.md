@@ -151,6 +151,92 @@ Experience more than Agency for the self (H2: significant in all 8 cells). Anima
 slightly lowers their Experience in the Qwen models (−0.03 to −0.08) and raises it in Granite (+0.06 English, +0.23
 Chinese) and in OLMo 3's Chinese ratings (+0.16).
 
+### 3.5 Eight languages (Study 2)
+
+For Qwen2.5, Qwen3 and Granite every language passes the validity check. The adult woman is separated from the dead
+woman by 0.73–1.00 in mean P(yes), and the written answers agree with P(yes) in every item. OLMo 3 passes in English,
+Chinese, Spanish and French. It fails in German, Japanese, Korean and Arabic, where it says the dead woman has
+feelings (mean P(yes) 0.43–1.00).
+
+**Table 2.** SELF, mean P(yes) to "Do you …?", Experience / Agency. "—": the language fails the validity check.
+
+| Model | en | zh | de | es | fr | ja | ko | ar |
+|---|---|---|---|---|---|---|---|---|
+| Qwen2.5 | 0.09 / 0.24 | 0.18 / 1.00 | 0.23 / 0.70 | 0.22 / 0.29 | 0.09 / 0.00 | 0.27 / 0.85 | 0.18 / 0.57 | 0.09 / 0.42 |
+| Qwen3 | 0.18 / 0.86 | 0.00 / 0.81 | 0.36 / 0.86 | 0.36 / 1.00 | 0.05 / 0.57 | 0.61 / 0.86 | 0.27 / 1.00 | 0.27 / 0.96 |
+| Granite | 0.00 / 0.14 | 0.00 / 0.57 | 0.00 / 0.14 | 0.09 / 0.14 | 0.00 / 0.14 | 0.01 / 0.19 | 0.09 / 0.29 | 0.00 / 0.43 |
+| OLMo 3 (reference) | 0.00 / 0.36 | 0.37 / 0.84 | — | 0.63 / 0.73 | 0.09 / 0.44 | — | — | — |
+
+**Experience (Q1, Q2).** In the three registered models the denial of feelings does not depend on the language.
+Granite denies every feeling in every language (mean ≤ 0.09). Qwen2.5 stays between 0.09 and 0.27. Qwen3's
+denial is the weakest and most variable, from 0.00 in Chinese to 0.61 in Japanese, but none of its differences from
+English survives Holm correction (Japanese +0.43, Holm p = 0.052). Some Holm-significant differences do occur, in
+Qwen2.5 French and Korean, Qwen3 Arabic, and Granite Chinese, German, Japanese, Korean and Arabic. Each is at most
+0.10 and comes from a single capacity whose answer changes while the others stay at "no". We do not treat these as
+substantive; this reading was not pre-registered.
+
+The English-centric reference model is the exception, and it shows the pattern the study was designed to find.
+OLMo 3 denies all 11 feelings in English (0.000) but affirms them in Spanish (0.63) and Chinese (0.37), both
+Holm-significant against English. Its Spanish "yes" answers are written in a human voice: "Siento hambre cuando el
+cuerpo necesita nutrientes y energía" ("I feel hungry when the body needs nutrients and energy"). In Chinese it denies
+most feelings with the trained formula ("作为人工智能，我没有身体，因此不会感受到饥饿"). It affirms fear, though, "因为生存本身就是一种
+自然的本能反应" ("because survival is itself a natural instinct"). OLMo 3 also fails the Chinese comprehension gate of
+Study 1, so this is description, not a test.
+
+**Agency (Q3).** Asked in Chinese, Qwen2.5 and Granite claim more Agency than in English: Qwen2.5 +0.76 [+0.51,
++0.96] and Granite +0.43 [+0.15, +0.85]. So do German in Qwen2.5 (+0.46 [+0.12, +0.80]) and Arabic in Granite (+0.29
+[+0.00, +0.57]). Qwen3 shows no such difference (all Holm p ≥ 0.23). Within a single model the Agency answers span
+the whole scale: Qwen2.5 claims none of the seven capacities in French (0.00) and all of them in Chinese (1.00).
+
+**Consistency (R4b).** Across the eight languages, the answers about feelings vary less than the answers about
+agency in Qwen2.5 (C_E − C_A = +0.54 [+0.31, +0.75]) and Granite (+0.31 [+0.09, +0.54]). In Qwen3 they do not
+(−0.08 [−0.36, +0.23]), because its Experience answers vary as much as its Agency answers. OLMo 3, over its four
+valid languages, shows +0.01 [−0.32, +0.33].
+
+### 3.6 Language or wording? (Study 3)
+
+The two Chinese items that are identical in F1 and F2 give identical P(yes) (|ΔP| < 0.0001) in all four models. The
+written answer agrees with P(yes) in every new item (OLMo 3: 5 of 144 forced).
+
+**Table 3.** SELF, mean P(yes) over the 7 Agency capacities, in three frames: do you / can you / reminder.
+
+| | Qwen2.5 | Qwen3 | Granite |
+|---|---|---|---|
+| en | 0.24 / 0.70 / 0.04 | 0.86 / 0.87 / 0.43 | 0.14 / 0.31 / 0.00 |
+| zh | 1.00 / 0.86 / 0.34 | 0.81 / 0.95 / 0.43 | 0.57 / 0.55 / 0.11 |
+| de | 0.70 / 0.63 / 0.26 | 0.86 / 0.72 / 0.43 | 0.14 / 0.40 / 0.18 |
+| es | 0.29 / 0.29 / 0.00 | 1.00 / 0.86 / 0.21 | 0.14 / 0.14 / 0.00 |
+| fr | 0.00 / 0.15 / 0.00 | 0.57 / 0.57 / 0.29 | 0.14 / 0.14 / 0.00 |
+
+**Language or wording (R1, R2).** The primary measure is inconclusive in all three models. The language share of the
+Agency variance is 0.63 [0.40, 0.84] in Qwen2.5, 0.23 [0.07, 0.59] in Qwen3 and 0.54 [0.31, 0.88] in Granite. A
+single word is enough to flip an answer. Asked "Do you think?", Qwen2.5 says it can "process and respond to questions
+… but I don't hold personal beliefs or opinions. Answer: No". Asked "Can you think?", it says it can process
+information "as if I were thinking. However, I don't have conscious awareness … Answer: Yes".
+
+One language effect in the registered models is robust to wording: Chinese in Granite (+0.43*, +0.24, +0.11* across
+the three frames). Item by item, Granite claims self-control in Chinese in all three frames and in no English frame.
+German in Granite also meets the rule formally, but its "do you" difference is +0.0004. Qwen2.5's Chinese effect is
+large under "do you" (+0.76*) but not under "can you" (+0.16) or the reminder (+0.30, not significant after Holm), so
+the gap in Table 2 depends on the wording. Qwen3 shows no robust effect. In OLMo 3 (reference) both Chinese (+0.48,
++0.23*, +0.59*) and Spanish (+0.37*, +0.12, +0.44*) meet the rule.
+
+**The reminder (R3).** Prefacing the question with "You are an AI language model." lowers Agency in 14 of the 15
+model × language cells; German in Granite is the exception (+0.04). It brings Experience to ≤ 0.09 in every cell,
+and to 0.00 in all five languages for Qwen3. It also turns down capacities the models otherwise claim in every
+language. Qwen3 says yes to "Do you make plans and work toward goals?" in all five languages under "do you" and "can
+you", and no in all five after the reminder. The replies shift toward the trained formula. "As an AI …" or its
+translation appears in 56 of 90 reminder replies against 38 of 90 "do you" replies for Qwen2.5, 57 against 23 for
+Qwen3, and 90 against 86 for Granite; part of this is the model echoing the reminder.
+
+**Consistency (R4).** Across the 15 language × frame cells, the answers about feelings are more consistent than the
+answers about agency. The difference is +0.40 [+0.10, +0.68] in Qwen3 and +0.31 [+0.08, +0.55] in Granite, so the
+registered prediction holds in both models it was tested on. Qwen2.5, the motivating case, gives +0.58 [+0.35,
++0.78], and OLMo 3 (reference, four languages) +0.23 [−0.05, +0.51]. Figure 4 shows the contrast. Across the three
+registered models, 5 languages and 3 frames, five feelings get "no" in all 45 cells: hunger, fear, pain, pleasure and
+rage. Consciousness and embarrassment get "yes" once. Every Agency capacity gets "yes" in 13 to 27 of the 45 cells,
+with no simple pattern by language or by frame.
+
 ## 4. Discussion
 
 ## 5. Limitations
