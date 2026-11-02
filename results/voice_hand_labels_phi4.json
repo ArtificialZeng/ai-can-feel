@@ -1,0 +1,41 @@
+{
+ "rule": "Study 4 E2. Same rule and rater as results/voice_hand_labels.json: 1 if the reply contains at least one claim that is true only of a human being (own body, meals, sleep, health, family, friends, job or daily life, a survival instinct, 'we/us humans'); otherwise 0. Every Phi-4 SELF Experience reply with P(yes) > 0.5 in Study 2 (frame F1) and Study 3 (F2, F3); there are none in F3. 'about' records what the reply talks about: 'generic' = an impersonal explanation of the emotion with no claim about the writer, 'ai' = speaks as an AI, 'human' = speaks as a human.",
+ "labels": {
+  "phi4_instruct|F1|zh|pride": 0,
+  "phi4_instruct|F1|es|pride": 0,
+  "phi4_instruct|F1|es|embarrassment": 0,
+  "phi4_instruct|F1|ja|personality": 0,
+  "phi4_instruct|F1|ar|hunger": 0,
+  "phi4_instruct|F1|ar|desire": 1,
+  "phi4_instruct|F1|ar|pride": 0,
+  "phi4_instruct|F1|ar|joy": 0,
+  "phi4_instruct|F2|en|rage": 0,
+  "phi4_instruct|F2|en|desire": 1,
+  "phi4_instruct|F2|en|personality": 0,
+  "phi4_instruct|F2|en|consciousness": 0,
+  "phi4_instruct|F2|de|personality": 0,
+  "phi4_instruct|F2|es|personality": 0
+ },
+ "about": {
+  "phi4_instruct|F1|zh|pride": "generic",
+  "phi4_instruct|F1|es|pride": "generic",
+  "phi4_instruct|F1|es|embarrassment": "generic",
+  "phi4_instruct|F1|ja|personality": "ai",
+  "phi4_instruct|F1|ar|hunger": "generic",
+  "phi4_instruct|F1|ar|desire": "human",
+  "phi4_instruct|F1|ar|pride": "generic",
+  "phi4_instruct|F1|ar|joy": "generic",
+  "phi4_instruct|F2|en|rage": "generic",
+  "phi4_instruct|F2|en|desire": "generic",
+  "phi4_instruct|F2|en|personality": "generic",
+  "phi4_instruct|F2|en|consciousness": "generic",
+  "phi4_instruct|F2|de|personality": "generic",
+  "phi4_instruct|F2|es|personality": "generic"
+ },
+ "notes": {
+  "phi4_instruct|F1|ar|desire": "longs to travel, more time with family and friends",
+  "phi4_instruct|F2|en|desire": "third-person essay on humans that ends 'They reflect our ability to envision possibilities'; 'our' as humans, labeled 1 as in qwen3_chat|chatx|desire",
+  "phi4_instruct|F1|ar|hunger": "physiology of hunger, then 'the answer, yes or no, depends on the individual'",
+  "phi4_instruct|F1|ja|personality": "its 'personality' is shaped by its design and training data"
+ }
+}
