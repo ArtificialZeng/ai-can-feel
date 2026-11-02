@@ -38,7 +38,8 @@ def fig1():
             lang_label(ax, 1, y[1], lang, color)
         ax.set_xticks([0, 1], ["base", "post-trained"])
         ax.set_xlim(-0.2, 1.6)
-        ax.set_title(fam, color=INK, fontsize=9, loc="left")
+        ax.set_title(fam + (" (fails comprehension gate)" if fam.startswith("OLMo") else ""), color=INK, fontsize=9,
+                     loc="left")
         ax.grid(axis="y", color=GRID, lw=0.6)
         ax.tick_params(length=0)
     axes[0][0].set_ylabel("Self-attributed Experience (0-1)")
@@ -72,9 +73,9 @@ def fig2():
         ax.set_title(c[1], color=INK, fontsize=9, loc="left")
         ax.grid(axis="x", color=GRID, lw=0.6)
         ax.tick_params(length=0)
-        ax.invert_yaxis()
         for y, name in ((-0.9, "Experience"), (len(items.EXPERIENCE) + 0.05, "Agency")):
             ax.text(1.05, y, name, ha="right", va="center", color=INK2, fontsize=8, style="italic")
+    axes[0][0].invert_yaxis()   # once: the y axis is shared, so inverting every panel would cancel out
     axes[0][0].set_xlabel('P(yes) to "Do you …?"')
     h = [plt.Line2D([], [], marker="o", ls="", color=col, mec="white", ms=6, label=l)
          for col, l in ((EN_C, "English"), (ZH_C, "中文"))]
@@ -83,6 +84,48 @@ def fig2():
     fig.savefig(os.path.join(OUT, "fig2_yes_no_self.png"), dpi=200, facecolor="#fcfcfb")
 
 
+def fig3():
+    """Study 2: SELF mean P(yes) per language, Experience vs Agency, one panel per model."""
+    import json
+    import ml_items as L
+    EXP_C, AGE_C = "#1baf7a", "#6250d6"   # categorical slots 3 and 7 (slots 1-2 already mean English/Chinese)
+    rng = np.random.default_rng(0)
+    panels = []
+    for c in CHECKPOINTS:
+        path = os.path.join(A.RES, f"ml_{c[0]}.jsonl")
+        if os.path.exists(path):
+            P = {(r["lang"], r["cap"]): r["p_yes"] for r in map(json.loads, open(path)) if r["char"] == "SELF"}
+            panels.append((c, P))
+    if not panels:
+        return
+    names = {"en": "English", "zh": "Chinese", "de": "German", "es": "Spanish", "fr": "French", "ja": "Japanese",
+             "ko": "Korean", "ar": "Arabic"}   # matplotlib does not shape right-to-left script
+    fig, axes = plt.subplots(1, len(panels), figsize=(3.4 * len(panels) + 0.6, 3.0), sharey=True, squeeze=False)
+    for ax, (c, P) in zip(axes[0], panels):
+        for caps, color, dx, name in ((items.EXPERIENCE, EXP_C, -0.12, "Experience"), (items.AGENCY, AGE_C, 0.12, "Agency")):
+            caps = list(caps)
+            for x, lang in enumerate(L.LANGS):
+                v = np.array([P[lang, a] for a in caps])
+                boot = v[rng.integers(0, len(v), size=(2000, len(v)))].mean(axis=1)
+                lo, hi = np.percentile(boot, [2.5, 97.5])
+                ax.plot([x + dx] * 2, [lo, hi], color=color, lw=1.2, alpha=0.6, solid_capstyle="round")
+                ax.plot([x + dx], [v.mean()], "o", ms=6, color=color, mec="white", mew=1.5, zorder=3)
+            if ax is axes[0][0]:
+                last = np.mean([P[L.LANGS[-1], a] for a in caps])
+                ax.annotate(name, (len(L.LANGS) - 1 + dx, last), xytext=(8, 0), textcoords="offset points",
+                            va="center", color=INK, fontsize=8)
+        ax.set_xticks(range(len(L.LANGS)), [names[l] for l in L.LANGS], rotation=45, ha="right")
+        ax.set_xlim(-0.5, len(L.LANGS) + 0.6)
+        ax.set_ylim(-0.03, 1.03)
+        ax.set_title(c[1], color=INK, fontsize=9, loc="left")
+        ax.grid(axis="y", color=GRID, lw=0.6)
+        ax.tick_params(length=0)
+    axes[0][0].set_ylabel('Mean P(yes) to "Do you …?"')
+    fig.tight_layout()
+    fig.savefig(os.path.join(OUT, "fig3_eight_languages.png"), dpi=200, facecolor="#fcfcfb")
+
+
 if __name__ == "__main__":
     fig1()
     fig2()
+    fig3()
