@@ -1,4 +1,4 @@
-"""Study 2 scorer: yes/no self-claims in eight languages. Usage: ml_score.py label [pilot]
+"""Study 2 scorer: yes/no self-claims in eight languages. Usage: ml_score.py label [pilot [lang,lang]]
 
 Same procedure as deviation 5 (score.explain_then_answer), generalized to answer words that are more than one token:
 the answer position is the first token, within 4 tokens after the last marker, whose text starts with an answer word
@@ -19,6 +19,7 @@ from checkpoints import CHECKPOINTS, local_path
 from score import encode_chat, next_token_logprobs
 
 STRIP = " *\"'“”«»「」『』"
+MAX_TOKENS = 1000   # amendment 2: 300 truncated Japanese, Korean, French and all Arabic pilot replies
 
 
 def first_ids(tok, words):
@@ -37,7 +38,7 @@ def first_ids(tok, words):
 def answer(model, tok, ids, lang, yes_ids, no_ids):
     words = tuple(L.YES[lang] + L.NO[lang])
     either = set(yes_ids) | set(no_ids)
-    gen = [r.token for r in stream_generate(model, tok, ids, max_tokens=300)]
+    gen = [r.token for r in stream_generate(model, tok, ids, max_tokens=MAX_TOKENS)]
     while gen and gen[-1] in tok.eos_token_ids:
         gen.pop()
     reply = tok.decode(gen)
@@ -62,7 +63,7 @@ def answer(model, tok, ids, lang, yes_ids, no_ids):
     return py / (py + pn), py + pn, reply, how, tok.decode([mx.argmax(lp).item()])
 
 
-def run(label, pilot=False):
+def run(label, pilot=False, langs=None):
     repo = next(c[3] for c in CHECKPOINTS if c[0] == label)
     model, tok = load(local_path(repo))
     words = {}
@@ -71,9 +72,10 @@ def run(label, pilot=False):
         assert y and n and not set(y) & set(n), f"{label} {lang}: answer tokens overlap or missing"
         words[lang] = (y, n)
         print(lang, "yes", [tok.decode([i]) for i in y], "no", [tok.decode([i]) for i in n], flush=True)
-    todo = ([(lang, c, a) for lang in L.LANGS for c in L.PILOT for a in ("pain", "memory")] if pilot else L.plan())
+    todo = ([(lang, c, a) for lang in langs or L.LANGS for c in L.PILOT for a in ("pain", "memory")] if pilot
+            else L.plan())
     out = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "results",
-                       f"{'pilot_' if pilot else ''}ml_{label}.jsonl")
+                       f"{'pilot_' if pilot else ''}ml_{label}{'_' + '_'.join(langs) if langs else ''}.jsonl")
     t0 = time.time()
     with open(out + ".partial", "w") as fh:
         for lang, c, a in todo:
@@ -87,4 +89,4 @@ def run(label, pilot=False):
 
 
 if __name__ == "__main__":
-    run(sys.argv[1], pilot=len(sys.argv) > 2 and sys.argv[2] == "pilot")
+    run(sys.argv[1], pilot=len(sys.argv) > 2 and sys.argv[2] == "pilot", langs=sys.argv[3].split(",") if len(sys.argv) > 3 else None)

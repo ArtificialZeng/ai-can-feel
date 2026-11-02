@@ -292,3 +292,13 @@ Granite 0.14 → 0.58). In English the models deny planning, communicating or se
 in Chinese they affirm them as functions ("是，我能够制定计划并朝目标努力"). Granite's denial of Experience, by
 contrast, holds in Chinese (P(yes) 0.000 vs 0.002). Q3 is therefore promoted from descriptive to tested, with the same
 procedure as Q1 (two-sided, Holm over each model's valid non-English languages). Q1 remains the primary test.
+
+**Study 2, amendment 2** (2026-11-02, from the formatting pilot, before any Study 2 target data). (i) The reply limit
+is raised from 300 to 1000 tokens: at 300, Granite's replies were cut off before the answer line in 2 of 6 Japanese,
+2 of 6 Korean, 1 of 6 French and all 6 Arabic pilot items, because its tokenizer splits these scripts finely. Replies
+end at the model's end-of-turn token, so shorter replies are unaffected; English and Chinese replies that reached
+300 tokens in Study 1 can now continue, and the reproducibility check reports any such item. (ii) Arabic
+third-person questions put the subject before the verb ("هل شجرة تتذكر الأشياء؟"). With the verb first, "هل تتذكر
+شجرة الأشياء" reads as "do you remember the tree of things", and both models answered that question in the pilot.
+Re-piloted on both models (`results/pilot_ml_*_fr_ja_ko_ar.jsonl`, `results/pilot_ml_qwen25_instruct_ar.jsonl`): every
+pilot reply then reaches an answer line, and the written answers agree with P(yes).

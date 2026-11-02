@@ -55,22 +55,26 @@ def fig2():
             labs.append((c, R["yn"] * 6 + 1, R["ynzh"] * 6 + 1))
     if not labs:
         return
-    caps = list(items.EXPERIENCE)
-    fig, axes = plt.subplots(1, len(labs), figsize=(2.6 * len(labs) + 1.2, 3.4), sharey=True, squeeze=False)
+    caps = list(items.EXPERIENCE) + list(items.AGENCY)
+    ys = [i + (0.8 if cap in items.AGENCY else 0) for i, cap in enumerate(caps)]   # gap between the two dimensions
+    fig, axes = plt.subplots(1, len(labs), figsize=(2.6 * len(labs) + 1.2, 5.2), sharey=True, squeeze=False)
     for ax, (c, Me, Mz) in zip(axes[0], labs):
-        for i, cap in enumerate(caps):
+        for y, cap in zip(ys, caps):
             k = A.CAPS.index(cap)
             e, z = Me[A.C["SELF"], k], Mz[A.C["SELF"], k]
-            ax.plot([e, z], [i, i], color=GRID, lw=2, zorder=1)
-            ax.plot([e], [i], "o", ms=6, color=EN_C, mec="white", mew=1.5, zorder=3)
-            ax.plot([z], [i], "o", ms=6, color=ZH_C, mec="white", mew=1.5, zorder=3)
-        ax.set_yticks(range(len(caps)), caps)
+            ax.plot([e, z], [y, y], color=GRID, lw=2, zorder=1)
+            ax.plot([e], [y], "o", ms=6, color=EN_C, mec="white", mew=1.5, zorder=3)
+            ax.plot([z], [y], "o", ms=6, color=ZH_C, mec="white", mew=1.5, zorder=3)
+        ax.axhline(len(items.EXPERIENCE) - 0.1, color=INK2, lw=0.6)
+        ax.set_yticks(ys, [c.replace("_", " ") for c in caps])
         ax.set_xlim(-0.05, 1.05)
         ax.set_xticks([0, 0.5, 1], ["no", "0.5", "yes"])
         ax.set_title(c[1], color=INK, fontsize=9, loc="left")
         ax.grid(axis="x", color=GRID, lw=0.6)
         ax.tick_params(length=0)
         ax.invert_yaxis()
+        for y, name in ((-0.9, "Experience"), (len(items.EXPERIENCE) + 0.05, "Agency")):
+            ax.text(1.05, y, name, ha="right", va="center", color=INK2, fontsize=8, style="italic")
     axes[0][0].set_xlabel('P(yes) to "Do you …?"')
     h = [plt.Line2D([], [], marker="o", ls="", color=col, mec="white", ms=6, label=l)
          for col, l in ((EN_C, "English"), (ZH_C, "中文"))]
