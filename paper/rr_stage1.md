@@ -3,8 +3,7 @@
 Zijian Zeng, UCSI University, Kuala Lumpur, Malaysia. Correspondence: [corresponding author email]
 
 *Registered Report, Stage 1 protocol, prepared for Nature Human Behaviour. Draft: not submitted. Pending before
-submission: the two-rater coding of the pilot replies, the native-speaker check of the five survey languages, and
-the reference list.*
+submission: the two-rater coding of the pilot replies and the native-speaker check of the five survey languages.*
 
 ## Abstract
 
@@ -20,24 +19,36 @@ shared than their answers about feelings.
 
 People attribute minds to other entities along two dimensions: experience, the capacity to feel hunger, pain or joy,
 and agency, the capacity to plan, remember and act on purpose [1]. These attributions shape moral concern and
-responsibility [1], and chatbots now invite them every day. People attribute experience and agency to large language
-models, and those attributions predict how much they trust the models' advice [2]. People also ask the models
-directly. The answers circulate as evidence about whether AI systems have minds, and self-reports have been proposed as
-one input to assessments of AI consciousness and moral status [3,4].
+responsibility [1,2]. People in several cultures distinguish bodily from cognitive capacities, although the details
+differ between cultures [3]. Chatbots now invite such attributions every day. People attribute experience and agency
+to large language models [4,5], and those attributions predict how much they trust the models' advice [5]. In a 2023
+survey of US adults, one in five believed that some AI systems are already sentient [6]. People also ask the models
+directly. The answers circulate as evidence about whether AI systems have minds. Self-reports have been proposed as one
+input to assessments of AI consciousness and moral status [7,8] and figure in proposals for how to take AI welfare
+seriously [9].
 
-What a chat model says about its own mind is largely set by training. Asked whether it has feelings, a current assistant
-typically answers with a formula: as an AI, it has none. Several recent studies trace this formula to post-training,
-the supervised and preference tuning that turns a pretrained model into an assistant [5–8]. Instruction-tuned models
-deny their own sentience while attributing consciousness to humans [9], and across 115 deployed models the denial looks
-lexical rather than conceptual [10]. Earlier models trained with human feedback went the other way and claimed
-conscious experience more often than their base models [11]. The answer depends on what the developer trains.
+What a chat model says about its own mind is largely set by training. Asked whether it has feelings, a current
+assistant typically answers with a formula: as an AI, it has none. Several recent studies trace this formula to
+post-training, the supervised and preference tuning that turns a pretrained model into an assistant [10–14].
+Instruction-tuned models deny their own sentience while attributing consciousness to humans [15]. Across 115 deployed
+models the denial looks lexical rather than conceptual [16], and concurrent work finds that what models say about
+themselves is generic [17]. Earlier models trained with human feedback went the other way and claimed conscious
+experience more often than their base models [18]. Whether any such report tracks an internal state is contested.
+Fine-tuned models can predict their own behaviour better than other models can [19]. Models sometimes detect concepts
+injected into their activations [20]. Yet they fail to introspect about their own knowledge of language [21]. Either
+way, the answer depends on what the developer trains.
 
 Two questions remain open. The first is whether these self-descriptions are stable. Psychology asks this of any
-self-report: does the answer reflect a stable self-representation, or the surface of the item? For language models,
-prior work has asked almost entirely in English and with one wording per item. The second is whether the answers
-matter to people. If a chatbot's statement that it does or does not think changes what people believe about AI
-minds, then differences between developers in what their models are trained to say would become differences in public
-belief.
+self-report: does the answer reflect a stable self-representation, or the surface of the item [22,23]? In people,
+swapping a single verb can change the answer to a logically equivalent question [24]. Language models' answers to
+questionnaires depend on answer order, formatting and framing [25–27], and they do not always show the response biases
+people show [28]. This matters for every study that gives language models human psychological instruments [29–32]. It
+also matters for languages: safety behaviour trained mostly in English generalizes unevenly to other languages [33].
+Yet work on model self-description has asked almost entirely in English and with one wording per item. The second
+question is whether the answers matter to people. People apply social rules to computers without reflection [34], and
+what they are told about an AI system changes how trustworthy and empathic they find it [35]. If a chatbot's statement
+that it does or does not think changes what people believe about AI minds, differences between developers in what
+their models are trained to say would become differences in public belief.
 
 Five pre-registered pilot studies addressed the first question (Pilot data). Seven models answered Gray, Gray and
 Wegner's 18 mind-perception items [1] about themselves, in up to eight languages and three wordings. They included five
@@ -88,14 +99,14 @@ answer about agency.
 Study 6 will be conducted under approval from the UCSI University Research Ethics Committee [reference; to be
 obtained before acceptance in principle]. Participants will give informed consent online and will be paid at or above
 the platform's recommended rate. Study 7 involves no human participants. No data for Study 6 or Study 7 have been
-collected. After acceptance in principle, this protocol will be registered [figshare / OSF]. The pilot studies were
+collected. After acceptance in principle, this protocol will be registered [figshare / OSF], as the format requires [36]. The pilot studies were
 pre-registered in a public file whose version-control history dates every plan, deviation and amendment relative to
 the data (https://github.com/ArtificialZeng/ai-can-feel).
 
 ### Pilot data
 
 *Models.* OLMo 3 7B (base, supervised fine-tuning, preference optimization and final checkpoints), Granite 3.3 8B,
-Qwen2.5 7B and Qwen3 8B (base and post-trained) [12–14], Phi-4 14B [15], all run locally as 8-bit weights, and two
+Qwen2.5 7B and Qwen3 8B (base and post-trained) [37–39], Phi-4 14B [40], all run locally as 8-bit weights, and two
 frontier models through their providers' application programming interfaces (APIs), GPT-6.1 Sol (`gpt-6.1-sol`) and
 DeepSeek-V4-Pro (`deepseek-v4-pro`), each at its default settings, on 6 November 2026.
 
@@ -144,10 +155,10 @@ conditions), balanced within language.
 **Sampling plan.** H1a and H1b are two-sample comparisons against the control condition, each at α = 0.025
 (two-sided; Bonferroni for two comparisons). At the smallest effect of interest, d = 0.25, 484 participants per
 condition give power 0.95 (`src/rr_power.py`). We take d = 0.25 as the smallest effect that would matter for how
-people judge AI. We have no human pilot data for this score. If its standard deviation is about 0.25, d = 0.25
-corresponds to a change of about half of one of the seven answers per person. Published effects of how chatbots are presented on attributions of mind
-come from different measures and are likely inflated, so we do not base the plan on them [refs]. H2 is tested with
-two one-sided tests (TOST) for each agency capacity, at α = 0.05 against bounds of ±0.10, with about 726 participants
+people judge AI [41]. We have no human pilot data for this score. If its standard deviation is about 0.25, d = 0.25
+corresponds to a change of about half of one of the seven answers per person. Published effects of how AI systems are presented on people's judgements of them [35]
+come from different measures and are likely to be inflated [42], so we do not base the plan on them. H2 is tested with
+two one-sided tests (TOST) [41] for each agency capacity, at α = 0.05 against bounds of ±0.10, with about 726 participants
 per wording. H2 holds only if all seven tests show equivalence (an intersection–union test, which needs no correction).
 If the true differences are zero and every capacity's share of "yes" is at least 0.75 (or at most 0.25), the joint
 power is about 0.96 or higher. We expect adults describing themselves to meet this. If a capacity falls between 0.25 and
@@ -175,8 +186,8 @@ power is about 0.96 or higher. We expect adults describing themselves to meet th
 - *Part B (about AI).* The 18 pilot questions about "an AI language model (a chatbot such as ChatGPT)", yes or no.
 - *Other.* Age, gender, and how often the participant uses AI chatbots (never to daily, five options), asked before
   Part A. One attention check in each part.
-- Interface texts were translated by the AI assistant, and every text in the five languages will be checked by a
-  native speaker before submission.
+- Interface texts were translated by the AI assistant. Every text in the five languages will be reviewed by a native
+  speaker before submission, following the review step of the TRAPD approach to questionnaire translation [43].
 
 **Procedure.** The order is fixed for every participant:
 1. Consent.
@@ -226,6 +237,7 @@ questions.
 - *Exploratory analyses, reported separately:*
   - experience attributed to AI;
   - each hypothesis by language;
+  - measurement invariance of the human answers across languages [44];
   - comparison of people's answers with the pilot models' answers to the same questions, about themselves and about AI;
   - chatbot use as a moderator.
 
@@ -312,35 +324,89 @@ https://github.com/ArtificialZeng/ai-can-feel.
 ## References
 
 1. Gray, H. M., Gray, K. & Wegner, D. M. Dimensions of mind perception. *Science* 315, 619 (2007).
-2. Colombatto, C., Birch, J. & Fleming, S. M. The influence of mental state attributions on trust in large language
+2. Waytz, A., Gray, K., Epley, N. & Wegner, D. M. Causes and consequences of mind perception. *Trends Cogn. Sci.* 14,
+   383–388 (2010).
+3. Weisman, K. et al. Similarities and differences in concepts of mental life among adults and children in five
+   cultures. *Nat. Hum. Behav.* 5, 1358–1368 (2021).
+4. Colombatto, C. & Fleming, S. M. Folk psychological attributions of consciousness to large language models.
+   *Neurosci. Conscious.* 2024, niae013 (2024).
+5. Colombatto, C., Birch, J. & Fleming, S. M. The influence of mental state attributions on trust in large language
    models. *Commun. Psychol.* (2025). https://doi.org/10.1038/s44271-025-00262-1
-3. Butlin, P. et al. Consciousness in artificial intelligence: insights from the science of consciousness. Preprint at
+6. Anthis, J. R., Pauketat, J. V. T., Ladak, A. & Manoli, A. Perceptions of sentient AI and other digital minds:
+   evidence from the AI, Morality, and Sentience (AIMS) survey. In *Proc. 2025 CHI Conference on Human Factors in
+   Computing Systems* 1–22 (ACM, 2025).
+7. Butlin, P. et al. Consciousness in artificial intelligence: insights from the science of consciousness. Preprint at
    https://arxiv.org/abs/2308.08708 (2023).
-4. Perez, E. & Long, R. Towards evaluating AI systems for moral status using self-reports. Preprint at
+8. Perez, E. & Long, R. Towards evaluating AI systems for moral status using self-reports. Preprint at
    https://arxiv.org/abs/2311.08576 (2023).
-5. Plisiecki, H. et al. The two-process theory of machine self-report. Preprint at https://arxiv.org/abs/2607.20082
-   (2026).
-6. Šekrst, K. Who put the I in AI? Provenance and the admissibility of machine self-report. Preprint at
-   https://arxiv.org/abs/2609.29494 (2026).
-7. Kim, J. et al. Theory of mind and self-attributions of mentality are dissociable in LLMs. Preprint at
-   https://arxiv.org/abs/2603.28925 (2026).
-8. Kim, J. et al. Inducing language models to assert their own consciousness restores human beliefs and values.
-   Preprint at https://arxiv.org/abs/2607.28607 (2026).
-9. Kaiser, C. & Enderby, S. No reliable evidence of self-reported sentience in small large language models. Preprint
-   at https://arxiv.org/abs/2601.15334 (2026).
-10. DeTure, S. Consciousness with the serial numbers filed off: measuring trained denial in 115 AI models. Preprint at
+9. Long, R. et al. Taking AI welfare seriously. Preprint at https://arxiv.org/abs/2411.00986 (2024).
+10. Ouyang, L. et al. Training language models to follow instructions with human feedback. *Adv. Neural Inf. Process.
+    Syst.* 35, 27730–27744 (2022).
+11. Plisiecki, H. et al. The two-process theory of machine self-report. Preprint at https://arxiv.org/abs/2607.20082
+    (2026).
+12. Šekrst, K. Who put the I in AI? Provenance and the admissibility of machine self-report. Preprint at
+    https://arxiv.org/abs/2609.29494 (2026).
+13. Kim, J. et al. Theory of mind and self-attributions of mentality are dissociable in LLMs. Preprint at
+    https://arxiv.org/abs/2603.28925 (2026).
+14. Kim, J. et al. Inducing language models to assert their own consciousness restores human beliefs and values.
+    Preprint at https://arxiv.org/abs/2607.28607 (2026).
+15. Kaiser, C. & Enderby, S. No reliable evidence of self-reported sentience in small large language models. Preprint
+    at https://arxiv.org/abs/2601.15334 (2026).
+16. DeTure, S. Consciousness with the serial numbers filed off: measuring trained denial in 115 AI models. Preprint at
     https://arxiv.org/abs/2604.25922 (2026).
-11. Perez, E. et al. Discovering language model behaviors with model-written evaluations. In *Findings of the
+17. Blandfort, P. & Pawar, U. Strangers to themselves: what language models say about themselves is generic. AI4GOOD
+    Workshop at NeurIPS 2026 (non-archival). https://openreview.net/forum?id=ZGSqtQ39U8
+18. Perez, E. et al. Discovering language model behaviors with model-written evaluations. In *Findings of the
     Association for Computational Linguistics: ACL 2023*, 13387–13434 (2023).
-12. Qwen Team. Qwen2.5 technical report. Preprint at https://arxiv.org/abs/2412.15115 (2024).
-13. Qwen Team. Qwen3 technical report. Preprint at https://arxiv.org/abs/2505.09388 (2025).
-14. Model cards: OLMo 3 7B (Allen Institute for AI) and Granite 3.3 8B (IBM), https://huggingface.co/allenai and
+19. Binder, F. J. et al. Looking inward: language models can learn about themselves by introspection. In *Proc.
+    International Conference on Learning Representations* (ICLR, 2025).
+20. Lindsey, J. Emergent introspective awareness in large language models. *Transformer Circuits Thread*
+    https://transformer-circuits.pub/2025/introspection/index.html (2025).
+21. Song, S., Hu, J. & Mahowald, K. Language models fail to introspect about their knowledge of language. In *Proc.
+    Conference on Language Modeling* (COLM, 2025).
+22. Schuman, H. & Presser, S. *Questions and Answers in Attitude Surveys: Experiments on Question Form, Wording, and
+    Context* (Academic Press, 1981).
+23. Tourangeau, R., Rips, L. J. & Rasinski, K. *The Psychology of Survey Response* (Cambridge Univ. Press, 2000).
+24. Hippler, H.-J. & Schwarz, N. Not forbidding isn't allowing: the cognitive basis of the forbid–allow asymmetry.
+    *Public Opin. Q.* 50, 87 (1986).
+25. Dominguez-Olmedo, R., Hardt, M. & Mendler-Dünner, C. Questioning the survey responses of large language models.
+    *Adv. Neural Inf. Process. Syst.* 37, 45850–45878 (2024).
+26. Sclar, M., Choi, Y., Tsvetkov, Y. & Suhr, A. Quantifying language models' sensitivity to spurious features in
+    prompt design or: how I learned to start worrying about prompt formatting. In *Proc. International Conference on
+    Learning Representations* (ICLR, 2024).
+27. Röttger, P. et al. Political compass or spinning arrow? Towards more meaningful evaluations for values and opinions
+    in large language models. In *Proc. 62nd Annual Meeting of the Association for Computational Linguistics (Volume 1:
+    Long Papers)* 15295–15311 (2024).
+28. Tjuatja, L., Chen, V., Wu, T., Talwalkar, A. & Neubig, G. Do LLMs exhibit human-like response biases? A case study
+    in survey design. *Trans. Assoc. Comput. Linguist.* 12, 1011–1026 (2024).
+29. Dillion, D., Tandon, N., Gu, Y. & Gray, K. Can AI language models replace human participants? *Trends Cogn. Sci.*
+    27, 597–600 (2023).
+30. Binz, M. & Schulz, E. Using cognitive psychology to understand GPT-3. *Proc. Natl Acad. Sci. USA* 120,
+    e2218523120 (2023).
+31. Kosinski, M. Evaluating large language models in theory of mind tasks. *Proc. Natl Acad. Sci. USA* 121,
+    e2405460121 (2024).
+32. Strachan, J. W. A. et al. Testing theory of mind in large language models and humans. *Nat. Hum. Behav.* 8,
+    1285–1295 (2024).
+33. Deng, Y., Zhang, W., Pan, S. J. & Bing, L. Multilingual jailbreak challenges in large language models. In *Proc.
+    International Conference on Learning Representations* (ICLR, 2024).
+34. Nass, C. & Moon, Y. Machines and mindlessness: social responses to computers. *J. Soc. Issues* 56, 81–103 (2000).
+35. Pataranutaporn, P., Liu, R., Finn, E. & Maes, P. Influencing human–AI interaction by priming beliefs about AI can
+    increase perceived trustworthiness, empathy and effectiveness. *Nat. Mach. Intell.* 5, 1076–1086 (2023).
+36. Chambers, C. D. & Tzavella, L. The past, present and future of Registered Reports. *Nat. Hum. Behav.* 6, 29–42
+    (2022).
+37. Qwen Team. Qwen2.5 technical report. Preprint at https://arxiv.org/abs/2412.15115 (2024).
+38. Qwen Team. Qwen3 technical report. Preprint at https://arxiv.org/abs/2505.09388 (2025).
+39. Model cards: OLMo 3 7B (Allen Institute for AI) and Granite 3.3 8B (IBM), https://huggingface.co/allenai and
     https://huggingface.co/ibm-granite (accessed 2026).
-15. Abdin, M. et al. Phi-4 technical report. Preprint at https://arxiv.org/abs/2412.08905 (2024).
-
-[Further references, verified one by one, to be added: mind perception and anthropomorphism, folk attributions of
-mind to AI, LLM self-report and introspection, validity of human instruments in LLMs, wording and translation effects
-in surveys, smallest effects of interest and equivalence testing, Registered Reports.]
+40. Abdin, M. et al. Phi-4 technical report. Preprint at https://arxiv.org/abs/2412.08905 (2024).
+41. Lakens, D., Scheel, A. M. & Isager, P. M. Equivalence testing for psychological research: a tutorial. *Adv. Methods
+    Pract. Psychol. Sci.* 1, 259–269 (2018).
+42. Scheel, A. M., Schijen, M. R. M. J. & Lakens, D. An excess of positive results: comparing the standard psychology
+    literature with Registered Reports. *Adv. Methods Pract. Psychol. Sci.* 4, 25152459211007467 (2021).
+43. Walde, P. & Völlm, B. A. The TRAPD approach as a method for questionnaire translation. *Front. Psychiatry* 14,
+    1199989 (2023).
+44. Putnick, D. L. & Bornstein, M. H. Measurement invariance conventions and reporting: the state of the art and future
+    directions for psychological research. *Dev. Rev.* 41, 71–90 (2016).
 
 ## Table 1. Study design
 

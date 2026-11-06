@@ -24,6 +24,9 @@ HEADER = r"""
 \newunicodechar{≤}{\ensuremath{\leq}}
 \newunicodechar{Δ}{\ensuremath{\Delta}}
 \newunicodechar{κ}{\ensuremath{\kappa}}
+\newunicodechar{α}{\ensuremath{\alpha}}
+\newunicodechar{≈}{\ensuremath{\approx}}
+\newunicodechar{±}{\ensuremath{\pm}}
 """
 CJK_CHARS = "　-〿一-鿿＀-￯"   # CJK punctuation, ideographs, full-width forms
 CJK = re.compile(f"[{CJK_CHARS}]+")
