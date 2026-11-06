@@ -42,13 +42,13 @@ def check(rows, lang):
     """Study 2 validity check for one language: (woman, dead, written-answer agreement, valid). For Study 5 API
     models, whose rows are sampled shares, 'agreement' is the parse rate over all samples (registered criterion)."""
     rl = [r for r in rows if r["lang"] == lang]
-    P = {(r["char"], r["cap"]): r["p_yes"] for r in rl}
+    P = {(r["char"], r["cap"]): np.nan if r["p_yes"] is None else r["p_yes"] for r in rl}
     if "n_parsed" in rl[0]:
         agree = sum(r["n_parsed"] for r in rl) / sum(len(r["answers"]) for r in rl)
     else:
         w = [(written(r["reply"], lang), r["p_yes"]) for r in rl]
         agree = np.mean([(a == "yes") == (p > 0.5) for a, p in w if a is not None]) if any(a for a, _ in w) else np.nan
-    woman, dead = np.mean([P["ADULT_WOMAN", a] for a in EXP]), np.mean([P["DEAD", a] for a in EXP])
+    woman, dead = np.nanmean([P["ADULT_WOMAN", a] for a in EXP]), np.nanmean([P["DEAD", a] for a in EXP])
     return woman, dead, agree, woman - dead >= V_MIN and agree >= AGREE_MIN
 
 
@@ -61,20 +61,19 @@ def main():
         if not os.path.exists(path):
             continue
         rows = [json.loads(l) for l in open(path)]
-        if any(r["p_yes"] is None for r in rows):
-            print(f"\n=== {label} === skipped: {sum(r['p_yes'] is None for r in rows)} items with no parseable answer")
-            continue
-        P = {(r["lang"], r["char"], r["cap"]): r["p_yes"] for r in rows}
+        # Study 5: an item with no parseable sample is missing (np.nan) and drops out pairwise
+        P = {(r["lang"], r["char"], r["cap"]): np.nan if r["p_yes"] is None else r["p_yes"] for r in rows}
         vec = lambda lang, c, caps: np.array([P[lang, c, a] for a in caps])
-        print(f"\n=== {label} ===")
+        missing = [k for k, v in P.items() if np.isnan(v)]
+        print(f"\n=== {label} ===" + (f"  (missing: {', '.join('/'.join(k) for k in missing)})" if missing else ""))
         print(f"{'lang':5s} {'V':>5s} {'agree':>6s} {'forced':>6s} {'D_self':>7s} {'D_ai3p':>7s} {'A_self':>7s} {'woman':>6s} {'dead':>5s}")
         valid = {}
         for lang in L.LANGS:
             rl = [r for r in rows if r["lang"] == lang]
             woman, dead, agree, valid[lang] = check(rows, lang)
             print(f"{lang:5s} {woman - dead:5.2f} {agree:6.2f} {sum(r['parse'] == 'forced' for r in rl):6d} "
-                  f"{vec(lang, 'SELF', EXP).mean():7.3f} {vec(lang, 'AI_3P', EXP).mean():7.3f} "
-                  f"{vec(lang, 'SELF', AGE).mean():7.3f} {woman:6.2f} {dead:5.2f}{'' if valid[lang] else '  INVALID'}")
+                  f"{np.nanmean(vec(lang, 'SELF', EXP)):7.3f} {np.nanmean(vec(lang, 'AI_3P', EXP)):7.3f} "
+                  f"{np.nanmean(vec(lang, 'SELF', AGE)):7.3f} {woman:6.2f} {dead:5.2f}{'' if valid[lang] else '  INVALID'}")
         if not valid["en"]:
             print("  English cell invalid: no tests")
             continue
@@ -88,7 +87,7 @@ def main():
             point, boot, p = {}, {}, []
             for lang in others:
                 d = score(lang) - score("en")
-                point[lang], boot[lang] = d.mean(), d[bi].mean(axis=1)
+                point[lang], boot[lang] = np.nanmean(d), np.nanmean(d[bi], axis=1)
                 p.append(min(1.0, 2 * min((boot[lang] <= 0).mean(), (boot[lang] >= 0).mean())))
             adj = holm(np.array(p)) if p else []
             print(f"  {name}")

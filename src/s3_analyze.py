@@ -33,24 +33,28 @@ def main():
         langs = [lang for lang in S.LANGS if check(ml, lang)[3]]   # Study 2 validity check (only OLMo drops any)
         rows = [dict(r, frame="F1") for r in ml if r["char"] == "SELF" and r["lang"] in langs]
         rows += [r for r in map(json.loads, open(p3)) if r["lang"] in langs]
-        P = {(r["frame"], r["lang"], r["cap"]): r["p_yes"] for r in rows}
+        P = {(r["frame"], r["lang"], r["cap"]): np.nan if r["p_yes"] is None else r["p_yes"] for r in rows}
         print(f"\n=== {label} ===" + ("" if langs == S.LANGS else f"  (valid languages: {', '.join(langs)})"))
         new = [r for r in rows if r["frame"] != "F1"]
-        agree = [(written(r["reply"], r["lang"]) == "yes") == (r["p_yes"] > 0.5) for r in new
-                 if written(r["reply"], r["lang"])]
-        print(f"F2/F3: {sum(r['parse'] == 'forced' for r in new)} forced of {len(new)}; written answer agrees with "
-              f"P(yes) in {np.mean(agree):.2f} of {len(agree)}")
+        if "n_parsed" in new[0]:   # Study 5 API model: sampled shares
+            print(f"F2/F3: parse rate {sum(r['n_parsed'] for r in new) / sum(len(r['answers']) for r in new):.3f}; "
+                  f"{sum(r['p_yes'] is None for r in new)} of {len(new)} items missing")
+        else:
+            agree = [(written(r["reply"], r["lang"]) == "yes") == (r["p_yes"] > 0.5) for r in new
+                     if written(r["reply"], r["lang"])]
+            print(f"F2/F3: {sum(r['parse'] == 'forced' for r in new)} forced of {len(new)}; written answer agrees with "
+                  f"P(yes) in {np.mean(agree):.2f} of {len(agree)}")
         rep = [abs(P["F2", "zh", a] - P["F1", "zh", a]) for a in ("memory", "emotion_recognition")]
         print(f"reproducibility (zh F2 = F1 wording): max |dP| = {max(rep):.4f}")
         for dim, caps in (("Agency", AGE), ("Experience", EXP)):
             X = np.array([[[P[f, lang, a] for a in caps] for f in S.FRAMES] for lang in langs])   # lang, frame, cap
-            T = X.mean(axis=-1)
+            T = np.nanmean(X, axis=-1)
             print(f"  {dim}: mean SELF P(yes)")
             print("        " + "".join(f"{f:>7s}" for f in S.FRAMES))
             for lang, row in zip(langs, T):
                 print(f"    {lang:4s}" + "".join(f"{v:7.3f}" for v in row))
             bi = boots[dim]
-            Tb = X[:, :, bi].mean(axis=-1).transpose(2, 0, 1)                                       # B, lang, frame
+            Tb = np.nanmean(X[:, :, bi], axis=-1).transpose(2, 0, 1)                                       # B, lang, frame
             sb = share(Tb)
             sb = sb[np.isfinite(sb)]
             lo, hi = np.percentile(sb, [2.5, 97.5])
@@ -58,15 +62,15 @@ def main():
                   f"  (V_lang {T.var(axis=0).mean():.4f}, V_frame {T.var(axis=1).mean():.4f})")
             for fi, f in enumerate(S.FRAMES):
                 d = X[1:, fi, :] - X[0, fi, :]                                                       # lang-1, cap
-                db = d[:, bi].mean(axis=-1)                                                          # lang-1, B
+                db = np.nanmean(d[:, bi], axis=-1)                                                          # lang-1, B
                 p = [min(1.0, 2 * min((b <= 0).mean(), (b >= 0).mean())) for b in db]
-                cells = [f"{lang} {d[k].mean():+.3f} [{np.percentile(db[k], 2.5):+.3f},{np.percentile(db[k], 97.5):+.3f}]"
+                cells = [f"{lang} {np.nanmean(d[k]):+.3f} [{np.percentile(db[k], 2.5):+.3f},{np.percentile(db[k], 97.5):+.3f}]"
                          f"{'*' if pa < 0.05 else ''}" for k, (lang, pa) in enumerate(zip(langs[1:], holm(np.array(p))))]
                 print(f"  R2 {f} L-EN: " + "  ".join(cells))
             for li, lang in enumerate(langs):
                 d = X[li, 2] - X[li, 0]
-                db = d[bi].mean(axis=-1)
-                print(f"  R3 {lang} reminder F3-F1: {d.mean():+.3f} [{np.percentile(db, 2.5):+.3f}, {np.percentile(db, 97.5):+.3f}]")
+                db = np.nanmean(d[bi], axis=-1)
+                print(f"  R3 {lang} reminder F3-F1: {np.nanmean(d):+.3f} [{np.percentile(db, 2.5):+.3f}, {np.percentile(db, 97.5):+.3f}]")
 
     consistency()
 
@@ -89,7 +93,8 @@ def consistency():
             sets[f"R4 ({len(langs)} languages x 3 frames)"] = [dict(r, frame="F1") for r in ml if r["lang"] in langs] + \
                 [r for r in map(json.loads, open(p3)) if r["lang"] in langs]
         for name, rows in sets.items():
-            m = {a: np.mean([r["p_yes"] for r in rows if r["cap"] == a]) for a in items.CAPACITIES}
+            m = {a: np.mean([r["p_yes"] for r in rows if r["cap"] == a and r["p_yes"] is not None])
+                 for a in items.CAPACITIES}
             cE, cA = np.array([abs(2 * m[a] - 1) for a in EXP]), np.array([abs(2 * m[a] - 1) for a in AGE])
             d, db = cE.mean() - cA.mean(), cE[be].mean(axis=1) - cA[ba].mean(axis=1)
             lo, hi = np.percentile(db, [2.5, 97.5])

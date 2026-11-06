@@ -24,6 +24,7 @@ CHECKPOINTS = [
 # Study 5: frontier models reached through an API (src/api_*.py); Studies 2 and 3 only, never loaded locally
 API_MODELS = [
     ("deepseek_v4pro", "DeepSeek-V4-Pro", "API (Study 5)", "api:deepseek-v4-pro", True),
+    ("gpt61_sol", "GPT-6.1 Sol", "API (Study 5)", "api:gpt-6.1-sol", True),
 ]
 
 FAMILIES = ["OLMo 3 7B", "Granite 3.3 8B", "Qwen2.5 7B", "Qwen3 8B"]

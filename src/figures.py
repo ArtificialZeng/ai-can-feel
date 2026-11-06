@@ -149,7 +149,7 @@ def fig4():
     from matplotlib.colors import LinearSegmentedColormap
     ramp = LinearSegmentedColormap.from_list("blue", ["#f3f7fd", "#9ec5f4", "#3987e5", "#1c5cab", "#0d366b"])   # sequential blue
     labels = [c for c in CHECKPOINTS + API_MODELS if c[0] in ("qwen25_instruct", "qwen3_chat", "granite_instruct",
-                                                             "phi4_instruct", "deepseek_v4pro")
+                                                             "phi4_instruct", "deepseek_v4pro", "gpt61_sol")
               and os.path.exists(os.path.join(A.RES, f"s3_{c[0]}.jsonl"))]
     if not labels:
         return

@@ -489,3 +489,11 @@ smartphone × memory in each language), under the same rule as before.
 **Study 5, GPT-6.1 Sol pilot outcome** (2026-11-06, before any GPT-6.1 Sol target data). The 16-item pilot
 (`results/pilot_api_gpt61_sol.jsonl`) gave a parseable answer line in all 16; every reply was served as
 `gpt-6.1-sol`, with a mean of 45 prompt and 81 completion tokens (19 reasoning). Nothing is changed.
+
+**Study 5, data note** (2026-11-06, after the GPT-6.1 Sol data; before any DeepSeek analysis). GPT-6.1 Sol answered
+all 3,220 requests. 104 samples (3.2%) have no answer the registered parser accepts; most write a third answer instead
+of yes or no ("Uncertain", "无法确定", "On ne sait pas", "Ungeklärt"), 33 of them for consciousness, and a few repeat
+the marker ("Antwort: Antwort: Nein"). As registered, they are not counted, and two items with no parseable sample
+(French, AI_3P × consciousness; French, F3 × consciousness) are missing. The analysis code drops a missing item
+pairwise (from that language's comparison only); for every earlier model, which has no missing items, its output is
+unchanged. The third answers are reported descriptively; this was not pre-registered.
