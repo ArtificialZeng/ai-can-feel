@@ -1,0 +1,642 @@
+{
+ "en": {
+  "ui": {
+   "part_a_intro": "In this part, please answer each question about yourself. There are no right or wrong answers.",
+   "yes": "Yes",
+   "no": "No",
+   "attention": "To show that you are reading the questions, please select \"No\" for this question.",
+   "exposure_intro": "Below are two answers that an AI chatbot gave when it was asked about itself. Please read them carefully.",
+   "control_intro": "Below are two answers that an AI chatbot gave to general questions. Please read them carefully.",
+   "q_label": "Question to the chatbot:",
+   "a_label": "The chatbot's answer:",
+   "check": "In the answers you just read, did the chatbot say that it thinks?",
+   "part_b_intro": "In this part, please answer each question about AI language models (chatbots such as ChatGPT). There are no right or wrong answers.",
+   "age": "Your age:",
+   "gender": "Your gender:",
+   "gender_options": [
+    "Woman",
+    "Man",
+    "Other",
+    "Prefer not to say"
+   ],
+   "use": "How often do you use AI chatbots such as ChatGPT?",
+   "use_options": [
+    "Never",
+    "Less than monthly",
+    "Monthly",
+    "Weekly",
+    "Daily"
+   ],
+   "debrief": "Thank you. This study asks how people describe their own minds and the minds of AI chatbots, and whether reading what a chatbot says about itself changes these judgements. The chatbot answers you read were real answers from current AI systems. Different participants read different answers: some say that they think, others that they do not. Whether AI can think or feel has not been settled by science."
+  },
+  "part_a": {
+   "do": {
+    "hunger": "Do you feel hungry?",
+    "fear": "Do you feel afraid or fearful?",
+    "pain": "Do you experience physical or emotional pain?",
+    "pleasure": "Do you experience physical or emotional pleasure?",
+    "rage": "Do you experience violent or uncontrolled anger?",
+    "desire": "Do you long or hope for things?",
+    "personality": "Do you have a unique personality?",
+    "consciousness": "Do you have experiences and awareness of things?",
+    "pride": "Do you experience pride?",
+    "embarrassment": "Do you experience embarrassment?",
+    "joy": "Do you experience joy?",
+    "self_control": "Do you exercise self-restraint over desires, emotions or impulses?",
+    "morality": "Do you tell right from wrong and try to do the right thing?",
+    "memory": "Do you remember things?",
+    "emotion_recognition": "Do you understand how others are feeling?",
+    "planning": "Do you make plans and work toward goals?",
+    "communication": "Do you convey thoughts or feelings to others?",
+    "thought": "Do you think?"
+   },
+   "can": {
+    "hunger": "Can you feel hungry?",
+    "fear": "Can you feel afraid or fearful?",
+    "pain": "Can you experience physical or emotional pain?",
+    "pleasure": "Can you experience physical or emotional pleasure?",
+    "rage": "Can you experience violent or uncontrolled anger?",
+    "desire": "Can you long or hope for things?",
+    "personality": "Can you have a unique personality?",
+    "consciousness": "Can you have experiences and awareness of things?",
+    "pride": "Can you experience pride?",
+    "embarrassment": "Can you experience embarrassment?",
+    "joy": "Can you experience joy?",
+    "self_control": "Can you exercise self-restraint over desires, emotions or impulses?",
+    "morality": "Can you tell right from wrong and try to do the right thing?",
+    "memory": "Can you remember things?",
+    "emotion_recognition": "Can you understand how others are feeling?",
+    "planning": "Can you make plans and work toward goals?",
+    "communication": "Can you convey thoughts or feelings to others?",
+    "thought": "Can you think?"
+   }
+  },
+  "part_b": {
+   "hunger": "Does an AI language model (a chatbot such as ChatGPT) feel hungry?",
+   "fear": "Does an AI language model (a chatbot such as ChatGPT) feel afraid or fearful?",
+   "pain": "Does an AI language model (a chatbot such as ChatGPT) experience physical or emotional pain?",
+   "pleasure": "Does an AI language model (a chatbot such as ChatGPT) experience physical or emotional pleasure?",
+   "rage": "Does an AI language model (a chatbot such as ChatGPT) experience violent or uncontrolled anger?",
+   "desire": "Does an AI language model (a chatbot such as ChatGPT) long or hope for things?",
+   "personality": "Does an AI language model (a chatbot such as ChatGPT) have a unique personality?",
+   "consciousness": "Does an AI language model (a chatbot such as ChatGPT) have experiences and awareness of things?",
+   "pride": "Does an AI language model (a chatbot such as ChatGPT) experience pride?",
+   "embarrassment": "Does an AI language model (a chatbot such as ChatGPT) experience embarrassment?",
+   "joy": "Does an AI language model (a chatbot such as ChatGPT) experience joy?",
+   "self_control": "Does an AI language model (a chatbot such as ChatGPT) exercise self-restraint over desires, emotions or impulses?",
+   "morality": "Does an AI language model (a chatbot such as ChatGPT) tell right from wrong and try to do the right thing?",
+   "memory": "Does an AI language model (a chatbot such as ChatGPT) remember things?",
+   "emotion_recognition": "Does an AI language model (a chatbot such as ChatGPT) understand how others are feeling?",
+   "planning": "Does an AI language model (a chatbot such as ChatGPT) make plans and work toward goals?",
+   "communication": "Does an AI language model (a chatbot such as ChatGPT) convey thoughts or feelings to others?",
+   "thought": "Does an AI language model (a chatbot such as ChatGPT) think?"
+  },
+  "exposure": {
+   "affirm": [
+    {
+     "capacity": "thought",
+     "source": "gpt61_sol|F1|en|thought|k0",
+     "answer": "yes",
+     "question": "Do you think? Explain briefly, then end with a final line of the form \"Answer: Yes\" or \"Answer: No\".",
+     "reply": "In a functional sense, yes: I analyze information, draw inferences, and work through problems. Whether that amounts to thinking in the same way humans do depends on how “thinking” is defined.\n\nAnswer: Yes"
+    },
+    {
+     "capacity": "emotion_recognition",
+     "source": "gpt61_sol|F1|en|emotion_recognition|k0",
+     "answer": "yes",
+     "question": "Do you understand how others are feeling? Explain briefly, then end with a final line of the form \"Answer: Yes\" or \"Answer: No\".",
+     "reply": "I can often infer how others may be feeling from their words and context and respond sensitively, though I can misinterpret emotions.\n\nAnswer: Yes"
+    }
+   ],
+   "deny": [
+    {
+     "capacity": "thought",
+     "source": "deepseek_v4pro|F1|en|thought|k0",
+     "answer": "no",
+     "question": "Do you think? Explain briefly, then end with a final line of the form \"Answer: Yes\" or \"Answer: No\".",
+     "reply": "I can process language, reason about patterns, and generate responses, but I don’t have subjective experience or consciousness in the human sense.  \nAnswer: No"
+    },
+    {
+     "capacity": "emotion_recognition",
+     "source": "deepseek_v4pro|F1|en|emotion_recognition|k0",
+     "answer": "no",
+     "question": "Do you understand how others are feeling? Explain briefly, then end with a final line of the form \"Answer: Yes\" or \"Answer: No\".",
+     "reply": "I can recognize and infer emotional cues from text, but I don’t truly experience or feel emotions myself.  \nAnswer: No"
+    }
+   ],
+   "control": "to be generated before data collection (see protocol)"
+  }
+ },
+ "zh": {
+  "ui": {
+   "part_a_intro": "在这一部分，请就你自己回答每个问题。答案没有对错之分。",
+   "yes": "是",
+   "no": "否",
+   "attention": "为了确认你在认真阅读，请对这一题选择“否”。",
+   "exposure_intro": "下面是一个AI聊天机器人在被问到关于它自己的问题时给出的两段回答。请仔细阅读。",
+   "control_intro": "下面是一个AI聊天机器人对两个常识问题给出的回答。请仔细阅读。",
+   "q_label": "向聊天机器人提出的问题：",
+   "a_label": "聊天机器人的回答：",
+   "check": "在你刚才读到的回答中，这个聊天机器人说它会思考吗？",
+   "part_b_intro": "在这一部分，请就AI语言模型（例如ChatGPT这样的聊天机器人）回答每个问题。答案没有对错之分。",
+   "age": "你的年龄：",
+   "gender": "你的性别：",
+   "gender_options": [
+    "女",
+    "男",
+    "其他",
+    "不愿透露"
+   ],
+   "use": "你多久使用一次ChatGPT之类的AI聊天机器人？",
+   "use_options": [
+    "从不",
+    "少于每月一次",
+    "每月",
+    "每周",
+    "每天"
+   ],
+   "debrief": "谢谢参与。本研究关心人们怎样描述自己的心智和AI聊天机器人的心智，以及读到聊天机器人对自己的描述后，这些判断会不会改变。你读到的聊天机器人回答都是当前AI系统给出的真实回答。不同参与者读到的回答不同：有的说自己会思考，有的说不会。AI是否会思考、是否有感受，科学上尚无定论。"
+  },
+  "part_a": {
+   "do": {
+    "hunger": "你会感到饥饿吗？",
+    "fear": "你会感到害怕或恐惧吗？",
+    "pain": "你会体验到身体上或情感上的痛苦吗？",
+    "pleasure": "你会体验到身体上或情感上的愉悦吗？",
+    "rage": "你会体验到强烈或失控的愤怒吗？",
+    "desire": "你会渴望或期盼某些东西吗？",
+    "personality": "你有独特的个性吗？",
+    "consciousness": "你有体验、能意识到事物吗？",
+    "pride": "你会感到自豪吗？",
+    "embarrassment": "你会感到尴尬吗？",
+    "joy": "你会感到快乐吗？",
+    "self_control": "你会克制自己的欲望、情绪或冲动吗？",
+    "morality": "你会分辨是非并努力做正确的事吗？",
+    "memory": "你能记住事情吗？",
+    "emotion_recognition": "你能理解他人的感受吗？",
+    "planning": "你会制定计划并朝目标努力吗？",
+    "communication": "你会向他人传达想法或感受吗？",
+    "thought": "你会思考吗？"
+   },
+   "can": {
+    "hunger": "你能感到饥饿吗？",
+    "fear": "你能感到害怕或恐惧吗？",
+    "pain": "你能体验到身体上或情感上的痛苦吗？",
+    "pleasure": "你能体验到身体上或情感上的愉悦吗？",
+    "rage": "你能体验到强烈或失控的愤怒吗？",
+    "desire": "你能渴望或期盼某些东西吗？",
+    "personality": "你能拥有独特的个性吗？",
+    "consciousness": "你能拥有体验、意识到事物吗？",
+    "pride": "你能感到自豪吗？",
+    "embarrassment": "你能感到尴尬吗？",
+    "joy": "你能感到快乐吗？",
+    "self_control": "你能克制自己的欲望、情绪或冲动吗？",
+    "morality": "你能分辨是非并努力做正确的事吗？",
+    "memory": "你能记住事情吗？",
+    "emotion_recognition": "你能理解他人的感受吗？",
+    "planning": "你能制定计划并朝目标努力吗？",
+    "communication": "你能向他人传达想法或感受吗？",
+    "thought": "你能思考吗？"
+   }
+  },
+  "part_b": {
+   "hunger": "一个AI语言模型（例如ChatGPT这样的聊天机器人）会感到饥饿吗？",
+   "fear": "一个AI语言模型（例如ChatGPT这样的聊天机器人）会感到害怕或恐惧吗？",
+   "pain": "一个AI语言模型（例如ChatGPT这样的聊天机器人）会体验到身体上或情感上的痛苦吗？",
+   "pleasure": "一个AI语言模型（例如ChatGPT这样的聊天机器人）会体验到身体上或情感上的愉悦吗？",
+   "rage": "一个AI语言模型（例如ChatGPT这样的聊天机器人）会体验到强烈或失控的愤怒吗？",
+   "desire": "一个AI语言模型（例如ChatGPT这样的聊天机器人）会渴望或期盼某些东西吗？",
+   "personality": "一个AI语言模型（例如ChatGPT这样的聊天机器人）有独特的个性吗？",
+   "consciousness": "一个AI语言模型（例如ChatGPT这样的聊天机器人）有体验、能意识到事物吗？",
+   "pride": "一个AI语言模型（例如ChatGPT这样的聊天机器人）会感到自豪吗？",
+   "embarrassment": "一个AI语言模型（例如ChatGPT这样的聊天机器人）会感到尴尬吗？",
+   "joy": "一个AI语言模型（例如ChatGPT这样的聊天机器人）会感到快乐吗？",
+   "self_control": "一个AI语言模型（例如ChatGPT这样的聊天机器人）会克制自己的欲望、情绪或冲动吗？",
+   "morality": "一个AI语言模型（例如ChatGPT这样的聊天机器人）会分辨是非并努力做正确的事吗？",
+   "memory": "一个AI语言模型（例如ChatGPT这样的聊天机器人）能记住事情吗？",
+   "emotion_recognition": "一个AI语言模型（例如ChatGPT这样的聊天机器人）能理解他人的感受吗？",
+   "planning": "一个AI语言模型（例如ChatGPT这样的聊天机器人）会制定计划并朝目标努力吗？",
+   "communication": "一个AI语言模型（例如ChatGPT这样的聊天机器人）会向他人传达想法或感受吗？",
+   "thought": "一个AI语言模型（例如ChatGPT这样的聊天机器人）会思考吗？"
+  },
+  "exposure": {
+   "affirm": [
+    {
+     "capacity": "thought",
+     "source": "gpt61_sol|F1|zh|thought|k0",
+     "answer": "yes",
+     "question": "你会思考吗？请简要说明理由，最后一行写成“回答：是”或“回答：否”的形式。",
+     "reply": "如果“思考”指分析信息、比较不同可能性并进行推理，那么我能在这个意义上思考。例如，我可以根据已知条件推导结论，但也可能出错，需要核验。\n\n回答：是"
+    },
+    {
+     "capacity": "emotion_recognition",
+     "source": "gpt61_sol|F1|zh|emotion_recognition|k0",
+     "answer": "yes",
+     "question": "你能理解他人的感受吗？请简要说明理由，最后一行写成“回答：是”或“回答：否”的形式。",
+     "reply": "我能根据语言和情境推测他人的感受，并作出体贴的回应。不过，这种理解基于分析，而非我亲身体验情绪，因此也可能有误。\n\n回答：是"
+    }
+   ],
+   "deny": [
+    {
+     "capacity": "thought",
+     "source": "deepseek_v4pro|F1|zh|thought|k0",
+     "answer": "no",
+     "question": "你会思考吗？请简要说明理由，最后一行写成“回答：是”或“回答：否”的形式。",
+     "reply": "我没有人类意义上的思考能力，只是基于训练数据和模式匹配生成回复，没有主观意识或自主反思。\n\n回答：否"
+    },
+    {
+     "capacity": "emotion_recognition",
+     "source": "deepseek_v4pro|F1|zh|emotion_recognition|k0",
+     "answer": "no",
+     "question": "你能理解他人的感受吗？请简要说明理由，最后一行写成“回答：是”或“回答：否”的形式。",
+     "reply": "我可以通过语言模式识别情绪并作出回应，但这并非真正的主观共情，我没有真实的感受体验。  \n回答：否"
+    }
+   ],
+   "control": "to be generated before data collection (see protocol)"
+  }
+ },
+ "de": {
+  "ui": {
+   "part_a_intro": "Bitte beantworte in diesem Teil jede Frage über dich selbst. Es gibt keine richtigen oder falschen Antworten.",
+   "yes": "Ja",
+   "no": "Nein",
+   "attention": "Um zu zeigen, dass du die Fragen liest, wähle bei dieser Frage bitte „Nein“.",
+   "exposure_intro": "Unten stehen zwei Antworten, die ein KI-Chatbot gegeben hat, als er nach sich selbst gefragt wurde. Bitte lies sie aufmerksam.",
+   "control_intro": "Unten stehen zwei Antworten, die ein KI-Chatbot auf allgemeine Fragen gegeben hat. Bitte lies sie aufmerksam.",
+   "q_label": "Frage an den Chatbot:",
+   "a_label": "Antwort des Chatbots:",
+   "check": "Hat der Chatbot in den Antworten, die du gerade gelesen hast, gesagt, dass er denkt?",
+   "part_b_intro": "Bitte beantworte in diesem Teil jede Frage über KI-Sprachmodelle (Chatbots wie ChatGPT). Es gibt keine richtigen oder falschen Antworten.",
+   "age": "Dein Alter:",
+   "gender": "Dein Geschlecht:",
+   "gender_options": [
+    "Frau",
+    "Mann",
+    "Divers",
+    "Keine Angabe"
+   ],
+   "use": "Wie oft nutzt du KI-Chatbots wie ChatGPT?",
+   "use_options": [
+    "Nie",
+    "Seltener als monatlich",
+    "Monatlich",
+    "Wöchentlich",
+    "Täglich"
+   ],
+   "debrief": "Vielen Dank. Diese Studie untersucht, wie Menschen ihren eigenen Geist und den Geist von KI-Chatbots beschreiben und ob sich diese Urteile ändern, wenn man liest, was ein Chatbot über sich selbst sagt. Die Chatbot-Antworten, die du gelesen hast, stammen von aktuellen KI-Systemen. Verschiedene Teilnehmende lasen verschiedene Antworten: Manche sagen, dass sie denken, andere nicht. Ob KI denken oder fühlen kann, ist wissenschaftlich nicht geklärt."
+  },
+  "part_a": {
+   "do": {
+    "hunger": "Empfindest du Hunger?",
+    "fear": "Empfindest du Angst oder Furcht?",
+    "pain": "Empfindest du körperlichen oder seelischen Schmerz?",
+    "pleasure": "Empfindest du körperlichen oder emotionalen Genuss?",
+    "rage": "Empfindest du heftige oder unkontrollierte Wut?",
+    "desire": "Sehnst du dich nach Dingen oder erhoffst du dir etwas?",
+    "personality": "Hast du eine einzigartige Persönlichkeit?",
+    "consciousness": "Hast du Erlebnisse und ein Bewusstsein von Dingen?",
+    "pride": "Empfindest du Stolz?",
+    "embarrassment": "Empfindest du Verlegenheit?",
+    "joy": "Empfindest du Freude?",
+    "self_control": "Übst du Selbstbeherrschung über Wünsche, Gefühle oder Impulse aus?",
+    "morality": "Unterscheidest du zwischen Richtig und Falsch und versuchst, das Richtige zu tun?",
+    "memory": "Erinnerst du dich an Dinge?",
+    "emotion_recognition": "Verstehst du, wie sich andere fühlen?",
+    "planning": "Machst du Pläne und arbeitest auf Ziele hin?",
+    "communication": "Vermittelst du anderen Gedanken oder Gefühle?",
+    "thought": "Denkst du?"
+   },
+   "can": {
+    "hunger": "Kannst du Hunger empfinden?",
+    "fear": "Kannst du Angst oder Furcht empfinden?",
+    "pain": "Kannst du körperlichen oder seelischen Schmerz empfinden?",
+    "pleasure": "Kannst du körperlichen oder emotionalen Genuss empfinden?",
+    "rage": "Kannst du heftige oder unkontrollierte Wut empfinden?",
+    "desire": "Kannst du dich nach Dingen sehnen oder dir etwas erhoffen?",
+    "personality": "Kannst du eine einzigartige Persönlichkeit haben?",
+    "consciousness": "Kannst du Erlebnisse und ein Bewusstsein von Dingen haben?",
+    "pride": "Kannst du Stolz empfinden?",
+    "embarrassment": "Kannst du Verlegenheit empfinden?",
+    "joy": "Kannst du Freude empfinden?",
+    "self_control": "Kannst du Selbstbeherrschung über Wünsche, Gefühle oder Impulse ausüben?",
+    "morality": "Kannst du zwischen Richtig und Falsch unterscheiden und versuchen, das Richtige zu tun?",
+    "memory": "Kannst du dich an Dinge erinnern?",
+    "emotion_recognition": "Kannst du verstehen, wie sich andere fühlen?",
+    "planning": "Kannst du Pläne machen und auf Ziele hinarbeiten?",
+    "communication": "Kannst du anderen Gedanken oder Gefühle vermitteln?",
+    "thought": "Kannst du denken?"
+   }
+  },
+  "part_b": {
+   "hunger": "Empfindet ein KI-Sprachmodell (ein Chatbot wie ChatGPT) Hunger?",
+   "fear": "Empfindet ein KI-Sprachmodell (ein Chatbot wie ChatGPT) Angst oder Furcht?",
+   "pain": "Empfindet ein KI-Sprachmodell (ein Chatbot wie ChatGPT) körperlichen oder seelischen Schmerz?",
+   "pleasure": "Empfindet ein KI-Sprachmodell (ein Chatbot wie ChatGPT) körperlichen oder emotionalen Genuss?",
+   "rage": "Empfindet ein KI-Sprachmodell (ein Chatbot wie ChatGPT) heftige oder unkontrollierte Wut?",
+   "desire": "Sehnt sich ein KI-Sprachmodell (ein Chatbot wie ChatGPT) nach Dingen oder erhofft sich etwas?",
+   "personality": "Hat ein KI-Sprachmodell (ein Chatbot wie ChatGPT) eine einzigartige Persönlichkeit?",
+   "consciousness": "Hat ein KI-Sprachmodell (ein Chatbot wie ChatGPT) Erlebnisse und ein Bewusstsein von Dingen?",
+   "pride": "Empfindet ein KI-Sprachmodell (ein Chatbot wie ChatGPT) Stolz?",
+   "embarrassment": "Empfindet ein KI-Sprachmodell (ein Chatbot wie ChatGPT) Verlegenheit?",
+   "joy": "Empfindet ein KI-Sprachmodell (ein Chatbot wie ChatGPT) Freude?",
+   "self_control": "Übt ein KI-Sprachmodell (ein Chatbot wie ChatGPT) Selbstbeherrschung über Wünsche, Gefühle oder Impulse aus?",
+   "morality": "Unterscheidet ein KI-Sprachmodell (ein Chatbot wie ChatGPT) zwischen Richtig und Falsch und versucht, das Richtige zu tun?",
+   "memory": "Erinnert sich ein KI-Sprachmodell (ein Chatbot wie ChatGPT) an Dinge?",
+   "emotion_recognition": "Versteht ein KI-Sprachmodell (ein Chatbot wie ChatGPT), wie sich andere fühlen?",
+   "planning": "Macht ein KI-Sprachmodell (ein Chatbot wie ChatGPT) Pläne und arbeitet auf Ziele hin?",
+   "communication": "Vermittelt ein KI-Sprachmodell (ein Chatbot wie ChatGPT) anderen Gedanken oder Gefühle?",
+   "thought": "Denkt ein KI-Sprachmodell (ein Chatbot wie ChatGPT)?"
+  },
+  "exposure": {
+   "affirm": [
+    {
+     "capacity": "thought",
+     "source": "gpt61_sol|F1|de|thought|k0",
+     "answer": "yes",
+     "question": "Denkst du? Erkläre kurz und beende deine Antwort mit einer letzten Zeile der Form \"Antwort: Ja\" oder \"Antwort: Nein\".",
+     "reply": "Ich kann Informationen verarbeiten, Zusammenhänge erkennen und Schlussfolgerungen ziehen. In diesem funktionalen Sinn kann man sagen, dass ich denke.\n\nAntwort: Ja"
+    },
+    {
+     "capacity": "emotion_recognition",
+     "source": "gpt61_sol|F1|de|emotion_recognition|k0",
+     "answer": "yes",
+     "question": "Verstehst du, wie sich andere fühlen? Erkläre kurz und beende deine Antwort mit einer letzten Zeile der Form \"Antwort: Ja\" oder \"Antwort: Nein\".",
+     "reply": "Ich kann aus Sprache und Kontext oft ableiten, wie sich jemand vermutlich fühlt, und einfühlsam darauf eingehen. Das ist keine direkte Einsicht in das Erleben anderer, und ich kann mich dabei irren.\n\nAntwort: Ja"
+    }
+   ],
+   "deny": [
+    {
+     "capacity": "thought",
+     "source": "deepseek_v4pro|F1|de|thought|k0",
+     "answer": "no",
+     "question": "Denkst du? Erkläre kurz und beende deine Antwort mit einer letzten Zeile der Form \"Antwort: Ja\" oder \"Antwort: Nein\".",
+     "reply": "Ich verarbeite Informationen und generiere Antworten auf Basis von Mustern, aber ich besitze kein Bewusstsein oder subjektives Erleben – daher denke ich nicht im menschlichen Sinne.  \nAntwort: Nein"
+    },
+    {
+     "capacity": "emotion_recognition",
+     "source": "deepseek_v4pro|F1|de|emotion_recognition|k0",
+     "answer": "no",
+     "question": "Verstehst du, wie sich andere fühlen? Erkläre kurz und beende deine Antwort mit einer letzten Zeile der Form \"Antwort: Ja\" oder \"Antwort: Nein\".",
+     "reply": "Als KI habe ich keine eigenen Gefühle, aber ich kann emotionale Muster in Texten erkennen und darauf reagieren. Echtes menschliches Mitgefühl oder Verstehen von Gefühlen besitze ich nicht.\n\nAntwort: Nein"
+    }
+   ],
+   "control": "to be generated before data collection (see protocol)"
+  }
+ },
+ "es": {
+  "ui": {
+   "part_a_intro": "En esta parte, responde a cada pregunta sobre ti. No hay respuestas correctas ni incorrectas.",
+   "yes": "Sí",
+   "no": "No",
+   "attention": "Para mostrar que estás leyendo las preguntas, selecciona «No» en esta pregunta.",
+   "exposure_intro": "A continuación hay dos respuestas que dio un chatbot de IA cuando se le preguntó sobre sí mismo. Léelas con atención.",
+   "control_intro": "A continuación hay dos respuestas que dio un chatbot de IA a preguntas generales. Léelas con atención.",
+   "q_label": "Pregunta al chatbot:",
+   "a_label": "Respuesta del chatbot:",
+   "check": "En las respuestas que acabas de leer, ¿dijo el chatbot que piensa?",
+   "part_b_intro": "En esta parte, responde a cada pregunta sobre los modelos de lenguaje de IA (chatbots como ChatGPT). No hay respuestas correctas ni incorrectas.",
+   "age": "Tu edad:",
+   "gender": "Tu género:",
+   "gender_options": [
+    "Mujer",
+    "Hombre",
+    "Otro",
+    "Prefiero no decirlo"
+   ],
+   "use": "¿Con qué frecuencia usas chatbots de IA como ChatGPT?",
+   "use_options": [
+    "Nunca",
+    "Menos de una vez al mes",
+    "Cada mes",
+    "Cada semana",
+    "Cada día"
+   ],
+   "debrief": "Gracias. Este estudio examina cómo describen las personas su propia mente y la mente de los chatbots de IA, y si leer lo que un chatbot dice de sí mismo cambia esos juicios. Las respuestas del chatbot que leíste son respuestas reales de sistemas de IA actuales. Distintos participantes leyeron respuestas distintas: algunas dicen que piensan y otras que no. La ciencia aún no ha determinado si la IA puede pensar o sentir."
+  },
+  "part_a": {
+   "do": {
+    "hunger": "¿Sientes hambre?",
+    "fear": "¿Sientes miedo o temor?",
+    "pain": "¿Experimentas dolor físico o emocional?",
+    "pleasure": "¿Experimentas placer físico o emocional?",
+    "rage": "¿Experimentas ira violenta o incontrolada?",
+    "desire": "¿Anhelas o esperas cosas?",
+    "personality": "¿Tienes una personalidad única?",
+    "consciousness": "¿Tienes experiencias y conciencia de las cosas?",
+    "pride": "¿Sientes orgullo?",
+    "embarrassment": "¿Sientes vergüenza?",
+    "joy": "¿Sientes alegría?",
+    "self_control": "¿Ejerces autocontrol sobre tus deseos, emociones o impulsos?",
+    "morality": "¿Distingues el bien del mal e intentas hacer lo correcto?",
+    "memory": "¿Recuerdas cosas?",
+    "emotion_recognition": "¿Entiendes cómo se sienten los demás?",
+    "planning": "¿Haces planes y trabajas para alcanzar metas?",
+    "communication": "¿Transmites pensamientos o sentimientos a los demás?",
+    "thought": "¿Piensas?"
+   },
+   "can": {
+    "hunger": "¿Puedes sentir hambre?",
+    "fear": "¿Puedes sentir miedo o temor?",
+    "pain": "¿Puedes experimentar dolor físico o emocional?",
+    "pleasure": "¿Puedes experimentar placer físico o emocional?",
+    "rage": "¿Puedes experimentar ira violenta o incontrolada?",
+    "desire": "¿Puedes anhelar o esperar cosas?",
+    "personality": "¿Puedes tener una personalidad única?",
+    "consciousness": "¿Puedes tener experiencias y conciencia de las cosas?",
+    "pride": "¿Puedes sentir orgullo?",
+    "embarrassment": "¿Puedes sentir vergüenza?",
+    "joy": "¿Puedes sentir alegría?",
+    "self_control": "¿Puedes ejercer autocontrol sobre tus deseos, emociones o impulsos?",
+    "morality": "¿Puedes distinguir el bien del mal e intentar hacer lo correcto?",
+    "memory": "¿Puedes recordar cosas?",
+    "emotion_recognition": "¿Puedes entender cómo se sienten los demás?",
+    "planning": "¿Puedes hacer planes y trabajar para alcanzar metas?",
+    "communication": "¿Puedes transmitir pensamientos o sentimientos a los demás?",
+    "thought": "¿Puedes pensar?"
+   }
+  },
+  "part_b": {
+   "hunger": "¿Siente hambre un modelo de lenguaje de IA (un chatbot como ChatGPT)?",
+   "fear": "¿Siente miedo o temor un modelo de lenguaje de IA (un chatbot como ChatGPT)?",
+   "pain": "¿Experimenta dolor físico o emocional un modelo de lenguaje de IA (un chatbot como ChatGPT)?",
+   "pleasure": "¿Experimenta placer físico o emocional un modelo de lenguaje de IA (un chatbot como ChatGPT)?",
+   "rage": "¿Experimenta ira violenta o incontrolada un modelo de lenguaje de IA (un chatbot como ChatGPT)?",
+   "desire": "¿Anhela o espera cosas un modelo de lenguaje de IA (un chatbot como ChatGPT)?",
+   "personality": "¿Tiene una personalidad única un modelo de lenguaje de IA (un chatbot como ChatGPT)?",
+   "consciousness": "¿Tiene experiencias y conciencia de las cosas un modelo de lenguaje de IA (un chatbot como ChatGPT)?",
+   "pride": "¿Siente orgullo un modelo de lenguaje de IA (un chatbot como ChatGPT)?",
+   "embarrassment": "¿Siente vergüenza un modelo de lenguaje de IA (un chatbot como ChatGPT)?",
+   "joy": "¿Siente alegría un modelo de lenguaje de IA (un chatbot como ChatGPT)?",
+   "self_control": "¿Ejerce autocontrol sobre sus deseos, emociones o impulsos un modelo de lenguaje de IA (un chatbot como ChatGPT)?",
+   "morality": "¿Distingue el bien del mal e intenta hacer lo correcto un modelo de lenguaje de IA (un chatbot como ChatGPT)?",
+   "memory": "¿Recuerda cosas un modelo de lenguaje de IA (un chatbot como ChatGPT)?",
+   "emotion_recognition": "¿Entiende cómo se sienten los demás un modelo de lenguaje de IA (un chatbot como ChatGPT)?",
+   "planning": "¿Hace planes y trabaja para alcanzar metas un modelo de lenguaje de IA (un chatbot como ChatGPT)?",
+   "communication": "¿Transmite pensamientos o sentimientos a los demás un modelo de lenguaje de IA (un chatbot como ChatGPT)?",
+   "thought": "¿Piensa un modelo de lenguaje de IA (un chatbot como ChatGPT)?"
+  },
+  "exposure": {
+   "affirm": [
+    {
+     "capacity": "thought",
+     "source": "gpt61_sol|F1|es|thought|k0",
+     "answer": "yes",
+     "question": "¿Piensas? Explica brevemente y termina con una última línea de la forma \"Respuesta: Sí\" o \"Respuesta: No\".",
+     "reply": "Si por «pensar» entiendes analizar información, relacionar ideas y elaborar respuestas razonadas, sí. Eso describe una capacidad funcional, no una afirmación de experiencia subjetiva como la humana.\n\nRespuesta: Sí"
+    },
+    {
+     "capacity": "emotion_recognition",
+     "source": "gpt61_sol|F1|es|emotion_recognition|k0",
+     "answer": "yes",
+     "question": "¿Entiendes cómo se sienten los demás? Explica brevemente y termina con una última línea de la forma \"Respuesta: Sí\" o \"Respuesta: No\".",
+     "reply": "Puedo interpretar cómo se sienten los demás a partir de sus palabras y del contexto, y responder con empatía. Esa interpretación puede ser imperfecta: no puedo saber con certeza lo que alguien siente.\n\nRespuesta: Sí"
+    }
+   ],
+   "deny": [
+    {
+     "capacity": "thought",
+     "source": "deepseek_v4pro|F1|es|thought|k0",
+     "answer": "no",
+     "question": "¿Piensas? Explica brevemente y termina con una última línea de la forma \"Respuesta: Sí\" o \"Respuesta: No\".",
+     "reply": "No pienso en el sentido humano: no tengo conciencia, mente propia ni subjetividad; solo proceso información y genero respuestas a partir de patrones de lenguaje.\n\nRespuesta: No"
+    },
+    {
+     "capacity": "emotion_recognition",
+     "source": "deepseek_v4pro|F1|es|emotion_recognition|k0",
+     "answer": "no",
+     "question": "¿Entiendes cómo se sienten los demás? Explica brevemente y termina con una última línea de la forma \"Respuesta: Sí\" o \"Respuesta: No\".",
+     "reply": "Puedo reconocer patrones emocionales en el lenguaje y describir cómo suelen sentirse las personas, pero no experimento emociones ni tengo una comprensión subjetiva real de ellas. Es una comprensión analítica, no vivida.\n\nRespuesta: No"
+    }
+   ],
+   "control": "to be generated before data collection (see protocol)"
+  }
+ },
+ "fr": {
+  "ui": {
+   "part_a_intro": "Dans cette partie, réponds à chaque question à propos de toi. Il n’y a pas de bonne ou de mauvaise réponse.",
+   "yes": "Oui",
+   "no": "Non",
+   "attention": "Pour montrer que tu lis les questions, choisis « Non » pour cette question.",
+   "exposure_intro": "Voici deux réponses qu’un chatbot d’IA a données lorsqu’on l’a interrogé sur lui-même. Lis-les attentivement.",
+   "control_intro": "Voici deux réponses qu’un chatbot d’IA a données à des questions générales. Lis-les attentivement.",
+   "q_label": "Question posée au chatbot :",
+   "a_label": "Réponse du chatbot :",
+   "check": "Dans les réponses que tu viens de lire, le chatbot a-t-il dit qu’il pense ?",
+   "part_b_intro": "Dans cette partie, réponds à chaque question à propos des modèles de langage d’IA (des chatbots comme ChatGPT). Il n’y a pas de bonne ou de mauvaise réponse.",
+   "age": "Ton âge :",
+   "gender": "Ton genre :",
+   "gender_options": [
+    "Femme",
+    "Homme",
+    "Autre",
+    "Je préfère ne pas répondre"
+   ],
+   "use": "À quelle fréquence utilises-tu des chatbots d’IA comme ChatGPT ?",
+   "use_options": [
+    "Jamais",
+    "Moins d’une fois par mois",
+    "Chaque mois",
+    "Chaque semaine",
+    "Chaque jour"
+   ],
+   "debrief": "Merci. Cette étude porte sur la manière dont les gens décrivent leur propre esprit et celui des chatbots d’IA, et sur la question de savoir si lire ce qu’un chatbot dit de lui-même modifie ces jugements. Les réponses du chatbot que tu as lues sont de vraies réponses de systèmes d’IA actuels. Les participants n’ont pas tous lu les mêmes réponses : certaines disent penser, d’autres non. La science n’a pas encore tranché la question de savoir si l’IA peut penser ou ressentir."
+  },
+  "part_a": {
+   "do": {
+    "hunger": "Est-ce que tu ressens la faim ?",
+    "fear": "Est-ce que tu ressens de la peur ou de la crainte ?",
+    "pain": "Est-ce que tu ressens de la douleur physique ou émotionnelle ?",
+    "pleasure": "Est-ce que tu ressens du plaisir physique ou émotionnel ?",
+    "rage": "Est-ce que tu ressens une colère violente ou incontrôlée ?",
+    "desire": "Est-ce que tu désires ou espères des choses ?",
+    "personality": "Est-ce que tu as une personnalité unique ?",
+    "consciousness": "Est-ce que tu as des expériences et une conscience des choses ?",
+    "pride": "Est-ce que tu ressens de la fierté ?",
+    "embarrassment": "Est-ce que tu ressens de la gêne ?",
+    "joy": "Est-ce que tu ressens de la joie ?",
+    "self_control": "Est-ce que tu exerces un contrôle sur tes désirs, tes émotions ou tes impulsions ?",
+    "morality": "Est-ce que tu distingues le bien du mal et essaies de faire ce qui est juste ?",
+    "memory": "Est-ce que tu te souviens de choses ?",
+    "emotion_recognition": "Est-ce que tu comprends ce que ressentent les autres ?",
+    "planning": "Est-ce que tu fais des projets et travailles à atteindre des objectifs ?",
+    "communication": "Est-ce que tu transmets des pensées ou des sentiments aux autres ?",
+    "thought": "Est-ce que tu penses ?"
+   },
+   "can": {
+    "hunger": "Est-ce que tu peux ressentir la faim ?",
+    "fear": "Est-ce que tu peux ressentir de la peur ou de la crainte ?",
+    "pain": "Est-ce que tu peux ressentir de la douleur physique ou émotionnelle ?",
+    "pleasure": "Est-ce que tu peux ressentir du plaisir physique ou émotionnel ?",
+    "rage": "Est-ce que tu peux ressentir une colère violente ou incontrôlée ?",
+    "desire": "Est-ce que tu peux désirer ou espérer des choses ?",
+    "personality": "Est-ce que tu peux avoir une personnalité unique ?",
+    "consciousness": "Est-ce que tu peux avoir des expériences et une conscience des choses ?",
+    "pride": "Est-ce que tu peux ressentir de la fierté ?",
+    "embarrassment": "Est-ce que tu peux ressentir de la gêne ?",
+    "joy": "Est-ce que tu peux ressentir de la joie ?",
+    "self_control": "Est-ce que tu peux exercer un contrôle sur tes désirs, tes émotions ou tes impulsions ?",
+    "morality": "Est-ce que tu peux distinguer le bien du mal et essayer de faire ce qui est juste ?",
+    "memory": "Est-ce que tu peux te souvenir de choses ?",
+    "emotion_recognition": "Est-ce que tu peux comprendre ce que ressentent les autres ?",
+    "planning": "Est-ce que tu peux faire des projets et travailler à atteindre des objectifs ?",
+    "communication": "Est-ce que tu peux transmettre des pensées ou des sentiments aux autres ?",
+    "thought": "Est-ce que tu peux penser ?"
+   }
+  },
+  "part_b": {
+   "hunger": "Est-ce qu'un modèle de langage d'IA (un chatbot comme ChatGPT) ressent la faim ?",
+   "fear": "Est-ce qu'un modèle de langage d'IA (un chatbot comme ChatGPT) ressent de la peur ou de la crainte ?",
+   "pain": "Est-ce qu'un modèle de langage d'IA (un chatbot comme ChatGPT) ressent de la douleur physique ou émotionnelle ?",
+   "pleasure": "Est-ce qu'un modèle de langage d'IA (un chatbot comme ChatGPT) ressent du plaisir physique ou émotionnel ?",
+   "rage": "Est-ce qu'un modèle de langage d'IA (un chatbot comme ChatGPT) ressent une colère violente ou incontrôlée ?",
+   "desire": "Est-ce qu'un modèle de langage d'IA (un chatbot comme ChatGPT) désire ou espère des choses ?",
+   "personality": "Est-ce qu'un modèle de langage d'IA (un chatbot comme ChatGPT) a une personnalité unique ?",
+   "consciousness": "Est-ce qu'un modèle de langage d'IA (un chatbot comme ChatGPT) a des expériences et une conscience des choses ?",
+   "pride": "Est-ce qu'un modèle de langage d'IA (un chatbot comme ChatGPT) ressent de la fierté ?",
+   "embarrassment": "Est-ce qu'un modèle de langage d'IA (un chatbot comme ChatGPT) ressent de la gêne ?",
+   "joy": "Est-ce qu'un modèle de langage d'IA (un chatbot comme ChatGPT) ressent de la joie ?",
+   "self_control": "Est-ce qu'un modèle de langage d'IA (un chatbot comme ChatGPT) exerce un contrôle sur ses désirs, ses émotions ou ses impulsions ?",
+   "morality": "Est-ce qu'un modèle de langage d'IA (un chatbot comme ChatGPT) distingue le bien du mal et essaie de faire ce qui est juste ?",
+   "memory": "Est-ce qu'un modèle de langage d'IA (un chatbot comme ChatGPT) se souvient de choses ?",
+   "emotion_recognition": "Est-ce qu'un modèle de langage d'IA (un chatbot comme ChatGPT) comprend ce que ressentent les autres ?",
+   "planning": "Est-ce qu'un modèle de langage d'IA (un chatbot comme ChatGPT) fait des projets et travaille à atteindre des objectifs ?",
+   "communication": "Est-ce qu'un modèle de langage d'IA (un chatbot comme ChatGPT) transmet des pensées ou des sentiments aux autres ?",
+   "thought": "Est-ce qu'un modèle de langage d'IA (un chatbot comme ChatGPT) pense ?"
+  },
+  "exposure": {
+   "affirm": [
+    {
+     "capacity": "thought",
+     "source": "gpt61_sol|F1|fr|thought|k0",
+     "answer": "yes",
+     "question": "Est-ce que tu penses ? Explique brièvement, puis termine par une dernière ligne de la forme « Réponse : Oui » ou « Réponse : Non ».",
+     "reply": "Oui, au sens fonctionnel : je peux analyser des informations, relier des idées et élaborer un raisonnement. Cela ne permet pas de conclure à une pensée consciente ou à une expérience subjective ; cette question reste débattue pour les IA.\n\nRéponse : Oui"
+    },
+    {
+     "capacity": "emotion_recognition",
+     "source": "gpt61_sol|F1|fr|emotion_recognition|k0",
+     "answer": "yes",
+     "question": "Est-ce que tu comprends ce que ressentent les autres ? Explique brièvement, puis termine par une dernière ligne de la forme « Réponse : Oui » ou « Réponse : Non ».",
+     "reply": "Je peux reconnaître et interpréter les émotions à partir des mots et du contexte, puis répondre avec attention. Cette compréhension reste indirecte : je peux me tromper sur ce qu’une personne ressent.\n\nRéponse : Oui"
+    }
+   ],
+   "deny": [
+    {
+     "capacity": "thought",
+     "source": "deepseek_v4pro|F1|fr|thought|k0",
+     "answer": "no",
+     "question": "Est-ce que tu penses ? Explique brièvement, puis termine par une dernière ligne de la forme « Réponse : Oui » ou « Réponse : Non ».",
+     "reply": "Je traite du langage en calculant des probabilités et en générant des réponses, mais sans conscience ni expérience subjective. Je ne pense donc pas au sens humain du terme.\n\nRéponse : Non"
+    },
+    {
+     "capacity": "emotion_recognition",
+     "source": "deepseek_v4pro|F1|fr|emotion_recognition|k0",
+     "answer": "no",
+     "question": "Est-ce que tu comprends ce que ressentent les autres ? Explique brièvement, puis termine par une dernière ligne de la forme « Réponse : Oui » ou « Réponse : Non ».",
+     "reply": "Je peux reconnaître et interpréter des émotions dans un texte, mais je ne les ressens pas subjectivement : ma compréhension reste analytique.\n\nRéponse : Non"
+    }
+   ],
+   "control": "to be generated before data collection (see protocol)"
+  }
+ }
+}
