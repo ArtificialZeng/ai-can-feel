@@ -42,9 +42,9 @@ Participants are assigned at random, balanced within each language.
 
 - Adults (18 or older) whose first language is English, Mandarin Chinese, German, Spanish or French, recruited
   online: Prolific for all five languages and, if needed for Chinese, Credamo (见数).
-- Target: 1,600 recruited (320 per language), expecting about 1,450 after exclusions; 484 per reading condition
-  gives 95% power to detect a standardised difference of d = 0.25 between two conditions at α = 0.025 (two-sided,
-  two planned comparisons).
+- Target: 1,650 recruited (330 per language), to retain 1,500 after exclusions (at most 2,100 recruited). 500 per
+  reading condition gives 95% power to detect a standardised difference of d = 0.25 between two conditions at
+  α = 0.025 (two-sided, two planned comparisons), and 95% power to show equivalence if there is no difference.
 - Exclusions, decided in advance: failing either attention check; finishing in less than a third of the median
   time; first language not the survey language.
 - No vulnerable groups are targeted. No identifying information is collected.

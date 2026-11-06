@@ -8,7 +8,8 @@ DeepSeek-V4-Pro, GPT-6.1 Sol), per model:
 Each is tested with a two-sided one-sample t-test across models (alpha = 0.05). Power is simulated at the smallest
 effect of interest (H3: 0.20; H4: 0.15), with the pilot SD and with its upper 80% confidence bound.
 
-Study 6 (people). H1a/H1b: two-sample comparisons at d = 0.25, alpha = 0.025 each, power 0.95 (normal approximation).
+Study 6 (people). H1a/H1b: two-sample comparisons at d = 0.25, alpha = 0.025 each, power 0.95 (normal approximation);
+the planned 500 per condition also gives power 0.95 to the equivalence test against d = +/-0.25.
 H2: two one-sided tests per agency capacity against +/-0.10; all seven must pass (normal approximation).
 Usage: python src/rr_power.py   (writes results/rr_power.txt)
 """
@@ -81,16 +82,25 @@ def main():
         for m in M_GRID:
             print(f"  M = {m:2d}: power {t_power(rng, SESOI[h], s, m):.3f} (pilot SD), "
                   f"{t_power(rng, SESOI[h], s_up, m):.3f} (upper bound)")
+        if h in ("H3", "H4"):
+            m = 30
+            x = rng.normal(0.0, s_up, size=(REPS, m))
+            t = (x.mean(1) - SESOI[h]) / (x.std(1, ddof=1) / np.sqrt(m))
+            print(f"  equivalence (one-sided test that the mean is below {SESOI[h]}), true mean 0, M = 30, "
+                  f"upper-bound SD: power {np.mean(t < stats.t.ppf(0.05, m - 1)):.3f}")
     z = stats.norm.ppf
     n = 2 * (z(1 - 0.025 / 2) + z(0.95)) ** 2 / 0.25 ** 2
     print(f"\nStudy 6 H1a/H1b: d = 0.25, alpha = 0.025 two-sided, power 0.95 -> {int(np.ceil(n))} per condition")
-    per_arm = 3 * int(np.ceil(n)) // 2
+    per_cond = 500
+    se = np.sqrt(2 / per_cond)
+    print(f"  planned {per_cond} per condition: power {stats.norm.cdf(0.25 / se - z(1 - 0.0125)):.4f} (difference test), "
+          f"{2 * stats.norm.cdf(0.25 / se - z(0.975)) - 1:.4f} (equivalence test against +/-0.25, alpha = 0.025 per side)")
+    per_arm = 3 * per_cond // 2
     print(f"Study 6 H2: TOST per agency capacity, bounds +/-0.10, alpha = 0.05, {per_arm} per wording, true difference 0")
     for p in (0.5, 0.75, 0.8, 0.9):
         se = np.sqrt(2 * p * (1 - p) / per_arm)
         one = 2 * stats.norm.cdf(0.10 / se - z(0.95)) - 1
         print(f"  share of yes {p:.2f}: power {one:.4f} per capacity, {one ** 7:.4f} for all seven")
-
 
 if __name__ == "__main__":
     buf = io.StringIO()

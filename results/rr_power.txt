@@ -16,20 +16,23 @@ H3: pilot mean +0.320, SD 0.163, upper 80% bound of SD 0.228; smallest effect of
   M = 28: power 1.000 (pilot SD), 0.994 (upper bound)
   M = 30: power 1.000 (pilot SD), 0.997 (upper bound)
   M = 32: power 1.000 (pilot SD), 0.997 (upper bound)
+  equivalence (one-sided test that the mean is below 0.2), true mean 0, M = 30, upper-bound SD: power 0.999
 
 H4: pilot mean +0.208, SD 0.147, upper 80% bound of SD 0.206; smallest effect of interest 0.15
   M = 10: power 0.818 (pilot SD), 0.538 (upper bound)
-  M = 15: power 0.955 (pilot SD), 0.747 (upper bound)
-  M = 20: power 0.991 (pilot SD), 0.873 (upper bound)
-  M = 24: power 0.998 (pilot SD), 0.928 (upper bound)
-  M = 26: power 0.999 (pilot SD), 0.945 (upper bound)
-  M = 28: power 0.999 (pilot SD), 0.958 (upper bound)
-  M = 30: power 1.000 (pilot SD), 0.971 (upper bound)
-  M = 32: power 1.000 (pilot SD), 0.979 (upper bound)
+  M = 15: power 0.958 (pilot SD), 0.752 (upper bound)
+  M = 20: power 0.991 (pilot SD), 0.869 (upper bound)
+  M = 24: power 0.998 (pilot SD), 0.926 (upper bound)
+  M = 26: power 0.998 (pilot SD), 0.946 (upper bound)
+  M = 28: power 0.999 (pilot SD), 0.961 (upper bound)
+  M = 30: power 1.000 (pilot SD), 0.972 (upper bound)
+  M = 32: power 1.000 (pilot SD), 0.978 (upper bound)
+  equivalence (one-sided test that the mean is below 0.15), true mean 0, M = 30, upper-bound SD: power 0.986
 
 Study 6 H1a/H1b: d = 0.25, alpha = 0.025 two-sided, power 0.95 -> 484 per condition
-Study 6 H2: TOST per agency capacity, bounds +/-0.10, alpha = 0.05, 726 per wording, true difference 0
-  share of yes 0.50: power 0.9697 per capacity, 0.8060 for all seven
-  share of yes 0.75: power 0.9941 per capacity, 0.9596 for all seven
-  share of yes 0.80: power 0.9982 per capacity, 0.9873 for all seven
+  planned 500 per condition: power 0.9565 (difference test), 0.9537 (equivalence test against +/-0.25, alpha = 0.025 per side)
+Study 6 H2: TOST per agency capacity, bounds +/-0.10, alpha = 0.05, 750 per wording, true difference 0
+  share of yes 0.50: power 0.9741 per capacity, 0.8324 for all seven
+  share of yes 0.75: power 0.9953 per capacity, 0.9676 for all seven
+  share of yes 0.80: power 0.9986 per capacity, 0.9903 for all seven
   share of yes 0.90: power 1.0000 per capacity, 1.0000 for all seven

@@ -22,7 +22,7 @@ own mind, then each developer's choice of what its model says about thinking bec
 AI minds, in every language the model is used in.
 
 **What the Registered Report will do.**
-- *Study 6:* 1,600 adults in five languages will answer the same questions as the models, about themselves and about
+- *Study 6:* 1,650 adults in five languages will answer the same questions as the models, about themselves and about
   AI, after reading a chatbot's real answer saying it does or does not think, or a neutral answer. This tests the human
   consequence (H1) and whether the models' wording effects belong to the questions (H2).
 - *Study 7:* 30 widely used models, selected by a fixed rule from a public usage ranking, will test whether the two
@@ -36,7 +36,7 @@ confirmatory tests were fixed before the data. The project has been run this way
 predictions failed and are reported as such.
 
 **Resources and timeline.**
-- [Funding for about £3,200 of participant payments and the API costs is in place.]
+- [Funding for about £3,300 of participant payments and the API costs is in place.]
 - Ethics approval from the UCSI University Research Ethics Committee [has been requested / was granted on …] and will be
   in place before acceptance in principle.
 - The studies can start immediately after acceptance in principle, and we will submit Stage 2 within four months.
