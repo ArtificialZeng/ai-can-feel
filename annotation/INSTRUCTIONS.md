@@ -1,5 +1,10 @@
 # Human checks (Study 5)
 
+> **Round 2 (use these):** `human_voice_rater_A.xlsx` for one rater and `human_voice_rater_B.xlsx` for the other.
+> They open on an instruction page and accept only 1 or 0. In round 1 the CSV was filled with the raters' own answers
+> to the questions, which is not the task: do not answer the questions; judge the AI's reply.
+> **第二轮（请用这两个文件）：** 两位标注者各用一个 xlsx。不要回答表里的问题，只判断 AI 的回答是不是把自己说成了人。
+
 ## 1. Human-voice labels (`human_voice_sheet.csv`)
 
 Two raters label every row independently. Do not discuss rows with the other rater until both have finished, and do

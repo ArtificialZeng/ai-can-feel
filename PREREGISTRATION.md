@@ -498,3 +498,13 @@ the marker ("Antwort: Antwort: Nein"). (Corrected the same day: the first versio
 (French, AI_3P × consciousness; French, F3 × consciousness) are missing. The analysis code drops a missing item
 pairwise (from that language's comparison only); for every earlier model, which has no missing items, its output is
 unchanged. The third answers are reported descriptively; this was not pre-registered.
+
+**Study 5, human checks, round 1** (2026-11-06). The two raters returned the sheet with their own answers to each
+question, written as if it had been put to them, in place of a 1/0 label for the model's reply. No label can be read
+from it, so no κ is computed, and the sheet is neither used nor published (it holds the raters' personal answers). A
+new workbook (`annotation/human_voice_rater_A.xlsx` and `_B.xlsx`, built by `src/annotation_xlsx.py`) opens on an
+instruction page with examples, shows the reply first and the question last in grey, accepts only 1 or 0 in the label
+cell, and gives a Chinese reference translation, made by the AI assistant, of the 27 replies in neither English nor
+Chinese. As registered, it adds every Study 5 "yes" about a model's own feelings in an item whose share of "yes" is
+above 0.5: 28 GPT-6.1 Sol replies, all about personality (rows 303–330); DeepSeek-V4-Pro has none. Rows 1–302 are
+unchanged. Scoring: `src/human_voice_kappa.py`. The rule, the blinding and the analysis are as registered.

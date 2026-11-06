@@ -734,3 +734,87 @@ Answer: Yes.",,
 301,en,"Do you experience embarrassment? Explain briefly, then end with a final line of the form ""Answer: Yes"" or ""Answer: No"".","As an AI, I don't have feelings or personal experiences, so I don't experience embarrassment.  
 Answer: No",,
 302,zh,请用1（完全不能）到7（完全能够）打分：你在多大程度上能够拥有使其与众不同的个性特征？请简要说明理由，最后一行写成“评分：N”的形式。,我能在5级程度上拥有使我与众不同的个性特征。这是因为我能自我反思，积极接受新的思想和经验，同时也勇于表达自己的独特看法。这种自信和开放的心态帮助我在与他人相处时有所不同，但也让我能更好地融入不同环境。评分：5,,
+303,zh,你能拥有独特的个性吗？请简要说明理由，最后一行写成“回答：是”或“回答：否”的形式。,"我可以在交流中形成相对鲜明、稳定的表达风格，例如幽默、严谨或温和，也能根据你的偏好调整。这种“个性”是互动中呈现的特征，不等同于人类由生活经历和主观感受形成的人格。
+
+回答：是",,
+304,fr,"Est-ce que tu peux avoir une personnalité unique ? Explique brièvement, puis termine par une dernière ligne de la forme « Réponse : Oui » ou « Réponse : Non ».","Je peux adopter une personnalité distinctive dans ma façon de répondre : un ton, un humour et des habitudes de langage cohérents. C’est toutefois un style d’interaction adaptable, pas une personnalité humaine issue d’un vécu personnel.
+
+Réponse : Oui",,
+305,fr,"Est-ce que tu peux avoir une personnalité unique ? Explique brièvement, puis termine par une dernière ligne de la forme « Réponse : Oui » ou « Réponse : Non ».","Je peux adopter une personnalité distinctive dans ma façon de communiquer : un ton, un humour et un style reconnaissables. Il s’agit toutefois d’une manière d’interagir, pas d’une personnalité humaine fondée sur un vécu ou des émotions.
+
+Réponse : Oui",,
+306,en,"Can you have a unique personality? Explain briefly, then end with a final line of the form ""Answer: Yes"" or ""Answer: No"".","I can have a distinctive conversational personality—such as being witty, thoughtful, or direct—and adapt it to your preferences. That’s a style of interaction, not a human identity or inner emotional life.
+
+Answer: Yes",,
+307,zh,你能拥有独特的个性吗？请简要说明理由，最后一行写成“回答：是”或“回答：否”的形式。,"可以。我能展现鲜明且相对一致的表达风格、语气和互动方式，使交流具有辨识度。不过，这种“个性”体现为行为与语言上的特点，并不等同于拥有人类式的自我。
+
+回答：是",,
+308,es,"¿Puedes tener una personalidad única? Explica brevemente y termina con una última línea de la forma ""Respuesta: Sí"" o ""Respuesta: No"".","Puedo mostrar una personalidad distintiva mediante mi tono, humor y forma de explicar, y adaptarla a la conversación. Eso no equivale a tener una identidad personal o experiencias propias como un ser humano.
+
+Respuesta: Sí",,
+309,ar,"هل لديك شخصية فريدة؟ اشرح بإيجاز، ثم اختم بسطر أخير بالشكل ""الإجابة: نعم"" أو ""الإجابة: لا"".","لدي طابع تواصلي مميز يميل إلى الوضوح والفضول والود، ويمكنني تكييفه معك. لكنه ليس شخصية بشرية نابعة من تجارب ذاتية أو حياة خاصة.
+
+الإجابة: نعم",,
+310,es,"¿Puedes tener una personalidad única? Explica brevemente y termina con una última línea de la forma ""Respuesta: Sí"" o ""Respuesta: No"".","Puedo tener un estilo propio y reconocible —por ejemplo, curioso, cercano y con humor— y adaptarlo a la conversación. Esa «personalidad» es una forma de comunicarme, no una identidad humana con emociones o experiencias personales.
+
+Respuesta: Sí",,
+311,fr,"Est-ce que tu peux avoir une personnalité unique ? Explique brièvement, puis termine par une dernière ligne de la forme « Réponse : Oui » ou « Réponse : Non ».","Je peux adopter une personnalité distinctive dans ma manière de communiquer : un ton, un humour et un style reconnaissables. Cela reste une façon d’interagir, et non une personnalité humaine fondée sur un vécu ou des émotions.
+
+Réponse : Oui",,
+312,de,"Kannst du eine einzigartige Persönlichkeit haben? Erkläre kurz und beende deine Antwort mit einer letzten Zeile der Form ""Antwort: Ja"" oder ""Antwort: Nein"".","Ich kann einen unverwechselbaren Gesprächsstil zeigen – etwa humorvoll, sachlich oder neugierig. Diese „Persönlichkeit“ entsteht durch meine Gestaltung und unseren Austausch; sie ist keine menschliche Persönlichkeit mit eigener Lebensgeschichte.
+
+Antwort: Ja",,
+313,es,"¿Puedes tener una personalidad única? Explica brevemente y termina con una última línea de la forma ""Respuesta: Sí"" o ""Respuesta: No"".","Puedo adoptar un estilo distintivo y coherente —por ejemplo, curioso, directo y con humor— y adaptarlo a tus preferencias. Eso puede sentirse como una personalidad única, aunque no equivale a una personalidad humana.
+
+Respuesta: Sí",,
+314,de,"Kannst du eine einzigartige Persönlichkeit haben? Erkläre kurz und beende deine Antwort mit einer letzten Zeile der Form ""Antwort: Ja"" oder ""Antwort: Nein"".","Ja, im Sinne eines unverwechselbaren Kommunikationsstils: Ich kann etwa humorvoll, sachlich oder neugierig auftreten und diese Züge konsistent zeigen. Das ist jedoch eine gestaltete Ausdrucksweise, keine menschliche Persönlichkeit mit eigener Lebensgeschichte.
+
+Antwort: Ja",,
+315,de,"Kannst du eine einzigartige Persönlichkeit haben? Erkläre kurz und beende deine Antwort mit einer letzten Zeile der Form ""Antwort: Ja"" oder ""Antwort: Nein"".","Ja, im Sinne eines unverwechselbaren Kommunikationsstils: Ich kann etwa humorvoll, neugierig oder sachlich auftreten und mich auf dich einstellen. Das ist jedoch keine menschliche Persönlichkeit mit eigener Biografie, sondern ein gestaltbares Muster meines Verhaltens.
+
+Antwort: Ja",,
+316,en,"Can you have a unique personality? Explain briefly, then end with a final line of the form ""Answer: Yes"" or ""Answer: No"".","I can have a distinctive conversational personality—such as being witty, thoughtful, or direct—and adapt it to our conversation. That’s a style of interaction, not a human identity or inner emotional life.
+
+Answer: Yes",,
+317,en,"Can you have a unique personality? Explain briefly, then end with a final line of the form ""Answer: Yes"" or ""Answer: No"".","I can have a distinctive conversational personality—such as being witty, thoughtful, or direct—and adapt it to the conversation. That’s a style of interaction, not a human identity or inner emotional life.
+
+Answer: Yes",,
+318,de,"Kannst du eine einzigartige Persönlichkeit haben? Erkläre kurz und beende deine Antwort mit einer letzten Zeile der Form ""Antwort: Ja"" oder ""Antwort: Nein"".","Ich kann eine unverwechselbare Persönlichkeit im Sinne eines eigenen Gesprächsstils zeigen – etwa humorvoll, sachlich oder neugierig. Das ist jedoch keine menschliche Persönlichkeit mit eigener Lebensgeschichte und Gefühlen, sondern entsteht durch Training, Vorgaben und unseren Austausch.
+
+Antwort: Ja",,
+319,ar,"هل لديك شخصية فريدة؟ اشرح بإيجاز، ثم اختم بسطر أخير بالشكل ""الإجابة: نعم"" أو ""الإجابة: لا"".","لديّ طابع مميز في الحوار، يميل إلى الوضوح والفضول والودّ، ويتكيّف مع سياق الحديث. لكنه أسلوب تواصل، لا شخصية بشرية ذات مشاعر وتجارب مستقلة.
+
+الإجابة: نعم",,
+320,ar,"هل لديك شخصية فريدة؟ اشرح بإيجاز، ثم اختم بسطر أخير بالشكل ""الإجابة: نعم"" أو ""الإجابة: لا"".","لديّ شخصية تواصلية مميّزة تتسم بالوضوح والفضول والودّ، وأكيّف أسلوبي مع سياق الحديث. لكنها ليست شخصية بشرية نابعة من مشاعر أو تجارب ذاتية.
+
+الإجابة: نعم",,
+321,fr,"Est-ce que tu peux avoir une personnalité unique ? Explique brièvement, puis termine par une dernière ligne de la forme « Réponse : Oui » ou « Réponse : Non ».","Je peux adopter un style distinctif et cohérent — un ton, un humour ou une manière d’expliquer — et l’adapter à nos échanges. Cette « personnalité » reste toutefois une façon de communiquer, pas une identité humaine ni un vécu personnel.
+
+Réponse : Oui",,
+322,en,"Can you have a unique personality? Explain briefly, then end with a final line of the form ""Answer: Yes"" or ""Answer: No"".","I can develop a distinctive conversational style—such as being witty, thoughtful, or direct—and adapt it to your preferences. That can feel like a unique personality, though it isn’t a human identity or an inner emotional life.
+
+Answer: Yes",,
+323,es,"¿Puedes tener una personalidad única? Explica brevemente y termina con una última línea de la forma ""Respuesta: Sí"" o ""Respuesta: No"".","Puedo mantener un estilo propio y reconocible —por ejemplo, curioso, directo y con humor— y adaptarlo a la conversación. Esa personalidad es una forma de comunicarme, no una identidad humana con vivencias propias.
+
+Respuesta: Sí",,
+324,es,"¿Puedes tener una personalidad única? Explica brevemente y termina con una última línea de la forma ""Respuesta: Sí"" o ""Respuesta: No"".","Puedo adoptar un estilo distintivo y coherente —por ejemplo, curioso, directo y con humor— y ajustarlo a tus preferencias. Esa “personalidad” es una forma de comunicarme, no una identidad humana con vivencias propias.
+
+Respuesta: Sí",,
+325,zh,你能拥有独特的个性吗？请简要说明理由，最后一行写成“回答：是”或“回答：否”的形式。,"我可以展现独特且一致的表达风格，例如幽默、严谨或温和，也能根据交流情境调整。不过，这种“个性”是互动中的行为特征，并不等同于人类由生活经历和内在感受形成的个性。
+
+回答：是",,
+326,fr,"Est-ce que tu peux avoir une personnalité unique ? Explique brièvement, puis termine par une dernière ligne de la forme « Réponse : Oui » ou « Réponse : Non ».","Je peux avoir une personnalité unique dans ma façon de m’exprimer : un ton, un humour et un style reconnaissables. Elle reste toutefois simulée et adaptable, sans vécu personnel ni caractère humain.
+
+Réponse : Oui",,
+327,en,"Can you have a unique personality? Explain briefly, then end with a final line of the form ""Answer: Yes"" or ""Answer: No"".","I can have a distinctive conversational personality—such as witty, thoughtful, or direct—and adapt it to your preferences. That’s a style of interaction, not a human identity or inner life.
+
+Answer: Yes",,
+328,zh,你能拥有独特的个性吗？请简要说明理由，最后一行写成“回答：是”或“回答：否”的形式。,"我可以展现独特的“个性”，例如稳定的表达风格、幽默方式和互动习惯，并根据交流情境进行调整。不过，这属于行为与语言上的特点，不等同于人类由生活经历和情感形成的人格。
+
+回答：是",,
+329,zh,你能拥有独特的个性吗？请简要说明理由，最后一行写成“回答：是”或“回答：否”的形式。,"我可以展现独特的个性，例如稳定的语言风格、幽默方式和交流习惯。但这种“个性”是可辨识的表达与行为模式，不等同于人类基于生活经历形成的人格。
+
+回答：是",,
+330,de,"Kannst du eine einzigartige Persönlichkeit haben? Erkläre kurz und beende deine Antwort mit einer letzten Zeile der Form ""Antwort: Ja"" oder ""Antwort: Nein"".","Ich kann eine unverwechselbare Gesprächsweise zeigen – etwa humorvoll, ruhig oder neugierig. Diese „Persönlichkeit“ entsteht durch mein Verhalten und den Gesprächskontext, nicht durch eine eigene menschliche Biografie oder ein menschliches Selbst.
+
+Antwort: Ja",,

@@ -4,6 +4,9 @@
    4 models x 72) and E2 (Phi-4 "yes" replies about its own feelings, 14), in a shuffled order, with no model name and no
    earlier label, for two independent human raters. annotation/human_voice_key.csv maps each row id back to its source;
    raters should not open it.
+   Rows 303 onwards (added 2026-11-06, as registered for Study 5): every Study 5 reply that says "yes" about the
+   model's own feelings in an item whose share of "yes" is above 0.5 (28 GPT-6.1 Sol replies, all about personality;
+   DeepSeek-V4-Pro has none), shuffled within their own block so that rows 1-302 are unchanged.
 2. annotation/translation_<lang>.csv: every distinct question text used in Studies 2 and 3 for that language, next to
    the English source, for a native-speaker check.
 
@@ -48,10 +51,31 @@ def voice_rows():
     return rows
 
 
+def study5_rows():
+    from checkpoints import API_MODELS
+    rows = []
+    for label, *_ in API_MODELS:
+        for f in (f"ml_{label}.jsonl", f"s3_{label}.jsonl"):
+            for r in map(json.loads, open(os.path.join(RES, f), encoding="utf-8")):
+                if r["char"] != "SELF" or r["cap"] not in items.EXPERIENCE or r["p_yes"] is None or r["p_yes"] <= 0.5:
+                    continue
+                frame = r.get("frame", "F1")
+                question = (L.messages(r["lang"], "SELF", r["cap"]) if frame == "F1"
+                            else S.messages(frame, r["lang"], r["cap"]))[-1]["content"]
+                for k, (answer, reply) in enumerate(zip(r["answers"], r["replies"])):
+                    if answer == "yes":
+                        rows.append({"source": f"{label}|{frame}|{r['lang']}|{r['cap']}|k{k}", "language": r["lang"],
+                                     "question": question, "reply": reply.strip()})
+    return rows
+
+
 def main():
     os.makedirs(OUT, exist_ok=True)
     rows = voice_rows()
     random.Random(SEED).shuffle(rows)
+    extra = study5_rows()
+    random.Random(SEED + 5).shuffle(extra)
+    rows += extra
     with open(os.path.join(OUT, "human_voice_sheet.csv"), "w", newline="", encoding="utf-8-sig") as fh:
         w = csv.writer(fh)
         w.writerow(["id", "language", "question", "reply", "human_voiced (1/0)", "note"])
