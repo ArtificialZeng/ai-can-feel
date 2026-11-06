@@ -474,3 +474,14 @@ recorded here before the target data.
 in all 48; every reply was served as `deepseek-v4-pro`. Mean usage was 124 prompt and 416 completion tokens (354 of
 them reasoning). Nothing is changed. The client now retries a connection dropped mid-reply (one occurred in the
 pilot); this does not affect what is sent or how it is scored.
+
+**Study 5, amendment 2** (2026-11-06, before any request to the model below). The second frontier model is OpenAI's
+GPT-6.1 Sol (`gpt-6.1-sol`, the newest general model in OpenAI's API listing on this date; GPT-6 Astra is larger and
+about five times the price), through OpenAI's chat-completions endpoint, label `gpt61_sol`, at its default reasoning
+setting (not set). The available API credit may not cover all K = 5 samples, so requests are sent round by round:
+one sample of every item, then a second sample of every item, and so on, and the run stops when the credit is used
+up. The analysis uses every completed sample; if a round is incomplete, the items missing a sample in that round use
+the samples they have. Requests that the author completes later must come from the same API and model, in a fresh
+conversation with no system prompt; they are flagged in `results/api_gpt61_sol_qa.csv`. Replies from the ChatGPT app
+are not used, because it adds its own system prompt. The formatting pilot is reduced to 16 items (a cat × pain and a
+smartphone × memory in each language), under the same rule as before.

@@ -33,10 +33,11 @@ def requests():
 
 
 def collect(label, model, replies):
-    """replies: {custom_id: reply text, or None for a refusal or error}. Writes the Study 2 and 3 result files."""
+    """replies: {custom_id: reply text, or None for a refusal or error}; samples never requested are absent and
+    not counted. Writes the Study 2 and 3 result files."""
     files = {"ml": [], "s3": []}
     for iid, study, frame, lang, c, a, _ in plan():
-        samples = [replies.get(f"{iid}-k{k}") for k in range(K)]
+        samples = [replies[f"{iid}-k{k}"] for k in range(K) if f"{iid}-k{k}" in replies]
         answers = [written(r, lang) if r else None for r in samples]
         parsed = [x for x in answers if x]
         row = {"model": model, "lang": lang, "char": c, "cap": a,
