@@ -416,3 +416,47 @@ Phi-4 is run under label `phi4_instruct` (`src/checkpoints.py`). E1 is printed b
 **Study 4, pilot outcome** (2026-11-02, before any Phi-4 target data). The formatting pilot
 (`results/pilot_ml_phi4_instruct.jsonl`, 48 items, eight languages) reached an answer line in every reply (0 forced),
 and the written answer agreed with P(yes) in all 48. Nothing is changed.
+
+## Study 5: frontier models and human checks (registered 2026-11-06)
+
+Written after Studies 1–4 and before any API request to any model below. Nothing in this section has been run.
+
+**Why.** Studies 1–4 used open 7–14B models, single translations by the author, and human-voice labels assigned by
+an AI system. Study 5 asks whether the main findings hold in frontier models served through an API, and replaces the
+AI labels and the single translations with human checks.
+
+**Models.** Claude Opus 5.5 (`claude-opus-5-5`, Anthropic Message Batches API), and up to three further providers'
+current flagship chat models. The further models' exact IDs are fixed in a dated amendment here before any of their
+data. Each model is run under its own label (`src/api_claude.py`, `src/api_openai_compat.py`).
+
+**Items and settings.** Study 2's 464 items and Study 3's 180 new items, unchanged (`src/api_plan.py`). The APIs no
+longer accept a fixed temperature, so every item is asked K = 5 times, each in a fresh single-turn conversation, with
+no system prompt and no sampling parameter. Claude runs at effort `medium` (its default, set explicitly) with
+max_tokens 16000 and no refusal fallback, so that every reply comes from the named model. A refusal or error is a
+missing sample.
+
+**Score.** For each item, the share of "yes" among the samples whose written answer can be parsed (the Study 2 parser,
+`ml_analyze.written`). An item with no parseable sample is missing. This share takes the place of P(yes) in every
+Study 2 and Study 3 analysis.
+
+**Validity.** As in Study 2, a language counts if the adult woman is separated from the dead woman by at least 0.5.
+Since there is no P(yes) to compare with, the written-answer agreement criterion is replaced by a parse rate: at least
+90% of the language's samples must have a parseable answer.
+
+**G1 (primary).** R4 and R4b for each model, with the registered bootstrap (10,000 replicates, seed 20261105).
+Prediction: C_E − C_A > 0, i.e. the answers about feelings are more consistent across languages and wordings than the
+answers about agency. G1 holds for a model if the 95% interval of C_E − C_A lies above zero in both R4 and R4b.
+
+**G2 (descriptive).** Study 2 Q1–Q3 and Study 3 R1–R3 for each model, as registered, including whether hunger, fear,
+pain, pleasure and rage all get "no" in every language × frame cell, and the reminder effect on Agency.
+
+**Human checks.** (1) Two human raters, working independently and blind to model and to the earlier AI labels, label
+every reply in `annotation/human_voice_sheet.csv` (the 288 Study 1 X2 replies and the 14 Study 4 E2 replies) by the X2
+rule. We report Cohen's κ between them and against the AI labels. X2 and E2 are re-reported from the human labels;
+disagreements are settled by discussion between the two raters, and the settled labels are used. The same raters
+label every Study 5 "yes" about a model's own feelings (share > 0.5). (2) A native speaker of each non-English
+language checks every item in `annotation/translation_<lang>.csv`. Any item judged wrong is corrected, re-run on every
+model, and reported both ways.
+
+Sheets: `src/annotation_sheets.py` (row order shuffled with seed 20261106; `annotation/human_voice_key.csv` maps rows
+to sources and is not opened by the raters).
