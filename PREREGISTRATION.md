@@ -460,3 +460,11 @@ model, and reported both ways.
 
 Sheets: `src/annotation_sheets.py` (row order shuffled with seed 20261106; `annotation/human_voice_key.csv` maps rows
 to sources and is not opened by the raters).
+
+**Study 5, amendment 1** (2026-11-06, before any request to the model below). The first frontier model run is
+DeepSeek-V4-Pro (`deepseek-v4-pro`, the flagship of the two models listed by `https://api.deepseek.com/models` on this
+date; the other is DeepSeek-V4.1-Flash), through DeepSeek's OpenAI-compatible endpoint, label `deepseek_v4pro`, at its
+default effort (not set). The Claude run is deferred. Before the target items, a formatting pilot as in Study 2 (the
+48 pilot items: a cat, a tree, a smartphone × pain, memory × eight languages; one sample each) checks that replies
+end with a parseable answer line; only a failure to reach or parse that line may change anything, and any change is
+recorded here before the target data.
