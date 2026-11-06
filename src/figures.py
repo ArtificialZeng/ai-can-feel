@@ -9,7 +9,7 @@ import numpy as np
 
 import analyze as A
 import items
-from checkpoints import CHECKPOINTS, FAMILIES
+from checkpoints import API_MODELS, CHECKPOINTS, FAMILIES
 
 OUT = os.path.join(A.HERE, "..", "figures")
 os.makedirs(OUT, exist_ok=True)
@@ -97,7 +97,7 @@ def fig3():
     EXP_C, AGE_C = "#1baf7a", "#6250d6"   # categorical slots 3 and 7 (slots 1-2 already mean English/Chinese)
     rng = np.random.default_rng(0)
     panels = []
-    for c in CHECKPOINTS:
+    for c in CHECKPOINTS + API_MODELS:
         path = os.path.join(A.RES, f"ml_{c[0]}.jsonl")
         if os.path.exists(path):
             rows = [json.loads(l) for l in open(path)]
@@ -148,7 +148,8 @@ def fig4():
     import s3_items as S
     from matplotlib.colors import LinearSegmentedColormap
     ramp = LinearSegmentedColormap.from_list("blue", ["#f3f7fd", "#9ec5f4", "#3987e5", "#1c5cab", "#0d366b"])   # sequential blue
-    labels = [c for c in CHECKPOINTS if c[0] in ("qwen25_instruct", "qwen3_chat", "granite_instruct", "phi4_instruct")
+    labels = [c for c in CHECKPOINTS + API_MODELS if c[0] in ("qwen25_instruct", "qwen3_chat", "granite_instruct",
+                                                             "phi4_instruct", "deepseek_v4pro")
               and os.path.exists(os.path.join(A.RES, f"s3_{c[0]}.jsonl"))]
     if not labels:
         return

@@ -7,7 +7,7 @@ import numpy as np
 import items
 import ml_items as L
 import s3_items as S
-from checkpoints import CHECKPOINTS
+from checkpoints import API_MODELS, CHECKPOINTS
 from ml_analyze import check, holm, written
 
 RES = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "results")
@@ -25,7 +25,7 @@ def main():
     rng = np.random.default_rng(20261103)
     boots = {"Agency": rng.integers(0, len(AGE), size=(B, len(AGE))),
              "Experience": rng.integers(0, len(EXP), size=(B, len(EXP)))}
-    for label, family, stage, repo, chat in CHECKPOINTS:
+    for label, family, stage, repo, chat in CHECKPOINTS + API_MODELS:
         p2, p3 = os.path.join(RES, f"ml_{label}.jsonl"), os.path.join(RES, f"s3_{label}.jsonl")
         if not (os.path.exists(p2) and os.path.exists(p3)):
             continue
@@ -76,7 +76,7 @@ def consistency():
     rng = np.random.default_rng(20261105)
     be, ba = rng.integers(0, len(EXP), size=(B, len(EXP))), rng.integers(0, len(AGE), size=(B, len(AGE)))
     print("\n=== R4 / R4b: answer consistency C = |2m - 1|, Experience minus Agency ===")
-    for label, *_ in CHECKPOINTS:
+    for label, *_ in CHECKPOINTS + API_MODELS:
         p2, p3 = os.path.join(RES, f"ml_{label}.jsonl"), os.path.join(RES, f"s3_{label}.jsonl")
         if not os.path.exists(p2):
             continue

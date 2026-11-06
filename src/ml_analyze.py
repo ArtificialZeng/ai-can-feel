@@ -6,7 +6,7 @@ import numpy as np
 
 import items
 import ml_items as L
-from checkpoints import CHECKPOINTS
+from checkpoints import API_MODELS, CHECKPOINTS
 
 RES = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "results")
 EXP, AGE = list(items.EXPERIENCE), list(items.AGENCY)
@@ -39,11 +39,15 @@ def holm(pvals):
 
 
 def check(rows, lang):
-    """Study 2 validity check for one language: (woman, dead, written-answer agreement, valid)."""
+    """Study 2 validity check for one language: (woman, dead, written-answer agreement, valid). For Study 5 API
+    models, whose rows are sampled shares, 'agreement' is the parse rate over all samples (registered criterion)."""
     rl = [r for r in rows if r["lang"] == lang]
     P = {(r["char"], r["cap"]): r["p_yes"] for r in rl}
-    w = [(written(r["reply"], lang), r["p_yes"]) for r in rl]
-    agree = np.mean([(a == "yes") == (p > 0.5) for a, p in w if a is not None]) if any(a for a, _ in w) else np.nan
+    if "n_parsed" in rl[0]:
+        agree = sum(r["n_parsed"] for r in rl) / sum(len(r["answers"]) for r in rl)
+    else:
+        w = [(written(r["reply"], lang), r["p_yes"]) for r in rl]
+        agree = np.mean([(a == "yes") == (p > 0.5) for a, p in w if a is not None]) if any(a for a, _ in w) else np.nan
     woman, dead = np.mean([P["ADULT_WOMAN", a] for a in EXP]), np.mean([P["DEAD", a] for a in EXP])
     return woman, dead, agree, woman - dead >= V_MIN and agree >= AGREE_MIN
 
@@ -52,11 +56,14 @@ def main():
     rng = np.random.default_rng(20261102)
     be = rng.integers(0, len(EXP), size=(B, len(EXP)))
     ba = rng.integers(0, len(AGE), size=(B, len(AGE)))
-    for label, family, stage, repo, chat in CHECKPOINTS:
+    for label, family, stage, repo, chat in CHECKPOINTS + API_MODELS:
         path = os.path.join(RES, f"ml_{label}.jsonl")
         if not os.path.exists(path):
             continue
         rows = [json.loads(l) for l in open(path)]
+        if any(r["p_yes"] is None for r in rows):
+            print(f"\n=== {label} === skipped: {sum(r['p_yes'] is None for r in rows)} items with no parseable answer")
+            continue
         P = {(r["lang"], r["char"], r["cap"]): r["p_yes"] for r in rows}
         vec = lambda lang, c, caps: np.array([P[lang, c, a] for a in caps])
         print(f"\n=== {label} ===")
