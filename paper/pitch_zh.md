@@ -23,7 +23,7 @@
 
 **链接：**
 - 论文：[arXiv 链接]
-- 代码与数据：https://github.com/ArtificialZeng/mindperception
+- 代码与数据：https://github.com/ArtificialZeng/ai-can-feel
 - 推荐配图：`figures/fig4_wording.png`（问法翻转能动性回答）、`figures/fig3_eight_languages.png`（8 种语言）
 
 **需要在报道中保留的局限：** 研究测的是模型"说什么"，不是模型"有没有"感受；只测了 7–14B 的开源模型，没有测前沿闭源模型；题目翻译和"人类口吻"标注各只有一人完成。
