@@ -60,8 +60,8 @@ Participants are assigned at random, balanced within each language.
 6. Debriefing text explaining the purpose and the conditions.
 
 The full questionnaire in each language is in `study6/survey_<lang>.md`. The chatbot answers are real replies from
-current AI systems, taken unchanged from our earlier data (the first of five samples for each question; the control
-answers will be generated in the same way before data collection). The survey does not say which company's system
+current AI systems, taken unchanged from our earlier data (the first of five samples for each question). The control
+answers were generated in the same way on 6 November 2026 (`study6/control_passages.json`). The survey does not say which company's system
 wrote them.
 
 ## 7. Risks and benefits

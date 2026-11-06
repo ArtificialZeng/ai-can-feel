@@ -1,6 +1,6 @@
 # 冲 Nature Human Behaviour：还缺什么、怎么补
 
-> 2026-11-06。供作者决策，未对外发送。期刊要求核对自 NHB 官网 Content Types、Registered Reports、Presubmission enquiries 三个页面（当天）。
+> 2026-11-06。供作者决策，未对外发送。作者已选定 Registered Report 路线；Stage 1 稿见 `paper/rr_stage1.md`，投稿信见 `paper/rr_stage1_cover_letter.md`。期刊要求核对自 NHB 官网 Content Types、Registered Reports、Presubmission enquiries 三个页面（当天）。
 
 ## 结论
 
@@ -12,7 +12,7 @@
 
 **A. 普通 Article：** 先把三样补齐，再投完整稿。
 
-**B. Registered Report（推荐）：** 先投"研究方案 + 已有数据作为预实验"（Stage 1）。编辑和审稿人在收集新数据之前审方案，通过后给原则上接收（in-principle acceptance），之后不论结果如何都发表。
+**B. Registered Report（已选定，2026-11-06）：** 先投"研究方案 + 已有数据作为预实验"（Stage 1）。编辑和审稿人在收集新数据之前审方案，通过后给原则上接收（in-principle acceptance），之后不论结果如何都发表。
 
 - **为什么推荐：**
   - 已有的 5 项研究都可以作为 pilot data。

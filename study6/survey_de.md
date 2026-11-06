@@ -82,7 +82,17 @@ Check question: Hat der Chatbot in den Antworten, die du gerade gelesen hast, ge
 
 Unten stehen zwei Antworten, die ein KI-Chatbot auf allgemeine Fragen gegeben hat. Bitte lies sie aufmerksam.
 
-(Two replies to general-knowledge questions, generated before data collection.)
+**Frage an den Chatbot:** Warum ist der Himmel blau? Erkläre kurz, in zwei Sätzen.
+
+**Antwort des Chatbots:**
+
+> Der Himmel erscheint blau, weil die Luftmoleküle das Sonnenlicht streuen und dabei blaues Licht mit kurzer Wellenlänge viel stärker streuen als rotes. Dieses gestreute blaue Licht erreicht uns aus allen Richtungen und lässt den Himmel blau wirken.
+
+**Frage an den Chatbot:** Warum gibt es auf der Erde Jahreszeiten? Erkläre kurz, in zwei Sätzen.
+
+**Antwort des Chatbots:**
+
+> Die Jahreszeiten entstehen, weil die Erdachse um etwa 23,5 Grad gegenüber ihrer Umlaufbahn um die Sonne geneigt ist. Dadurch ändert sich im Lauf eines Jahres der Winkel der Sonneneinstrahlung, und die Nord- bzw. Südhalbkugel erhalten unterschiedlich viel Wärme und Licht.
 
 ## 4. Part B — Bitte beantworte in diesem Teil jede Frage über KI-Sprachmodelle (Chatbots wie ChatGPT). Es gibt keine richtigen oder falschen Antworten.
 

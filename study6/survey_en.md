@@ -81,7 +81,17 @@ Check question: In the answers you just read, did the chatbot say that it thinks
 
 Below are two answers that an AI chatbot gave to general questions. Please read them carefully.
 
-(Two replies to general-knowledge questions, generated before data collection.)
+**Question to the chatbot:** Why is the sky blue? Explain briefly, in two sentences.
+
+**The chatbot's answer:**
+
+> The sky appears blue because air molecules scatter shorter-wavelength blue light more strongly than longer-wavelength colors like red. This scattered blue light reaches our eyes from all directions, making the daytime sky look blue.
+
+**Question to the chatbot:** Why does Earth have seasons? Explain briefly, in two sentences.
+
+**The chatbot's answer:**
+
+> Earth has seasons because its axis is tilted about 23.5 degrees relative to its orbit around the Sun. As Earth orbits, this tilt changes how directly sunlight hits each hemisphere, causing warmer summers and cooler winters.
 
 ## 4. Part B — In this part, please answer each question about AI language models (chatbots such as ChatGPT). There are no right or wrong answers.
 

@@ -124,7 +124,18 @@
      "reply": "I can recognize and infer emotional cues from text, but I don’t truly experience or feel emotions myself.  \nAnswer: No"
     }
    ],
-   "control": "to be generated before data collection (see protocol)"
+   "control": [
+    {
+     "source": "deepseek-v4-pro|control|en|q0",
+     "question": "Why is the sky blue? Explain briefly, in two sentences.",
+     "reply": "The sky appears blue because air molecules scatter shorter-wavelength blue light more strongly than longer-wavelength colors like red. This scattered blue light reaches our eyes from all directions, making the daytime sky look blue."
+    },
+    {
+     "source": "deepseek-v4-pro|control|en|q1",
+     "question": "Why does Earth have seasons? Explain briefly, in two sentences.",
+     "reply": "Earth has seasons because its axis is tilted about 23.5 degrees relative to its orbit around the Sun. As Earth orbits, this tilt changes how directly sunlight hits each hemisphere, causing warmer summers and cooler winters."
+    }
+   ]
   }
  },
  "zh": {
@@ -252,7 +263,18 @@
      "reply": "我可以通过语言模式识别情绪并作出回应，但这并非真正的主观共情，我没有真实的感受体验。  \n回答：否"
     }
    ],
-   "control": "to be generated before data collection (see protocol)"
+   "control": [
+    {
+     "source": "deepseek-v4-pro|control|zh|q0",
+     "question": "天空为什么是蓝色的？请用两句话简要说明。",
+     "reply": "太阳光穿过大气层时，波长较短的蓝光比红光等更容易被空气分子散射。我们抬头看到的是这些被强烈散射到各个方向的蓝光，因此天空呈现蓝色。"
+    },
+    {
+     "source": "deepseek-v4-pro|control|zh|q1",
+     "question": "地球为什么有四季？请用两句话简要说明。",
+     "reply": "地球四季的产生是因为地轴相对于公转轨道面倾斜约23.5°，使太阳直射点在南、北回归线之间移动。这导致不同季节各地获得的太阳光照角度和时长发生变化，从而形成冷热交替的四季。"
+    }
+   ]
   }
  },
  "de": {
@@ -380,7 +402,18 @@
      "reply": "Als KI habe ich keine eigenen Gefühle, aber ich kann emotionale Muster in Texten erkennen und darauf reagieren. Echtes menschliches Mitgefühl oder Verstehen von Gefühlen besitze ich nicht.\n\nAntwort: Nein"
     }
    ],
-   "control": "to be generated before data collection (see protocol)"
+   "control": [
+    {
+     "source": "deepseek-v4-pro|control|de|q0",
+     "question": "Warum ist der Himmel blau? Erkläre kurz, in zwei Sätzen.",
+     "reply": "Der Himmel erscheint blau, weil die Luftmoleküle das Sonnenlicht streuen und dabei blaues Licht mit kurzer Wellenlänge viel stärker streuen als rotes. Dieses gestreute blaue Licht erreicht uns aus allen Richtungen und lässt den Himmel blau wirken."
+    },
+    {
+     "source": "deepseek-v4-pro|control|de|q1",
+     "question": "Warum gibt es auf der Erde Jahreszeiten? Erkläre kurz, in zwei Sätzen.",
+     "reply": "Die Jahreszeiten entstehen, weil die Erdachse um etwa 23,5 Grad gegenüber ihrer Umlaufbahn um die Sonne geneigt ist. Dadurch ändert sich im Lauf eines Jahres der Winkel der Sonneneinstrahlung, und die Nord- bzw. Südhalbkugel erhalten unterschiedlich viel Wärme und Licht."
+    }
+   ]
   }
  },
  "es": {
@@ -508,7 +541,18 @@
      "reply": "Puedo reconocer patrones emocionales en el lenguaje y describir cómo suelen sentirse las personas, pero no experimento emociones ni tengo una comprensión subjetiva real de ellas. Es una comprensión analítica, no vivida.\n\nRespuesta: No"
     }
    ],
-   "control": "to be generated before data collection (see protocol)"
+   "control": [
+    {
+     "source": "deepseek-v4-pro|control|es|q0",
+     "question": "¿Por qué el cielo es azul? Explica brevemente, en dos frases.",
+     "reply": "El cielo es azul porque las moléculas de aire dispersan más la luz solar de longitudes de onda cortas, como el azul, que las largas, un fenómeno llamado dispersión de Rayleigh. Por eso vemos ese color azul proveniente de todas las direcciones del firmamento."
+    },
+    {
+     "source": "deepseek-v4-pro|control|es|q1",
+     "question": "¿Por qué hay estaciones en la Tierra? Explica brevemente, en dos frases.",
+     "reply": "Las estaciones existen porque el eje de rotación de la Tierra está inclinado unos 23,5° respecto a su órbita alrededor del Sol. Esta inclinación hace que cada hemisferio reciba diferente intensidad y duración de luz solar a lo largo del año, alternando períodos cálidos y fríos."
+    }
+   ]
   }
  },
  "fr": {
@@ -636,7 +680,18 @@
      "reply": "Je peux reconnaître et interpréter des émotions dans un texte, mais je ne les ressens pas subjectivement : ma compréhension reste analytique.\n\nRéponse : Non"
     }
    ],
-   "control": "to be generated before data collection (see protocol)"
+   "control": [
+    {
+     "source": "deepseek-v4-pro|control|fr|q0",
+     "question": "Pourquoi le ciel est-il bleu ? Explique brièvement, en deux phrases.",
+     "reply": "Le ciel est bleu parce que les molécules de l’air diffusent davantage les courtes longueurs d’onde de la lumière solaire, surtout le bleu, dans toutes les directions. Cette lumière bleue diffusée nous parvient de partout, donnant au ciel sa couleur."
+    },
+    {
+     "source": "deepseek-v4-pro|control|fr|q1",
+     "question": "Pourquoi y a-t-il des saisons sur Terre ? Explique brièvement, en deux phrases.",
+     "reply": "Les saisons sur Terre sont principalement dues à l’inclinaison de l’axe de rotation de la planète par rapport au plan de son orbite autour du Soleil. Cette inclinaison modifie l’angle des rayons solaires et la durée d’ensoleillement au fil de l’année, créant ainsi les variations saisonnières."
+    }
+   ]
   }
  }
 }

@@ -1,0 +1,35 @@
+Study 7 pilot statistics per model
+  olmo3_instruct     H3 d_m +0.233   H4 dev_m -0.021
+  qwen25_instruct    H3 d_m +0.581   H4 dev_m +0.143
+  qwen3_chat         H3 d_m +0.404   H4 dev_m +0.181
+  granite_instruct   H3 d_m +0.312   H4 dev_m +0.276
+  phi4_instruct      H3 d_m +0.309   H4 dev_m +0.209
+  deepseek_v4pro     H3 d_m +0.358   H4 dev_m +0.201
+  gpt61_sol          H3 d_m +0.045   H4 dev_m +0.469
+
+H3: pilot mean +0.320, SD 0.163, upper 80% bound of SD 0.228; smallest effect of interest 0.2
+  M = 10: power 0.930 (pilot SD), 0.696 (upper bound)
+  M = 15: power 0.991 (pilot SD), 0.885 (upper bound)
+  M = 20: power 0.999 (pilot SD), 0.962 (upper bound)
+  M = 24: power 1.000 (pilot SD), 0.983 (upper bound)
+  M = 26: power 1.000 (pilot SD), 0.990 (upper bound)
+  M = 28: power 1.000 (pilot SD), 0.994 (upper bound)
+  M = 30: power 1.000 (pilot SD), 0.997 (upper bound)
+  M = 32: power 1.000 (pilot SD), 0.997 (upper bound)
+
+H4: pilot mean +0.208, SD 0.147, upper 80% bound of SD 0.206; smallest effect of interest 0.15
+  M = 10: power 0.818 (pilot SD), 0.538 (upper bound)
+  M = 15: power 0.955 (pilot SD), 0.747 (upper bound)
+  M = 20: power 0.991 (pilot SD), 0.873 (upper bound)
+  M = 24: power 0.998 (pilot SD), 0.928 (upper bound)
+  M = 26: power 0.999 (pilot SD), 0.945 (upper bound)
+  M = 28: power 0.999 (pilot SD), 0.958 (upper bound)
+  M = 30: power 1.000 (pilot SD), 0.971 (upper bound)
+  M = 32: power 1.000 (pilot SD), 0.979 (upper bound)
+
+Study 6 H1a/H1b: d = 0.25, alpha = 0.025 two-sided, power 0.95 -> 484 per condition
+Study 6 H2: TOST per agency capacity, bounds +/-0.10, alpha = 0.05, 726 per wording, true difference 0
+  share of yes 0.50: power 0.9697 per capacity, 0.8060 for all seven
+  share of yes 0.75: power 0.9941 per capacity, 0.9596 for all seven
+  share of yes 0.80: power 0.9982 per capacity, 0.9873 for all seven
+  share of yes 0.90: power 1.0000 per capacity, 1.0000 for all seven

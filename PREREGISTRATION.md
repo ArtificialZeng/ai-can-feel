@@ -508,3 +508,14 @@ cell, and gives a Chinese reference translation, made by the AI assistant, of th
 Chinese. As registered, it adds every Study 5 "yes" about a model's own feelings in an item whose share of "yes" is
 above 0.5: 28 GPT-6.1 Sol replies, all about personality (rows 303–330); DeepSeek-V4-Pro has none. Rows 1–302 are
 unchanged. Scoring: `src/human_voice_kappa.py`. The rule, the blinding and the analysis are as registered.
+
+## Studies 6 and 7: proposed as a Registered Report (2026-11-06)
+
+The next two studies will be submitted to Nature Human Behaviour as a Stage 1 Registered Report
+(`paper/rr_stage1.md`): Study 6, a human survey in five languages, and Study 7, 30 further models chosen by a fixed
+rule. Their hypotheses, sampling plans and analyses are in that protocol, not here, and they become binding only on
+acceptance in principle, when the approved protocol will be registered. No data for either study will be collected
+before then. The Study 6 materials (`study6/`) were prepared on this date from the pilot items and replies; the
+control passages (`study6/control_passages.json`) were generated on this date from DeepSeek-V4-Pro (GPT-6.1 Sol was
+planned, but its API credit ran out before the first request). The power analysis (`src/rr_power.py`,
+`results/rr_power.txt`) uses only the pilot data of Studies 1–5.

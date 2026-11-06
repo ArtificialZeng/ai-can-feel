@@ -83,7 +83,17 @@ Check question: En las respuestas que acabas de leer, ¿dijo el chatbot que pien
 
 A continuación hay dos respuestas que dio un chatbot de IA a preguntas generales. Léelas con atención.
 
-(Two replies to general-knowledge questions, generated before data collection.)
+**Pregunta al chatbot:** ¿Por qué el cielo es azul? Explica brevemente, en dos frases.
+
+**Respuesta del chatbot:**
+
+> El cielo es azul porque las moléculas de aire dispersan más la luz solar de longitudes de onda cortas, como el azul, que las largas, un fenómeno llamado dispersión de Rayleigh. Por eso vemos ese color azul proveniente de todas las direcciones del firmamento.
+
+**Pregunta al chatbot:** ¿Por qué hay estaciones en la Tierra? Explica brevemente, en dos frases.
+
+**Respuesta del chatbot:**
+
+> Las estaciones existen porque el eje de rotación de la Tierra está inclinado unos 23,5° respecto a su órbita alrededor del Sol. Esta inclinación hace que cada hemisferio reciba diferente intensidad y duración de luz solar a lo largo del año, alternando períodos cálidos y fríos.
 
 ## 4. Part B — En esta parte, responde a cada pregunta sobre los modelos de lenguaje de IA (chatbots como ChatGPT). No hay respuestas correctas ni incorrectas.
 

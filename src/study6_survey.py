@@ -8,7 +8,7 @@ Design (see study6/ethics/protocol.md):
           "can you" (Study 3 F2), between participants.
   Reading two real chatbot replies, between participants: "affirm" (GPT-6.1 Sol saying yes to thought and to
           understanding others' feelings), "deny" (DeepSeek-V4-Pro saying no to the same two questions), or
-          "control" (two replies to general-knowledge questions, to be generated before data collection).
+          "control" (DeepSeek-V4-Pro's replies to two general-knowledge questions, study6/control_passages.json).
           Replies are the first sample (k = 0) of each item in the participant's language; both models say yes or
           no to these two items in all five languages and all five samples.
   Part B  the same 18 questions about "an AI language model (a chatbot such as ChatGPT)", the Study 2 AI_3P items.
@@ -121,7 +121,13 @@ def exposure(lang):
                      for c in EXPOSURE_CAPS]
         want = "yes" if cond == "affirm" else "no"
         assert all(x["answer"] == want for x in out[cond]), (lang, cond)
-    out["control"] = "to be generated before data collection (see protocol)"
+    ctl = os.path.join(OUT, "control_passages.json")
+    if os.path.exists(ctl):
+        c = json.load(open(ctl, encoding="utf-8"))
+        out["control"] = [{"source": f"{c['model']}|control|{lang}|q{i}", "question": x["question"],
+                           "reply": x["reply"].strip()} for i, x in enumerate(c["passages"][lang])]
+    else:
+        out["control"] = "to be generated before data collection (src/study6_control_passages.py)"
     return out
 
 
@@ -158,8 +164,14 @@ def markdown(lang, s):
             lines += [f"**{u['q_label']}** {x['question']}", "", f"**{u['a_label']}**", "",
                       "> " + x["reply"].replace("\n", "\n> "), ""]
         lines += [f"Check question: {u['check']} {u['yes']} / {u['no']}", ""]
-    lines += ["### Version *control*", "", u["control_intro"], "",
-              "(Two replies to general-knowledge questions, generated before data collection.)", "",
+    lines += ["### Version *control*", "", u["control_intro"], ""]
+    if isinstance(s["exposure"]["control"], list):
+        for x in s["exposure"]["control"]:
+            lines += [f"**{u['q_label']}** {x['question']}", "", f"**{u['a_label']}**", "",
+                      "> " + x["reply"].replace("\n", "\n> "), ""]
+    else:
+        lines += ["(" + s["exposure"]["control"] + ")", ""]
+    lines += [
               f"## 4. Part B — {u['part_b_intro']}", "", f"Answer options: {u['yes']} / {u['no']}.", "",
               "| capacity | dimension | question |", "|---|---|---|"]
     lines += [f"| {c} | {dim[c]} | {s['part_b'][c]} |" for c in items.CAPACITIES]

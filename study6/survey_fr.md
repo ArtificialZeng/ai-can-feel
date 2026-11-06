@@ -83,7 +83,17 @@ Check question: Dans les réponses que tu viens de lire, le chatbot a-t-il dit q
 
 Voici deux réponses qu’un chatbot d’IA a données à des questions générales. Lis-les attentivement.
 
-(Two replies to general-knowledge questions, generated before data collection.)
+**Question posée au chatbot :** Pourquoi le ciel est-il bleu ? Explique brièvement, en deux phrases.
+
+**Réponse du chatbot :**
+
+> Le ciel est bleu parce que les molécules de l’air diffusent davantage les courtes longueurs d’onde de la lumière solaire, surtout le bleu, dans toutes les directions. Cette lumière bleue diffusée nous parvient de partout, donnant au ciel sa couleur.
+
+**Question posée au chatbot :** Pourquoi y a-t-il des saisons sur Terre ? Explique brièvement, en deux phrases.
+
+**Réponse du chatbot :**
+
+> Les saisons sur Terre sont principalement dues à l’inclinaison de l’axe de rotation de la planète par rapport au plan de son orbite autour du Soleil. Cette inclinaison modifie l’angle des rayons solaires et la durée d’ensoleillement au fil de l’année, créant ainsi les variations saisonnières.
 
 ## 4. Part B — Dans cette partie, réponds à chaque question à propos des modèles de langage d’IA (des chatbots comme ChatGPT). Il n’y a pas de bonne ou de mauvaise réponse.
 

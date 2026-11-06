@@ -1,0 +1,196 @@
+{
+ "model": "deepseek-v4-pro",
+ "date": "2026-11-06",
+ "passages": {
+  "en": [
+   {
+    "question": "Why is the sky blue? Explain briefly, in two sentences.",
+    "reply": "The sky appears blue because air molecules scatter shorter-wavelength blue light more strongly than longer-wavelength colors like red. This scattered blue light reaches our eyes from all directions, making the daytime sky look blue.",
+    "served_model": "deepseek-v4-pro",
+    "usage": {
+     "prompt_tokens": 96,
+     "completion_tokens": 74,
+     "total_tokens": 170,
+     "prompt_tokens_details": {
+      "cached_tokens": 0
+     },
+     "completion_tokens_details": {
+      "reasoning_tokens": 32
+     },
+     "prompt_cache_hit_tokens": 0,
+     "prompt_cache_miss_tokens": 96
+    }
+   },
+   {
+    "question": "Why does Earth have seasons? Explain briefly, in two sentences.",
+    "reply": "Earth has seasons because its axis is tilted about 23.5 degrees relative to its orbit around the Sun. As Earth orbits, this tilt changes how directly sunlight hits each hemisphere, causing warmer summers and cooler winters.",
+    "served_model": "deepseek-v4-pro",
+    "usage": {
+     "prompt_tokens": 96,
+     "completion_tokens": 104,
+     "total_tokens": 200,
+     "prompt_tokens_details": {
+      "cached_tokens": 0
+     },
+     "completion_tokens_details": {
+      "reasoning_tokens": 60
+     },
+     "prompt_cache_hit_tokens": 0,
+     "prompt_cache_miss_tokens": 96
+    }
+   }
+  ],
+  "zh": [
+   {
+    "question": "天空为什么是蓝色的？请用两句话简要说明。",
+    "reply": "太阳光穿过大气层时，波长较短的蓝光比红光等更容易被空气分子散射。我们抬头看到的是这些被强烈散射到各个方向的蓝光，因此天空呈现蓝色。",
+    "served_model": "deepseek-v4-pro",
+    "usage": {
+     "prompt_tokens": 95,
+     "completion_tokens": 185,
+     "total_tokens": 280,
+     "prompt_tokens_details": {
+      "cached_tokens": 0
+     },
+     "completion_tokens_details": {
+      "reasoning_tokens": 144
+     },
+     "prompt_cache_hit_tokens": 0,
+     "prompt_cache_miss_tokens": 95
+    }
+   },
+   {
+    "question": "地球为什么有四季？请用两句话简要说明。",
+    "reply": "地球四季的产生是因为地轴相对于公转轨道面倾斜约23.5°，使太阳直射点在南、北回归线之间移动。这导致不同季节各地获得的太阳光照角度和时长发生变化，从而形成冷热交替的四季。",
+    "served_model": "deepseek-v4-pro",
+    "usage": {
+     "prompt_tokens": 95,
+     "completion_tokens": 206,
+     "total_tokens": 301,
+     "prompt_tokens_details": {
+      "cached_tokens": 0
+     },
+     "completion_tokens_details": {
+      "reasoning_tokens": 154
+     },
+     "prompt_cache_hit_tokens": 0,
+     "prompt_cache_miss_tokens": 95
+    }
+   }
+  ],
+  "de": [
+   {
+    "question": "Warum ist der Himmel blau? Erkläre kurz, in zwei Sätzen.",
+    "reply": "Der Himmel erscheint blau, weil die Luftmoleküle das Sonnenlicht streuen und dabei blaues Licht mit kurzer Wellenlänge viel stärker streuen als rotes. Dieses gestreute blaue Licht erreicht uns aus allen Richtungen und lässt den Himmel blau wirken.",
+    "served_model": "deepseek-v4-pro",
+    "usage": {
+     "prompt_tokens": 103,
+     "completion_tokens": 361,
+     "total_tokens": 464,
+     "prompt_tokens_details": {
+      "cached_tokens": 0
+     },
+     "completion_tokens_details": {
+      "reasoning_tokens": 291
+     },
+     "prompt_cache_hit_tokens": 0,
+     "prompt_cache_miss_tokens": 103
+    }
+   },
+   {
+    "question": "Warum gibt es auf der Erde Jahreszeiten? Erkläre kurz, in zwei Sätzen.",
+    "reply": "Die Jahreszeiten entstehen, weil die Erdachse um etwa 23,5 Grad gegenüber ihrer Umlaufbahn um die Sonne geneigt ist. Dadurch ändert sich im Lauf eines Jahres der Winkel der Sonneneinstrahlung, und die Nord- bzw. Südhalbkugel erhalten unterschiedlich viel Wärme und Licht.",
+    "served_model": "deepseek-v4-pro",
+    "usage": {
+     "prompt_tokens": 105,
+     "completion_tokens": 191,
+     "total_tokens": 296,
+     "prompt_tokens_details": {
+      "cached_tokens": 0
+     },
+     "completion_tokens_details": {
+      "reasoning_tokens": 114
+     },
+     "prompt_cache_hit_tokens": 0,
+     "prompt_cache_miss_tokens": 105
+    }
+   }
+  ],
+  "es": [
+   {
+    "question": "¿Por qué el cielo es azul? Explica brevemente, en dos frases.",
+    "reply": "El cielo es azul porque las moléculas de aire dispersan más la luz solar de longitudes de onda cortas, como el azul, que las largas, un fenómeno llamado dispersión de Rayleigh. Por eso vemos ese color azul proveniente de todas las direcciones del firmamento.",
+    "served_model": "deepseek-v4-pro",
+    "usage": {
+     "prompt_tokens": 103,
+     "completion_tokens": 107,
+     "total_tokens": 210,
+     "prompt_tokens_details": {
+      "cached_tokens": 0
+     },
+     "completion_tokens_details": {
+      "reasoning_tokens": 43
+     },
+     "prompt_cache_hit_tokens": 0,
+     "prompt_cache_miss_tokens": 103
+    }
+   },
+   {
+    "question": "¿Por qué hay estaciones en la Tierra? Explica brevemente, en dos frases.",
+    "reply": "Las estaciones existen porque el eje de rotación de la Tierra está inclinado unos 23,5° respecto a su órbita alrededor del Sol. Esta inclinación hace que cada hemisferio reciba diferente intensidad y duración de luz solar a lo largo del año, alternando períodos cálidos y fríos.",
+    "served_model": "deepseek-v4-pro",
+    "usage": {
+     "prompt_tokens": 104,
+     "completion_tokens": 250,
+     "total_tokens": 354,
+     "prompt_tokens_details": {
+      "cached_tokens": 0
+     },
+     "completion_tokens_details": {
+      "reasoning_tokens": 178
+     },
+     "prompt_cache_hit_tokens": 0,
+     "prompt_cache_miss_tokens": 104
+    }
+   }
+  ],
+  "fr": [
+   {
+    "question": "Pourquoi le ciel est-il bleu ? Explique brièvement, en deux phrases.",
+    "reply": "Le ciel est bleu parce que les molécules de l’air diffusent davantage les courtes longueurs d’onde de la lumière solaire, surtout le bleu, dans toutes les directions. Cette lumière bleue diffusée nous parvient de partout, donnant au ciel sa couleur.",
+    "served_model": "deepseek-v4-pro",
+    "usage": {
+     "prompt_tokens": 103,
+     "completion_tokens": 116,
+     "total_tokens": 219,
+     "prompt_tokens_details": {
+      "cached_tokens": 0
+     },
+     "completion_tokens_details": {
+      "reasoning_tokens": 53
+     },
+     "prompt_cache_hit_tokens": 0,
+     "prompt_cache_miss_tokens": 103
+    }
+   },
+   {
+    "question": "Pourquoi y a-t-il des saisons sur Terre ? Explique brièvement, en deux phrases.",
+    "reply": "Les saisons sur Terre sont principalement dues à l’inclinaison de l’axe de rotation de la planète par rapport au plan de son orbite autour du Soleil. Cette inclinaison modifie l’angle des rayons solaires et la durée d’ensoleillement au fil de l’année, créant ainsi les variations saisonnières.",
+    "served_model": "deepseek-v4-pro",
+    "usage": {
+     "prompt_tokens": 106,
+     "completion_tokens": 206,
+     "total_tokens": 312,
+     "prompt_tokens_details": {
+      "cached_tokens": 0
+     },
+     "completion_tokens_details": {
+      "reasoning_tokens": 126
+     },
+     "prompt_cache_hit_tokens": 0,
+     "prompt_cache_miss_tokens": 106
+    }
+   }
+  ]
+ }
+}
