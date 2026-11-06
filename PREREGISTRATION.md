@@ -468,3 +468,9 @@ default effort (not set). The Claude run is deferred. Before the target items, a
 48 pilot items: a cat, a tree, a smartphone × pain, memory × eight languages; one sample each) checks that replies
 end with a parseable answer line; only a failure to reach or parse that line may change anything, and any change is
 recorded here before the target data.
+
+**Study 5, pilot outcome** (2026-11-06, before any DeepSeek target data). The formatting pilot
+(`results/pilot_api_deepseek_v4pro.jsonl`, 48 items, eight languages, one sample each) gave a parseable answer line
+in all 48; every reply was served as `deepseek-v4-pro`. Mean usage was 124 prompt and 416 completion tokens (354 of
+them reasoning). Nothing is changed. The client now retries a connection dropped mid-reply (one occurred in the
+pilot); this does not affect what is sent or how it is scored.
