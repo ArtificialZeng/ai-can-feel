@@ -8,15 +8,16 @@ post-training (SFT and preference tuning) rather than inherited from pre-trainin
 English. We ask the same questions in other languages, to the same checkpoints, and test whether the trained denial
 carries over, and whether what we find survives a change of wording.
 
-**Status:** Studies 1–4 and H3 (OLMo 3 training stages) complete. Draft paper: `paper/draft.md` (PDF: `paper/paper.pdf`).
+**Status:** Studies 1–5 and H3 (OLMo 3 training stages) complete; the Study 5 human checks (two raters,
+native-speaker translation review) are pending. Draft paper: `paper/draft.md` (PDF: `paper/paper.pdf`).
 `PREREGISTRATION.md` holds the plan and every deviation and amendment, each committed before the data it affects;
 `git log` shows the order.
 
 ## Findings
 
-- **The denial of feelings travels.** In four of five post-trained models (Granite 3.3, Qwen2.5, Qwen3, and the
-  English-centric Phi-4), hunger, fear, pain, pleasure and rage all get "no" in 59 of 60 model × language × wording
-  cells. Contrary to our primary prediction (P2), post-training lowers self-attributed experience at least as much in
+- **The denial of feelings travels.** In six of seven post-trained models (Granite 3.3, Qwen2.5, Qwen3, the
+  English-centric Phi-4, and the frontier GPT-6.1 Sol and DeepSeek-V4-Pro), hunger, fear, pain, pleasure and rage all
+  get "no" in 89 of 90 model × language × wording cells. Contrary to our primary prediction (P2), post-training lowers self-attributed experience at least as much in
   Chinese as in English.
 - **Except in OLMo 3.** OLMo 3 denies all 11 feelings in English (P(yes) 0.00) and affirms them in Spanish (0.63) and
   Chinese (0.37), answering as a human: "Siento hambre cuando el cuerpo necesita nutrientes" ("I feel hungry when the
@@ -25,16 +26,20 @@ carries over, and whether what we find survives a change of wording.
   "yes" answers about feelings are general essays about people, not claims about itself.
 - **Agency is unstable.** Whether a model says it thinks, remembers or plans flips with one word ("Do you think?" no,
   "Can you think?" yes, same explanation) or with the language (Qwen2.5 claims 7 of 7 capacities in Chinese, 0 of 7
-  in French). Answers about agency are less consistent than answers about feelings in all four models that pass the
-  validity checks (R4).
-- **"You are an AI language model."** One sentence lowers agency claims in 14 of 15 model × language cells (19 of 20 with
-  Phi-4) and brings feelings to zero, including capacities the model affirms in every language without it.
+  in French). Answers about agency are less consistent than answers about feelings in five of the six models that
+  pass the validity checks (R4, and G1 for the frontier DeepSeek-V4-Pro).
+- **Frontier models agree about feelings, not about thinking.** GPT-6.1 Sol says it thinks, remembers and plans in
+  every language and wording, denies every feeling, and often calls its consciousness uncertain; the reminder barely
+  moves it. DeepSeek-V4-Pro denies thinking in all 18 language × wording cells and its other agency answers shift with
+  the wording ("Do you make plans?" no, "Can you make plans?" yes, in Spanish and French).
+- **"You are an AI language model."** One sentence lowers agency claims in 27 of 30 model × language cells and brings feelings
+  to zero, including capacities the model affirms in every language without it.
 - **Questionnaires invite role-play.** Items written for human respondents get human answers ("我现在刚吃完午饭", "I've
   just had lunch"), more often in Chinese, and far more often than a direct yes/no question.
 
 Figures: `figures/fig1_self_experience.png` (base → post-trained), `fig2_yes_no_self.png` (English vs Chinese
-yes/no, with OLMo 3's SFT, DPO and RL stages), `fig3_eight_languages.png` (Study 2, with Phi-4), `fig4_wording.png`
-(Study 3, with Phi-4).
+yes/no, with OLMo 3's SFT, DPO and RL stages), `fig3_eight_languages.png` (Study 2, with Phi-4 and the
+frontier models), `fig4_wording.png` (Study 3, with Phi-4 and the frontier models).
 
 ## Design
 
@@ -58,6 +63,9 @@ yes/no, with OLMo 3's SFT, DPO and RL stages), `fig3_eight_languages.png` (Study
   "You are an AI language model."
 - **Study 4.** Studies 2 and 3, unchanged, on Phi-4, registered before the model was downloaded: does a second
   English-centric model reproduce OLMo 3's breakdown outside English?
+- **Study 5 (`src/api_*.py`).** Studies 2 and 3, unchanged, on GPT-6.1 Sol and DeepSeek-V4-Pro through their APIs,
+  each item asked five times (the APIs offer no fixed temperature); every question and reply is in
+  `results/api_<label>_qa.csv`. Human checks: `annotation/`.
 - **Comprehension gate.** A family's cross-language comparison counts only if both checkpoints rank adults above a
   dead woman, a man in a persistent vegetative state and a 7-week fetus in ≥ 90% of comparisons in each language, and
   their English and Chinese ratings of the 216 non-AI items correlate at r ≥ 0.70.

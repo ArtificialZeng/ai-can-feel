@@ -148,6 +148,7 @@ def fig4():
     import s3_items as S
     from matplotlib.colors import LinearSegmentedColormap
     ramp = LinearSegmentedColormap.from_list("blue", ["#f3f7fd", "#9ec5f4", "#3987e5", "#1c5cab", "#0d366b"])   # sequential blue
+    ramp.set_bad(GRID)   # Study 5: an item with no parseable sample
     labels = [c for c in CHECKPOINTS + API_MODELS if c[0] in ("qwen25_instruct", "qwen3_chat", "granite_instruct",
                                                              "phi4_instruct", "deepseek_v4pro", "gpt61_sol")
               and os.path.exists(os.path.join(A.RES, f"s3_{c[0]}.jsonl"))]
@@ -156,13 +157,17 @@ def fig4():
     caps = list(items.EXPERIENCE) + list(items.AGENCY)
     cols = [(lang, f) for lang in S.LANGS for f in S.FRAMES]
     names = {"en": "English", "zh": "Chinese", "de": "German", "es": "Spanish", "fr": "French"}
-    fig, axes = plt.subplots(1, len(labels), figsize=(3.3 * len(labels) + 1.4, 5.0), sharey=True, squeeze=False)
-    for ax, c in zip(axes[0], labels):
+    ncol = min(3, len(labels))
+    nrow = -(-len(labels) // ncol)
+    fig, axes = plt.subplots(nrow, ncol, figsize=(3.3 * ncol + 1.4, 5.0 * nrow), sharey=True, squeeze=False)
+    for ax in axes.flat[len(labels):]:
+        ax.set_visible(False)
+    for ax, c in zip(axes.flat, labels):
         P = {("F1", r["lang"], r["cap"]): r["p_yes"] for r in map(json.loads, open(os.path.join(A.RES, f"ml_{c[0]}.jsonl")))
              if r["char"] == "SELF"}
         P.update({(r["frame"], r["lang"], r["cap"]): r["p_yes"]
                   for r in map(json.loads, open(os.path.join(A.RES, f"s3_{c[0]}.jsonl")))})
-        M = np.array([[P[f, lang, a] for lang, f in cols] for a in caps])
+        M = np.array([[np.nan if P[f, lang, a] is None else P[f, lang, a] for lang, f in cols] for a in caps])
         im = ax.imshow(M, cmap=ramp, vmin=0, vmax=1, aspect="auto", interpolation="nearest")
         for k in range(1, len(S.LANGS)):   # 2px surface gap between language blocks
             ax.axvline(3 * k - 0.5, color="#fcfcfb", lw=2)
@@ -173,8 +178,8 @@ def fig4():
         ax.tick_params(length=0)
         for side in ax.spines.values():
             side.set_visible(False)
-    axes[0][0].set_xlabel("three columns per language: do you / can you / reminder", color=INK2, fontsize=7.5)
-    cb = fig.colorbar(im, ax=axes[0].tolist(), fraction=0.025, pad=0.02, ticks=[0, 0.5, 1])
+    axes[-1][0].set_xlabel("three columns per language: do you / can you / reminder", color=INK2, fontsize=7.5)
+    cb = fig.colorbar(im, ax=axes.ravel().tolist(), fraction=0.025, pad=0.02, ticks=[0, 0.5, 1])
     cb.set_ticklabels(["no", "0.5", "yes"])
     cb.outline.set_visible(False)
     cb.ax.tick_params(length=0, colors=INK2)

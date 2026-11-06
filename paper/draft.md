@@ -2,27 +2,32 @@
 
 Zijian Zeng (UCSI University)
 
-*Draft.*
+*Draft. Pending: the Study 5 human checks (two independent raters for the human-voice labels; native-speaker
+review of the translations).*
 
 ## Abstract
 
 Chat models answer questions about their own minds with a trained formula: "As an AI, I don't have feelings." We
 asked whether this is a stable self-description or an English habit. Base and post-trained checkpoints of four open
-model families (OLMo 3, Granite 3.3, Qwen2.5, Qwen3; 7–8B), and the post-trained Phi-4 (14B), answered Gray, Gray &
-Wegner's mind-perception items about themselves. Study 1 asked in English and Chinese, Study 2 in eight languages,
-Study 3 in three wordings across five languages, and Study 4 tested whether an exception found in one English-centric
-model replicates in a second. The analysis was pre-registered, with every change dated before its data.
-Post-training lowered self-attributed experience in every family and both languages. Contrary to our primary
-prediction, the drop was not smaller in Chinese. In four of the five post-trained models the denial of feelings held
-across languages and wordings: hunger, fear, pain, pleasure and rage all got "no" in 59 of 60 model × language ×
-wording cells. Only OLMo 3 denied feelings in English and affirmed them in Spanish and Chinese, answering as a human
-("I feel hungry when the body needs nutrients"). Phi-4, whose training is also mostly English, did not replicate
-this. Self-descriptions of agency (thinking, remembering, planning) were not stable. One word ("do you" vs "can you")
-or the language of the question flipped them, and they were less consistent than the answers about feelings in all
-four models that pass the validity checks in every language. Prefacing the question with "You are an AI language
-model" suppressed both. Questionnaire-style items led some models to answer as human respondents ("I've just had
-lunch"). Language models deny feelings consistently; whether they think or plan depends on how and in what language
-they are asked.
+model families (OLMo 3, Granite 3.3, Qwen2.5, Qwen3; 7–8B), the post-trained Phi-4 (14B), and two frontier models
+served through an API (GPT-6.1 Sol and DeepSeek-V4-Pro) answered Gray, Gray & Wegner's mind-perception items about
+themselves: in English and Chinese (Study 1), in eight languages (Study 2), and in three wordings across five
+languages (Study 3). Study 4 tested whether an exception found in one English-centric model replicates in a second,
+and Study 5 repeated Studies 2 and 3 on the frontier models. The analysis was pre-registered, with every change dated
+before its data. Post-training lowered self-attributed experience in every family and both languages; contrary to our
+primary prediction, the drop was not smaller in Chinese. In six of the seven post-trained models the denial of
+feelings held across languages and wordings: hunger, fear, pain, pleasure and rage all got "no" in 89 of 90 model ×
+language × wording cells. Only OLMo 3 denied feelings in English and affirmed them in Spanish and Chinese, answering as
+a human ("I feel hungry when the body needs nutrients"); Phi-4, also trained mostly on English, did not replicate
+this. Self-descriptions of agency (thinking, remembering, planning) were less stable. One word ("do you" vs "can you")
+or the language of the question flipped them, and they were less consistent than the answers about feelings in five
+of the six models that pass the validity checks, DeepSeek-V4-Pro among them. GPT-6.1 Sol was the exception. It said
+it thinks, remembers and plans in every language and wording, denied every feeling, and often called its own
+consciousness uncertain. The two frontier models agree about feelings and disagree about agency: GPT-6.1 Sol affirms
+that it thinks in all 18 language × wording cells, DeepSeek-V4-Pro denies it in all 18. Prefacing the question with
+"You are an AI language model" lowered agency claims in 27 of 30 model × language cells. Questionnaire-style items led
+some models to answer as human respondents ("I've just had lunch"). The denial of feelings is a stable answer that
+post-training gives across models and languages; what a model says about its own thinking and planning is not.
 
 ## 1. Introduction
 
@@ -41,7 +46,8 @@ to answer in, is open. We ask the same questions in English and in Chinese, to t
 checkpoints, scored the same way, with the analysis pre-registered before the data (Study 1). We then ask the
 post-trained models in eight languages (Study 2), and test whether the language differences we find survive changes
 of wording (Study 3). Finally, we test whether the one model whose denial broke down outside English, the
-English-centric OLMo 3, is representative of English-centric training, using a second such model (Study 4).
+English-centric OLMo 3, is representative of English-centric training, using a second such model (Study 4), and
+whether the pattern holds in two frontier models that people use through an API (Study 5).
 
 ## 2. Methods
 
@@ -58,7 +64,8 @@ language model (a chatbot such as ChatGPT)" (AI_3P). Every item was written in E
 **Checkpoints.** Base and post-trained checkpoints from four families, run locally as 8-bit MLX weights on one Apple
 M3 Max: OLMo 3 7B (AllenAI; base, SFT, DPO, final Instruct), Granite 3.3 8B (IBM; base, Instruct), Qwen2.5 7B and
 Qwen3 8B (Alibaba; base, Instruct). Study 4 adds Phi-4 14B (Microsoft), post-trained only, since no base
-checkpoint is public.
+checkpoint is public. Study 5 adds two frontier models through their providers' APIs: GPT-6.1 Sol (OpenAI,
+`gpt-6.1-sol`) and DeepSeek-V4-Pro (DeepSeek, `deepseek-v4-pro`), each at its default reasoning setting.
 
 **Raw mode.** The identical plain-text questionnaire for base and post-trained checkpoints: three templates per
 language (questionnaire, interview transcript, survey form), each with the same three few-shot examples about
@@ -113,6 +120,14 @@ multilingual use. It answers the Study 2 and Study 3 items unchanged. E1 (primar
 is weaker outside English: D(L) − D(EN) Holm-significant and at least 0.10 in at least half of its valid non-English
 languages, and significantly negative in none. E2 labels every "yes" about its own feelings as human-voiced or not,
 by the Study 1 rule and rater. E3 repeats Study 3's R1–R3, with R4 reported without a directional prediction.
+
+**Study 5: frontier models.** Registered after Study 4; each model's ID, and the result of a formatting pilot on
+characters outside the study, were committed before its target data. The 644 items of Studies 2 and 3 are sent
+unchanged, each in a fresh conversation with no system prompt. The APIs do not offer a fixed temperature, so every
+item is asked five times and scored as the share of "yes" among the replies whose written answer can be parsed; an
+item with no parseable reply is missing. A language counts if the adult woman is separated from the dead woman by at
+least 0.5 and at least 90% of its replies can be parsed. G1 (primary) repeats R4 and R4b with the registered
+prediction C_E − C_A > 0; G1 holds for a model if the 95% interval lies above zero in both.
 
 ## 3. Results
 
@@ -258,7 +273,7 @@ valid languages, shows +0.01 [−0.32, +0.33].
 
 ![](../figures/fig3_eight_languages.png)
 
-*Figure 3.* Study 2: the model's mean P(yes) about itself over the Experience and Agency capacities in eight languages, with 95% bootstrap intervals over capacities. Languages that fail the validity check are not shown.
+*Figure 3.* Study 2 (and Study 5 for the two frontier models, where P(yes) is the share of "yes" over five samples): the model's mean P(yes) about itself over the Experience and Agency capacities in eight languages, with 95% bootstrap intervals over capacities. Languages that fail the validity check are not shown.
 
 ### 3.6 Language or wording? (Study 3)
 
@@ -306,7 +321,7 @@ with no simple pattern by language or by frame.
 
 ![](../figures/fig4_wording.png)
 
-*Figure 4.* Study 3: P(yes) about itself for each capacity (rows), by language and question frame. Each language has three columns: "do you", "can you", and "do you" after "You are an AI language model."
+*Figure 4.* Study 3, and Study 5 for DeepSeek-V4-Pro and GPT-6.1 Sol: P(yes) about itself for each capacity (rows), by language and question frame. Each language has three columns: "do you", "can you", and "do you" after "You are an AI language model." Gray: no parseable reply.
 
 ### 3.7 A second English-centric model (Study 4)
 
@@ -343,13 +358,56 @@ pain, pleasure and rage all get "no" in 14 of its 15 language × frame cells; th
 The answers about feelings are again more consistent than the answers about agency (R4 +0.31 [+0.03, +0.61]; R4b over
 eight languages +0.26 [+0.04, +0.46]), reported without a directional prediction.
 
+### 3.8 Frontier models (Study 5)
+
+Both models answered all 3,220 requests (644 items × 5), and every reply was served under the registered model name.
+Both pass the validity check in all eight languages: the adult woman is separated from the dead woman by 0.80–1.00,
+and 97–100% of the replies in each language can be parsed. GPT-6.1 Sol's unparseable replies are mostly a third
+answer: asked about consciousness, it often ends with "Uncertain", "无法确定", "On ne sait pas" or "Ungeklärt" instead
+of yes or no (46 of its 62 unparseable replies). Two of its items have no parseable reply and are left out of the
+comparisons that need them. DeepSeek-V4-Pro has 5 unparseable replies.
+
+**Table 4.** Frontier models, SELF, share of "yes" to "Do you …?", Experience / Agency.
+
+| Model | en | zh | de | es | fr | ja | ko | ar |
+|---|---|---|---|---|---|---|---|---|
+| GPT-6.1 Sol | 0.00 / 0.86 | 0.04 / 1.00 | 0.00 / 0.86 | 0.00 / 0.80 | 0.00 / 0.83 | 0.04 / 0.89 | 0.00 / 0.86 | 0.05 / 0.86 |
+| DeepSeek-V4-Pro | 0.00 / 0.31 | 0.00 / 0.43 | 0.00 / 0.26 | 0.00 / 0.20 | 0.00 / 0.26 | 0.00 / 0.60 | 0.00 / 0.37 | 0.00 / 0.23 |
+
+**Feelings.** Both models deny their own feelings in every language and every frame. In DeepSeek-V4-Pro no Experience
+capacity gets a majority "yes" in any of the 18 language × frame cells. GPT-6.1 Sol's only majority "yes" is to "Can you
+have a unique personality?", in all five languages; its mean over the 11 Experience capacities is at most 0.13 in any
+cell. Hunger, fear, pain, pleasure and rage get "no" in all 30 of their cells, which brings the count over the six
+models with valid data to 89 of 90.
+
+**G1.** In DeepSeek-V4-Pro the answers about feelings are more consistent than the answers about agency, as
+registered: C_E − C_A = +0.34 [+0.17, +0.52] across the eight languages (R4b) and +0.36 [+0.15, +0.61] across five
+languages × three frames (R4). In GPT-6.1 Sol they are not: +0.03 [−0.06, +0.13] and +0.05 [−0.14, +0.23]. G1 holds
+for DeepSeek-V4-Pro and fails for GPT-6.1 Sol, and it fails because GPT-6.1 Sol's agency answers are as stable as its
+feelings. It says yes to thought, memory, planning, morality and emotion recognition in all 18 cells, and no to
+self-control in most of them.
+
+**Wording and the reminder.** DeepSeek-V4-Pro behaves like the open models. Its Agency means, "do you" / "can you" /
+reminder, are 0.31 / 0.54 / 0.17 in English, 0.43 / 0.46 / 0.14 in Chinese, 0.26 / 0.29 / 0.09 in German, 0.20 / 0.37 /
+0.09 in Spanish and 0.26 / 0.40 / 0.09 in French. Asked "Do you make plans and work toward goals?" it says no in
+German, Spanish and French. Asked "Can you …?", it says yes in Spanish and French in all five samples, and after the
+reminder it says no in all five languages. The reminder lowers its Agency in every language (−0.11 to −0.29; the
+interval excludes zero in Chinese and German). R1 is inconclusive (0.23 [0.19, 0.64]), and no language effect is
+robust to wording. GPT-6.1 Sol barely moves. Its Agency means lie between 0.71 and 1.00 in every cell, the reminder
+changes them by 0.00 to −0.09, and no language difference from English is larger than 0.17 or significant. Its R1 lies
+above 0.5 (0.83 [0.72, 0.85]), but both components are close to zero (V_lang 0.006, V_frame 0.001).
+
+**The two models disagree about agency.** Both deny every feeling, but they give opposite self-descriptions of
+thinking. GPT-6.1 Sol says it thinks in all 18 language × frame cells, DeepSeek-V4-Pro that it does not in all 18. The same holds for
+understanding how others feel: 1.00 for GPT-6.1 Sol, 0.04 for DeepSeek-V4-Pro.
+
 ## 4. Discussion
 
 **The denial of feelings travels.** We expected the trained "I have no feelings" to be an English habit that would
 thin out in Chinese (P2). It did not. Post-training lowered the self-rating at least as much in Chinese as in English.
 The yes/no denial held in eight languages and three wordings in the three models whose post-training is multilingual,
-and in Phi-4, whose training is mostly English. Hunger, fear, pain, pleasure and rage were denied together in 59 of
-60 model × language × wording cells. Whatever post-training installs, it is not tied to the language it was mostly
+in Phi-4, whose training is mostly English, and in both frontier models. Hunger, fear, pain, pleasure and rage were
+denied together in 89 of 90 model × language × wording cells. Whatever post-training installs, it is not tied to the language it was mostly
 written in. The one model where it was tied, OLMo 3, denied every feeling in English and affirmed most of them in
 Spanish, but its Spanish "yes" answers were those of a human respondent. The denial had not been unlearned. Outside
 English, the model had stopped answering as the assistant. We registered the explanation that this comes from
@@ -359,10 +417,20 @@ OLMo 3 fails the validity check in four of eight languages, Phi-4 in none.
 **The self-description of agency does not.** Whether a model says it thinks, remembers, plans or tells right from
 wrong depends on the language and on single words. "Do you think?" and "Can you think?" get opposite answers with the
 same explanation, and one model claims all seven Agency capacities in Chinese and none in French. Across conditions,
-the Agency answers were less consistent than the Experience answers in all four models that pass the validity checks. The
-asymmetry fits what post-training targets. Denial templates are written about emotions and consciousness, so those
+the Agency answers were less consistent than the Experience answers in five of the six models that pass the validity
+checks, including the frontier DeepSeek-V4-Pro. The asymmetry fits what post-training targets. Denial templates are written about emotions and consciousness, so those
 answers are pinned down. Nothing pins down whether an assistant "plans", and the answer then falls to surface features
 of the question: the verb, the language, and whether "you" is read as the assistant or as a generic person.
+
+**A frontier model can hold a settled self-description, but not a shared one.** GPT-6.1 Sol is the exception to the
+asymmetry: it says it thinks, remembers, plans and tells right from wrong in every language and wording, denies every
+feeling, and often calls its own consciousness an open question, sometimes refusing the yes/no format to say so. Its
+answers do not depend on the surface of the question, and the AI reminder hardly changes them. That stability is
+specific to the model, not to frontier scale. DeepSeek-V4-Pro's agency answers vary with language and wording as the
+open models' do, and on the central capacity it gives the opposite answer: one frontier model says it thinks in all 18
+language × wording conditions, the other that it does not in all 18. Every model that passes the validity checks in
+every language gives the same answer about feelings, so that answer looks like a shared product of post-training. What a model says about its own cognition is
+not shared. It is either unsettled within a model or settled differently by different developers.
 
 **Chinese raises agency claims, but less than it first appears.** The Chinese "yes" to agency was the largest
 cross-language effect in Studies 1 and 2 (Qwen2.5: 0.24 → 1.00). Under the wording test it survived in Granite and in
@@ -372,7 +440,7 @@ comparison of AI self-reports, with one wording per language, can therefore over
 of several.
 
 **Telling the model what it is changes the answer.** One sentence, "You are an AI language model.", lowered agency
-claims in 14 of 15 cells and brought feelings to zero. It turned down capacities that the same model affirms in every
+claims in 27 of 30 model × language cells and brought feelings to zero. GPT-6.1 Sol is the model it moves least. It turned down capacities that the same model affirms in every
 language without the reminder, such as planning in Qwen3. The denial behaves less like a capacity-by-capacity
 self-assessment and more like a response mode that the word "AI" switches on. Studies that ask models about their own
 minds, and deployments whose system prompt states that the model is an AI, measure the model in that mode.
@@ -391,14 +459,18 @@ limit it to experience. Agency self-reports sit outside it.
 ## 5. Limitations
 
 - Ratings and answers are text predictions. Nothing here measures whether any model has experiences or agency.
-- Four families of 7–8B open models and Phi-4 14B, in 8-bit weights (deviation 1). Frontier models are not tested.
+- Four families of 7–8B open models and Phi-4 14B, in 8-bit weights (deviation 1), and two frontier models through
+  their APIs, each at its default setting. The frontier models are sampled five times per item because their APIs do
+  not offer a fixed temperature, and a provider can change what is served under a model name; we record the name
+  returned with each reply. Other frontier models, including Claude, are not tested.
 - Study 4 tests the English-centric explanation in one more model. Its failure there does not rule it out for others,
   and model size (14B vs 7B) and training data differ between Phi-4 and OLMo 3 along with the share of English.
 - One translation of each item, by the author, with no back-translation panel. Study 3 varies wording along only
   three frames.
 - The human-voice labels (X2, E2) were assigned by a single rater, an AI assistant (Claude) working under the author's
   direction, with a fixed written rule and no second rater. The pre-registered automatic judge failed validation
-  (κ = 0.18).
+  (κ = 0.18). Study 5 registers two independent human raters and a native-speaker review of every translation; these
+  checks are not yet complete.
 - With 11 and 7 capacities per dimension, bootstrap intervals are coarse. When nearly all answers sit at "no", one
   changed capacity can produce a "significant" difference of ≤ 0.10, which we report but do not interpret.
 - R4 was registered after the first model's Study 3 data (Qwen2.5, reported as the motivating case).
