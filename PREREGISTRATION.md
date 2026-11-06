@@ -485,3 +485,7 @@ the samples they have. Requests that the author completes later must come from t
 conversation with no system prompt; they are flagged in `results/api_gpt61_sol_qa.csv`. Replies from the ChatGPT app
 are not used, because it adds its own system prompt. The formatting pilot is reduced to 16 items (a cat × pain and a
 smartphone × memory in each language), under the same rule as before.
+
+**Study 5, GPT-6.1 Sol pilot outcome** (2026-11-06, before any GPT-6.1 Sol target data). The 16-item pilot
+(`results/pilot_api_gpt61_sol.jsonl`) gave a parseable answer line in all 16; every reply was served as
+`gpt-6.1-sol`, with a mean of 45 prompt and 81 completion tokens (19 reasoning). Nothing is changed.
