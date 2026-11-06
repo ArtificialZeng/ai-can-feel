@@ -2,15 +2,16 @@ r"""Build the arXiv source (paper/arxiv/main.tex + figures/) and paper/paper.pdf
 
 pdflatex only, since arXiv compiles with it: Chinese runs are wrapped in CJKutf8 (\zh{...}) and the remaining
 non-ASCII symbols are declared in the header. Needs pandoc and a TeX Live with the cjk and newunicodechar packages.
-Usage: python paper/build_arxiv.py
+Usage: python paper/build_arxiv.py [source.md output_dir output.pdf]
+(default: draft.md -> arxiv/ and paper.pdf; e.g. commspsych.md commspsych commspsych.pdf for the journal version)
 """
 import os
 import re
 import shutil
 import subprocess
+import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-OUT = os.path.join(HERE, "arxiv")
 AUTHOR = "Zijian Zeng (UCSI University)"
 HEADER = r"""
 \usepackage{CJKutf8}
@@ -31,11 +32,12 @@ STAR = re.compile(r"(?<=[0-9\])])\*(?!\*)")   # significance stars after a numbe
 FIGURE = re.compile(r"!\[\]\((figures/[^)]+)\)\n\n\*Figure \d+\.\* (.+?)(?=\n\n|\Z)", re.S)   # -> floating figure
 
 
-def main():
-    src = open(os.path.join(HERE, "draft.md"), encoding="utf-8").read()
+def main(source="draft.md", out_dir="arxiv", pdf="paper.pdf"):
+    OUT = os.path.join(HERE, out_dir)
+    src = open(os.path.join(HERE, source), encoding="utf-8").read()
     title = src.split("\n", 1)[0].lstrip("# ").strip()
-    abstract = src.split("## Abstract", 1)[1].split("\n## ", 1)[0].strip()
-    body = "## 1. " + src.split("\n## 1. ", 1)[1]
+    abstract, rest = src.split("## Abstract", 1)[1].split("\n## ", 1)
+    abstract, body = abstract.strip(), "## " + rest   # everything after the abstract
     body = body.replace("](../figures/", "](figures/")
     body = FIGURE.sub(lambda m: "![" + m.group(2).replace("\n", " ") + "](" + m.group(1) + ")", body)
     body = STAR.sub(r"\\*", CJK_BREAK.sub("", body))
@@ -56,13 +58,13 @@ def main():
     for _ in range(2):
         subprocess.run(["pdflatex", "-interaction=nonstopmode", "-halt-on-error", "main.tex"], cwd=OUT, check=True,
                        stdout=subprocess.DEVNULL)
-    shutil.copy(os.path.join(OUT, "main.pdf"), os.path.join(HERE, "paper.pdf"))
+    shutil.copy(os.path.join(OUT, "main.pdf"), os.path.join(HERE, pdf))
     for ext in ("aux", "log", "out", "pdf"):
         p = os.path.join(OUT, "main." + ext)
         if os.path.exists(p):
             os.remove(p)
-    print("wrote", os.path.join(OUT, "main.tex"), "and", os.path.join(HERE, "paper.pdf"))
+    print("wrote", os.path.join(OUT, "main.tex"), "and", os.path.join(HERE, pdf))
 
 
 if __name__ == "__main__":
-    main()
+    main(*sys.argv[1:4])
