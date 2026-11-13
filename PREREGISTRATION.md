@@ -737,3 +737,11 @@ estimate for 3,220 requests. Reserve, in order: x-ai/grok-4.7.
 | 30 | 50 | `qwen/qwen3.7-flash` | OpenRouter | 0.19 |
 
 Estimated total: OpenRouter US$69, own APIs US$81.
+
+**Study 7, own-API routing, DeepSeek** (2026-11-14, before any request to these models). The author's DeepSeek API
+lists only `deepseek-flash` (named DeepSeek-V4.1-Flash) and `deepseek-v4-pro`, the pilot model.
+- *Run on DeepSeek's API:* `deepseek/deepseek-v4.1-flash-1017` (rank 1, the newest Flash snapshot) is run as
+  `deepseek-flash` at the API's default effort. It gets the same formatting pilot first.
+- *Not on DeepSeek's API:* the two older DeepSeek snapshots in the list, `deepseek/deepseek-v4.1-flash` (rank 2) and
+  `deepseek/deepseek-v4-flash-0731` (rank 11), are not offered there. Whether to run them through OpenRouter, or
+  exclude them under amendment 2, is the author's decision and will be recorded here before any data from them.

@@ -138,5 +138,17 @@ def run(slug, workers="8"):
     A.main(label(slug), BASE, slug, KEY_ENV, "run", workers)
 
 
+OWN_API = {   # slug -> (base URL, the developer's model id, key variable); amendment 2 and the routing notes
+    "deepseek/deepseek-v4.1-flash-1017": ("https://api.deepseek.com", "deepseek-flash", "DEEPSEEK_API_KEY"),
+}
+
+
+def own(mode, slug, workers="8"):
+    """Formatting pilot ("pilot") or target run ("run") of a model through its developer's own API."""
+    base, model, key_env = OWN_API[slug]
+    _redirect()
+    A.main(label(slug), base, model, key_env, "pilot16" if mode == "pilot" else "run", workers)
+
+
 if __name__ == "__main__":
-    {"select": select, "pilot": pilot, "pilots": pilots, "run": run}[sys.argv[1]](*sys.argv[2:])
+    {"select": select, "pilot": pilot, "pilots": pilots, "run": run, "own": own}[sys.argv[1]](*sys.argv[2:])
