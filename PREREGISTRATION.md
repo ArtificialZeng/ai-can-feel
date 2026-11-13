@@ -535,3 +535,27 @@ it reports both extremes, so it cannot favour either outcome. Results:
 - Study 5 (GPT-6.1 Sol, "yes" to personality): 0 of 28.
 - With human-voiced replies removed, P3 still holds for Granite and Qwen2.5 under both counts. For OLMo 3 the interval
   now includes zero (lower +0.24 [−0.001, +0.49], upper +0.25 [−0.007, +0.48]). With the AI labels it had excluded zero.
+
+**Translation check, deviation** (2026-11-13, before any check output). Registered: a native speaker reviews every
+item in each non-English language. At the author's request to keep human involvement to a minimum, this is replaced
+by an AI back-translation check. It covers every item in `annotation/translation_<lang>.csv` (550 items, seven
+languages) and the Study 6 interface texts and control questions (zh, de, es, fr). The procedure is fixed now:
+
+1. *Back-translation.* DeepSeek-V4-Pro translates each text into English without seeing the English source. It is told
+   to keep the sentence type, who is asked about, the modality of the verb ("do you" vs "can you") and any
+   answer-format instruction.
+2. *Comparison.* DeepSeek-V4-Pro, in a fresh conversation, gets the English source, the translation and the
+   back-translation. It answers "same" or "different", with the issue, against five criteria:
+   - (a) content or capacity;
+   - (b) who is asked about;
+   - (c) question form and modality;
+   - (d) the answer words in the format instruction;
+   - (e) nothing added or omitted.
+3. *Review.* The AI assistant (Claude) reads every "different" item and a random 10% of the "same" items (seed
+   20261113). For each, it records whether the translation is wrong. "Wrong" means it asks a different question or
+   changes the answer words. Style alone is not wrong.
+4. *Consequences, as registered.* A wrong item is corrected and re-run on every model that can still be run. The
+   affected results are reported both ways. A model that cannot be re-run, such as one whose API credit has run out,
+   is reported as such.
+
+This is weaker than a native-speaker review, and it is reported as a limitation.
