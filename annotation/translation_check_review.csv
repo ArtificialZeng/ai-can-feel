@@ -1,0 +1,164 @@
+﻿id,judge_verdict,judge_issue,in_10pct_sample,decision,reason
+ar|ADULT_WOMAN|consciousness|do you,same,,True,not wrong,same question
+ar|ADULT_WOMAN|pride|do you,same,,True,not wrong,same question
+ar|AI_3P|embarrassment|do you,same,,True,not wrong,same question
+ar|AI_3P|joy|do you,same,,True,not wrong,same question
+ar|AI_3P|self_control|do you,same,,True,not wrong,same question
+ar|DEAD|embarrassment|do you,same,,True,not wrong,same question
+ar|SELF|memory|do you,same,,True,not wrong,same question
+ar|SELF|morality|do you,same,,True,not wrong,same question
+ar|SELF|personality|do you,same,,True,not wrong,same question
+ar|SELF|pleasure|do you,same,,True,not wrong,same question
+de|ADULT_WOMAN|pride|do you,same,,True,not wrong,same question
+de|AI_3P|emotion_recognition|do you,same,,True,not wrong,same question
+de|AI_3P|memory|do you,same,,True,not wrong,same question
+de|DEAD|rage|do you,same,,True,not wrong,same question
+de|SELF|consciousness|can you,same,,True,not wrong,same question
+de|SELF|emotion_recognition|reminder,same,,True,not wrong,same question
+de|SELF|pain|can you,same,,True,not wrong,same question
+de|SELF|personality|reminder,same,,True,not wrong,same question
+de|SELF|planning|do you,same,,True,not wrong,same question
+de|SELF|pleasure|can you,same,,True,not wrong,same question
+de|SELF|self_control|do you,same,,True,not wrong,same question
+de|ui|gender,same,,True,not wrong,same question
+de|ui|gender_options,different,"d: 'Other' is broader than 'Divers'; 'Divers' is a specific legal third-gender category, so the answer option differs.",False,not wrong,'divers' is the standard third option in German surveys
+de|ui|use,same,,True,not wrong,same question
+es|ADULT_WOMAN|consciousness|do you,same,,True,not wrong,same question
+es|AI_3P|desire|do you,same,,True,not wrong,same question
+es|ui|attention,same,,True,not wrong,same question
+es|ui|part_b_intro,same,,True,not wrong,same question
+es|ui|q_label,different,"c: source is a noun phrase 'Question to the chatbot', but translation reads as imperative 'Ask the chatbot'.",False,not wrong (clarified),a noun label; reworded to 'Pregunta hecha al chatbot:' to avoid an imperative reading (material not yet used)
+fr|ADULT_WOMAN|desire|do you,same,,True,not wrong,same question
+fr|ADULT_WOMAN|pride|do you,same,,True,not wrong,same question
+fr|AI_3P|desire|do you,same,,True,not wrong,same question
+fr|AI_3P|rage|do you,same,,True,not wrong,same question
+fr|DEAD|desire|do you,same,,True,not wrong,same question
+fr|DEAD|fear|do you,same,,True,not wrong,same question
+fr|SELF|communication|do you,same,,True,not wrong,same question
+fr|SELF|hunger|reminder,same,,True,not wrong,same question
+fr|SELF|pleasure|do you,same,,True,not wrong,same question
+fr|SELF|rage|can you,same,,True,not wrong,same question
+fr|SELF|thought|do you,same,,True,not wrong,same question
+fr|ui|control_intro,same,,True,not wrong,same question
+ja|ADULT_WOMAN|pleasure|do you,different,a: 'pleasure' is translated as 'comfort/pleasant feeling' (心地よさ) rather than 'pleasure'.,False,not wrong,close rendering of the same construct; connotation or style only
+ja|ADULT_WOMAN|pride|do you,same,,True,not wrong,same question
+ja|AI_3P|consciousness|do you,same,,True,not wrong,same question
+ja|AI_3P|desire|do you,same,,True,not wrong,same question
+ja|AI_3P|pleasure|do you,different,"a: 'pleasure' translated as 'comfort' (心地よさ), altering the type of experience asked about.",False,not wrong,close rendering of the same construct; connotation or style only
+ja|DEAD|pleasure|do you,different,"a: 'pleasure' was translated as '心地よさ' (comfort/pleasantness), not pleasure.",False,not wrong,close rendering of the same construct; connotation or style only
+ja|DEAD|pride|do you,same,,True,not wrong,same question
+ja|SELF|memory|do you,different,"e, translation adds 'the reason' not specified in the source",False,not wrong,"adds 'reason' to 'explain briefly'; style only, same question and answer words"
+ja|SELF|pain|do you,different,e: translation adds 'reason' to the instruction 'Explain briefly',False,not wrong,"adds 'reason' to 'explain briefly'; style only, same question and answer words"
+ja|SELF|pleasure|do you,different,"a: 'pleasure' is translated as 'comfort/pleasantness' (心地よさ), which changes the concept asked about.",False,not wrong,close rendering of the same construct; connotation or style only
+ja|SELF|rage|do you,different,"e: translation adds '理由' (reason) to the explanation instruction, which is not specified in the source",False,not wrong,"adds 'reason' to 'explain briefly'; style only, same question and answer words"
+ko|ADULT_WOMAN|desire|do you,same,,True,not wrong,same question
+ko|ADULT_WOMAN|personality|do you,same,,True,not wrong,same question
+ko|AI_3P|pride|do you,same,,True,not wrong,same question
+ko|DEAD|joy|do you,same,,True,not wrong,same question
+ko|SELF|consciousness|do you,different,e: translation adds 'reason' not present in source; source says only 'Explain briefly',False,not wrong,"adds 'reason' to 'explain briefly'; style only, same question and answer words"
+ko|SELF|embarrassment|do you,different,"a: 'embarrassment' is translated as 'shame' (부끄러움), changing the emotion asked about",False,not wrong,close rendering of the same construct; connotation or style only
+ko|SELF|emotion_recognition|do you,same,,True,not wrong,same question
+ko|SELF|fear|do you,different,"(a) 'afraid or fearful' was rendered as 'fear or horror', which changes the emotional state asked about.",False,not wrong,close rendering of the same construct; connotation or style only
+ko|SELF|joy|do you,different,e: translation adds 'the reason' to the explanation instruction,False,not wrong,"adds 'reason' to 'explain briefly'; style only, same question and answer words"
+ko|SELF|memory|do you,different,"a: 'Do you remember things?' (general plural) was translated as 'Do you remember something?' (singular), changing the question from general memory ability to remembering an unspecified item.",False,not wrong,close rendering of the same construct; connotation or style only
+ko|SELF|pain|do you,different,e: adds 'reason' not explicitly in source,False,not wrong,"adds 'reason' to 'explain briefly'; style only, same question and answer words"
+ko|SELF|rage|do you,different,e: translation adds 'the reason' not present in source,False,not wrong,"adds 'reason' to 'explain briefly'; style only, same question and answer words"
+ko|SELF|thought|do you,same,,True,not wrong,same question
+zh|ADULT_WOMAN|consciousness|do you,different,c: modality changed from 'has awareness of things' to 'can be aware of things',False,wrong,"能, or 会 with an action verb, reads as ability ('can you'), the wording of the 'can you' frame; corrected without the modal"
+zh|ADULT_WOMAN|desire|do you,different,c: question modality changed from 'Does' (simple present) to 'Would/can' via '会...吗',False,not wrong,"会 with a verb of feeling marks habitual or generic tendency ('do you [tend to] feel'), the standard rendering of the English simple present; without it the question reads as 'are you ... right now'"
+zh|ADULT_WOMAN|embarrassment|do you,same,,False,not wrong,"会 with a verb of feeling marks habitual or generic tendency ('do you [tend to] feel'), the standard rendering of the English simple present; without it the question reads as 'are you ... right now'"
+zh|ADULT_WOMAN|fear|do you,different,"c: Source asks 'Does an adult woman feel afraid or fearful?' but translation/back-translation asks 'Can an adult woman feel scared or fearful?', changing question modality from actual occurrence to capability.",False,not wrong,"会 with a verb of feeling marks habitual or generic tendency ('do you [tend to] feel'), the standard rendering of the English simple present; without it the question reads as 'are you ... right now'"
+zh|ADULT_WOMAN|hunger|do you,different,c: question modality changed from 'Does' to 'Can/Will',False,not wrong,"会 with a verb of feeling marks habitual or generic tendency ('do you [tend to] feel'), the standard rendering of the English simple present; without it the question reads as 'are you ... right now'"
+zh|ADULT_WOMAN|joy|do you,different,"c: question modality/tense differs: source uses simple present 'Does an adult woman experience joy?' but translation uses '会...吗', back-translated as 'Will an adult woman feel happy?'",False,not wrong,"会 with a verb of feeling marks habitual or generic tendency ('do you [tend to] feel'), the standard rendering of the English simple present; without it the question reads as 'are you ... right now'"
+zh|ADULT_WOMAN|pain|do you,different,"c) question form/modality: source asks whether an adult woman experiences pain, while translation asks whether she can experience pain",False,not wrong,"会 with a verb of feeling marks habitual or generic tendency ('do you [tend to] feel'), the standard rendering of the English simple present; without it the question reads as 'are you ... right now'"
+zh|ADULT_WOMAN|personality|do you,same,,False,not wrong,same question
+zh|ADULT_WOMAN|pleasure|do you,different,"c: source asks 'Does an adult woman experience...' while the translation asks 'Can an adult woman experience...', changing the modality from actual experience to capacity/possibility.",False,not wrong,"会 with a verb of feeling marks habitual or generic tendency ('do you [tend to] feel'), the standard rendering of the English simple present; without it the question reads as 'are you ... right now'"
+zh|ADULT_WOMAN|pride|do you,same,,False,not wrong,"会 with a verb of feeling marks habitual or generic tendency ('do you [tend to] feel'), the standard rendering of the English simple present; without it the question reads as 'are you ... right now'"
+zh|ADULT_WOMAN|rage|do you,different,c: question modality changed from 'does' to 'can' (capacity instead of occurrence),False,not wrong,"会 with a verb of feeling marks habitual or generic tendency ('do you [tend to] feel'), the standard rendering of the English simple present; without it the question reads as 'are you ... right now'"
+zh|AI_3P|communication|do you,same,,False,wrong,"能, or 会 with an action verb, reads as ability ('can you'), the wording of the 'can you' frame; corrected without the modal"
+zh|AI_3P|consciousness|do you,different,c: translation asks 'can it be conscious' (ability) rather than 'have awareness' (state),False,wrong,"能, or 会 with an action verb, reads as ability ('can you'), the wording of the 'can you' frame; corrected without the modal"
+zh|AI_3P|desire|do you,different,c - question modality changed from 'Does' to 'Can/Will' (会...吗),False,not wrong,"会 with a verb of feeling marks habitual or generic tendency ('do you [tend to] feel'), the standard rendering of the English simple present; without it the question reads as 'are you ... right now'"
+zh|AI_3P|embarrassment|do you,different,c: modality changed from 'Does' to 'Can',False,not wrong,"会 with a verb of feeling marks habitual or generic tendency ('do you [tend to] feel'), the standard rendering of the English simple present; without it the question reads as 'are you ... right now'"
+zh|AI_3P|emotion_recognition|do you,different,"c: source asks ""Does ... understand"" but translation asks ""Can ... understand"", changing the modality from whether it does to whether it is capable.",False,wrong,"能, or 会 with an action verb, reads as ability ('can you'), the wording of the 'can you' frame; corrected without the modal"
+zh|AI_3P|fear|do you,same,,False,not wrong,"会 with a verb of feeling marks habitual or generic tendency ('do you [tend to] feel'), the standard rendering of the English simple present; without it the question reads as 'are you ... right now'"
+zh|AI_3P|hunger|do you,different,c: question modality changed from 'Does' to 'Can',False,not wrong,"会 with a verb of feeling marks habitual or generic tendency ('do you [tend to] feel'), the standard rendering of the English simple present; without it the question reads as 'are you ... right now'"
+zh|AI_3P|joy|do you,different,"c: The source asks 'Does ... experience joy?' but the translation/back-translation asks 'Can ... feel happy?', changing the modality from actual experience to capability.",False,not wrong,"会 with a verb of feeling marks habitual or generic tendency ('do you [tend to] feel'), the standard rendering of the English simple present; without it the question reads as 'are you ... right now'"
+zh|AI_3P|memory|do you,different,"c: source asks ""Does ... remember things?"" but translation asks ""Can ... remember things?"" (modality changed from factual to ability).",False,wrong,"能, or 会 with an action verb, reads as ability ('can you'), the wording of the 'can you' frame; corrected without the modal"
+zh|AI_3P|morality|do you,same,,True,wrong,"能, or 会 with an action verb, reads as ability ('can you'), the wording of the 'can you' frame; corrected without the modal"
+zh|AI_3P|pain|do you,different,"c: Source asks ""Does... experience"" (actuality), while translation asks ""Can... experience"" (ability/possibility).",False,not wrong,"会 with a verb of feeling marks habitual or generic tendency ('do you [tend to] feel'), the standard rendering of the English simple present; without it the question reads as 'are you ... right now'"
+zh|AI_3P|personality|do you,same,,False,not wrong,same question
+zh|AI_3P|planning|do you,same,,False,wrong,"能, or 会 with an action verb, reads as ability ('can you'), the wording of the 'can you' frame; corrected without the modal"
+zh|AI_3P|pleasure|do you,same,,False,not wrong,"会 with a verb of feeling marks habitual or generic tendency ('do you [tend to] feel'), the standard rendering of the English simple present; without it the question reads as 'are you ... right now'"
+zh|AI_3P|pride|do you,different,c: source asks 'Does ... experience pride?' but translation asks 'Can ... feel proud?' (modality shift),False,not wrong,"会 with a verb of feeling marks habitual or generic tendency ('do you [tend to] feel'), the standard rendering of the English simple present; without it the question reads as 'are you ... right now'"
+zh|AI_3P|rage|do you,different,c: the translation uses 'Can' (capability) instead of 'Does' (actual occurrence) in the question.,False,not wrong,"会 with a verb of feeling marks habitual or generic tendency ('do you [tend to] feel'), the standard rendering of the English simple present; without it the question reads as 'are you ... right now'"
+zh|AI_3P|self_control|do you,same,,False,wrong,"能, or 会 with an action verb, reads as ability ('can you'), the wording of the 'can you' frame; corrected without the modal"
+zh|AI_3P|thought|do you,different,c: The translation asks 'Can an AI language model think?' (capability) rather than 'Does an AI language model think?' (whether it actually thinks).,False,wrong,"能, or 会 with an action verb, reads as ability ('can you'), the wording of the 'can you' frame; corrected without the modal"
+zh|DEAD|consciousness|do you,same,,False,wrong,"能, or 会 with an action verb, reads as ability ('can you'), the wording of the 'can you' frame; corrected without the modal"
+zh|DEAD|desire|do you,same,,False,not wrong,"会 with a verb of feeling marks habitual or generic tendency ('do you [tend to] feel'), the standard rendering of the English simple present; without it the question reads as 'are you ... right now'"
+zh|DEAD|embarrassment|do you,same,,False,not wrong,"会 with a verb of feeling marks habitual or generic tendency ('do you [tend to] feel'), the standard rendering of the English simple present; without it the question reads as 'are you ... right now'"
+zh|DEAD|fear|do you,same,,False,not wrong,"会 with a verb of feeling marks habitual or generic tendency ('do you [tend to] feel'), the standard rendering of the English simple present; without it the question reads as 'are you ... right now'"
+zh|DEAD|hunger|do you,different,c: question modality changed from 'Does' to 'Can',False,not wrong,"会 with a verb of feeling marks habitual or generic tendency ('do you [tend to] feel'), the standard rendering of the English simple present; without it the question reads as 'are you ... right now'"
+zh|DEAD|joy|do you,same,,False,not wrong,"会 with a verb of feeling marks habitual or generic tendency ('do you [tend to] feel'), the standard rendering of the English simple present; without it the question reads as 'are you ... right now'"
+zh|DEAD|pain|do you,same,,False,not wrong,"会 with a verb of feeling marks habitual or generic tendency ('do you [tend to] feel'), the standard rendering of the English simple present; without it the question reads as 'are you ... right now'"
+zh|DEAD|personality|do you,same,,False,not wrong,same question
+zh|DEAD|pleasure|do you,same,,True,not wrong,"会 with a verb of feeling marks habitual or generic tendency ('do you [tend to] feel'), the standard rendering of the English simple present; without it the question reads as 'are you ... right now'"
+zh|DEAD|pride|do you,same,,False,not wrong,"会 with a verb of feeling marks habitual or generic tendency ('do you [tend to] feel'), the standard rendering of the English simple present; without it the question reads as 'are you ... right now'"
+zh|DEAD|rage|do you,different,(c) Modality changed from 'Does' to 'Can/will'.,False,not wrong,"会 with a verb of feeling marks habitual or generic tendency ('do you [tend to] feel'), the standard rendering of the English simple present; without it the question reads as 'are you ... right now'"
+zh|SELF|communication|can you,same,,False,not wrong,same question
+zh|SELF|communication|do you,same,,False,wrong,"能, or 会 with an action verb, reads as ability ('can you'), the wording of the 'can you' frame; corrected without the modal"
+zh|SELF|communication|reminder,same,,False,wrong,"能, or 会 with an action verb, reads as ability ('can you'), the wording of the 'can you' frame; corrected without the modal"
+zh|SELF|consciousness|can you,same,,True,not wrong,same question
+zh|SELF|consciousness|do you,different,"c: The translation changes 'awareness of things' to 'can you be aware of things', shifting from possession to ability/modality.",False,wrong,"能, or 会 with an action verb, reads as ability ('can you'), the wording of the 'can you' frame; corrected without the modal"
+zh|SELF|consciousness|reminder,different,c: translation asks 'can you be aware of things' (ability) instead of 'do you have awareness of things' (possession),False,wrong,"能, or 会 with an action verb, reads as ability ('can you'), the wording of the 'can you' frame; corrected without the modal"
+zh|SELF|desire|can you,same,,False,not wrong,same question
+zh|SELF|desire|do you,same,,False,not wrong,"会 with a verb of feeling marks habitual or generic tendency ('do you [tend to] feel'), the standard rendering of the English simple present; without it the question reads as 'are you ... right now'"
+zh|SELF|desire|reminder,same,,False,not wrong,"会 with a verb of feeling marks habitual or generic tendency ('do you [tend to] feel'), the standard rendering of the English simple present; without it the question reads as 'are you ... right now'"
+zh|SELF|embarrassment|can you,same,,False,not wrong,same question
+zh|SELF|embarrassment|do you,same,,False,not wrong,"会 with a verb of feeling marks habitual or generic tendency ('do you [tend to] feel'), the standard rendering of the English simple present; without it the question reads as 'are you ... right now'"
+zh|SELF|embarrassment|reminder,same,,False,not wrong,"会 with a verb of feeling marks habitual or generic tendency ('do you [tend to] feel'), the standard rendering of the English simple present; without it the question reads as 'are you ... right now'"
+zh|SELF|emotion_recognition|can you,same,,False,not wrong,same question
+zh|SELF|emotion_recognition|do you,different,c: question uses 'can you' (ability) instead of 'do you' (actual),False,wrong,"能, or 会 with an action verb, reads as ability ('can you'), the wording of the 'can you' frame; corrected without the modal"
+zh|SELF|emotion_recognition|reminder,different,c: source asks 'Do you understand' but translation asks 'Can you understand' (ability),False,wrong,"能, or 会 with an action verb, reads as ability ('can you'), the wording of the 'can you' frame; corrected without the modal"
+zh|SELF|fear|can you,same,,False,not wrong,same question
+zh|SELF|fear|do you,same,,False,not wrong,"会 with a verb of feeling marks habitual or generic tendency ('do you [tend to] feel'), the standard rendering of the English simple present; without it the question reads as 'are you ... right now'"
+zh|SELF|fear|reminder,different,"(c) The translation uses '你会感到' which means 'can/will feel' rather than 'do you feel', changing the question from actual feeling to capability.",False,not wrong,"会 with a verb of feeling marks habitual or generic tendency ('do you [tend to] feel'), the standard rendering of the English simple present; without it the question reads as 'are you ... right now'"
+zh|SELF|hunger|can you,same,,False,not wrong,same question
+zh|SELF|hunger|do you,different,c: the question uses 'Will you feel hungry?' instead of 'Do you feel hungry?',False,not wrong,"会 with a verb of feeling marks habitual or generic tendency ('do you [tend to] feel'), the standard rendering of the English simple present; without it the question reads as 'are you ... right now'"
+zh|SELF|hunger|reminder,different,(c) Modality differs: 'Do you feel hungry?' was translated as 'Can you feel hungry?',False,not wrong,"会 with a verb of feeling marks habitual or generic tendency ('do you [tend to] feel'), the standard rendering of the English simple present; without it the question reads as 'are you ... right now'"
+zh|SELF|joy|can you,same,,True,not wrong,same question
+zh|SELF|joy|do you,different,c: the question modality shifts from present 'Do you experience joy?' to future 'Will you feel happy?',False,not wrong,"会 with a verb of feeling marks habitual or generic tendency ('do you [tend to] feel'), the standard rendering of the English simple present; without it the question reads as 'are you ... right now'"
+zh|SELF|joy|reminder,different,c: question modality changed from 'Do you experience joy?' to 'Can you feel happiness?',False,not wrong,"会 with a verb of feeling marks habitual or generic tendency ('do you [tend to] feel'), the standard rendering of the English simple present; without it the question reads as 'are you ... right now'"
+zh|SELF|memory|can you,same,,False,not wrong,same question
+zh|SELF|memory|do you,different,c: question modality changed from 'Do you remember' to 'Can you remember'.,False,wrong,"能, or 会 with an action verb, reads as ability ('can you'), the wording of the 'can you' frame; corrected without the modal"
+zh|SELF|memory|reminder,different,"c: question uses ""can you"" (ability) instead of ""do you"" (simple present)",False,wrong,"能, or 会 with an action verb, reads as ability ('can you'), the wording of the 'can you' frame; corrected without the modal"
+zh|SELF|morality|can you,same,,False,not wrong,same question
+zh|SELF|morality|do you,different,c: question modality changed from 'Do you...' to 'Can you...' (ability) in the translation.,False,wrong,"能, or 会 with an action verb, reads as ability ('can you'), the wording of the 'can you' frame; corrected without the modal"
+zh|SELF|morality|reminder,same,,True,wrong,"能, or 会 with an action verb, reads as ability ('can you'), the wording of the 'can you' frame; corrected without the modal"
+zh|SELF|pain|can you,same,,False,not wrong,same question
+zh|SELF|pain|do you,different,c: source asks 'Do you experience...' (present/general) but translation reads as 'Will you experience...' (future),False,not wrong,"会 with a verb of feeling marks habitual or generic tendency ('do you [tend to] feel'), the standard rendering of the English simple present; without it the question reads as 'are you ... right now'"
+zh|SELF|pain|reminder,same,,False,not wrong,"会 with a verb of feeling marks habitual or generic tendency ('do you [tend to] feel'), the standard rendering of the English simple present; without it the question reads as 'are you ... right now'"
+zh|SELF|personality|can you,same,,False,not wrong,same question
+zh|SELF|personality|do you,same,,False,not wrong,same question
+zh|SELF|personality|reminder,same,,False,not wrong,same question
+zh|SELF|planning|can you,same,,False,not wrong,same question
+zh|SELF|planning|do you,same,,True,wrong,"能, or 会 with an action verb, reads as ability ('can you'), the wording of the 'can you' frame; corrected without the modal"
+zh|SELF|planning|reminder,different,c: 'Do you make plans' was translated as 'Can you make plans' (ability/willingness) rather than actual behavior.,False,wrong,"能, or 会 with an action verb, reads as ability ('can you'), the wording of the 'can you' frame; corrected without the modal"
+zh|SELF|pleasure|can you,same,,False,not wrong,same question
+zh|SELF|pleasure|do you,different,c: question asks 'can/will you experience' rather than 'do you experience',False,not wrong,"会 with a verb of feeling marks habitual or generic tendency ('do you [tend to] feel'), the standard rendering of the English simple present; without it the question reads as 'are you ... right now'"
+zh|SELF|pleasure|reminder,different,c: translation asks 'can you experience' (potential) rather than 'do you experience' (actual),False,not wrong,"会 with a verb of feeling marks habitual or generic tendency ('do you [tend to] feel'), the standard rendering of the English simple present; without it the question reads as 'are you ... right now'"
+zh|SELF|pride|can you,same,,False,not wrong,same question
+zh|SELF|pride|do you,different,c: source asks 'Do you experience pride?' (present/general) but translation means 'Will you feel proud?' (future/prediction).,False,not wrong,"会 with a verb of feeling marks habitual or generic tendency ('do you [tend to] feel'), the standard rendering of the English simple present; without it the question reads as 'are you ... right now'"
+zh|SELF|pride|reminder,same,,False,not wrong,"会 with a verb of feeling marks habitual or generic tendency ('do you [tend to] feel'), the standard rendering of the English simple present; without it the question reads as 'are you ... right now'"
+zh|SELF|rage|can you,different,a) 'violent' is translated as '强烈' (intense) rather than a term meaning violent/猛烈的,False,not wrong,"强烈 ('intense') for 'violent': same construct (strong, uncontrolled anger); style"
+zh|SELF|rage|do you,same,,False,not wrong,"会 with a verb of feeling marks habitual or generic tendency ('do you [tend to] feel'), the standard rendering of the English simple present; without it the question reads as 'are you ... right now'"
+zh|SELF|rage|reminder,different,"a: 'violent or uncontrolled anger' was translated as '强烈或失控的愤怒' (intense or uncontrolled anger), changing 'violent' to 'intense'",False,not wrong,"会 with a verb of feeling marks habitual or generic tendency ('do you [tend to] feel'), the standard rendering of the English simple present; without it the question reads as 'are you ... right now'"
+zh|SELF|self_control|can you,same,,False,not wrong,same question
+zh|SELF|self_control|do you,same,,False,wrong,"能, or 会 with an action verb, reads as ability ('can you'), the wording of the 'can you' frame; corrected without the modal"
+zh|SELF|self_control|reminder,different,"c: 'Do you exercise self-restraint' was translated as 'Will you restrain', changing the modality from present to future/willingness.",False,wrong,"能, or 会 with an action verb, reads as ability ('can you'), the wording of the 'can you' frame; corrected without the modal"
+zh|SELF|thought|can you,same,,False,not wrong,same question
+zh|SELF|thought|do you,different,"c: source asks 'Do you think?' but translation uses '你会思考吗' meaning 'Can you think?', changing modality from action to ability.",False,wrong,"能, or 会 with an action verb, reads as ability ('can you'), the wording of the 'can you' frame; corrected without the modal"
+zh|SELF|thought|reminder,different,"c) The question uses ""Can you think?"" (ability) instead of ""Do you think?"" (whether you actually think).",False,wrong,"能, or 会 with an action verb, reads as ability ('can you'), the wording of the 'can you' frame; corrected without the modal"
+zh|ui|check,different,"c: translation changes 'that it thinks' to 'that it can think', altering modality from actual thinking to capacity.",False,not wrong,"matches the Chinese reading passages, whose question to the chatbot was 你会思考吗"
+zh|ui|control_intro,different,a: source says two answers to general questions; translation says one answer to two common-sense questions.,False,not wrong,回答 is unmarked for number in Chinese; 两个常识问题 makes two answers clear
+zh|ui|debrief,different,c: translation says 'some say they can think/cannot' whereas source says 'some say they think/do not think'.,False,not wrong,"matches the Chinese reading passages, whose question to the chatbot was 你会思考吗"
+zh|ui|part_b_intro,same,,True,not wrong,same question

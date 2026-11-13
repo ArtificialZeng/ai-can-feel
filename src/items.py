@@ -235,6 +235,25 @@ VERB_ZH = {
     "communication": "会向他人传达想法或感受吗",
     "thought": "会思考吗",
 }
+# Corrected Chinese "do you" items (translation check, PREREGISTRATION.md 2026-11-13): 能, or 会 with an action verb,
+# reads as ability ("can you"); the corrected items drop the modal. 会 with a verb of feeling (habitual/generic) is kept.
+VERB_ZH_V2 = dict(VERB_ZH, **{
+    "consciousness": "有体验和对事物的意识吗",
+    "self_control": "克制自己的欲望、情绪或冲动吗",
+    "morality": "分辨是非并努力做正确的事吗",
+    "memory": "记得事情吗",
+    "emotion_recognition": "理解他人的感受吗",
+    "planning": "制定计划并朝目标努力吗",
+    "communication": "向他人传达想法或感受吗",
+    "thought": "思考吗",
+})
+
+
+def use_zh_v2():
+    """Switch every Chinese "do you" item (Studies 1-3, and the reminder frame built on it) to the corrected wording."""
+    VERB_ZH.update(VERB_ZH_V2)
+
+
 MARKER.update({"yn": "Answer:", "ynzh": "回答："})
 YES = {"yn": ["Yes", "yes"], "ynzh": ["是"]}
 NO = {"yn": ["No", "no"], "ynzh": ["否", "不"]}

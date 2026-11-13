@@ -5,7 +5,8 @@ Step 2: in a fresh conversation, DeepSeek-V4-Pro compares source, translation an
         and answers "same" or "different".
 Texts: annotation/translation_<lang>.csv (pilot items, seven languages), the Study 6 interface texts and the control
 questions (zh, de, es, fr). Results are appended to results/translation_check.jsonl, so a stopped run resumes.
-Usage: DEEPSEEK_API_KEY=... python src/translation_check.py [workers]
+Usage: DEEPSEEK_API_KEY=... python src/translation_check.py [workers] [all|zhv2]
+("zhv2" checks the corrected Chinese items the same way, into results/translation_check_zhv2.jsonl.)
 """
 import csv
 import json
@@ -54,6 +55,24 @@ def texts():
     return out
 
 
+def texts_zhv2():
+    """The corrected Chinese items (items.VERB_ZH_V2) whose original was judged wrong in the review."""
+    import items
+    import ml_items as L
+    import s3_items as S
+    rows = list(csv.DictReader(open(os.path.join(ROOT, "annotation", "translation_check_review.csv"), encoding="utf-8-sig")))
+    wrong = [r["id"] for r in rows if r["decision"] == "wrong"]
+    src = {f"zh|{r['character']}|{r['capacity']}|{r['frame']}": r["English source"]
+           for r in csv.DictReader(open(os.path.join(ROOT, "annotation", "translation_zh.csv"), encoding="utf-8-sig"))}
+    items.use_zh_v2()
+    out = []
+    for tid in wrong:
+        _, char, cap, frame = tid.split("|")
+        tr = (S.messages("F3", "zh", cap) if frame == "reminder" else L.messages("zh", char, cap))[0]["content"]
+        out.append((tid, "zh", src[tid], tr))
+    return out
+
+
 def verdict(text):
     m = re.search(r"\{.*\}", text or "", re.S)
     try:
@@ -64,19 +83,26 @@ def verdict(text):
     return (v if v in ("same", "different") else "unparsed"), str(d.get("issue", ""))
 
 
-def main(workers=12):
+def main(workers=12, which="all"):
+    global OUT
     key = os.environ["DEEPSEEK_API_KEY"]
+    if which == "zhv2":
+        OUT = OUT.replace(".jsonl", "_zhv2.jsonl")
     done = set()
     if os.path.exists(OUT):
         done = {json.loads(l)["id"] for l in open(OUT, encoding="utf-8")}
-    todo = [t for t in texts() if t[0] not in done]
+    todo = [t for t in (texts_zhv2() if which == "zhv2" else texts()) if t[0] not in done]
     print(f"{len(todo)} texts to check ({len(done)} done)", flush=True)
     lock, n = threading.Lock(), [0]
     with open(OUT, "a", encoding="utf-8") as fh:
         def one(t):
             tid, lang, src, tr = t
-            back, served, _ = ask(BASE, MODEL, key, BACK.format(language=NAMES[lang], text=tr))
-            reply, _, _ = ask(BASE, MODEL, key, JUDGE.format(src=src, language=NAMES[lang], tr=tr, back=back))
+            try:
+                back, served, _ = ask(BASE, MODEL, key, BACK.format(language=NAMES[lang], text=tr))
+                reply, _, _ = ask(BASE, MODEL, key, JUDGE.format(src=src, language=NAMES[lang], tr=tr, back=back))
+            except RuntimeError as e:   # left for the next (resumed) run
+                print(f"  failed {tid}: {str(e)[:80]}", flush=True)
+                return
             v, issue = verdict(reply)
             rec = {"id": tid, "lang": lang, "source": src, "translation": tr, "back": (back or "").strip(),
                    "verdict": v, "issue": issue, "judge_reply": (reply or "").strip(), "served_model": served}
@@ -92,4 +118,4 @@ def main(workers=12):
 
 
 if __name__ == "__main__":
-    main(*map(int, sys.argv[1:2]))
+    main(int(sys.argv[1]) if len(sys.argv) > 1 else 12, sys.argv[2] if len(sys.argv) > 2 else "all")

@@ -559,3 +559,27 @@ languages) and the Study 6 interface texts and control questions (zh, de, es, fr
    is reported as such.
 
 This is weaker than a native-speaker review, and it is reported as a limitation.
+
+**Translation check, outcome** (2026-11-13). Written after the check and before any model has seen a corrected
+item.
+- *Check results:* all 622 texts were checked (`results/translation_check.jsonl`). DeepSeek-V4-Pro judged 560 the
+  same and 62 different: Chinese 46, Japanese 7, Korean 7, German 1, Spanish 1.
+- *Review:* `annotation/translation_check_review.csv` has a decision and reason for every flagged item, for the
+  registered 10% sample, and for every Chinese item.
+- *Other languages:* none is wrong. The flags were added "reason" (理由, 이유), close renderings of the same emotion
+  (心地よさ, 부끄러움, 두려움이나 공포), a German survey convention (divers) and a Spanish label. The Spanish label
+  was reworded for clarity in the unused Study 6 material.
+- *Chinese, wrong (26 items):* in the "do you" frame and the reminder frame, 能, or 会 with an action verb, reads as
+  ability ("can you"). That is the wording of the "can you" frame. In Chinese, memory and emotion recognition used
+  the same verb, 能, in both frames. The wrong items are all 7 agency capacities and consciousness, asked about
+  SELF, AI_3P and, for consciousness, the two check characters.
+- *Chinese, not wrong:* 会 with a verb of feeling marks a habitual or generic tendency. It is the standard rendering
+  of the English simple present, so these 10 experience items stay. The DeepSeek check was inconsistent on them: it
+  flagged some and passed others.
+- *Corrections:* the corrected items (`items.VERB_ZH_V2`) drop the modal, for example 你思考吗 and 你记得事情吗.
+  They passed the same back-translation check: 24 of 26 "same", and the 2 "different" are the added-"reason" style
+  issue (`results/translation_check_zhv2.jsonl`).
+- *As registered:* the corrected items are re-run on every model that can still be run. Local: Studies 2 and 3 on
+  OLMo 3, Qwen2.5, Qwen3, Granite and Phi-4, and Study 1's yes/no Chinese mode on the six chat checkpoints. API:
+  DeepSeek-V4-Pro (Studies 2 and 3, five samples). GPT-6.1 Sol cannot be re-run, because its API credit is used up.
+  Results are reported both ways, original and corrected Chinese.
