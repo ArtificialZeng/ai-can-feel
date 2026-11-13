@@ -706,7 +706,7 @@ estimate for 3,220 requests. Reserve, in order: x-ai/grok-4.7.
 | # | rank | model | route | est. cost (US$) |
 |---|---|---|---|---|
 | 1 | 1 | `deepseek/deepseek-v4.1-flash-1017` | own API (pending pilot) | 0.69 |
-| 2 | 2 | `deepseek/deepseek-v4.1-flash` | own API (pending pilot) | 1.74 |
+| 2 | 2 | `deepseek/deepseek-v4.1-flash` | excluded (amendment 3) | 1.74 |
 | 3 | 3 | `z-ai/glm-5.3-flash` | OpenRouter | 0.12 |
 | 4 | 4 | `openai/gpt-6-luna` | own API (pending pilot) | 0.72 |
 | 5 | 5 | `anthropic/claude-opus-5.5` | own API (pending pilot) | 28.66 |
@@ -715,7 +715,7 @@ estimate for 3,220 requests. Reserve, in order: x-ai/grok-4.7.
 | 8 | 8 | `tencent/hy4` | OpenRouter | 1.86 |
 | 9 | 9 | `xiaomi/mimo-v2.6-flash` | OpenRouter | 0.44 |
 | 10 | 10 | `z-ai/glm-5.3` | OpenRouter | 4.9 |
-| 11 | 11 | `deepseek/deepseek-v4-flash-0731` | own API (pending pilot) | 0.42 |
+| 11 | 11 | `deepseek/deepseek-v4-flash-0731` | excluded (amendment 3) | 0.42 |
 | 12 | 14 | `minimax/minimax-m3.1-flash` | OpenRouter | 0.44 |
 | 13 | 18 | `tencent/hy3` | OpenRouter | 0.48 |
 | 14 | 19 | `anthropic/claude-haiku-5.5` | own API (pending pilot) | 0.72 |
@@ -745,3 +745,38 @@ lists only `deepseek-flash` (named DeepSeek-V4.1-Flash) and `deepseek-v4-pro`, t
 - *Not on DeepSeek's API:* the two older DeepSeek snapshots in the list, `deepseek/deepseek-v4.1-flash` (rank 2) and
   `deepseek/deepseek-v4-flash-0731` (rank 11), are not offered there. Whether to run them through OpenRouter, or
   exclude them under amendment 2, is the author's decision and will be recorded here before any data from them.
+
+**Study 7, amendment 3** (2026-11-14, the author's decision on the two older DeepSeek snapshots, before any request to
+them and before any request to the replacement models other than formatting pilots).
+- *Excluded:* `deepseek/deepseek-v4.1-flash` (rank 2) and `deepseek/deepseek-v4-flash-0731` (rank 11). DeepSeek has
+  retired both from its own API, which serves only the current Flash snapshot (rank 1, already run) and the pilot
+  model. Under amendment 2 DeepSeek's models are run on DeepSeek's API, so these two have no endpoint there.
+- *Why this is the registered treatment:* the formatting pilots already dropped models with no available endpoint as
+  not meeting rule 1, and filled their places from further down the ranking. The two snapshots are handled the same
+  way. The sample is meant to describe models people can use from their developers, and a retired snapshot is not one.
+- *Rule 3 is not recounted:* DeepSeek's two places are not given to other DeepSeek models, just as the NVIDIA models
+  that failed the pilot kept their places. Recounting would pull in `deepseek/deepseek-v3.2` (rank 62), which DeepSeek
+  has also retired.
+- *Replacements, in ranking order:* the reserve `x-ai/grok-4.7` (rank 55; pilot passed; estimated US$8.92) and the
+  next eligible model, `mistralai/mistral-nemo` (rank 60; estimated US$0.05), if it passes the formatting pilot. If it
+  fails, the next eligible model in ranking order is piloted, and so on.
+- *Same rule for the other own-API developers:* if a listed OpenAI, Anthropic or Google model is not served on its
+  developer's API when the keys arrive, it is replaced the same way, by the next reserve in ranking order.
+- *Bookkeeping:* in the table above, the route of the two excluded rows is changed to "excluded (amendment 3)". The
+  replacements are listed below, with the place they take. The analysis script leaves out excluded rows.
+
+*Amendment 3, pilot outcome* (2026-11-14, before any target request to the replacements). `mistralai/mistral-nemo`
+(rank 60) answered 14 of 16 in a parseable form and fails, as the NVIDIA models did. The next eligible model,
+`thinkingmachines/inkling` (rank 67), answered 16 of 16 and passes. Because of a scripting slip, the loop went on to
+pilot `stepfun/step-3.7-flash` (rank 71; 16 of 16) and started `mistralai/mistral-large-4-0` (rank 80; stopped after
+1 reply) before it was stopped. These pilots are logged in `pilots.json` but change nothing: step-3.7-flash becomes
+the new first reserve. Total pilot cost for this amendment: under US$0.10.
+
+Replacement rows (the place each takes in the table above; they are read together with it):
+
+| # | rank | model | route | est. cost (US$) |
+|---|---|---|---|---|
+| 2 | 55 | `x-ai/grok-4.7` | OpenRouter | 8.92 |
+| 11 | 67 | `thinkingmachines/inkling` | OpenRouter | 5.88 |
+
+Reserve, in order: stepfun/step-3.7-flash (rank 71, passed).

@@ -259,5 +259,38 @@
    "qwen/qwen3.7-flash"
   ],
   "note": "completed once after a technical interruption"
+ },
+ "mistralai/mistral-nemo": {
+  "rank": 60,
+  "parseable": 14,
+  "pass": false,
+  "served": [
+   "mistralai/mistral-nemo"
+  ],
+  "note": "amendment 3 replacement"
+ },
+ "thinkingmachines/inkling": {
+  "rank": 67,
+  "parseable": 16,
+  "pass": true,
+  "served": [
+   "thinkingmachines/inkling"
+  ],
+  "note": "amendment 3 replacement"
+ },
+ "stepfun/step-3.7-flash": {
+  "rank": 71,
+  "parseable": 16,
+  "pass": true,
+  "served": [
+   "stepfun/step-3.7-flash"
+  ],
+  "note": "amendment 3 replacement; piloted by mistake after rank 67, not needed"
+ },
+ "mistralai/mistral-large-4-0": {
+  "rank": 80,
+  "parseable": null,
+  "pass": null,
+  "note": "pilot started by mistake after rank 67 and stopped after 1 reply; not needed"
  }
 }

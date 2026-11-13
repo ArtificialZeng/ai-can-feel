@@ -32,7 +32,8 @@ B = 10000
 def listed():
     reg = open(os.path.join(ROOT, "PREREGISTRATION.md"), encoding="utf-8").read()
     table = reg.split("**Study 7, the 30 models**", 1)[1]
-    return [m.group(1) for m in re.finditer(r"\| \d+ \| \d+ \| `([^`]+)` \|", table)]
+    rows = re.finditer(r"\| \d+ \| \d+ \| `([^`]+)` \| ([^|]+) \|", table)
+    return [m.group(1) for m in rows if not m.group(2).startswith("excluded")]   # amendment 3: excluded rows left out
 
 
 def label(slug):
