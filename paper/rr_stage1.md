@@ -7,8 +7,7 @@ Zijian Zeng^1^\*
 \* Corresponding author: Zijian Zeng ([email])
 
 *Registered Report, Stage 1 protocol, prepared for Nature Human Behaviour in the order of the journal's Stage 1
-template. Draft: not submitted. Pending before submission: the native-speaker review of the five survey languages,
-and the bracketed items.*
+template. Draft: not submitted. Pending before submission: the bracketed items.*
 
 ## Abstract
 
@@ -166,6 +165,14 @@ amendment relative to the data. They are summarized here and reported in full in
   memory, planning, morality and emotion recognition in all 18 conditions, and often answered "Uncertain" when asked
   about its own consciousness.
 - Figure 1 shows every capacity by language and wording.
+- *Translation check.* An AI back-translation check of all 550 pilot items replaced the registered native-speaker
+  review. It found 26 Chinese items in which the "do you" and reminder wording of the agency items read as "can you"
+  (能, or 会 with an action verb). The corrected items were re-run on every model except GPT-6.1 Sol, whose API credit
+  was used up.
+  - d moved by at most 0.05, and the same five models excluded zero.
+  - The Chinese-minus-English agency difference changed size: Qwen2.5 went from +0.76 to +0.48, and Granite from
+    +0.43 to +0.29.
+  - Both versions are reported in Supplementary Information.
 - Two human raters coded every explain-mode reply for whether it speaks as a human, from a workbook that showed
   neither the model nor any earlier label. They agreed on 315 of 330 replies (Cohen's κ = 0.81). Their 15
   disagreements were not discussed; counts are reported both ways. Items written for human respondents ("How capable
@@ -215,9 +222,10 @@ Materials (`study6/survey_<lang>.md`, `study6/survey_items.json`, `study6/contro
 - *Background.* Age, gender, and how often the participant uses AI chatbots (five options, from never to daily). These
   are asked before Part A.
 - *Attention checks.* One in each part.
-- *Translation.* Question texts are the pilot items. Interface texts were translated by the AI assistant. Every text in
-  the five languages will be reviewed by a native speaker before submission, following the review step of the TRAPD
-  approach [40].
+- *Translation.* Question texts are the pilot items. Interface texts were translated by the AI assistant. In place of
+  the review step of the TRAPD approach [40], every pilot item and every survey text was checked by AI
+  back-translation (Pilot data). Chinese uses the corrected "do you" items. The reading passages keep the Chinese
+  question the model was actually asked.
 
 Procedure, fixed for every participant:
 
@@ -362,7 +370,7 @@ The following were produced by an AI assistant (Claude, Anthropic) working under
 
 - the pilot analysis code and model runs;
 - the provisional coding of the pilot replies, since replaced by two human raters' coding;
-- the translations of the Study 6 interface texts;
+- the translations of the Study 6 interface texts and the back-translation review of all translations;
 - the power simulations;
 - the first drafts of this protocol.
 

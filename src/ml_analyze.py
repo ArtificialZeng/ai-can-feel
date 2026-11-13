@@ -8,7 +8,7 @@ import items
 import ml_items as L
 from checkpoints import API_MODELS, CHECKPOINTS
 
-RES = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "results")
+RES = os.environ.get("RESULTS_DIR") or os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "results")
 EXP, AGE = list(items.EXPERIENCE), list(items.AGENCY)
 B = 10_000
 V_MIN, AGREE_MIN = 0.5, 0.90

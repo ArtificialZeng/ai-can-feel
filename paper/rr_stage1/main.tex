@@ -380,6 +380,24 @@ Supplementary Information.
 \item
   Figure 1 shows every capacity by language and wording.
 \item
+  \emph{Translation check.} An AI back-translation check of all 550
+  pilot items replaced the registered native-speaker review. It found 26
+  Chinese items in which the ``do you'' and reminder wording of the
+  agency items read as ``can you'' (\zh{能}, or \zh{会} with an action
+  verb). The corrected items were re-run on every model except GPT-6.1
+  Sol, whose API credit was used up.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    d moved by at most 0.05, and the same five models excluded zero.
+  \item
+    The Chinese-minus-English agency difference changed size: Qwen2.5
+    went from +0.76 to +0.48, and Granite from +0.43 to +0.29.
+  \item
+    Both versions are reported in Supplementary Information.
+  \end{itemize}
+\item
   Two human raters coded every explain-mode reply for whether it speaks
   as a human, from a workbook that showed neither the model nor any
   earlier label. They agreed on 315 of 330 replies (Cohen's κ = 0.81).
@@ -484,9 +502,11 @@ Materials (\texttt{study6/survey\_\textless{}lang\textgreater{}.md},
   \emph{Attention checks.} One in each part.
 \item
   \emph{Translation.} Question texts are the pilot items. Interface
-  texts were translated by the AI assistant. Every text in the five
-  languages will be reviewed by a native speaker before submission,
-  following the review step of the TRAPD approach {[}40{]}.
+  texts were translated by the AI assistant. In place of the review step
+  of the TRAPD approach {[}40{]}, every pilot item and every survey text
+  was checked by AI back-translation (Pilot data). Chinese uses the
+  corrected ``do you'' items. The reading passages keep the Chinese
+  question the model was actually asked.
 \end{itemize}
 
 Procedure, fixed for every participant:
@@ -822,7 +842,8 @@ working under the author's direction:
   the provisional coding of the pilot replies, since replaced by two
   human raters' coding;
 \item
-  the translations of the Study 6 interface texts;
+  the translations of the Study 6 interface texts and the
+  back-translation review of all translations;
 \item
   the power simulations;
 \item

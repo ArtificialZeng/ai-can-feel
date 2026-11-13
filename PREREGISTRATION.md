@@ -583,3 +583,21 @@ item.
   OLMo 3, Qwen2.5, Qwen3, Granite and Phi-4, and Study 1's yes/no Chinese mode on the six chat checkpoints. API:
   DeepSeek-V4-Pro (Studies 2 and 3, five samples). GPT-6.1 Sol cannot be re-run, because its API credit is used up.
   Results are reported both ways, original and corrected Chinese.
+
+**Translation check, re-run outcome** (2026-11-13). The 26 corrected Chinese items were re-run as registered. Local:
+OLMo 3 (Studies 2 and 3 plus Study 1's yes/no Chinese mode, and that mode on the SFT and DPO checkpoints), Qwen2.5,
+Qwen3, Granite and Phi-4. API: DeepSeek-V4-Pro, 130 requests, all answered. GPT-6.1 Sol was not re-run. Raw rows are
+in `results/zhv2/`, and `src/zhv2_merge.py` builds the corrected set. Every analysis was run both ways
+(`results/zhv2/analysis/`).
+- *Q3 (Chinese minus English self-attributed agency, "do you"), original → corrected:*
+  - Qwen2.5: +0.76* → +0.48*
+  - Granite: +0.43* → +0.29*
+  - OLMo 3: +0.48 → +0.63*
+  - DeepSeek-V4-Pro: +0.11 → −0.03
+  - Phi-4: −0.14 → −0.00
+  - Qwen3: −0.05 → −0.00
+- *R4:* moves by at most 0.05, and the same five models exclude zero.
+- *R4b:* Phi-4 goes from +0.26* to +0.23 [−0.02, +0.45]. Phi-4 carried no directional prediction.
+- *Reminder:* it still lowers agency in 27 of 30 model × language cells.
+- *Feelings:* the bodily-feeling items were not changed, so the 89/90 count stands.
+- *X2:* the human-voice labels refer to the original replies.

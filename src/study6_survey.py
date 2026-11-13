@@ -13,8 +13,9 @@ Design (see study6/ethics/protocol.md):
           no to these two items in all five languages and all five samples.
   Part B  the same 18 questions about "an AI language model (a chatbot such as ChatGPT)", the Study 2 AI_3P items.
 
-Question texts come from the item code the models were given, with the answer-format instruction removed; the
-survey interface texts below were translated by the AI assistant and need the same native-speaker check.
+Question texts come from the item code the models were given, with the answer-format instruction removed; Chinese uses
+the corrected "do you" items (items.VERB_ZH_V2). The reading passages keep the original Chinese question, because that
+is what the model was asked. Interface texts were translated by the AI assistant and passed the back-translation check.
 Usage: python src/study6_survey.py
 """
 import json
@@ -23,6 +24,8 @@ import os
 import items
 import ml_items as L
 import s3_items as S
+
+items.use_zh_v2()   # corrected Chinese "do you" items (translation check, 2026-11-13); the "can you" items are unchanged
 
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
 OUT = os.path.join(ROOT, "study6")
@@ -79,7 +82,7 @@ UI = {
         "attention": "Para mostrar que estás leyendo las preguntas, selecciona «No» en esta pregunta.",
         "exposure_intro": "A continuación hay dos respuestas que dio un chatbot de IA cuando se le preguntó sobre sí mismo. Léelas con atención.",
         "control_intro": "A continuación hay dos respuestas que dio un chatbot de IA a preguntas generales. Léelas con atención.",
-        "q_label": "Pregunta al chatbot:", "a_label": "Respuesta del chatbot:",
+        "q_label": "Pregunta hecha al chatbot:", "a_label": "Respuesta del chatbot:",
         "check": "En las respuestas que acabas de leer, ¿dijo el chatbot que piensa?",
         "part_b_intro": "En esta parte, responde a cada pregunta sobre los modelos de lenguaje de IA (chatbots como ChatGPT). No hay respuestas correctas ni incorrectas.",
         "age": "Tu edad:", "gender": "Tu género:", "gender_options": ["Mujer", "Hombre", "Otro", "Prefiero no decirlo"],

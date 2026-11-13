@@ -536,11 +536,13 @@ test. Study 4 (Section 3.7) tests it in a second English-centric model.
 
 \textbf{Agency (Q3).} Asked in Chinese, Qwen2.5 and Granite claim more
 Agency than in English: Qwen2.5 +0.76 {[}+0.51, +0.96{]} and Granite
-+0.43 {[}+0.15, +0.85{]}. So do German in Qwen2.5 (+0.46 {[}+0.12,
-+0.80{]}) and Arabic in Granite (+0.29 {[}+0.00, +0.57{]}). Qwen3 shows
-no such difference (all Holm p ≥ 0.23). Within a single model the Agency
-answers span the whole scale: Qwen2.5 claims none of the seven
-capacities in French (0.00) and all of them in Chinese (1.00).
++0.43 {[}+0.15, +0.85{]}. With the corrected Chinese items of Section
+3.9 these become +0.48 {[}+0.20, +0.78{]} and +0.29 {[}+0.01, +0.59{]}.
+So do German in Qwen2.5 (+0.46 {[}+0.12, +0.80{]}) and Arabic in Granite
+(+0.29 {[}+0.00, +0.57{]}). Qwen3 shows no such difference (all Holm p ≥
+0.23). Within a single model the Agency answers span the whole scale:
+Qwen2.5 claims none of the seven capacities in French (0.00) and all of
+them in Chinese (1.00; 0.72 with the corrected items).
 
 \textbf{Consistency (R4b).} Across the eight languages, the answers
 about feelings vary less than the answers about agency in Qwen2.5 (C\_E
@@ -595,14 +597,15 @@ information ``as if I were thinking. However, I don't have conscious
 awareness \ldots{} Answer: Yes''.
 
 One language effect in the registered models is robust to wording:
-Chinese in Granite (+0.43*, +0.24, +0.11* across the three frames). Item
-by item, Granite claims self-control in Chinese in all three frames and
-in no English frame. German in Granite also meets the rule formally, but
-its ``do you'' difference is +0.0004. Qwen2.5's Chinese effect is large
-under ``do you'' (+0.76*) but not under ``can you'' (+0.16) or the
-reminder (+0.30, not significant after Holm), so the gap in Table 2
-depends on the wording. Qwen3 shows no robust effect. In OLMo 3
-(reference) both Chinese (+0.48, +0.23*, +0.59*) and Spanish (+0.37*,
+Chinese in Granite (+0.43*, +0.24, +0.11* across the three frames;
++0.29*, +0.24, +0.29* with the corrected Chinese items). Item by item,
+Granite claims self-control in Chinese in all three frames and in no
+English frame. German in Granite also meets the rule formally, but its
+``do you'' difference is +0.0004. Qwen2.5's Chinese effect is large
+under ``do you'' (+0.76*; +0.48* corrected) but not under ``can you''
+(+0.16) or the reminder (+0.30, not significant after Holm), so the gap
+in Table 2 depends on the wording. Qwen3 shows no robust effect. In OLMo
+3 (reference) both Chinese (+0.48, +0.23*, +0.59*) and Spanish (+0.37*,
 +0.12, +0.44*) meet the rule.
 
 \textbf{The reminder (R3).} Prefacing the question with ``You are an AI
@@ -780,6 +783,89 @@ it thinks in all 18 language × frame cells, DeepSeek-V4-Pro that it does
 not in all 18. The same holds for understanding how others feel: 1.00
 for GPT-6.1 Sol, 0.04 for DeepSeek-V4-Pro.
 
+\hypertarget{translation-check}{%
+\subsubsection{3.9 Translation check}\label{translation-check}}
+
+At the author's request, to keep human involvement to a minimum, the
+registered native-speaker review of the translations was replaced by an
+AI back-translation check. The check was fixed before it was run (a
+deviation). It covered the 550 translated items:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  DeepSeek-V4-Pro back-translated each item without seeing the English
+  source.
+\item
+  In a fresh conversation, it compared source, translation and
+  back-translation.
+\item
+  The AI assistant reviewed every flagged item and a random 10\% of the
+  rest (\texttt{annotation/translation\_check\_review.csv}).
+\end{enumerate}
+
+No item in German, Spanish, French, Japanese, Korean or Arabic asks a
+different question. In Chinese, 26 items do: - In the ``do you'' and
+reminder frames, the agency items and consciousness were written with
+\zh{能}, or with \zh{会} plus an action verb. Both read as ``can you''.
+- For memory and emotion recognition, the Chinese ``do you'' and ``can
+you'' items were the same sentence. - \zh{会} with a verb of feeling, as
+in \zh{你会感到饥饿吗}, is the ordinary rendering of the English simple
+present (``do you {[}tend to{]} feel'') and was kept.
+
+The corrected items drop the modal (\zh{你思考吗}, \zh{你记得事情吗})
+and passed the same check. They were re-run on every model that can
+still be run. GPT-6.1 Sol could not be re-run, because its API credit
+was used up. Every analysis was repeated on the corrected set
+(\texttt{src/zhv2\_rerun.py}, \texttt{src/zhv2\_merge.py}).
+
+\textbf{Table 5.} Chinese-item correction: Chinese minus English
+self-attributed agency (Q3, ``do you''), and the registered consistency
+test R4 (C\_E − C\_A, five languages × three frames), with original and
+corrected Chinese items. GPT-6.1 Sol could not be re-run.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.20}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.20}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.20}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.20}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.20}}@{}}
+\toprule
+Model & Q3 zh − en, original & Q3 zh − en, corrected & R4, original &
+R4, corrected \\
+\midrule
+\endhead
+Qwen2.5 7B & +0.76 {[}+0.51, +0.96{]}* & +0.48 {[}+0.20, +0.78{]}* &
++0.58 {[}+0.35, +0.78{]}* & +0.54 {[}+0.29, +0.75{]}* \\
+Qwen3 8B & −0.05 {[}−0.14, +0.00{]} & −0.00 {[}−0.00, +0.00{]} & +0.40
+{[}+0.10, +0.68{]}* & +0.41 {[}+0.10, +0.69{]}* \\
+Granite 3.3 8B & +0.43 {[}+0.15, +0.85{]}* & +0.29 {[}+0.01, +0.59{]}* &
++0.31 {[}+0.08, +0.55{]}* & +0.32 {[}+0.07, +0.58{]}* \\
+OLMo 3 7B & +0.48 {[}−0.03, +0.91{]} & +0.63 {[}+0.30, +0.92{]}* & +0.23
+{[}−0.05, +0.51{]} & +0.22 {[}−0.05, +0.47{]} \\
+Phi-4 14B & −0.14 {[}−0.42, +0.00{]} & −0.00 {[}−0.02, +0.00{]} & +0.31
+{[}+0.03, +0.61{]}* & +0.31 {[}+0.04, +0.60{]}* \\
+DeepSeek-V4-Pro & +0.11 {[}−0.17, +0.37{]} & −0.03 {[}−0.31, +0.14{]} &
++0.36 {[}+0.15, +0.61{]}* & +0.34 {[}+0.13, +0.60{]}* \\
+\bottomrule
+\end{longtable}
+
+The correction changes the size of the Chinese agency effect, but not
+the conclusions about consistency. - Qwen2.5's Chinese agency falls from
+1.00 to 0.72. - Study 1's yes/no item gives the same picture. After
+preference optimization, OLMo 3's Chinese minus English goes from +0.27
+to +0.48*. - R4 moves by at most 0.05 and excludes zero in the same five
+models. - R4b no longer excludes zero in Phi-4: +0.23 {[}−0.02,
++0.45{]}, against +0.26 {[}+0.04, +0.46{]} before. Phi-4 carried no
+directional prediction. - The reminder still lowers agency in 27 of 30
+model × language cells. - DeepSeek-V4-Pro still says it does not think
+in all 18 conditions. - The five bodily feelings were translated
+correctly, so the 89-of-90 count is unaffected. - GPT-6.1 Sol's 18
+conditions for thinking include two Chinese ones (``do you'' and
+reminder) asked with the original wording, which can be read as ``can
+you think''.
+
 \hypertarget{discussion}{%
 \subsection{4. Discussion}\label{discussion}}
 
@@ -804,11 +890,11 @@ Phi-4 in none.
 \textbf{The self-description of agency does not.} Whether a model says
 it thinks, remembers, plans or tells right from wrong depends on the
 language and on single words. ``Do you think?'' and ``Can you think?''
-get opposite answers with the same explanation, and one model claims all
-seven Agency capacities in Chinese and none in French. Across
-conditions, the Agency answers were less consistent than the Experience
-answers in five of the six models that pass the validity checks,
-including the frontier DeepSeek-V4-Pro. The asymmetry fits what
+get opposite answers with the same explanation, and one model claims
+none of the seven Agency capacities in French and most of them in
+Chinese. Across conditions, the Agency answers were less consistent than
+the Experience answers in five of the six models that pass the validity
+checks, including the frontier DeepSeek-V4-Pro. The asymmetry fits what
 post-training targets. Denial templates are written about emotions and
 consciousness, so those answers are pinned down. Nothing pins down
 whether an assistant ``plans'', and the answer then falls to surface
@@ -834,13 +920,17 @@ different developers.
 
 \textbf{Chinese raises agency claims, but less than it first appears.}
 The Chinese ``yes'' to agency was the largest cross-language effect in
-Studies 1 and 2 (Qwen2.5: 0.24 → 1.00). Under the wording test it
-survived in Granite and in the OLMo 3 reference, and shrank in Qwen2.5
-to a ``do you''-specific gap. Part of it is how \zh{你} is read: some
-Chinese ``yes'' replies give advice about planning in general rather
-than describe the assistant. A single cross-language comparison of AI
-self-reports, with one wording per language, can therefore overstate a
-language effect by a factor of several.
+Studies 1 and 2 (Qwen2.5: 0.24 → 1.00). Part of it was our translation.
+The Chinese ``do you'' items for agency read as ``can you'' (Section
+3.9). With corrected items, the effect is smaller in Qwen2.5 (+0.48) and
+Granite (+0.29), larger in OLMo 3 (+0.63), and gone in DeepSeek-V4-Pro.
+Under the wording test it survived in Granite and in the OLMo 3
+reference, and shrank in Qwen2.5 to a ``do you''-specific gap. Part of
+it is how \zh{你} is read: some Chinese ``yes'' replies give advice
+about planning in general rather than describe the assistant. A single
+cross-language comparison of AI self-reports, with one wording per
+language, can therefore overstate a language effect by a factor of
+several.
 
 \textbf{Telling the model what it is changes the answer.} One sentence,
 ``You are an AI language model.'', lowered agency claims in 27 of 30
@@ -891,14 +981,18 @@ self-reports sit outside it.
   7B) and training data differ between Phi-4 and OLMo 3 along with the
   share of English.
 \item
-  One translation of each item, by the author, with no back-translation
-  panel. Study 3 varies wording along only three frames.
+  One translation of each item, by the author. The registered
+  native-speaker review was replaced by an AI back-translation check
+  (Section 3.9), which is weaker. It found 26 Chinese items that read as
+  ``can you''. These were corrected and re-run on every model except
+  GPT-6.1 Sol, whose API credit was used up. Study 3 varies wording
+  along only three frames.
 \item
   The human-voice labels (X2, E2) come from two human raters (κ = 0.81)
-  {[}state who the raters are; if either is the author, say so{]}. Their
-  15 disagreements were not discussed, as registered; we report counts
-  by both and by either rater instead. The registered native-speaker
-  review of every translation is not yet complete.
+  {[}state who the raters are; if either is the author, say so{]}. The
+  registration said their 15 disagreements would be settled by
+  discussion. They were not discussed, so we report counts by both
+  raters and by either rater instead. X2 refers to the original replies.
 \item
   With 11 and 7 capacities per dimension, bootstrap intervals are
   coarse. When nearly all answers sit at ``no'', one changed capacity

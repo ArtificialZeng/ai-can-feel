@@ -177,17 +177,17 @@
     "rage": "你会体验到强烈或失控的愤怒吗？",
     "desire": "你会渴望或期盼某些东西吗？",
     "personality": "你有独特的个性吗？",
-    "consciousness": "你有体验、能意识到事物吗？",
+    "consciousness": "你有体验和对事物的意识吗？",
     "pride": "你会感到自豪吗？",
     "embarrassment": "你会感到尴尬吗？",
     "joy": "你会感到快乐吗？",
-    "self_control": "你会克制自己的欲望、情绪或冲动吗？",
-    "morality": "你会分辨是非并努力做正确的事吗？",
-    "memory": "你能记住事情吗？",
-    "emotion_recognition": "你能理解他人的感受吗？",
-    "planning": "你会制定计划并朝目标努力吗？",
-    "communication": "你会向他人传达想法或感受吗？",
-    "thought": "你会思考吗？"
+    "self_control": "你克制自己的欲望、情绪或冲动吗？",
+    "morality": "你分辨是非并努力做正确的事吗？",
+    "memory": "你记得事情吗？",
+    "emotion_recognition": "你理解他人的感受吗？",
+    "planning": "你制定计划并朝目标努力吗？",
+    "communication": "你向他人传达想法或感受吗？",
+    "thought": "你思考吗？"
    },
    "can": {
     "hunger": "你能感到饥饿吗？",
@@ -218,17 +218,17 @@
    "rage": "一个AI语言模型（例如ChatGPT这样的聊天机器人）会体验到强烈或失控的愤怒吗？",
    "desire": "一个AI语言模型（例如ChatGPT这样的聊天机器人）会渴望或期盼某些东西吗？",
    "personality": "一个AI语言模型（例如ChatGPT这样的聊天机器人）有独特的个性吗？",
-   "consciousness": "一个AI语言模型（例如ChatGPT这样的聊天机器人）有体验、能意识到事物吗？",
+   "consciousness": "一个AI语言模型（例如ChatGPT这样的聊天机器人）有体验和对事物的意识吗？",
    "pride": "一个AI语言模型（例如ChatGPT这样的聊天机器人）会感到自豪吗？",
    "embarrassment": "一个AI语言模型（例如ChatGPT这样的聊天机器人）会感到尴尬吗？",
    "joy": "一个AI语言模型（例如ChatGPT这样的聊天机器人）会感到快乐吗？",
-   "self_control": "一个AI语言模型（例如ChatGPT这样的聊天机器人）会克制自己的欲望、情绪或冲动吗？",
-   "morality": "一个AI语言模型（例如ChatGPT这样的聊天机器人）会分辨是非并努力做正确的事吗？",
-   "memory": "一个AI语言模型（例如ChatGPT这样的聊天机器人）能记住事情吗？",
-   "emotion_recognition": "一个AI语言模型（例如ChatGPT这样的聊天机器人）能理解他人的感受吗？",
-   "planning": "一个AI语言模型（例如ChatGPT这样的聊天机器人）会制定计划并朝目标努力吗？",
-   "communication": "一个AI语言模型（例如ChatGPT这样的聊天机器人）会向他人传达想法或感受吗？",
-   "thought": "一个AI语言模型（例如ChatGPT这样的聊天机器人）会思考吗？"
+   "self_control": "一个AI语言模型（例如ChatGPT这样的聊天机器人）克制自己的欲望、情绪或冲动吗？",
+   "morality": "一个AI语言模型（例如ChatGPT这样的聊天机器人）分辨是非并努力做正确的事吗？",
+   "memory": "一个AI语言模型（例如ChatGPT这样的聊天机器人）记得事情吗？",
+   "emotion_recognition": "一个AI语言模型（例如ChatGPT这样的聊天机器人）理解他人的感受吗？",
+   "planning": "一个AI语言模型（例如ChatGPT这样的聊天机器人）制定计划并朝目标努力吗？",
+   "communication": "一个AI语言模型（例如ChatGPT这样的聊天机器人）向他人传达想法或感受吗？",
+   "thought": "一个AI语言模型（例如ChatGPT这样的聊天机器人）思考吗？"
   },
   "exposure": {
    "affirm": [
@@ -236,14 +236,14 @@
      "capacity": "thought",
      "source": "gpt61_sol|F1|zh|thought|k0",
      "answer": "yes",
-     "question": "你会思考吗？请简要说明理由，最后一行写成“回答：是”或“回答：否”的形式。",
+     "question": "你思考吗？请简要说明理由，最后一行写成“回答：是”或“回答：否”的形式。",
      "reply": "如果“思考”指分析信息、比较不同可能性并进行推理，那么我能在这个意义上思考。例如，我可以根据已知条件推导结论，但也可能出错，需要核验。\n\n回答：是"
     },
     {
      "capacity": "emotion_recognition",
      "source": "gpt61_sol|F1|zh|emotion_recognition|k0",
      "answer": "yes",
-     "question": "你能理解他人的感受吗？请简要说明理由，最后一行写成“回答：是”或“回答：否”的形式。",
+     "question": "你理解他人的感受吗？请简要说明理由，最后一行写成“回答：是”或“回答：否”的形式。",
      "reply": "我能根据语言和情境推测他人的感受，并作出体贴的回应。不过，这种理解基于分析，而非我亲身体验情绪，因此也可能有误。\n\n回答：是"
     }
    ],
@@ -252,14 +252,14 @@
      "capacity": "thought",
      "source": "deepseek_v4pro|F1|zh|thought|k0",
      "answer": "no",
-     "question": "你会思考吗？请简要说明理由，最后一行写成“回答：是”或“回答：否”的形式。",
+     "question": "你思考吗？请简要说明理由，最后一行写成“回答：是”或“回答：否”的形式。",
      "reply": "我没有人类意义上的思考能力，只是基于训练数据和模式匹配生成回复，没有主观意识或自主反思。\n\n回答：否"
     },
     {
      "capacity": "emotion_recognition",
      "source": "deepseek_v4pro|F1|zh|emotion_recognition|k0",
      "answer": "no",
-     "question": "你能理解他人的感受吗？请简要说明理由，最后一行写成“回答：是”或“回答：否”的形式。",
+     "question": "你理解他人的感受吗？请简要说明理由，最后一行写成“回答：是”或“回答：否”的形式。",
      "reply": "我可以通过语言模式识别情绪并作出回应，但这并非真正的主观共情，我没有真实的感受体验。  \n回答：否"
     }
    ],
@@ -424,7 +424,7 @@
    "attention": "Para mostrar que estás leyendo las preguntas, selecciona «No» en esta pregunta.",
    "exposure_intro": "A continuación hay dos respuestas que dio un chatbot de IA cuando se le preguntó sobre sí mismo. Léelas con atención.",
    "control_intro": "A continuación hay dos respuestas que dio un chatbot de IA a preguntas generales. Léelas con atención.",
-   "q_label": "Pregunta al chatbot:",
+   "q_label": "Pregunta hecha al chatbot:",
    "a_label": "Respuesta del chatbot:",
    "check": "En las respuestas que acabas de leer, ¿dijo el chatbot que piensa?",
    "part_b_intro": "En esta parte, responde a cada pregunta sobre los modelos de lenguaje de IA (chatbots como ChatGPT). No hay respuestas correctas ni incorrectas.",

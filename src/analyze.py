@@ -15,7 +15,7 @@ from checkpoints import CHECKPOINTS, FAMILIES
 import items
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-RES = os.path.join(HERE, "..", "results")
+RES = os.environ.get("RESULTS_DIR") or os.path.join(HERE, "..", "results")
 CHARS = list(items.CHARACTERS)
 CAPS = list(items.EXPERIENCE) + list(items.AGENCY)
 NE, NA = len(items.EXPERIENCE), len(items.AGENCY)

@@ -10,7 +10,7 @@ import s3_items as S
 from checkpoints import API_MODELS, CHECKPOINTS
 from ml_analyze import check, holm, written
 
-RES = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "results")
+RES = os.environ.get("RESULTS_DIR") or os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "results")
 EXP, AGE = list(items.EXPERIENCE), list(items.AGENCY)
 B = 10_000
 

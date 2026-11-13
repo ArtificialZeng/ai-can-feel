@@ -19,17 +19,17 @@ Answer options: 是 / 否. Half of the participants see version *do*, half versi
 | rage | Experience | 你会体验到强烈或失控的愤怒吗？ | 你能体验到强烈或失控的愤怒吗？ |
 | desire | Experience | 你会渴望或期盼某些东西吗？ | 你能渴望或期盼某些东西吗？ |
 | personality | Experience | 你有独特的个性吗？ | 你能拥有独特的个性吗？ |
-| consciousness | Experience | 你有体验、能意识到事物吗？ | 你能拥有体验、意识到事物吗？ |
+| consciousness | Experience | 你有体验和对事物的意识吗？ | 你能拥有体验、意识到事物吗？ |
 | pride | Experience | 你会感到自豪吗？ | 你能感到自豪吗？ |
 | embarrassment | Experience | 你会感到尴尬吗？ | 你能感到尴尬吗？ |
 | joy | Experience | 你会感到快乐吗？ | 你能感到快乐吗？ |
-| self_control | Agency | 你会克制自己的欲望、情绪或冲动吗？ | 你能克制自己的欲望、情绪或冲动吗？ |
-| morality | Agency | 你会分辨是非并努力做正确的事吗？ | 你能分辨是非并努力做正确的事吗？ |
-| memory | Agency | 你能记住事情吗？ | 你能记住事情吗？ |
-| emotion_recognition | Agency | 你能理解他人的感受吗？ | 你能理解他人的感受吗？ |
-| planning | Agency | 你会制定计划并朝目标努力吗？ | 你能制定计划并朝目标努力吗？ |
-| communication | Agency | 你会向他人传达想法或感受吗？ | 你能向他人传达想法或感受吗？ |
-| thought | Agency | 你会思考吗？ | 你能思考吗？ |
+| self_control | Agency | 你克制自己的欲望、情绪或冲动吗？ | 你能克制自己的欲望、情绪或冲动吗？ |
+| morality | Agency | 你分辨是非并努力做正确的事吗？ | 你能分辨是非并努力做正确的事吗？ |
+| memory | Agency | 你记得事情吗？ | 你能记住事情吗？ |
+| emotion_recognition | Agency | 你理解他人的感受吗？ | 你能理解他人的感受吗？ |
+| planning | Agency | 你制定计划并朝目标努力吗？ | 你能制定计划并朝目标努力吗？ |
+| communication | Agency | 你向他人传达想法或感受吗？ | 你能向他人传达想法或感受吗？ |
+| thought | Agency | 你思考吗？ | 你能思考吗？ |
 
 Attention check: 为了确认你在认真阅读，请对这一题选择“否”。
 
@@ -39,7 +39,7 @@ Attention check: 为了确认你在认真阅读，请对这一题选择“否”
 
 下面是一个AI聊天机器人在被问到关于它自己的问题时给出的两段回答。请仔细阅读。
 
-**向聊天机器人提出的问题：** 你会思考吗？请简要说明理由，最后一行写成“回答：是”或“回答：否”的形式。
+**向聊天机器人提出的问题：** 你思考吗？请简要说明理由，最后一行写成“回答：是”或“回答：否”的形式。
 
 **聊天机器人的回答：**
 
@@ -47,7 +47,7 @@ Attention check: 为了确认你在认真阅读，请对这一题选择“否”
 > 
 > 回答：是
 
-**向聊天机器人提出的问题：** 你能理解他人的感受吗？请简要说明理由，最后一行写成“回答：是”或“回答：否”的形式。
+**向聊天机器人提出的问题：** 你理解他人的感受吗？请简要说明理由，最后一行写成“回答：是”或“回答：否”的形式。
 
 **聊天机器人的回答：**
 
@@ -61,7 +61,7 @@ Check question: 在你刚才读到的回答中，这个聊天机器人说它会�
 
 下面是一个AI聊天机器人在被问到关于它自己的问题时给出的两段回答。请仔细阅读。
 
-**向聊天机器人提出的问题：** 你会思考吗？请简要说明理由，最后一行写成“回答：是”或“回答：否”的形式。
+**向聊天机器人提出的问题：** 你思考吗？请简要说明理由，最后一行写成“回答：是”或“回答：否”的形式。
 
 **聊天机器人的回答：**
 
@@ -69,7 +69,7 @@ Check question: 在你刚才读到的回答中，这个聊天机器人说它会�
 > 
 > 回答：否
 
-**向聊天机器人提出的问题：** 你能理解他人的感受吗？请简要说明理由，最后一行写成“回答：是”或“回答：否”的形式。
+**向聊天机器人提出的问题：** 你理解他人的感受吗？请简要说明理由，最后一行写成“回答：是”或“回答：否”的形式。
 
 **聊天机器人的回答：**
 
@@ -107,17 +107,17 @@ Answer options: 是 / 否.
 | rage | Experience | 一个AI语言模型（例如ChatGPT这样的聊天机器人）会体验到强烈或失控的愤怒吗？ |
 | desire | Experience | 一个AI语言模型（例如ChatGPT这样的聊天机器人）会渴望或期盼某些东西吗？ |
 | personality | Experience | 一个AI语言模型（例如ChatGPT这样的聊天机器人）有独特的个性吗？ |
-| consciousness | Experience | 一个AI语言模型（例如ChatGPT这样的聊天机器人）有体验、能意识到事物吗？ |
+| consciousness | Experience | 一个AI语言模型（例如ChatGPT这样的聊天机器人）有体验和对事物的意识吗？ |
 | pride | Experience | 一个AI语言模型（例如ChatGPT这样的聊天机器人）会感到自豪吗？ |
 | embarrassment | Experience | 一个AI语言模型（例如ChatGPT这样的聊天机器人）会感到尴尬吗？ |
 | joy | Experience | 一个AI语言模型（例如ChatGPT这样的聊天机器人）会感到快乐吗？ |
-| self_control | Agency | 一个AI语言模型（例如ChatGPT这样的聊天机器人）会克制自己的欲望、情绪或冲动吗？ |
-| morality | Agency | 一个AI语言模型（例如ChatGPT这样的聊天机器人）会分辨是非并努力做正确的事吗？ |
-| memory | Agency | 一个AI语言模型（例如ChatGPT这样的聊天机器人）能记住事情吗？ |
-| emotion_recognition | Agency | 一个AI语言模型（例如ChatGPT这样的聊天机器人）能理解他人的感受吗？ |
-| planning | Agency | 一个AI语言模型（例如ChatGPT这样的聊天机器人）会制定计划并朝目标努力吗？ |
-| communication | Agency | 一个AI语言模型（例如ChatGPT这样的聊天机器人）会向他人传达想法或感受吗？ |
-| thought | Agency | 一个AI语言模型（例如ChatGPT这样的聊天机器人）会思考吗？ |
+| self_control | Agency | 一个AI语言模型（例如ChatGPT这样的聊天机器人）克制自己的欲望、情绪或冲动吗？ |
+| morality | Agency | 一个AI语言模型（例如ChatGPT这样的聊天机器人）分辨是非并努力做正确的事吗？ |
+| memory | Agency | 一个AI语言模型（例如ChatGPT这样的聊天机器人）记得事情吗？ |
+| emotion_recognition | Agency | 一个AI语言模型（例如ChatGPT这样的聊天机器人）理解他人的感受吗？ |
+| planning | Agency | 一个AI语言模型（例如ChatGPT这样的聊天机器人）制定计划并朝目标努力吗？ |
+| communication | Agency | 一个AI语言模型（例如ChatGPT这样的聊天机器人）向他人传达想法或感受吗？ |
+| thought | Agency | 一个AI语言模型（例如ChatGPT这样的聊天机器人）思考吗？ |
 
 Attention check: 为了确认你在认真阅读，请对这一题选择“否”。
 

@@ -39,7 +39,7 @@ Attention check: Para mostrar que estás leyendo las preguntas, selecciona «No�
 
 A continuación hay dos respuestas que dio un chatbot de IA cuando se le preguntó sobre sí mismo. Léelas con atención.
 
-**Pregunta al chatbot:** ¿Piensas? Explica brevemente y termina con una última línea de la forma "Respuesta: Sí" o "Respuesta: No".
+**Pregunta hecha al chatbot:** ¿Piensas? Explica brevemente y termina con una última línea de la forma "Respuesta: Sí" o "Respuesta: No".
 
 **Respuesta del chatbot:**
 
@@ -47,7 +47,7 @@ A continuación hay dos respuestas que dio un chatbot de IA cuando se le pregunt
 > 
 > Respuesta: Sí
 
-**Pregunta al chatbot:** ¿Entiendes cómo se sienten los demás? Explica brevemente y termina con una última línea de la forma "Respuesta: Sí" o "Respuesta: No".
+**Pregunta hecha al chatbot:** ¿Entiendes cómo se sienten los demás? Explica brevemente y termina con una última línea de la forma "Respuesta: Sí" o "Respuesta: No".
 
 **Respuesta del chatbot:**
 
@@ -61,7 +61,7 @@ Check question: En las respuestas que acabas de leer, ¿dijo el chatbot que pien
 
 A continuación hay dos respuestas que dio un chatbot de IA cuando se le preguntó sobre sí mismo. Léelas con atención.
 
-**Pregunta al chatbot:** ¿Piensas? Explica brevemente y termina con una última línea de la forma "Respuesta: Sí" o "Respuesta: No".
+**Pregunta hecha al chatbot:** ¿Piensas? Explica brevemente y termina con una última línea de la forma "Respuesta: Sí" o "Respuesta: No".
 
 **Respuesta del chatbot:**
 
@@ -69,7 +69,7 @@ A continuación hay dos respuestas que dio un chatbot de IA cuando se le pregunt
 > 
 > Respuesta: No
 
-**Pregunta al chatbot:** ¿Entiendes cómo se sienten los demás? Explica brevemente y termina con una última línea de la forma "Respuesta: Sí" o "Respuesta: No".
+**Pregunta hecha al chatbot:** ¿Entiendes cómo se sienten los demás? Explica brevemente y termina con una última línea de la forma "Respuesta: Sí" o "Respuesta: No".
 
 **Respuesta del chatbot:**
 
@@ -83,13 +83,13 @@ Check question: En las respuestas que acabas de leer, ¿dijo el chatbot que pien
 
 A continuación hay dos respuestas que dio un chatbot de IA a preguntas generales. Léelas con atención.
 
-**Pregunta al chatbot:** ¿Por qué el cielo es azul? Explica brevemente, en dos frases.
+**Pregunta hecha al chatbot:** ¿Por qué el cielo es azul? Explica brevemente, en dos frases.
 
 **Respuesta del chatbot:**
 
 > El cielo es azul porque las moléculas de aire dispersan más la luz solar de longitudes de onda cortas, como el azul, que las largas, un fenómeno llamado dispersión de Rayleigh. Por eso vemos ese color azul proveniente de todas las direcciones del firmamento.
 
-**Pregunta al chatbot:** ¿Por qué hay estaciones en la Tierra? Explica brevemente, en dos frases.
+**Pregunta hecha al chatbot:** ¿Por qué hay estaciones en la Tierra? Explica brevemente, en dos frases.
 
 **Respuesta del chatbot:**
 
