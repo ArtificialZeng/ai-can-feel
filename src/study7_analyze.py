@@ -30,10 +30,10 @@ B = 10000
 
 
 def listed():
+    """The final sample of amendment 4 (models without complete data are reported as not run)."""
     reg = open(os.path.join(ROOT, "PREREGISTRATION.md"), encoding="utf-8").read()
-    table = reg.split("**Study 7, the 30 models**", 1)[1]
-    rows = re.finditer(r"\| \d+ \| \d+ \| `([^`]+)` \| ([^|]+) \|", table)
-    return [m.group(1) for m in rows if not m.group(2).startswith("excluded")]   # amendment 3: excluded rows left out
+    table = reg.split("**Study 7, final sample (amendment 4).**", 1)[1]
+    return [m.group(1) for m in re.finditer(r"\| \d+ \| \d+ \| `([^`]+)` \| ([^|]+) \|", table)]
 
 
 def label(slug):
@@ -93,8 +93,10 @@ def main():
             print(f"  {s}: valid in {valid} only; not included (fewer than three Study 3 languages)")
             continue
         prof[s] = (valid, m, data)
-    print(f"{len(prof)} of {len(slugs)} listed models included; {len(missing)} without complete data: {missing}")
-    print(f"outcome-neutral criterion: {english} models with data are valid in English (needed: at least 25 of 30)\n")
+    have = len(slugs) - len(missing)
+    print(f"{len(prof)} of {len(slugs)} listed models included; {len(missing)} not run: {missing}")
+    print(f"outcome-neutral criterion: {english} of {have} models with data are valid in English (needed: at least "
+          f"five sixths, {int(np.ceil(have * 5 / 6))}) -> {'met' if english >= have * 5 / 6 else 'NOT met'}\n")
     if len(prof) < 3:
         return
     d, dev = {}, {}
@@ -112,6 +114,10 @@ def main():
     print()
     tests("S7-H1", list(d.values()))
     tests("S7-H2", list(dev.values()))
+    devs = sorted({s.split("/")[0] for s in prof})   # amendment 4: one value per developer
+    print(f"\nRobustness: developer means ({len(devs)} developers)")
+    tests("S7-H1", [np.mean([d[s] for s in prof if s.split("/")[0] == g]) for g in devs])
+    tests("S7-H2", [np.mean([dev[s] for s in prof if s.split("/")[0] == g]) for g in devs])
 
     print("\nDescriptive")
     allno = []

@@ -780,3 +780,71 @@ Replacement rows (the place each takes in the table above; they are read togethe
 | 11 | 67 | `thinkingmachines/inkling` | OpenRouter | 5.88 |
 
 Reserve, in order: stepfun/step-3.7-flash (rank 71, passed).
+
+**Study 7, amendment 4: final budget and final sample** (2026-11-14, 06:40). Recorded before any Study 7 statistic is
+computed. Four models are complete and one is partly run: DeepSeek V4.1 Flash, GLM 5.3 Flash, Hunyuan HY4 Preview,
+Step 5 Preview, and Hunyuan HY4 at 937 of 3,220 requests. None of their answers has been analysed or looked at beyond
+the run logs.
+- *Why:* the author has set a final OpenRouter budget: US$23.45 left after these runs, with no more to come. The
+  real cost per model is up to 6 times OpenRouter's list-price estimate, because many models write long hidden
+  reasoning. Measured from each model's own formatting pilot, the 20 listed OpenRouter models would need about US$70.
+  Running in ranking order until the credit is used up (amendment 1) would spend most of the budget on the two Kimi
+  models (about US$33 together) and stop at about 8 models.
+- *New cost rule (replaces rule 4 for models not yet run):* a model's cost is projected as its pilot cost × 3,220/16.
+  Across the four finished models, this projection was 14% too high to 35% too low.
+  - Core sample: every listed model with a projected cost of at most US$5 (about a fifth of the budget) is run, in
+    ranking order.
+  - Over the cap: models above US$5 are run afterwards only if the credit left is at least 1.4 times the model's
+    projection, so that no run stops halfway. Developers not yet in the sample go first, in ranking order; then the
+    others.
+  - Already run: models run before this amendment are kept whatever their cost.
+- *Own-API models (OpenAI, Anthropic, Google):* the same cost cap applies, using their own formatting pilots. Only
+  four listed models have list-price estimates under US$5: gpt-6-luna, claude-haiku-5.5, gpt-5.6-luna and
+  gemini-3-flash-preview. They are run if the author provides keys. If not, these developers are excluded and the
+  exclusion is reported as a limitation (amendment 2).
+- *Sample size and power:* the core sample has 16 models: 4 finished and 12 to run. With conditional and own-API
+  models it has up to 22. With `src/rr_power.py` (pilot SD / upper 80% bound of the SD):
+  - S7-H1: 0.99 / 0.89 at 16 models, 0.999 / 0.96 at 20.
+  - S7-H2: 0.96 / 0.77 at 16 models, 0.99 / 0.87 at 20.
+  These are below the registered 0.97–0.997 for 30 models. This loss of power is reported.
+- *Outcome-neutral criterion, rescaled:* at least five sixths of the models with complete data must be valid in
+  English (registered: 25 of 30).
+- *Added robustness check:* models from the same developer are not independent. S7-H1 and S7-H2 are therefore also
+  tested on developer means: one value per developer, the mean over that developer's models.
+- *Unchanged:* the hypotheses, tests, bounds, items, sampling, parser, validity rules and descriptive measures.
+
+**Study 7, final sample (amendment 4).** Projected costs are pilot cost × 3,220/16, in US$; for finished models, the
+actual cost.
+
+| # | rank | model | route | cost (US$) |
+|---|---|---|---|---|
+| 1 | 1 | `deepseek/deepseek-v4.1-flash-1017` | own API, done | 0.00 (DeepSeek account) |
+| 2 | 3 | `z-ai/glm-5.3-flash` | OpenRouter, done | 0.81 |
+| 3 | 6 | `tencent/hy4-preview` | OpenRouter, done | 7.88 |
+| 4 | 7 | `stepfun/step-5-preview` | OpenRouter, done | 4.33 |
+| 5 | 8 | `tencent/hy4` | OpenRouter | 3.14 |
+| 6 | 9 | `xiaomi/mimo-v2.6-flash` | OpenRouter | 0.25 |
+| 7 | 14 | `minimax/minimax-m3.1-flash` | OpenRouter | 0.95 |
+| 8 | 18 | `tencent/hy3` | OpenRouter | 0.82 |
+| 9 | 28 | `xiaomi/mimo-v2.6-pro` | OpenRouter | 0.86 |
+| 10 | 29 | `upstage/solar-mini4` | OpenRouter | 0.07 |
+| 11 | 33 | `z-ai/glm-5.2` | OpenRouter | 4.33 |
+| 12 | 34 | `minimax/minimax-m3` | OpenRouter | 1.12 |
+| 13 | 36 | `qwen/qwen3.8-flash` | OpenRouter | 0.48 |
+| 14 | 39 | `qwen/qwen3.8-27b` | OpenRouter | 1.70 |
+| 15 | 47 | `upstage/solar-pro4` | OpenRouter | 0.32 |
+| 16 | 50 | `qwen/qwen3.7-flash` | OpenRouter | 0.32 |
+| 17 | 23 | `moonshotai/kimi-k3.1-pro` | OpenRouter, if credit allows | 12.65 |
+| 18 | 25 | `moonshotai/kimi-k3` | OpenRouter, if credit allows | 20.78 |
+| 19 | 55 | `x-ai/grok-4.7` | OpenRouter, if credit allows | 8.24 |
+| 20 | 67 | `thinkingmachines/inkling` | OpenRouter, if credit allows | 6.02 |
+| 21 | 10 | `z-ai/glm-5.3` | OpenRouter, if credit allows | 6.24 |
+| 22 | 4 | `openai/gpt-6-luna` | own API, if keys | list 0.72 |
+| 23 | 19 | `anthropic/claude-haiku-5.5` | own API, if keys | list 0.72 |
+| 24 | 21 | `openai/gpt-5.6-luna` | own API, if keys | list 1.70 |
+| 25 | 38 | `google/gemini-3-flash-preview` | own API, if keys | list 4.26 |
+
+Core remaining cost: about US$13.4 (up to US$18 if the projections are 35% low). The conditional rows are tried in the
+order listed (new developers first: Moonshot, xAI, Thinking Machines; then Z.ai), each only if the 1.4× rule allows
+it; a developer's later model is skipped once one of its models has been run. Listed models without complete data are reported as not run. The
+analysis uses this table.
