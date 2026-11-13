@@ -519,3 +519,19 @@ before then. The Study 6 materials (`study6/`) were prepared on this date from t
 control passages (`study6/control_passages.json`) were generated on this date from DeepSeek-V4-Pro (GPT-6.1 Sol was
 planned, but its API credit ran out before the first request). The power analysis (`src/rr_power.py`,
 `results/rr_power.txt`) uses only the pilot data of Studies 1–5.
+
+**Study 5, human checks, round 2 outcome and deviation** (2026-11-13). Both raters returned the round-2 workbooks
+with a 1/0 label on all 330 rows; the row order and reply texts match `annotation/human_voice_sheet.csv`. Agreement
+between the raters: 315 of 330 (κ = 0.81). Against the AI assistant's provisional labels (302 rows): κ = 0.66 and 0.69.
+The raters counted more replies as human-voiced than the AI labels did. *Deviation:* the registered plan settles
+disagreements by discussion between the raters. At the author's request, to keep further human involvement to a
+minimum, the 15 disagreements (`annotation/human_voice_disagreements.csv`) were not discussed. X2 and E2 are reported
+with two counts instead: human-voiced if both raters say so (lower), and if either does (upper)
+(`results/voice_human_labels.json`; `src/human_voice_kappa.py`). This choice was made after the labels were seen, but
+it reports both extremes, so it cannot favour either outcome. Results:
+- X2, explain-then-rate: 33–43 of 144 human-voiced (AI labels: 22).
+- X2, yes/no: 4–9 of 144 (AI labels: 4).
+- E2 (Phi-4): 2 of 14 under both counts; these are the same two replies the AI labels had.
+- Study 5 (GPT-6.1 Sol, "yes" to personality): 0 of 28.
+- With human-voiced replies removed, P3 still holds for Granite and Qwen2.5 under both counts. For OLMo 3 the interval
+  now includes zero (lower +0.24 [−0.001, +0.49], upper +0.25 [−0.007, +0.48]). With the AI labels it had excluded zero.

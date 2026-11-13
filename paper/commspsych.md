@@ -2,8 +2,8 @@
 
 Zijian Zeng, UCSI University, Kuala Lumpur, Malaysia. Correspondence: [corresponding author email]
 
-*Manuscript prepared for Communications Psychology (Article). Pending before submission: the pre-registered human
-checks (two independent raters; native-speaker review of the translations).*
+*Superseded: the author chose Nature Human Behaviour (Registered Report, `paper/rr_stage1.md`). This version was not
+updated after 2026-11-07; for the human-rater results see `paper/draft.md`.*
 
 ## Abstract
 

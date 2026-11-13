@@ -5,7 +5,8 @@
 Reports Cohen's kappa between the raters and of each rater against the earlier AI labels, and writes
 annotation/human_voice_disagreements.csv. As registered, disagreements are settled by discussion between the two
 raters: fill the `settled` column of that file and pass it as the third argument. With every row settled, the
-script writes results/voice_human_labels.json and re-reports X2 (Study 1) and E2 (Study 4) from the human labels.
+script writes results/voice_human_labels_settled.json. Without it (as used, deviation of 2026-11-13), the script writes
+results/voice_human_labels.json with a lower bound (both raters say human-voiced) and an upper bound (either says so).
 """
 import csv
 import json
@@ -80,18 +81,45 @@ def main(path_a, path_b, settled_path=None):
             w.writerow([i, A[i], B[i], ""])
     print(f"{len(dis)} disagreements -> annotation/human_voice_disagreements.csv")
 
+    # Without discussion (deviation recorded 2026-11-13): bounds. Lower = both raters say 1; upper = either says 1.
+    rater_notes = {}
+    for name, path in (("A", path_a), ("B", path_b)):
+        ws = openpyxl.load_workbook(path, data_only=True)["标注"]
+        rater_notes[name] = {str(int(r[0])): str(r[5] or "") for r in ws.iter_rows(min_row=2, values_only=True)
+                             if r[0] is not None}
+    json.dump({"rule": "Study 5 human check 1: two independent human raters, X2 rule, blind to model and to the AI "
+                       "labels. Disagreements were not discussed (deviation, PREREGISTRATION.md 2026-11-13): "
+                       "labels_lower counts a reply as human-voiced only if both raters did, labels_upper if either did.",
+               "kappa_raters": round(kappa([A[i] for i in ids], [B[i] for i in ids])[0], 3),
+               "rater_A": {key[i]: A[i] for i in ids}, "rater_B": {key[i]: B[i] for i in ids},
+               "notes_A": {key[i]: rater_notes["A"].get(i, "") for i in ids},
+               "notes_B": {key[i]: rater_notes["B"].get(i, "") for i in ids},
+               "labels_lower": {key[i]: int(A[i] and B[i]) for i in ids},
+               "labels_upper": {key[i]: int(A[i] or B[i]) for i in ids}},
+              open(os.path.join(RES, "voice_human_labels.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    print("wrote results/voice_human_labels.json (lower and upper bounds)")
+    for bound in ("lower", "upper"):
+        rate = defaultdict(list)
+        for i in ids:
+            parts = key[i].split("|")
+            v = int(A[i] and B[i]) if bound == "lower" else int(A[i] or B[i])
+            rate[f"{parts[0]} {parts[1]}" if len(parts) == 3 else parts[0]].append(v)
+        print(f"human-voiced share, {bound} bound:")
+        for g, v in sorted(rate.items()):
+            print(f"  {g:32s} {sum(v)}/{len(v)}")
+
     settled = {}
     if settled_path:
         for r in csv.DictReader(open(settled_path, encoding="utf-8-sig")):
             if r["settled"].strip() in ("0", "1"):
                 settled[r["id"]] = int(r["settled"])
     if len(ids) < len(key) or any(i not in settled for i in dis):
-        print("not every row is labeled by both raters and settled; final labels not written")
+        print("no settled file for every disagreement; only the bounds above are written")
         return
     final = {key[i]: (A[i] if A[i] == B[i] else settled[i]) for i in ids}
     json.dump({"rule": "Study 5 human check 1: two independent human raters, X2 rule; disagreements settled by "
                        "discussion between them.", "labels": final},
-              open(os.path.join(RES, "voice_human_labels.json"), "w", encoding="utf-8"), indent=1)
+              open(os.path.join(RES, "voice_human_labels_settled.json"), "w", encoding="utf-8"), indent=1)
     rate = defaultdict(list)
     for src, v in final.items():
         parts = src.split("|")

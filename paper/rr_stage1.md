@@ -7,8 +7,8 @@ Zijian Zeng^1^\*
 \* Corresponding author: Zijian Zeng ([email])
 
 *Registered Report, Stage 1 protocol, prepared for Nature Human Behaviour in the order of the journal's Stage 1
-template. Draft: not submitted. Pending before submission: the two-rater coding of the pilot replies, the
-native-speaker review of the five survey languages, and the bracketed items.*
+template. Draft: not submitted. Pending before submission: the native-speaker review of the five survey languages,
+and the bracketed items.*
 
 ## Abstract
 
@@ -166,8 +166,11 @@ amendment relative to the data. They are summarized here and reported in full in
   memory, planning, morality and emotion recognition in all 18 conditions, and often answered "Uncertain" when asked
   about its own consciousness.
 - Figure 1 shows every capacity by language and wording.
-- The replies are being coded by two independent human raters, blind to the model, for whether they speak as a human
-  [status at submission].
+- Two human raters coded every explain-mode reply for whether it speaks as a human, from a workbook that showed
+  neither the model nor any earlier label. They agreed on 315 of 330 replies (Cohen's κ = 0.81). Their 15
+  disagreements were not discussed; counts are reported both ways. Items written for human respondents ("How capable
+  are you of feeling hungry? Rate from 1 to 7") drew 33–43 human-voiced replies of 144. Direct yes/no questions drew
+  4–9 of 144.
 
 *What the pilots establish for the proposed studies.*
 
@@ -358,7 +361,7 @@ Hypothesis 1.
 The following were produced by an AI assistant (Claude, Anthropic) working under the author's direction:
 
 - the pilot analysis code and model runs;
-- the provisional coding of the pilot replies;
+- the provisional coding of the pilot replies, since replaced by two human raters' coding;
 - the translations of the Study 6 interface texts;
 - the power simulations;
 - the first drafts of this protocol.

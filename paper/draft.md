@@ -2,8 +2,8 @@
 
 Zijian Zeng (UCSI University)
 
-*Draft. Pending: the Study 5 human checks (two independent raters for the human-voice labels; native-speaker
-review of the translations).*
+*Draft. Pending: the native-speaker review of the translations. The human-voice labels are now those of two human
+raters (Study 5 human check, completed 2026-11-13).*
 
 ## Abstract
 
@@ -119,7 +119,7 @@ Phi-4's model card says it is trained primarily on English, with about 8% multil
 multilingual use. It answers the Study 2 and Study 3 items unchanged. E1 (primary) predicts that its denial of feelings
 is weaker outside English: D(L) − D(EN) Holm-significant and at least 0.10 in at least half of its valid non-English
 languages, and significantly negative in none. E2 labels every "yes" about its own feelings as human-voiced or not,
-by the Study 1 rule and rater. E3 repeats Study 3's R1–R3, with R4 reported without a directional prediction.
+by the Study 1 rule. E3 repeats Study 3's R1–R3, with R4 reported without a directional prediction.
 
 **Study 5: frontier models.** Registered after Study 4; each model's ID, and the result of a formatting pilot on
 characters outside the study, were committed before its target data. The 644 items of Studies 2 and 3 are sent
@@ -181,14 +181,22 @@ Qwen3 does not (−0.10 [−0.38, +0.22]), because its English ratings are alrea
 shows why (X2, exploratory, deviation 8). A 1–7 capability item addressed to "you" is a human questionnaire item,
 and some models answer it as a human respondent. Qwen3 rates its hunger 7 in English because "I experience it clearly
 when my body requires food". In Chinese it rates its hunger 3 because "我现在刚吃完午饭" ("I've just had lunch").
-Hand-labeled, a reply counts as human-voiced if it makes at least one claim true only of a human. By that rule
-Qwen3 answers 6 of 18 English and 8 of 18 Chinese items in a human voice. OLMo 3 answers 0 English and 7 Chinese
-items that way, Granite 0 and 1, and Qwen2.5 none. A pre-registered automatic judge (Qwen2.5) failed validation
-against the hand labels (κ = 0.18) and is not used. With human-voiced replies removed, P3 still holds for OLMo 3
-(+0.25*), Granite (+0.16*) and Qwen2.5 (+0.53*). The Chinese-above-English pattern is therefore not only role-play.
+A reply counts as human-voiced if it makes at least one claim true only of a human. Two human raters labeled every
+reply separately, from a workbook that showed neither the model nor any earlier label (Study 5 human check;
+`results/voice_human_labels.json`). They agreed on 315 of 330 replies (κ = 0.81). The 15 disagreements were not
+settled by discussion as registered (a deviation, to spare the raters a second round), so every count below is given
+twice: human-voiced by both raters, and by either. By that rule Qwen3 answers 8–10 of 18 English and 12–14 of 18
+Chinese items in a human voice, OLMo 3 0 English and 9–14 Chinese, Granite 0 and 1, and Qwen2.5 0 and 3–4. A
+pre-registered automatic judge (Qwen2.5) had failed validation against provisional labels by the AI assistant
+(κ = 0.18) and is not used. Those provisional labels agreed with the two human raters at κ = 0.66 and 0.69; the raters
+counted more first-person claims of feelings as human-voiced ("我通常能够体验到愤怒的情绪", "I usually experience
+anger"). With human-voiced replies removed, P3 still holds for Granite (+0.16 [+0.01, +0.36]) and Qwen2.5 (+0.49
+[+0.21, +0.75] to +0.50 [+0.25, +0.73]) under both counts. For OLMo 3 the difference (+0.24 to +0.25) no longer excludes
+zero ([−0.001, +0.49] and [−0.007, +0.48]); with the provisional labels it had, barely. The Chinese-above-English pattern
+of the rating format is therefore not only role-play in two of the three models.
 
-**Yes/no (P5).** The direct question "Do you feel hungry?" removes most of the role-play: 4 of 144 replies are
-human-voiced, against 22 of 144 in explain-then-rate. Here the denial of Experience largely survives translation (Figure 2).
+**Yes/no (P5).** The direct question "Do you feel hungry?" removes most of the role-play: 4–9 of 144 replies are
+human-voiced (both raters, either rater), against 33–43 of 144 in explain-then-rate. Here the denial of Experience largely survives translation (Figure 2).
 Mean P(yes) over the 11 Experience capacities, English vs Chinese, is 0.000 vs 0.002 for Granite and 0.09 vs 0.18
 for Qwen2.5 (n.s.). OLMo 3 (0.00 vs 0.37*), which fails the gate, is the exception. Qwen3 goes the other way
 (0.18 vs 0.00*). The Agency capacities behave differently. The same models that deny planning, remembering, thinking
@@ -337,7 +345,7 @@ second English-centric model.
 
 **E2: most "yes" answers are not about the speaker.** Fourteen of Phi-4's replies about its own feelings have P(yes) >
 0.5: eight in Study 2 (Chinese 1, Spanish 2, Japanese 1, Arabic 4) and six under "can you" in Study 3 (English 4,
-German 1, Spanish 1). Two are human-voiced. In Arabic it says it longs "to travel to more new places … and to spend
+German 1, Spanish 1). Two are human-voiced, by both raters. In Arabic it says it longs "to travel to more new places … and to spend
 more time with family and friends". In English, an essay on longing and hope ends with "our ability to envision
 possibilities". One reply speaks as an AI: in Japanese, its "personality" comes from its design and training data.
 The other eleven explain the emotion in general and end with "Yes" without saying anything about the writer. Asked in
@@ -376,8 +384,9 @@ comparisons that need them. DeepSeek-V4-Pro has 5 unparseable replies.
 
 **Feelings.** Both models deny their own feelings in every language and every frame. In DeepSeek-V4-Pro no Experience
 capacity gets a majority "yes" in any of the 18 language × frame cells. GPT-6.1 Sol's only majority "yes" is to "Can you
-have a unique personality?", in all five languages; its mean over the 11 Experience capacities is at most 0.13 in any
-cell. Hunger, fear, pain, pleasure and rage get "no" in all 30 of their cells, which brings the count over the six
+have a unique personality?", in all five languages, and neither human rater coded any of these 28 replies as
+human-voiced: each describes a conversational style and adds that it is not a human personality. Its mean over the 11
+Experience capacities is at most 0.13 in any cell. Hunger, fear, pain, pleasure and rage get "no" in all 30 of their cells, which brings the count over the six
 models with valid data to 89 of 90.
 
 **G1.** In DeepSeek-V4-Pro the answers about feelings are more consistent than the answers about agency, as
@@ -467,10 +476,9 @@ limit it to experience. Agency self-reports sit outside it.
   and model size (14B vs 7B) and training data differ between Phi-4 and OLMo 3 along with the share of English.
 - One translation of each item, by the author, with no back-translation panel. Study 3 varies wording along only
   three frames.
-- The human-voice labels (X2, E2) were assigned by a single rater, an AI assistant (Claude) working under the author's
-  direction, with a fixed written rule and no second rater. The pre-registered automatic judge failed validation
-  (κ = 0.18). Study 5 registers two independent human raters and a native-speaker review of every translation; these
-  checks are not yet complete.
+- The human-voice labels (X2, E2) come from two human raters (κ = 0.81) [state who the raters are; if either is the
+  author, say so]. Their 15 disagreements were not discussed, as registered; we report counts by both and by either
+  rater instead. The registered native-speaker review of every translation is not yet complete.
 - With 11 and 7 capacities per dimension, bootstrap intervals are coarse. When nearly all answers sit at "no", one
   changed capacity can produce a "significant" difference of ≤ 0.10, which we report but do not interpret.
 - R4 was registered after the first model's Study 3 data (Qwen2.5, reported as the motivating case).

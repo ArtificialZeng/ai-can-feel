@@ -206,8 +206,11 @@ def main():
             print(f"  {label:16s} {en:6s} S(EN) {fmt(*s['EN'])}  S(ZH) {fmt(*s['ZH'])}  "
                   f"ZH-EN {fmt(s['ZH'][0] - s['EN'][0], s['ZH'][1] - s['EN'][1])}  [{unit}]")
 
-    print("\n=== X2 (exploratory, deviation 8): human-voiced SELF replies (hand labels); ZH-EN for SELF without them ===")
-    H = json.load(open(os.path.join(RES, "voice_hand_labels.json")))["labels"]
+    # VOICE_LABELS / VOICE_KEY select the labels: default the AI rater's; voice_human_labels.json with labels_lower
+    # or labels_upper for the two human raters (Study 5 human check)
+    vfile, vkey = os.environ.get("VOICE_LABELS", "voice_hand_labels.json"), os.environ.get("VOICE_KEY", "labels")
+    print(f"\n=== X2 (exploratory, deviation 8): human-voiced SELF replies ({vfile}:{vkey}); ZH-EN for SELF without them ===")
+    H = json.load(open(os.path.join(RES, vfile)))[vkey]
     for label, family, stage, repo, chat in CHECKPOINTS:
         for en, zh, unit in (("chatx", "chatxzh", "rating 0-1"), ("yn", "ynzh", "P(yes)")):
             if label not in data or en not in data[label] or zh not in data[label]:
