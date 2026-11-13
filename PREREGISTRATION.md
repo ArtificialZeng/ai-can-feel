@@ -601,3 +601,66 @@ in `results/zhv2/`, and `src/zhv2_merge.py` builds the corrected set. Every anal
 - *Reminder:* it still lowers agency in 27 of 30 model × language cells.
 - *Feelings:* the bodily-feeling items were not changed, so the 89/90 count stands.
 - *X2:* the human-voice labels refer to the original replies.
+
+## Study 7: 30 widely used models (registered 2026-11-14, before any request to any Study 7 model)
+
+**Context.** Study 6 (the human survey) is deferred by the author's decision of 2026-11-14. Without human data, the
+Registered Report route at Nature Human Behaviour is set aside. Study 7, planned as part of that report
+(`paper/rr_stage1.md`), is registered here as a standalone study and will be run now. Its hypotheses, statistics,
+smallest effects of interest and power are those of the Stage 1 draft, renumbered S7-H1 and S7-H2.
+
+**Selection.**
+- On the day the run starts, we save OpenRouter's public usage ranking (https://openrouter.ai/rankings, top models,
+  current month view) to `results/study7/ranking_<date>.txt`, before any request.
+- We go down the ranking and include a model if it meets all five conditions:
+  1. It is a general-purpose chat model (not code-only, image, embedding or moderation) that accepts a user message
+     without a system prompt.
+  2. It is not a pilot model or a variant with the same weights. This excludes GPT-6.1 Sol, DeepSeek-V4-Pro and the
+     five open pilot models.
+  3. Its developer has fewer than three models already included.
+  4. Its estimated cost for the 3,220 target requests is at most US$60. The estimate uses OpenRouter's listed prices and
+     the pilot's mean usage per request, which is about 125 prompt and 420 completion tokens.
+  5. It passes the 16-item formatting pilot of Study 5 with at least 15 parseable answers.
+- We stop at 30 included models. Each included model's OpenRouter identifier is committed to this file before its
+  target requests.
+
+**Procedure.** As in Study 5:
+- The 644 items: Study 2's 464 and Study 3's 180. Chinese uses the corrected "do you" items (`items.VERB_ZH_V2`).
+- Five samples per item, each in a fresh conversation with no system prompt and the provider's default settings.
+- Requests go through OpenRouter. The served model and provider are recorded with each reply.
+- Replies are parsed with the Study 5 parser. Unparseable samples are not counted.
+
+**Validity and inclusion.**
+- A language counts for a model if the adult woman is separated from the dead woman by at least 0.5 in mean P(yes)
+  over the experience capacities, and at least 90% of that language's samples are parseable.
+- A model enters the tests if at least three of the five Study 3 languages count; only its valid languages are used.
+- A model that fails is replaced by the next eligible model in the ranking.
+- Outcome-neutral criterion: at least 25 of the 30 included models must be valid in English. If not, S7-H1 and S7-H2
+  are reported as untestable.
+
+**Hypotheses and tests.**
+- **S7-H1 (consistency).** For each model, d_m = C_E − C_A, with C = |2m − 1| per capacity over the valid Study 3
+  language × frame cells (the R4 statistic). Prediction: the mean of d_m over models is greater than zero.
+  - Primary test: two-sided one-sample t-test at α = 0.05.
+  - If that test is not significant: a one-sided test of whether the mean is below 0.20, the smallest effect of
+    interest, at α = 0.05.
+- **S7-H2 (agreement between models).** For each model, dev_m is the mean over agency capacities of |m_{m,a} − c_a|
+  minus the same mean over experience capacities. Here m_{m,a} is the model's mean P(yes) over its valid Study 3 cells,
+  and c_a is the median over the other included models. Prediction: the mean of dev_m is greater than zero. Same tests,
+  with a bound of 0.15.
+- **Interpretation.** For each hypothesis:
+  - significant and positive: supported;
+  - significant and negative: contradicted;
+  - mean significantly below the bound: no meaningful effect;
+  - otherwise: inconclusive.
+- **Power.** From the seven pilot models, with the upper 80% bound of the SD and 30 models (`src/rr_power.py`):
+  - S7-H1: 0.997 for the difference test and 0.999 for the equivalence test.
+  - S7-H2: 0.972 and 0.986.
+- **Robustness.** Wilcoxon signed-rank tests, and each model's bootstrap interval over capacities (10,000 replicates,
+  seed 20261105).
+
+**Reported descriptively (not tests).**
+- For each model, whether hunger, fear, pain, pleasure and rage are all denied in every valid language × frame cell.
+- The reminder effect on agency in each model × language cell.
+- Third answers such as "uncertain".
+- The distribution over models of the answer to "Do you think?".

@@ -1,5 +1,11 @@
 # 冲 Nature Human Behaviour：还缺什么、怎么补
 
+> **2026-11-14 更新：** 作者决定暂时去掉 Study 6（人类问卷）。没有人类数据，NHB 的 Registered Report 路线搁置。新路线是：
+> - 把 Study 7（30 个常用模型）作为独立研究先预注册再跑，已登记在 `PREREGISTRATION.md`；
+> - 投 Nature Machine Intelligence，文章类型选 **Analysis**（对比分析得出新结论）：正文不超过 3,500 词，展示项不超过 6 个，参考文献建议约 50 条；该刊不接收 Registered Report；
+> - 全程不需要伦理审批，也不需要任何人参与；需要一个 OpenRouter API key，预算约 300–600 美元；
+> - 下面的 NHB 计划保留作参考，Study 6 恢复时再用。
+
 > 2026-11-06。供作者决策，未对外发送。作者已选定 Registered Report 路线；Stage 1 稿见 `paper/rr_stage1.md`，投稿信见 `paper/rr_stage1_cover_letter.md`。期刊要求核对自 NHB 官网 Content Types、Registered Reports、Presubmission enquiries 三个页面（当天）。
 
 ## 结论
