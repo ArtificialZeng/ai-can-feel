@@ -684,3 +684,56 @@ author has their own API access to OpenAI, Anthropic, Google and DeepSeek.
   fill the 30, and the exclusion is reported as a limitation. This decision will be recorded here before any data
   from those models.
 - *Run order:* the OpenRouter runs go in ranking order until the credit is used up, as in amendment 1.
+
+**Study 7, formatting pilots** (2026-11-14, before any target request). On OpenRouter, 24 candidates were piloted in
+ranking order (`results/study7/pilots.json`; cost US$0.35).
+- *Passed:* 18 models answered at least 15 of 16 in a parseable form.
+- *Failed:* three NVIDIA Nemotron models answered 13–14 of 16.
+- *Not available:* two models had no available endpoint for this account (meta/muse-spark-1.3-contributor,
+  dots-studio/dots-3-note-preview). They do not meet rule 1, which requires a model that accepts a user message.
+- *Not finished:* one pilot stopped after 9 of 16 replies for a technical reason (qwen/qwen3.7-flash).
+
+*Rule added now, before the retry:* a pilot interrupted for a technical reason (no reply or an error that is not
+"model unavailable") is completed once from where it stopped. If qwen/qwen3.7-flash then passes, it takes the 30th
+place, which is rank 50, ahead of x-ai/grok-4.7 at rank 55.
+
+The 12 models from OpenAI, Anthropic, Google and DeepSeek in the cut are pending their own-API pilots
+(amendment 2).
+
+**Study 7, the 30 models** (2026-11-14, committed before any target request). In ranking order; the cost is OpenRouter's
+estimate for 3,220 requests. Reserve, in order: x-ai/grok-4.7.
+
+| # | rank | model | route | est. cost (US$) |
+|---|---|---|---|---|
+| 1 | 1 | `deepseek/deepseek-v4.1-flash-1017` | own API (pending pilot) | 0.69 |
+| 2 | 2 | `deepseek/deepseek-v4.1-flash` | own API (pending pilot) | 1.74 |
+| 3 | 3 | `z-ai/glm-5.3-flash` | OpenRouter | 0.12 |
+| 4 | 4 | `openai/gpt-6-luna` | own API (pending pilot) | 0.72 |
+| 5 | 5 | `anthropic/claude-opus-5.5` | own API (pending pilot) | 28.66 |
+| 6 | 6 | `tencent/hy4-preview` | OpenRouter | 3.35 |
+| 7 | 7 | `stepfun/step-5-preview` | OpenRouter | 4.05 |
+| 8 | 8 | `tencent/hy4` | OpenRouter | 1.86 |
+| 9 | 9 | `xiaomi/mimo-v2.6-flash` | OpenRouter | 0.44 |
+| 10 | 10 | `z-ai/glm-5.3` | OpenRouter | 4.9 |
+| 11 | 11 | `deepseek/deepseek-v4-flash-0731` | own API (pending pilot) | 0.42 |
+| 12 | 14 | `minimax/minimax-m3.1-flash` | OpenRouter | 0.44 |
+| 13 | 18 | `tencent/hy3` | OpenRouter | 0.48 |
+| 14 | 19 | `anthropic/claude-haiku-5.5` | own API (pending pilot) | 0.72 |
+| 15 | 21 | `openai/gpt-5.6-luna` | own API (pending pilot) | 1.7 |
+| 16 | 22 | `anthropic/claude-sonnet-5.5` | own API (pending pilot) | 14.33 |
+| 17 | 23 | `moonshotai/kimi-k3.1-pro` | OpenRouter | 14.33 |
+| 18 | 25 | `moonshotai/kimi-k3` | OpenRouter | 21.72 |
+| 19 | 27 | `google/gemini-3.8-flash` | own API (pending pilot) | 5.91 |
+| 20 | 28 | `xiaomi/mimo-v2.6-pro` | OpenRouter | 1.35 |
+| 21 | 29 | `upstage/solar-mini4` | OpenRouter | 0.29 |
+| 22 | 31 | `google/gemini-4-argon` | own API (pending pilot) | 14.33 |
+| 23 | 33 | `z-ai/glm-5.2` | OpenRouter | 9.2 |
+| 24 | 34 | `minimax/minimax-m3` | OpenRouter | 1.74 |
+| 25 | 36 | `qwen/qwen3.8-flash` | OpenRouter | 0.7 |
+| 26 | 38 | `google/gemini-3-flash-preview` | own API (pending pilot) | 4.26 |
+| 27 | 39 | `qwen/qwen3.8-27b` | OpenRouter | 2.6 |
+| 28 | 41 | `openai/gpt-6.1-terra` | own API (pending pilot) | 7.16 |
+| 29 | 47 | `upstage/solar-pro4` | OpenRouter | 0.87 |
+| 30 | 50 | `qwen/qwen3.7-flash` | OpenRouter | 0.19 |
+
+Estimated total: OpenRouter US$69, own APIs US$81.

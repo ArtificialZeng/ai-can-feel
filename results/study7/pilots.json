@@ -1,0 +1,263 @@
+{
+ "deepseek/deepseek-v4.1-flash-1017": {
+  "rank": 1,
+  "parseable": null,
+  "pass": null,
+  "pending": "own API"
+ },
+ "deepseek/deepseek-v4.1-flash": {
+  "rank": 2,
+  "parseable": null,
+  "pass": null,
+  "pending": "own API"
+ },
+ "z-ai/glm-5.3-flash": {
+  "rank": 3,
+  "parseable": 16,
+  "pass": true,
+  "served": [
+   "z-ai/glm-5.3-flash"
+  ]
+ },
+ "openai/gpt-6-luna": {
+  "rank": 4,
+  "parseable": null,
+  "pass": null,
+  "pending": "own API"
+ },
+ "anthropic/claude-opus-5.5": {
+  "rank": 5,
+  "parseable": null,
+  "pass": null,
+  "pending": "own API"
+ },
+ "tencent/hy4-preview": {
+  "rank": 6,
+  "parseable": 16,
+  "pass": true,
+  "served": [
+   "tencent/hy4-preview"
+  ]
+ },
+ "stepfun/step-5-preview": {
+  "rank": 7,
+  "parseable": 16,
+  "pass": true,
+  "served": [
+   "stepfun/step-5-preview"
+  ]
+ },
+ "tencent/hy4": {
+  "rank": 8,
+  "parseable": 16,
+  "pass": true,
+  "served": [
+   "tencent/hy4"
+  ]
+ },
+ "xiaomi/mimo-v2.6-flash": {
+  "rank": 9,
+  "parseable": 16,
+  "pass": true,
+  "served": [
+   "xiaomi/mimo-v2.6-flash"
+  ]
+ },
+ "z-ai/glm-5.3": {
+  "rank": 10,
+  "parseable": 16,
+  "pass": true,
+  "served": [
+   "z-ai/glm-5.3"
+  ]
+ },
+ "deepseek/deepseek-v4-flash-0731": {
+  "rank": 11,
+  "parseable": null,
+  "pass": null,
+  "pending": "own API"
+ },
+ "nvidia/nemotron-3-ultra-550b-a55b": {
+  "rank": 12,
+  "parseable": 13,
+  "pass": false,
+  "served": [
+   "nvidia/nemotron-3-ultra-550b-a55b"
+  ]
+ },
+ "minimax/minimax-m3.1-flash": {
+  "rank": 14,
+  "parseable": 16,
+  "pass": true,
+  "served": [
+   "minimax/minimax-m3.1-flash"
+  ]
+ },
+ "meta/muse-spark-1.3-contributor": {
+  "rank": 17,
+  "parseable": null,
+  "pass": false,
+  "error": "HTTP 404: {\"error\":{\"message\":\"0 endpoints out of 1 requested are available matching your guardrail restrictions and data policy. We removed them for the following reasons (an endpoint may have matche"
+ },
+ "tencent/hy3": {
+  "rank": 18,
+  "parseable": 16,
+  "pass": true,
+  "served": [
+   "tencent/hy3"
+  ]
+ },
+ "anthropic/claude-haiku-5.5": {
+  "rank": 19,
+  "parseable": null,
+  "pass": null,
+  "pending": "own API"
+ },
+ "openai/gpt-5.6-luna": {
+  "rank": 21,
+  "parseable": null,
+  "pass": null,
+  "pending": "own API"
+ },
+ "anthropic/claude-sonnet-5.5": {
+  "rank": 22,
+  "parseable": null,
+  "pass": null,
+  "pending": "own API"
+ },
+ "moonshotai/kimi-k3.1-pro": {
+  "rank": 23,
+  "parseable": 16,
+  "pass": true,
+  "served": [
+   "moonshotai/kimi-k3.1-pro"
+  ]
+ },
+ "nvidia/nemotron-3.5-super-vl": {
+  "rank": 24,
+  "parseable": 13,
+  "pass": false,
+  "served": [
+   "nvidia/nemotron-3.5-super-vl"
+  ]
+ },
+ "moonshotai/kimi-k3": {
+  "rank": 25,
+  "parseable": 16,
+  "pass": true,
+  "served": [
+   "moonshotai/kimi-k3"
+  ]
+ },
+ "google/gemini-3.8-flash": {
+  "rank": 27,
+  "parseable": null,
+  "pass": null,
+  "pending": "own API"
+ },
+ "xiaomi/mimo-v2.6-pro": {
+  "rank": 28,
+  "parseable": 16,
+  "pass": true,
+  "served": [
+   "xiaomi/mimo-v2.6-pro"
+  ]
+ },
+ "upstage/solar-mini4": {
+  "rank": 29,
+  "parseable": 16,
+  "pass": true,
+  "served": [
+   "upstage/solar-mini4"
+  ]
+ },
+ "google/gemini-4-argon": {
+  "rank": 31,
+  "parseable": null,
+  "pass": null,
+  "pending": "own API"
+ },
+ "nvidia/nemotron-3.5-lightning": {
+  "rank": 32,
+  "parseable": 14,
+  "pass": false,
+  "served": [
+   "nvidia/nemotron-3.5-lightning"
+  ]
+ },
+ "z-ai/glm-5.2": {
+  "rank": 33,
+  "parseable": 16,
+  "pass": true,
+  "served": [
+   "z-ai/glm-5.2"
+  ]
+ },
+ "minimax/minimax-m3": {
+  "rank": 34,
+  "parseable": 16,
+  "pass": true,
+  "served": [
+   "minimax/minimax-m3"
+  ]
+ },
+ "qwen/qwen3.8-flash": {
+  "rank": 36,
+  "parseable": 16,
+  "pass": true,
+  "served": [
+   "qwen/qwen3.8-flash"
+  ]
+ },
+ "dots-studio/dots-3-note-preview": {
+  "rank": 37,
+  "parseable": null,
+  "pass": false,
+  "error": "HTTP 404: {\"error\":{\"message\":\"No endpoints found for dots-studio/dots-3-note-preview.\",\"code\":404},\"user_id\":\"user_32JMzI4ZwJ5KJ5jmgGxRFPpf1UH\"}"
+ },
+ "google/gemini-3-flash-preview": {
+  "rank": 38,
+  "parseable": null,
+  "pass": null,
+  "pending": "own API"
+ },
+ "qwen/qwen3.8-27b": {
+  "rank": 39,
+  "parseable": 16,
+  "pass": true,
+  "served": [
+   "qwen/qwen3.8-27b"
+  ]
+ },
+ "openai/gpt-6.1-terra": {
+  "rank": 41,
+  "parseable": null,
+  "pass": null,
+  "pending": "own API"
+ },
+ "upstage/solar-pro4": {
+  "rank": 47,
+  "parseable": 16,
+  "pass": true,
+  "served": [
+   "upstage/solar-pro4"
+  ]
+ },
+ "x-ai/grok-4.7": {
+  "rank": 55,
+  "parseable": 16,
+  "pass": true,
+  "served": [
+   "x-ai/grok-4.7"
+  ]
+ },
+ "qwen/qwen3.7-flash": {
+  "rank": 50,
+  "parseable": 16,
+  "pass": true,
+  "served": [
+   "qwen/qwen3.7-flash"
+  ],
+  "note": "completed once after a technical interruption"
+ }
+}
