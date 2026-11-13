@@ -664,3 +664,11 @@ smallest effects of interest and power are those of the Stage 1 draft, renumbere
 - The reminder effect on agency in each model × language cell.
 - Third answers such as "uncertain".
 - The distribution over models of the answer to "Do you think?".
+
+**Study 7, amendment 1** (2026-11-14, before the ranking is saved and before any Study 7 request). At the author's
+request, to save cost, selection rule 2 also excludes every model from OpenAI and Anthropic. The ranking is otherwise
+used as registered.
+
+The available credit (US$18.90 on this date) covers only a few models. The target runs therefore go in ranking order
+and stop when the credit is used up. Models not yet run are run in the same order when credit is added. Only the order
+of runs is set here; the set of 30 models is fixed by the selection rules.

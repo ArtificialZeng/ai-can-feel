@@ -30,6 +30,8 @@ MAX_COST, MAX_PER_DEV, N_MODELS = 60.0, 3, 30
 # rule 2: pilot models and variants with the same weights
 PILOT = ("openai/gpt-6.1-sol", "deepseek/deepseek-v4-pro", "qwen/qwen-2.5-7b-instruct", "qwen/qwen3-8b",
          "ibm-granite/granite-3.3-8b-instruct", "allenai/olmo-3-7b-instruct", "microsoft/phi-4")
+# amendment 1 (2026-11-14): no OpenAI or Anthropic models, at the author's request (cost)
+EXCLUDED_DEVS = ("openai", "anthropic")
 # rule 1: not general-purpose chat
 NOT_CHAT = re.compile(r"embed|guard|moderat|coder|codestral|devstral|-code\b|image|vision-only|audio|tts|whisper|ocr|"
                       r"rerank|search|router|auto$", re.I)
@@ -57,6 +59,8 @@ def select(ranking_path):
         row = {"rank": rank, "slug": base, "label": label(base), "eligible": False, "reason": ""}
         if base in PILOT:
             row["reason"] = "rule 2: pilot model"
+        elif base.split("/")[0] in EXCLUDED_DEVS:
+            row["reason"] = "rule 2 (amendment 1): developer excluded to save cost"
         elif m is None:
             row["reason"] = "not in the public model list"
         elif NOT_CHAT.search(base) or "text" not in str(m.get("architecture", {}).get("output_modalities", "text")):
