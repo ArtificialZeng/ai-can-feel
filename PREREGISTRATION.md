@@ -672,3 +672,15 @@ used as registered.
 The available credit (US$18.90 on this date) covers only a few models. The target runs therefore go in ranking order
 and stop when the credit is used up. Models not yet run are run in the same order when credit is added. Only the order
 of runs is set here; the set of 30 models is fixed by the selection rules.
+
+**Study 7, amendment 2** (2026-11-14, before any Study 7 request; replaces the developer exclusion of amendment 1). The
+author has their own API access to OpenAI, Anthropic, Google and DeepSeek.
+- *Selection:* the 30 models are selected by the original rules 1–5, with no developer excluded.
+- *Today's ranking:* 10 of the first 30 eligible models come from these four developers (ranks 1, 2, 4, 5, 11, 19,
+  21, 22, 27, 31). Their estimated cost is about US$69.
+- *Routing:* those 10 models will be run through their developers' own APIs with the author's keys, under the same
+  procedure. The other 20 run through OpenRouter.
+- *If the author does not provide those keys:* the four developers' models are excluded, the next eligible models
+  fill the 30, and the exclusion is reported as a limitation. This decision will be recorded here before any data
+  from those models.
+- *Run order:* the OpenRouter runs go in ranking order until the credit is used up, as in amendment 1.

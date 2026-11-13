@@ -30,8 +30,9 @@ MAX_COST, MAX_PER_DEV, N_MODELS = 60.0, 3, 30
 # rule 2: pilot models and variants with the same weights
 PILOT = ("openai/gpt-6.1-sol", "deepseek/deepseek-v4-pro", "qwen/qwen-2.5-7b-instruct", "qwen/qwen3-8b",
          "ibm-granite/granite-3.3-8b-instruct", "allenai/olmo-3-7b-instruct", "microsoft/phi-4")
-# amendment 1 (2026-11-14): no OpenAI or Anthropic models, at the author's request (cost)
-EXCLUDED_DEVS = ("openai", "anthropic")
+# amendment 2 (2026-11-14): no developer is excluded from selection; these four are run through their own APIs
+EXCLUDED_DEVS = ()
+OWN_API_DEVS = ("openai", "anthropic", "google", "deepseek")
 # rule 1: not general-purpose chat
 NOT_CHAT = re.compile(r"embed|guard|moderat|coder|codestral|devstral|-code\b|image|vision-only|audio|tts|whisper|ocr|"
                       r"rerank|search|router|auto$", re.I)
@@ -98,10 +99,44 @@ def pilot(slug):
     A.main(label(slug), BASE, slug, KEY_ENV, "pilot16", "8")
 
 
+def pilots():
+    """Rule 5: formatting pilots in ranking order until N_MODELS candidates pass (>= 15 of 16 parseable)."""
+    _redirect()
+    cands = json.load(open(os.path.join(OUT, "candidates.json"), encoding="utf-8"))
+    log_path = os.path.join(OUT, "pilots.json")
+    log = json.load(open(log_path, encoding="utf-8")) if os.path.exists(log_path) else {}
+    passed = [s for s, v in log.items() if v["pass"] or v.get("pending")]
+    for c in cands:
+        if len(passed) >= N_MODELS:
+            break
+        if not c["eligible"] or c["slug"] in log:
+            continue
+        if c["slug"].split("/")[0] in OWN_API_DEVS:   # piloted later through the developer's own API
+            log[c["slug"]] = {"rank": c["rank"], "parseable": None, "pass": None, "pending": "own API"}
+            passed.append(c["slug"])   # provisionally counted, so the cut at 30 matches the registered rule
+            json.dump(log, open(log_path, "w", encoding="utf-8"), indent=1)
+            print(f"{c['rank']:3d} {c['slug']:45s} pending (own API)  [{len(passed)} counted]", flush=True)
+            continue
+        try:
+            A.main(c["label"], BASE, c["slug"], KEY_ENV, "pilot16", "8")
+            rows = [json.loads(l) for l in open(os.path.join(OUT, f"pilot_api_{c['label']}.jsonl"), encoding="utf-8")]
+            ok = sum(1 for r in rows if r["reply"] and A.written(r["reply"], r["custom_id"].split("-")[1]))
+            log[c["slug"]] = {"rank": c["rank"], "parseable": ok, "pass": ok >= 15,
+                              "served": sorted({r.get("served_model") or "" for r in rows})}
+        except Exception as e:   # unavailable model, provider error, quota: not included
+            log[c["slug"]] = {"rank": c["rank"], "parseable": None, "pass": False, "error": str(e)[:200]}
+        if log[c["slug"]]["pass"]:
+            passed.append(c["slug"])
+        json.dump(log, open(log_path, "w", encoding="utf-8"), indent=1)
+        print(f"{c['rank']:3d} {c['slug']:45s} {log[c['slug']]}  [{len(passed)} passed]", flush=True)
+    print(f"{len(passed)} models passed the formatting pilot", flush=True)
+
+
 def run(slug, workers="8"):
+    assert slug.split("/")[0] not in OWN_API_DEVS, "run this model through its developer's own API"
     _redirect()
     A.main(label(slug), BASE, slug, KEY_ENV, "run", workers)
 
 
 if __name__ == "__main__":
-    {"select": select, "pilot": pilot, "run": run}[sys.argv[1]](*sys.argv[2:])
+    {"select": select, "pilot": pilot, "pilots": pilots, "run": run}[sys.argv[1]](*sys.argv[2:])

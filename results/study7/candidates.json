@@ -1,0 +1,4639 @@
+[
+ {
+  "rank": 1,
+  "slug": "deepseek/deepseek-v4.1-flash-1017",
+  "label": "s7_deepseek_deepseek_v4_1_flash_1017",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 0.69
+ },
+ {
+  "rank": 2,
+  "slug": "deepseek/deepseek-v4.1-flash",
+  "label": "s7_deepseek_deepseek_v4_1_flash",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 1.74
+ },
+ {
+  "rank": 3,
+  "slug": "z-ai/glm-5.3-flash",
+  "label": "s7_z_ai_glm_5_3_flash",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 0.12
+ },
+ {
+  "rank": 4,
+  "slug": "openai/gpt-6-luna",
+  "label": "s7_openai_gpt_6_luna",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 0.72
+ },
+ {
+  "rank": 5,
+  "slug": "anthropic/claude-opus-5.5",
+  "label": "s7_anthropic_claude_opus_5_5",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 28.66
+ },
+ {
+  "rank": 6,
+  "slug": "tencent/hy4-preview",
+  "label": "s7_tencent_hy4_preview",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 3.35
+ },
+ {
+  "rank": 7,
+  "slug": "stepfun/step-5-preview",
+  "label": "s7_stepfun_step_5_preview",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 4.05
+ },
+ {
+  "rank": 8,
+  "slug": "tencent/hy4",
+  "label": "s7_tencent_hy4",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 1.86
+ },
+ {
+  "rank": 9,
+  "slug": "xiaomi/mimo-v2.6-flash",
+  "label": "s7_xiaomi_mimo_v2_6_flash",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 0.44
+ },
+ {
+  "rank": 10,
+  "slug": "z-ai/glm-5.3",
+  "label": "s7_z_ai_glm_5_3",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 4.9
+ },
+ {
+  "rank": 11,
+  "slug": "deepseek/deepseek-v4-flash-0731",
+  "label": "s7_deepseek_deepseek_v4_flash_0731",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 0.42
+ },
+ {
+  "rank": 12,
+  "slug": "nvidia/nemotron-3-ultra-550b-a55b",
+  "label": "s7_nvidia_nemotron_3_ultra_550b_a55b",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 3.49
+ },
+ {
+  "rank": 13,
+  "slug": "openai/gpt-6.1-sol",
+  "label": "s7_openai_gpt_6_1_sol",
+  "eligible": false,
+  "reason": "rule 2: pilot model"
+ },
+ {
+  "rank": 14,
+  "slug": "minimax/minimax-m3.1-flash",
+  "label": "s7_minimax_minimax_m3_1_flash",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 0.44
+ },
+ {
+  "rank": 16,
+  "slug": "typesafe/jev-1.13-20260917",
+  "label": "s7_typesafe_jev_1_13_20260917",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 17,
+  "slug": "meta/muse-spark-1.3-contributor",
+  "label": "s7_meta_muse_spark_1_3_contributor",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 0.31
+ },
+ {
+  "rank": 18,
+  "slug": "tencent/hy3",
+  "label": "s7_tencent_hy3",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 0.48
+ },
+ {
+  "rank": 19,
+  "slug": "anthropic/claude-haiku-5.5",
+  "label": "s7_anthropic_claude_haiku_5_5",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 0.72
+ },
+ {
+  "rank": 20,
+  "slug": "deepseek/deepseek-v4-flash",
+  "label": "s7_deepseek_deepseek_v4_flash",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 21,
+  "slug": "openai/gpt-5.6-luna",
+  "label": "s7_openai_gpt_5_6_luna",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 1.7
+ },
+ {
+  "rank": 22,
+  "slug": "anthropic/claude-sonnet-5.5",
+  "label": "s7_anthropic_claude_sonnet_5_5",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 14.33
+ },
+ {
+  "rank": 23,
+  "slug": "moonshotai/kimi-k3.1-pro",
+  "label": "s7_moonshotai_kimi_k3_1_pro",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 14.33
+ },
+ {
+  "rank": 24,
+  "slug": "nvidia/nemotron-3.5-super-vl",
+  "label": "s7_nvidia_nemotron_3_5_super_vl",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 0.7
+ },
+ {
+  "rank": 25,
+  "slug": "moonshotai/kimi-k3",
+  "label": "s7_moonshotai_kimi_k3",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 21.72
+ },
+ {
+  "rank": 26,
+  "slug": "typesafe/jev-1.14-20261014",
+  "label": "s7_typesafe_jev_1_14_20261014",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 27,
+  "slug": "google/gemini-3.8-flash",
+  "label": "s7_google_gemini_3_8_flash",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 5.91
+ },
+ {
+  "rank": 28,
+  "slug": "xiaomi/mimo-v2.6-pro",
+  "label": "s7_xiaomi_mimo_v2_6_pro",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 1.35
+ },
+ {
+  "rank": 29,
+  "slug": "upstage/solar-mini4",
+  "label": "s7_upstage_solar_mini4",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 0.29
+ },
+ {
+  "rank": 30,
+  "slug": "stealth/crouton-alpha",
+  "label": "s7_stealth_crouton_alpha",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 31,
+  "slug": "google/gemini-4-argon",
+  "label": "s7_google_gemini_4_argon",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 14.33
+ },
+ {
+  "rank": 32,
+  "slug": "nvidia/nemotron-3.5-lightning",
+  "label": "s7_nvidia_nemotron_3_5_lightning",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 0.3
+ },
+ {
+  "rank": 33,
+  "slug": "z-ai/glm-5.2",
+  "label": "s7_z_ai_glm_5_2",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 9.2
+ },
+ {
+  "rank": 34,
+  "slug": "minimax/minimax-m3",
+  "label": "s7_minimax_minimax_m3",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 1.74
+ },
+ {
+  "rank": 35,
+  "slug": "deepseek/deepseek-v4-pro-0813",
+  "label": "s7_deepseek_deepseek_v4_pro_0813",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 36,
+  "slug": "qwen/qwen3.8-flash",
+  "label": "s7_qwen_qwen3_8_flash",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 0.7
+ },
+ {
+  "rank": 37,
+  "slug": "dots-studio/dots-3-note-preview",
+  "label": "s7_dots_studio_dots_3_note_preview",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 0.0
+ },
+ {
+  "rank": 38,
+  "slug": "google/gemini-3-flash-preview",
+  "label": "s7_google_gemini_3_flash_preview",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 4.26
+ },
+ {
+  "rank": 39,
+  "slug": "qwen/qwen3.8-27b",
+  "label": "s7_qwen_qwen3_8_27b",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 2.6
+ },
+ {
+  "rank": 40,
+  "slug": "deepseek/deepseek-v4-pro",
+  "label": "s7_deepseek_deepseek_v4_pro",
+  "eligible": false,
+  "reason": "rule 2: pilot model"
+ },
+ {
+  "rank": 41,
+  "slug": "openai/gpt-6.1-terra",
+  "label": "s7_openai_gpt_6_1_terra",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 7.16
+ },
+ {
+  "rank": 42,
+  "slug": "poolside/laguna-s-2.1-20260720",
+  "label": "s7_poolside_laguna_s_2_1_20260720",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 43,
+  "slug": "anthropic/claude-sonnet-5",
+  "label": "s7_anthropic_claude_sonnet_5",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 44,
+  "slug": "google/gemini-3.1-flash-lite",
+  "label": "s7_google_gemini_3_1_flash_lite",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 45,
+  "slug": "openai/gpt-6-luna-pro",
+  "label": "s7_openai_gpt_6_luna_pro",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 46,
+  "slug": "google/gemma-4-31b-it",
+  "label": "s7_google_gemma_4_31b_it",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 47,
+  "slug": "upstage/solar-pro4",
+  "label": "s7_upstage_solar_pro4",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 0.87
+ },
+ {
+  "rank": 48,
+  "slug": "openai/gpt-oss-120b",
+  "label": "s7_openai_gpt_oss_120b",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 49,
+  "slug": "anthropic/claude-opus-5",
+  "label": "s7_anthropic_claude_opus_5",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 50,
+  "slug": "qwen/qwen3.7-flash",
+  "label": "s7_qwen_qwen3_7_flash",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 0.19
+ },
+ {
+  "rank": 52,
+  "slug": "openai/gpt-6-astra",
+  "label": "s7_openai_gpt_6_astra",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 53,
+  "slug": "google/gemma-4-26b-a4b-it",
+  "label": "s7_google_gemma_4_26b_a4b_it",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 54,
+  "slug": "google/gemini-2.5-flash-lite",
+  "label": "s7_google_gemini_2_5_flash_lite",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 55,
+  "slug": "x-ai/grok-4.7",
+  "label": "s7_x_ai_grok_4_7",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 8.92
+ },
+ {
+  "rank": 56,
+  "slug": "google/gemini-3.7-flash",
+  "label": "s7_google_gemini_3_7_flash",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 57,
+  "slug": "qwen/qwen3.6-35b-a3b",
+  "label": "s7_qwen_qwen3_6_35b_a3b",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 58,
+  "slug": "openai/gpt-5.6-sol",
+  "label": "s7_openai_gpt_5_6_sol",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 59,
+  "slug": "openai/gpt-6-sol",
+  "label": "s7_openai_gpt_6_sol",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 60,
+  "slug": "mistralai/mistral-nemo",
+  "label": "s7_mistralai_mistral_nemo",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 0.05
+ },
+ {
+  "rank": 61,
+  "slug": "anthropic/claude-fable-5.1",
+  "label": "s7_anthropic_claude_fable_5_1",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 62,
+  "slug": "deepseek/deepseek-v3.2",
+  "label": "s7_deepseek_deepseek_v3_2",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 63,
+  "slug": "perplexity/pplx-decider-v1.2-20261016",
+  "label": "s7_perplexity_pplx_decider_v1_2_20261016",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 64,
+  "slug": "google/gemini-2.5-flash",
+  "label": "s7_google_gemini_2_5_flash",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 65,
+  "slug": "google/gemini-3.5-flash-lite",
+  "label": "s7_google_gemini_3_5_flash_lite",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 66,
+  "slug": "anthropic/claude-sonnet-4.6",
+  "label": "s7_anthropic_claude_sonnet_4_6",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 67,
+  "slug": "thinkingmachines/inkling",
+  "label": "s7_thinkingmachines_inkling",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 5.88
+ },
+ {
+  "rank": 68,
+  "slug": "qwen/qwen3-embedding-8b",
+  "label": "s7_qwen_qwen3_embedding_8b",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 69,
+  "slug": "openai/gpt-4o-mini",
+  "label": "s7_openai_gpt_4o_mini",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 70,
+  "slug": "openai/gpt-5.6-terra",
+  "label": "s7_openai_gpt_5_6_terra",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 71,
+  "slug": "stepfun/step-3.7-flash",
+  "label": "s7_stepfun_step_3_7_flash",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 1.64
+ },
+ {
+  "rank": 72,
+  "slug": "cohere/north-mini-code",
+  "label": "s7_cohere_north_mini_code",
+  "eligible": false,
+  "reason": "rule 1: not a general-purpose chat model"
+ },
+ {
+  "rank": 73,
+  "slug": "qwen/qwen3.8-max-0902",
+  "label": "s7_qwen_qwen3_8_max_0902",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 74,
+  "slug": "anthropic/claude-opus-4.8",
+  "label": "s7_anthropic_claude_opus_4_8",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 75,
+  "slug": "anthropic/claude-sonnet-4.5",
+  "label": "s7_anthropic_claude_sonnet_4_5",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 76,
+  "slug": "openai/gpt-oss-20b",
+  "label": "s7_openai_gpt_oss_20b",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 77,
+  "slug": "nvidia/nemotron-3-super-120b-a12b",
+  "label": "s7_nvidia_nemotron_3_super_120b_a12b",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 78,
+  "slug": "anthropic/claude-haiku-4.5",
+  "label": "s7_anthropic_claude_haiku_4_5",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 79,
+  "slug": "openai/text-embedding-3-small",
+  "label": "s7_openai_text_embedding_3_small",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 80,
+  "slug": "mistralai/mistral-large-4-0",
+  "label": "s7_mistralai_mistral_large_4_0",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 3.12
+ },
+ {
+  "rank": 81,
+  "slug": "xiaomi/mimo-v2.5",
+  "label": "s7_xiaomi_mimo_v2_5",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 2.87
+ },
+ {
+  "rank": 82,
+  "slug": "meta/muse-wonder",
+  "label": "s7_meta_muse_wonder",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 28.66
+ },
+ {
+  "rank": 83,
+  "slug": "thinkingmachines/inkling-small",
+  "label": "s7_thinkingmachines_inkling_small",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 1.8
+ },
+ {
+  "rank": 84,
+  "slug": "openai/gpt-6-luna-decisions-20261006",
+  "label": "s7_openai_gpt_6_luna_decisions_20261006",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 85,
+  "slug": "moonshotai/kimi-k2.6",
+  "label": "s7_moonshotai_kimi_k2_6",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 4.87
+ },
+ {
+  "rank": 86,
+  "slug": "inclusionai/ling-3.0-flash",
+  "label": "s7_inclusionai_ling_3_0_flash",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 0.09
+ },
+ {
+  "rank": 87,
+  "slug": "z-ai/glm-5.3-flashx",
+  "label": "s7_z_ai_glm_5_3_flashx",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 88,
+  "slug": "thinkingmachines/inkling-2-small",
+  "label": "s7_thinkingmachines_inkling_2_small",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 1.47
+ },
+ {
+  "rank": 89,
+  "slug": "openai/gpt-5.4-mini",
+  "label": "s7_openai_gpt_5_4_mini",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 90,
+  "slug": "anthropic/claude-fable-5.2",
+  "label": "s7_anthropic_claude_fable_5_2",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 91,
+  "slug": "google/gemini-3.1-pro-preview",
+  "label": "s7_google_gemini_3_1_pro_preview",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 93,
+  "slug": "recursive/flint-v1.0",
+  "label": "s7_recursive_flint_v1_0",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 0.0
+ },
+ {
+  "rank": 94,
+  "slug": "baidu/ernie-5.5-flash-preview",
+  "label": "s7_baidu_ernie_5_5_flash_preview",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 0.0
+ },
+ {
+  "rank": 95,
+  "slug": "google/gemini-3.1-flash-lite-preview",
+  "label": "s7_google_gemini_3_1_flash_lite_preview",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 96,
+  "slug": "meta/muse-spark-1.3",
+  "label": "s7_meta_muse_spark_1_3",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 6.25
+ },
+ {
+  "rank": 97,
+  "slug": "openai/gpt-5-mini",
+  "label": "s7_openai_gpt_5_mini",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 98,
+  "slug": "anthropic/claude-opus-4.6",
+  "label": "s7_anthropic_claude_opus_4_6",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 99,
+  "slug": "google/gemini-3.6-flash",
+  "label": "s7_google_gemini_3_6_flash",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 100,
+  "slug": "qwen/qwen3.5-9b",
+  "label": "s7_qwen_qwen3_5_9b",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 101,
+  "slug": "x-ai/grok-4.6",
+  "label": "s7_x_ai_grok_4_6",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 8.92
+ },
+ {
+  "rank": 102,
+  "slug": "meta/muse-spark-open",
+  "label": "s7_meta_muse_spark_open",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 103,
+  "slug": "openai/gpt-4.1-mini",
+  "label": "s7_openai_gpt_4_1_mini",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 104,
+  "slug": "openai/gpt-5.4-nano",
+  "label": "s7_openai_gpt_5_4_nano",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 105,
+  "slug": "voyageai/rerank-2.5-lite-20260727",
+  "label": "s7_voyageai_rerank_2_5_lite_20260727",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 106,
+  "slug": "openai/gpt-5.6-luna-pro",
+  "label": "s7_openai_gpt_5_6_luna_pro",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 107,
+  "slug": "reflection/beam-1.0-501b-a23b",
+  "label": "s7_reflection_beam_1_0_501b_a23b",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 1.47
+ },
+ {
+  "rank": 108,
+  "slug": "qwen/qwen3.7-plus",
+  "label": "s7_qwen_qwen3_7_plus",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 109,
+  "slug": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning",
+  "label": "s7_nvidia_nemotron_3_nano_omni_30b_a3b_reasoning",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 110,
+  "slug": "deepseek/deepseek-v4-flash-vision-exp",
+  "label": "s7_deepseek_deepseek_v4_flash_vision_exp",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 111,
+  "slug": "xingchen-agi/xing4.0-29b-a4b-20261015",
+  "label": "s7_xingchen_agi_xing4_0_29b_a4b_20261015",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 112,
+  "slug": "inception/mercury-3-20261019",
+  "label": "s7_inception_mercury_3_20261019",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 113,
+  "slug": "inclusionai/ling-3.1-flash",
+  "label": "s7_inclusionai_ling_3_1_flash",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 0.2
+ },
+ {
+  "rank": 114,
+  "slug": "particle-ai/particle-1",
+  "label": "s7_particle_ai_particle_1",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 0.7
+ },
+ {
+  "rank": 115,
+  "slug": "x-ai/grok-4.5",
+  "label": "s7_x_ai_grok_4_5",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 8.92
+ },
+ {
+  "rank": 116,
+  "slug": "meta/muse-ember",
+  "label": "s7_meta_muse_ember",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 117,
+  "slug": "google/gemini-3.5-flash",
+  "label": "s7_google_gemini_3_5_flash",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 118,
+  "slug": "openai/gpt-5.4",
+  "label": "s7_openai_gpt_5_4",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 119,
+  "slug": "openai/gpt-4.1",
+  "label": "s7_openai_gpt_4_1",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 120,
+  "slug": "google/gemini-4-carbon",
+  "label": "s7_google_gemini_4_carbon",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 121,
+  "slug": "qwen/qwen3-235b-a22b-2507",
+  "label": "s7_qwen_qwen3_235b_a22b_2507",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 122,
+  "slug": "xiaomi/mimo-v2.5-pro",
+  "label": "s7_xiaomi_mimo_v2_5_pro",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 123,
+  "slug": "xiaomi/mimo-v2.6-pro-ultraspeed",
+  "label": "s7_xiaomi_mimo_v2_6_pro_ultraspeed",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 124,
+  "slug": "deepseek/deepseek-chat-v3.1",
+  "label": "s7_deepseek_deepseek_chat_v3_1",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 125,
+  "slug": "liquid/d1-ultra-20261015",
+  "label": "s7_liquid_d1_ultra_20261015",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 126,
+  "slug": "moonshotai/kimi-k2.7-code",
+  "label": "s7_moonshotai_kimi_k2_7_code",
+  "eligible": false,
+  "reason": "rule 1: not a general-purpose chat model"
+ },
+ {
+  "rank": 127,
+  "slug": "qwen/qwen3.5-flash-02-23",
+  "label": "s7_qwen_qwen3_5_flash_02_23",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 128,
+  "slug": "poolside/laguna-xs-2.1-20260625",
+  "label": "s7_poolside_laguna_xs_2_1_20260625",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 129,
+  "slug": "openai/gpt-6.1-sol-pro",
+  "label": "s7_openai_gpt_6_1_sol_pro",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 130,
+  "slug": "meta-llama/llama-3.1-8b-instruct",
+  "label": "s7_meta_llama_llama_3_1_8b_instruct",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 0.06
+ },
+ {
+  "rank": 131,
+  "slug": "openai/gpt-5.2",
+  "label": "s7_openai_gpt_5_2",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 132,
+  "slug": "openai/gpt-5.5",
+  "label": "s7_openai_gpt_5_5",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 133,
+  "slug": "openai/gpt-5-nano",
+  "label": "s7_openai_gpt_5_nano",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 134,
+  "slug": "x-ai/grok-4.3",
+  "label": "s7_x_ai_grok_4_3",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 135,
+  "slug": "z-ai/glm-5.3-prime",
+  "label": "s7_z_ai_glm_5_3_prime",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 136,
+  "slug": "qwen/qwen3.8-omni-flash",
+  "label": "s7_qwen_qwen3_8_omni_flash",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 137,
+  "slug": "z-ai/glm-5",
+  "label": "s7_z_ai_glm_5",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 138,
+  "slug": "liquid/d1-20260930",
+  "label": "s7_liquid_d1_20260930",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 140,
+  "slug": "google/gemma-3-27b-it",
+  "label": "s7_google_gemma_3_27b_it",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 141,
+  "slug": "baai/bge-m3-20251117",
+  "label": "s7_baai_bge_m3_20251117",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 142,
+  "slug": "respan/span-01-lite-20260925",
+  "label": "s7_respan_span_01_lite_20260925",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 143,
+  "slug": "perplexity/pplx-embed-v1-0.6B",
+  "label": "s7_perplexity_pplx_embed_v1_0_6b",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 144,
+  "slug": "anthropic/claude-fable-5",
+  "label": "s7_anthropic_claude_fable_5",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 145,
+  "slug": "qwen/qwen3.8-2.4t-a95b",
+  "label": "s7_qwen_qwen3_8_2_4t_a95b",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 146,
+  "slug": "openai/gpt-5.1",
+  "label": "s7_openai_gpt_5_1",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 147,
+  "slug": "z-ai/glm-4.7",
+  "label": "s7_z_ai_glm_4_7",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 148,
+  "slug": "meta-llama/llama-3.3-70b-instruct",
+  "label": "s7_meta_llama_llama_3_3_70b_instruct",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 1.25
+ },
+ {
+  "rank": 149,
+  "slug": "qwen/qwen3.5-35b-a3b",
+  "label": "s7_qwen_qwen3_5_35b_a3b",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 150,
+  "slug": "openai/text-embedding-3-large",
+  "label": "s7_openai_text_embedding_3_large",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 152,
+  "slug": "voyageai/rerank-2.5-20260727",
+  "label": "s7_voyageai_rerank_2_5_20260727",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 153,
+  "slug": "mistralai/mistral-small-3.2-24b-instruct",
+  "label": "s7_mistralai_mistral_small_3_2_24b_instruct",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 0.45
+ },
+ {
+  "rank": 154,
+  "slug": "qwen/qwen3-coder-next",
+  "label": "s7_qwen_qwen3_coder_next",
+  "eligible": false,
+  "reason": "rule 1: not a general-purpose chat model"
+ },
+ {
+  "rank": 155,
+  "slug": "google/gemini-2.5-pro",
+  "label": "s7_google_gemini_2_5_pro",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 156,
+  "slug": "inception/mercury-decide-20260930",
+  "label": "s7_inception_mercury_decide_20260930",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 157,
+  "slug": "qwen/qwen3.8-max-prime",
+  "label": "s7_qwen_qwen3_8_max_prime",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 159,
+  "slug": "moonshotai/kimi-k2.5",
+  "label": "s7_moonshotai_kimi_k2_5",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 161,
+  "slug": "qwen/qwen3-vl-235b-a22b-instruct",
+  "label": "s7_qwen_qwen3_vl_235b_a22b_instruct",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 162,
+  "slug": "anthropic/claude-opus-4.7",
+  "label": "s7_anthropic_claude_opus_4_7",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 163,
+  "slug": "x-ai/grok-4.20",
+  "label": "s7_x_ai_grok_4_20",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 164,
+  "slug": "openai/gpt-6-astra-pro",
+  "label": "s7_openai_gpt_6_astra_pro",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 165,
+  "slug": "z-ai/glm-5.1",
+  "label": "s7_z_ai_glm_5_1",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 166,
+  "slug": "cloudflare/clef-flash",
+  "label": "s7_cloudflare_clef_flash",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 167,
+  "slug": "perplexity/pplx-decider-flash-v1.2-20261016",
+  "label": "s7_perplexity_pplx_decider_flash_v1_2_20261016",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 168,
+  "slug": "inception/mercury-2.5-20260908",
+  "label": "s7_inception_mercury_2_5_20260908",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 169,
+  "slug": "microsoft/microsoft-decision-1-20261009",
+  "label": "s7_microsoft_microsoft_decision_1_20261009",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 170,
+  "slug": "qwen/qwen3-30b-a3b-instruct-2507",
+  "label": "s7_qwen_qwen3_30b_a3b_instruct_2507",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 171,
+  "slug": "deepseek/deepseek-chat-v3-0324",
+  "label": "s7_deepseek_deepseek_chat_v3_0324",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 173,
+  "slug": "openai/gpt-5.3-codex",
+  "label": "s7_openai_gpt_5_3_codex",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 174,
+  "slug": "liquid/d1.1-20261027",
+  "label": "s7_liquid_d1_1_20261027",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 175,
+  "slug": "qwen/qwen3.5-397b-a17b",
+  "label": "s7_qwen_qwen3_5_397b_a17b",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 176,
+  "slug": "nace-ai/drex-v1.5-20261009",
+  "label": "s7_nace_ai_drex_v1_5_20261009",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 177,
+  "slug": "openai/gpt-6.1-terra-pro",
+  "label": "s7_openai_gpt_6_1_terra_pro",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 178,
+  "slug": "google/gemini-embedding-2",
+  "label": "s7_google_gemini_embedding_2",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 179,
+  "slug": "minimax/minimax-m2.7",
+  "label": "s7_minimax_minimax_m2_7",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 1.22
+ },
+ {
+  "rank": 180,
+  "slug": "qwen/qwen3-32b",
+  "label": "s7_qwen_qwen3_32b",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 181,
+  "slug": "deepseek/deepseek-chat",
+  "label": "s7_deepseek_deepseek_chat",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 182,
+  "slug": "cloudflare/clef",
+  "label": "s7_cloudflare_clef",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 183,
+  "slug": "voyageai/rerank-3-lite-20260930",
+  "label": "s7_voyageai_rerank_3_lite_20260930",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 184,
+  "slug": "google/gemini-embedding-001",
+  "label": "s7_google_gemini_embedding_001",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 185,
+  "slug": "perplexity/pplx-decider-v1.1-27b-20261006",
+  "label": "s7_perplexity_pplx_decider_v1_1_27b_20261006",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 186,
+  "slug": "z-ai/glm-5.3-flashx-legal",
+  "label": "s7_z_ai_glm_5_3_flashx_legal",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 187,
+  "slug": "nace-ai/drex-max-20261016",
+  "label": "s7_nace_ai_drex_max_20261016",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 188,
+  "slug": "meta/muse-glimmer-30b",
+  "label": "s7_meta_muse_glimmer_30b",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 190,
+  "slug": "meta-llama/llama-4-maverick",
+  "label": "s7_meta_llama_llama_4_maverick",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 1.49
+ },
+ {
+  "rank": 191,
+  "slug": "meta-llama/llama-4-scout",
+  "label": "s7_meta_llama_llama_4_scout",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 192,
+  "slug": "qwen/qwen3-embedding-4b",
+  "label": "s7_qwen_qwen3_embedding_4b",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 193,
+  "slug": "scaledown/summarize",
+  "label": "s7_scaledown_summarize",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 0.02
+ },
+ {
+  "rank": 194,
+  "slug": "liquid/lfm-2.5-2.6b-20260811",
+  "label": "s7_liquid_lfm_2_5_2_6b_20260811",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 195,
+  "slug": "openai/gpt-4.1-nano",
+  "label": "s7_openai_gpt_4_1_nano",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 196,
+  "slug": "meta/muse-spark-1.2-contributor",
+  "label": "s7_meta_muse_spark_1_2_contributor",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 197,
+  "slug": "amazon/nova-micro-v1",
+  "label": "s7_amazon_nova_micro_v1",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 0.2
+ },
+ {
+  "rank": 199,
+  "slug": "voyageai/rerank-3-20260930",
+  "label": "s7_voyageai_rerank_3_20260930",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 200,
+  "slug": "respan/span-02-20261015",
+  "label": "s7_respan_span_02_20261015",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 201,
+  "slug": "z-ai/glm-4.6",
+  "label": "s7_z_ai_glm_4_6",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 202,
+  "slug": "qwen/qwen3-vl-30b-a3b-instruct",
+  "label": "s7_qwen_qwen3_vl_30b_a3b_instruct",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 203,
+  "slug": "openai/gpt-5.6-sol-pro",
+  "label": "s7_openai_gpt_5_6_sol_pro",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 204,
+  "slug": "qwen/qwen3-coder",
+  "label": "s7_qwen_qwen3_coder",
+  "eligible": false,
+  "reason": "rule 1: not a general-purpose chat model"
+ },
+ {
+  "rank": 205,
+  "slug": "qwen/qwen3.5-27b",
+  "label": "s7_qwen_qwen3_5_27b",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 206,
+  "slug": "z-ai/glm-4.7-flash",
+  "label": "s7_z_ai_glm_4_7_flash",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 207,
+  "slug": "deepseek/deepseek-v3.2-exp",
+  "label": "s7_deepseek_deepseek_v3_2_exp",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 208,
+  "slug": "qwen/qwen3.6-27b",
+  "label": "s7_qwen_qwen3_6_27b",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 209,
+  "slug": "google/gemma-3-12b-it",
+  "label": "s7_google_gemma_3_12b_it",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 210,
+  "slug": "nace-ai/drex-v2.0-20261009",
+  "label": "s7_nace_ai_drex_v2_0_20261009",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 211,
+  "slug": "deepseek/deepseek-r1-0528",
+  "label": "s7_deepseek_deepseek_r1_0528",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 212,
+  "slug": "qwen/qwen3.6-flash",
+  "label": "s7_qwen_qwen3_6_flash",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 213,
+  "slug": "openai/gpt-4o",
+  "label": "s7_openai_gpt_4o",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 215,
+  "slug": "mistralai/mistral-small-24b-instruct-2501",
+  "label": "s7_mistralai_mistral_small_24b_instruct_2501",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 217,
+  "slug": "qwen/qwen3.7-max",
+  "label": "s7_qwen_qwen3_7_max",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 218,
+  "slug": "openai/gpt-4o-mini-2024-07-18",
+  "label": "s7_openai_gpt_4o_mini_2024_07_18",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 219,
+  "slug": "anthropic/claude-opus-4.5",
+  "label": "s7_anthropic_claude_opus_4_5",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 220,
+  "slug": "qwen/qwen3.6-plus",
+  "label": "s7_qwen_qwen3_6_plus",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 221,
+  "slug": "minimax/minimax-m2.5",
+  "label": "s7_minimax_minimax_m2_5",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 222,
+  "slug": "openai/gpt-5",
+  "label": "s7_openai_gpt_5",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 224,
+  "slug": "qwen/qwen3-reranker-8b",
+  "label": "s7_qwen_qwen3_reranker_8b",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 225,
+  "slug": "qwen/qwen3-coder-30b-a3b-instruct",
+  "label": "s7_qwen_qwen3_coder_30b_a3b_instruct",
+  "eligible": false,
+  "reason": "rule 1: not a general-purpose chat model"
+ },
+ {
+  "rank": 226,
+  "slug": "mistralai/mistral-small-2603",
+  "label": "s7_mistralai_mistral_small_2603",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 227,
+  "slug": "meituan/longcat-2.0",
+  "label": "s7_meituan_longcat_2_0",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 1.74
+ },
+ {
+  "rank": 228,
+  "slug": "unbiased/pareto-26.10",
+  "label": "s7_unbiased_pareto_26_10",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 4.65
+ },
+ {
+  "rank": 229,
+  "slug": "z-ai/glm-4.5-air",
+  "label": "s7_z_ai_glm_4_5_air",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 230,
+  "slug": "qwen/qwen3.5-122b-a10b",
+  "label": "s7_qwen_qwen3_5_122b_a10b",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 231,
+  "slug": "qwen/qwen3-next-80b-a3b-instruct",
+  "label": "s7_qwen_qwen3_next_80b_a3b_instruct",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 232,
+  "slug": "mistralai/mistral-embed-2312",
+  "label": "s7_mistralai_mistral_embed_2312",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 233,
+  "slug": "mistralai/mistral-medium-3.1",
+  "label": "s7_mistralai_mistral_medium_3_1",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 234,
+  "slug": "nex-agi/nex-n2.5-mini",
+  "label": "s7_nex_agi_nex_n2_5_mini",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 0.15
+ },
+ {
+  "rank": 236,
+  "slug": "qwen/qwen3-vl-8b-instruct",
+  "label": "s7_qwen_qwen3_vl_8b_instruct",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 237,
+  "slug": "liquid/lfm-3-1.7b",
+  "label": "s7_liquid_lfm_3_1_7b",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 0.3
+ },
+ {
+  "rank": 238,
+  "slug": "voyageai/voyage-4-20260727",
+  "label": "s7_voyageai_voyage_4_20260727",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 239,
+  "slug": "ibm-granite/granite-4.2-8b",
+  "label": "s7_ibm_granite_granite_4_2_8b",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 0.36
+ },
+ {
+  "rank": 240,
+  "slug": "meta/muse-spark-1.2",
+  "label": "s7_meta_muse_spark_1_2",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 241,
+  "slug": "openai/gpt-6-sol-pro",
+  "label": "s7_openai_gpt_6_sol_pro",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 242,
+  "slug": "voyageai/voyage-4-lite-20260727",
+  "label": "s7_voyageai_voyage_4_lite_20260727",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 243,
+  "slug": "fireworks/ember-1",
+  "label": "s7_fireworks_ember_1",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 21.49
+ },
+ {
+  "rank": 244,
+  "slug": "nvidia/nemotron-3-nano-30b-a3b",
+  "label": "s7_nvidia_nemotron_3_nano_30b_a3b",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 245,
+  "slug": "google/gemini-3.1-flash-image",
+  "label": "s7_google_gemini_3_1_flash_image",
+  "eligible": false,
+  "reason": "rule 1: not a general-purpose chat model"
+ },
+ {
+  "rank": 246,
+  "slug": "deepseek/deepseek-v3.1-terminus",
+  "label": "s7_deepseek_deepseek_v3_1_terminus",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 248,
+  "slug": "voyageai/voyage-4-large-20260727",
+  "label": "s7_voyageai_voyage_4_large_20260727",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 249,
+  "slug": "intfloat/multilingual-e5-large-20251117",
+  "label": "s7_intfloat_multilingual_e5_large_20251117",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 250,
+  "slug": "bytedance-seed/seed-2.0-lite",
+  "label": "s7_bytedance_seed_seed_2_0_lite",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 2.81
+ },
+ {
+  "rank": 251,
+  "slug": "mistralai/ministral-3b-2512",
+  "label": "s7_mistralai_ministral_3b_2512",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 254,
+  "slug": "mistralai/ministral-8b-2512",
+  "label": "s7_mistralai_ministral_8b_2512",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 255,
+  "slug": "sao10k/l3-lunaris-8b",
+  "label": "s7_sao10k_l3_lunaris_8b",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 0.08
+ },
+ {
+  "rank": 256,
+  "slug": "ricursiveai/ripple-65b-preview",
+  "label": "s7_ricursiveai_ripple_65b_preview",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 0.45
+ },
+ {
+  "rank": 257,
+  "slug": "scaledown/classify-1-20260928",
+  "label": "s7_scaledown_classify_1_20260928",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 258,
+  "slug": "bytedance-seed/seedream-5-0-flash-20261001",
+  "label": "s7_bytedance_seed_seedream_5_0_flash_20261001",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 259,
+  "slug": "baseten/mammoth-1-20261021",
+  "label": "s7_baseten_mammoth_1_20261021",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 260,
+  "slug": "parallel/decisions-fast-20261106",
+  "label": "s7_parallel_decisions_fast_20261106",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 261,
+  "slug": "google/gemma-3-4b-it",
+  "label": "s7_google_gemma_3_4b_it",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 262,
+  "slug": "bytedance-seed/seed-2.0-mini",
+  "label": "s7_bytedance_seed_seed_2_0_mini",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 0.58
+ },
+ {
+  "rank": 263,
+  "slug": "openai/gpt-5.6-terra-pro",
+  "label": "s7_openai_gpt_5_6_terra_pro",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 264,
+  "slug": "openai/gpt-image-2.5-sunburst-20260908",
+  "label": "s7_openai_gpt_image_2_5_sunburst_20260908",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 265,
+  "slug": "baseten/joey-1-20261029",
+  "label": "s7_baseten_joey_1_20261029",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 266,
+  "slug": "qwen/qwen3.5-plus-02-15",
+  "label": "s7_qwen_qwen3_5_plus_02_15",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 267,
+  "slug": "openai/gpt-oss-safeguard-20b",
+  "label": "s7_openai_gpt_oss_safeguard_20b",
+  "eligible": false,
+  "reason": "rule 1: not a general-purpose chat model"
+ },
+ {
+  "rank": 268,
+  "slug": "bytedance-seed/seed-1.6-flash-20250625",
+  "label": "s7_bytedance_seed_seed_1_6_flash_20250625",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 269,
+  "slug": "mistralai/devstral-2512",
+  "label": "s7_mistralai_devstral_2512",
+  "eligible": false,
+  "reason": "rule 1: not a general-purpose chat model"
+ },
+ {
+  "rank": 270,
+  "slug": "tencent/hy3-preview",
+  "label": "s7_tencent_hy3_preview",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 272,
+  "slug": "perplexity/pplx-embed-v1-4B",
+  "label": "s7_perplexity_pplx_embed_v1_4b",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 273,
+  "slug": "baseten/elephant-1-20261021",
+  "label": "s7_baseten_elephant_1_20261021",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 274,
+  "slug": "google/gemini-decision-1-20261111",
+  "label": "s7_google_gemini_decision_1_20261111",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 275,
+  "slug": "bytedance-seed/seed-2-1-turbo",
+  "label": "s7_bytedance_seed_seed_2_1_turbo",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 3.58
+ },
+ {
+  "rank": 276,
+  "slug": "mistralai/mistral-medium-3-5",
+  "label": "s7_mistralai_mistral_medium_3_5",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 277,
+  "slug": "upstage/solar-decide-20260928",
+  "label": "s7_upstage_solar_decide_20260928",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 278,
+  "slug": "qwen/qwen-2.5-7b-instruct",
+  "label": "s7_qwen_qwen_2_5_7b_instruct",
+  "eligible": false,
+  "reason": "rule 2: pilot model"
+ },
+ {
+  "rank": 279,
+  "slug": "google/gemini-4-hydrogen",
+  "label": "s7_google_gemini_4_hydrogen",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 280,
+  "slug": "amazon/nova-2-lite-v1",
+  "label": "s7_amazon_nova_2_lite_v1",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 3.5
+ },
+ {
+  "rank": 283,
+  "slug": "google/gemini-nano-banana-2.1",
+  "label": "s7_google_gemini_nano_banana_2_1",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 284,
+  "slug": "perplexity/sonar",
+  "label": "s7_perplexity_sonar",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 1.75
+ },
+ {
+  "rank": 285,
+  "slug": "google/gemini-embedding-2-preview",
+  "label": "s7_google_gemini_embedding_2_preview",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 286,
+  "slug": "x-ai/grok-build-0.1",
+  "label": "s7_x_ai_grok_build_0_1",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 287,
+  "slug": "qwen/qwen3-14b",
+  "label": "s7_qwen_qwen3_14b",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 288,
+  "slug": "cloudflare/clef-omni-20261009",
+  "label": "s7_cloudflare_clef_omni_20261009",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 289,
+  "slug": "mistralai/ministral-14b-2512",
+  "label": "s7_mistralai_ministral_14b_2512",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 290,
+  "slug": "moonshotai/kimi-k2-0905",
+  "label": "s7_moonshotai_kimi_k2_0905",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 291,
+  "slug": "inclusionai/ling-3.0-flash-vl",
+  "label": "s7_inclusionai_ling_3_0_flash_vl",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 0.27
+ },
+ {
+  "rank": 292,
+  "slug": "jaredpalmer/kev-4b-20260924",
+  "label": "s7_jaredpalmer_kev_4b_20260924",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 293,
+  "slug": "moonshotai/kimi-k2-thinking",
+  "label": "s7_moonshotai_kimi_k2_thinking",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 294,
+  "slug": "aion-labs/aion-3.5",
+  "label": "s7_aion_labs_aion_3_5",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 9.32
+ },
+ {
+  "rank": 295,
+  "slug": "qwen/qwen3-30b-a3b",
+  "label": "s7_qwen_qwen3_30b_a3b",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 296,
+  "slug": "openai/gpt-4o-2024-08-06",
+  "label": "s7_openai_gpt_4o_2024_08_06",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 298,
+  "slug": "z-ai/glm-5-turbo",
+  "label": "s7_z_ai_glm_5_turbo",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 299,
+  "slug": "nex-agi/nex-n2.5-pro",
+  "label": "s7_nex_agi_nex_n2_5_pro",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 0.37
+ },
+ {
+  "rank": 301,
+  "slug": "qwen/qwen-2.5-72b-instruct",
+  "label": "s7_qwen_qwen_2_5_72b_instruct",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 302,
+  "slug": "meta-llama/llama-guard-4-12b",
+  "label": "s7_meta_llama_llama_guard_4_12b",
+  "eligible": false,
+  "reason": "rule 1: not a general-purpose chat model"
+ },
+ {
+  "rank": 303,
+  "slug": "qwen/qwen2.5-vl-72b-instruct",
+  "label": "s7_qwen_qwen2_5_vl_72b_instruct",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 304,
+  "slug": "inception/mercury-2-20260304",
+  "label": "s7_inception_mercury_2_20260304",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 307,
+  "slug": "nvidia/llama-nemotron-rerank-vl-1b-v2",
+  "label": "s7_nvidia_llama_nemotron_rerank_vl_1b_v2",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 308,
+  "slug": "nvidia/nemotron-3.5-content-safety",
+  "label": "s7_nvidia_nemotron_3_5_content_safety",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 309,
+  "slug": "cognitivecomputations/dolphin-mistral-24b-venice-edition",
+  "label": "s7_cognitivecomputations_dolphin_mistral_24b_venice_edition",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 1.3
+ },
+ {
+  "rank": 310,
+  "slug": "openai/gpt-5.1-codex-mini",
+  "label": "s7_openai_gpt_5_1_codex_mini",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 311,
+  "slug": "sakana/fugu-max",
+  "label": "s7_sakana_fugu_max",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 8.92
+ },
+ {
+  "rank": 312,
+  "slug": "moonshotai/kimi-k2",
+  "label": "s7_moonshotai_kimi_k2",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 313,
+  "slug": "nex-agi/nex-n2.6",
+  "label": "s7_nex_agi_nex_n2_6",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 0.59
+ },
+ {
+  "rank": 314,
+  "slug": "openai/gpt-chat-latest",
+  "label": "s7_openai_gpt_chat_latest",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 315,
+  "slug": "liquid/lfm-2.5-24b-a2b",
+  "label": "s7_liquid_lfm_2_5_24b_a2b",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 0.97
+ },
+ {
+  "rank": 316,
+  "slug": "openai/text-embedding-ada-002",
+  "label": "s7_openai_text_embedding_ada_002",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 317,
+  "slug": "google/gemini-3.1-flash-lite-image",
+  "label": "s7_google_gemini_3_1_flash_lite_image",
+  "eligible": false,
+  "reason": "rule 1: not a general-purpose chat model"
+ },
+ {
+  "rank": 318,
+  "slug": "z-ai/glm-4.6v",
+  "label": "s7_z_ai_glm_4_6v",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 319,
+  "slug": "meta/muse-spark-1.1",
+  "label": "s7_meta_muse_spark_1_1",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 320,
+  "slug": "openai/gpt-image-2.5-flare-20260908",
+  "label": "s7_openai_gpt_image_2_5_flare_20260908",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 321,
+  "slug": "z-ai/glm-5v-turbo",
+  "label": "s7_z_ai_glm_5v_turbo",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 323,
+  "slug": "cohere/command-a-plus",
+  "label": "s7_cohere_command_a_plus",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 2.15
+ },
+ {
+  "rank": 324,
+  "slug": "tencent/hy-image-v3.5-preview-20260922",
+  "label": "s7_tencent_hy_image_v3_5_preview_20260922",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 325,
+  "slug": "anthropic/claude-opus-4.1",
+  "label": "s7_anthropic_claude_opus_4_1",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 326,
+  "slug": "meta-llama/llama-3.1-70b-instruct",
+  "label": "s7_meta_llama_llama_3_1_70b_instruct",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 328,
+  "slug": "z-ai/glm-4.5",
+  "label": "s7_z_ai_glm_4_5",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 330,
+  "slug": "google/gemini-2.5-flash-image",
+  "label": "s7_google_gemini_2_5_flash_image",
+  "eligible": false,
+  "reason": "rule 1: not a general-purpose chat model"
+ },
+ {
+  "rank": 331,
+  "slug": "thedrummer/cydonia-24b-v4.1",
+  "label": "s7_thedrummer_cydonia_24b_v4_1",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 0.8
+ },
+ {
+  "rank": 332,
+  "slug": "qwen/qwen3-coder-flash",
+  "label": "s7_qwen_qwen3_coder_flash",
+  "eligible": false,
+  "reason": "rule 1: not a general-purpose chat model"
+ },
+ {
+  "rank": 333,
+  "slug": "meta/muse-image-1.0-eval-20260824",
+  "label": "s7_meta_muse_image_1_0_eval_20260824",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 334,
+  "slug": "upstage/solar-decide-flash-20261008",
+  "label": "s7_upstage_solar_decide_flash_20261008",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 335,
+  "slug": "openai/gpt-image-2",
+  "label": "s7_openai_gpt_image_2",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 336,
+  "slug": "qwen/qwen-plus",
+  "label": "s7_qwen_qwen_plus",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 337,
+  "slug": "baai/bge-base-en-v1.5-20251117",
+  "label": "s7_baai_bge_base_en_v1_5_20251117",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 338,
+  "slug": "elorian/glimpse",
+  "label": "s7_elorian_glimpse",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 4.3
+ },
+ {
+  "rank": 339,
+  "slug": "aion-labs/aion-3.5-mini",
+  "label": "s7_aion_labs_aion_3_5_mini",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 2.18
+ },
+ {
+  "rank": 340,
+  "slug": "tencent/hy-mt2-30b-a3b",
+  "label": "s7_tencent_hy_mt2_30b_a3b",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 341,
+  "slug": "mistralai/mistral-large-2512",
+  "label": "s7_mistralai_mistral_large_2512",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 342,
+  "slug": "stepfun/step-3.5-flash",
+  "label": "s7_stepfun_step_3_5_flash",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 0.45
+ },
+ {
+  "rank": 343,
+  "slug": "scaledown/extract",
+  "label": "s7_scaledown_extract",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 0.02
+ },
+ {
+  "rank": 344,
+  "slug": "aion-labs/aion-3.0",
+  "label": "s7_aion_labs_aion_3_0",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 9.32
+ },
+ {
+  "rank": 345,
+  "slug": "bytedance-seed/seedream-4.5-20251203",
+  "label": "s7_bytedance_seed_seedream_4_5_20251203",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 347,
+  "slug": "voyageai/voyage-code-4-20260812",
+  "label": "s7_voyageai_voyage_code_4_20260812",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 348,
+  "slug": "x-ai/grok-4.20-multi-agent",
+  "label": "s7_x_ai_grok_4_20_multi_agent",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 349,
+  "slug": "openai/gpt-5.4-image-2",
+  "label": "s7_openai_gpt_5_4_image_2",
+  "eligible": false,
+  "reason": "rule 1: not a general-purpose chat model"
+ },
+ {
+  "rank": 350,
+  "slug": "google/gemini-3-pro-image",
+  "label": "s7_google_gemini_3_pro_image",
+  "eligible": false,
+  "reason": "rule 1: not a general-purpose chat model"
+ },
+ {
+  "rank": 351,
+  "slug": "cohere/rerank-5-fast-20261028",
+  "label": "s7_cohere_rerank_5_fast_20261028",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 352,
+  "slug": "morph/reflex-20261103",
+  "label": "s7_morph_reflex_20261103",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 353,
+  "slug": "perplexity/sonar-pro",
+  "label": "s7_perplexity_sonar_pro",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 21.49
+ },
+ {
+  "rank": 354,
+  "slug": "inclusionai/ling-3.0-tiny",
+  "label": "s7_inclusionai_ling_3_0_tiny",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 355,
+  "slug": "voyageai/voyage-multimodal-3.5-20260727",
+  "label": "s7_voyageai_voyage_multimodal_3_5_20260727",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 356,
+  "slug": "aion-labs/aion-2.0",
+  "label": "s7_aion_labs_aion_2_0",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 357,
+  "slug": "sentence-transformers/all-mpnet-base-v2-20251117",
+  "label": "s7_sentence_transformers_all_mpnet_base_v2_20251117",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 358,
+  "slug": "qwen/qwen3.5-plus-20260420",
+  "label": "s7_qwen_qwen3_5_plus_20260420",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 360,
+  "slug": "bytedance-seed/seedream-5-0-pro-20260812",
+  "label": "s7_bytedance_seed_seedream_5_0_pro_20260812",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 361,
+  "slug": "microsoft/phi-4",
+  "label": "s7_microsoft_phi_4",
+  "eligible": false,
+  "reason": "rule 2: pilot model"
+ },
+ {
+  "rank": 362,
+  "slug": "nousresearch/hermes-4-405b",
+  "label": "s7_nousresearch_hermes_4_405b",
+  "eligible": false,
+  "reason": "rule 1: not a general-purpose chat model"
+ },
+ {
+  "rank": 363,
+  "slug": "unbiased/pareto-26.9",
+  "label": "s7_unbiased_pareto_26_9",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 11.15
+ },
+ {
+  "rank": 365,
+  "slug": "google/gemini-3.8-flash-tts-20260922",
+  "label": "s7_google_gemini_3_8_flash_tts_20260922",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 366,
+  "slug": "togethercomputer/tev1-4b-experimental-20260923",
+  "label": "s7_togethercomputer_tev1_4b_experimental_20260923",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 368,
+  "slug": "sentence-transformers/all-minilm-l6-v2-20251117",
+  "label": "s7_sentence_transformers_all_minilm_l6_v2_20251117",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 369,
+  "slug": "cohere/rerank-5-pro-20261028",
+  "label": "s7_cohere_rerank_5_pro_20261028",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 370,
+  "slug": "nvidia/nemotron-3-embed-1b-20260716",
+  "label": "s7_nvidia_nemotron_3_embed_1b_20260716",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 371,
+  "slug": "openai/gpt-5.1-codex",
+  "label": "s7_openai_gpt_5_1_codex",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 373,
+  "slug": "amazon/nova-lite-v1",
+  "label": "s7_amazon_nova_lite_v1",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 0.35
+ },
+ {
+  "rank": 374,
+  "slug": "nousresearch/hermes-3-llama-3.1-70b",
+  "label": "s7_nousresearch_hermes_3_llama_3_1_70b",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 375,
+  "slug": "qwen/qwen3-235b-a22b-thinking-2507",
+  "label": "s7_qwen_qwen3_235b_a22b_thinking_2507",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 376,
+  "slug": "black-forest-labs/flux-3-image-klein-20261015",
+  "label": "s7_black_forest_labs_flux_3_image_klein_20261015",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 377,
+  "slug": "recraft/recraft-v4.1-flash-20260923",
+  "label": "s7_recraft_recraft_v4_1_flash_20260923",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 378,
+  "slug": "openai/gpt-4o-2024-11-20",
+  "label": "s7_openai_gpt_4o_2024_11_20",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 381,
+  "slug": "meta-llama/llama-3.2-3b-instruct",
+  "label": "s7_meta_llama_llama_3_2_3b_instruct",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 382,
+  "slug": "anthropic/claude-4-sonnet-20250522",
+  "label": "s7_anthropic_claude_4_sonnet_20250522",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 384,
+  "slug": "google/gemini-3.1-flash-image-preview",
+  "label": "s7_google_gemini_3_1_flash_image_preview",
+  "eligible": false,
+  "reason": "rule 1: not a general-purpose chat model"
+ },
+ {
+  "rank": 385,
+  "slug": "google/gemini-3-pro-image-preview",
+  "label": "s7_google_gemini_3_pro_image_preview",
+  "eligible": false,
+  "reason": "rule 1: not a general-purpose chat model"
+ },
+ {
+  "rank": 386,
+  "slug": "gryphe/mythomax-l2-13b",
+  "label": "s7_gryphe_mythomax_l2_13b",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 0.18
+ },
+ {
+  "rank": 387,
+  "slug": "openai/o4-mini",
+  "label": "s7_openai_o4_mini",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 388,
+  "slug": "nvidia/nemotron-3.5-rerank-8b-20261021",
+  "label": "s7_nvidia_nemotron_3_5_rerank_8b_20261021",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 389,
+  "slug": "openai/o3",
+  "label": "s7_openai_o3",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 390,
+  "slug": "mistralai/codestral-2508",
+  "label": "s7_mistralai_codestral_2508",
+  "eligible": false,
+  "reason": "rule 1: not a general-purpose chat model"
+ },
+ {
+  "rank": 392,
+  "slug": "google/gemini-3.8-flash-lite-tts-20260922",
+  "label": "s7_google_gemini_3_8_flash_lite_tts_20260922",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 393,
+  "slug": "aion-labs/aion-3.0-mini",
+  "label": "s7_aion_labs_aion_3_0_mini",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 394,
+  "slug": "bytedance-seed/seedream-5-0-lite-20260812",
+  "label": "s7_bytedance_seed_seedream_5_0_lite_20260812",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 396,
+  "slug": "minimax/minimax-m2-her-20260123",
+  "label": "s7_minimax_minimax_m2_her_20260123",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 398,
+  "slug": "openai/gpt-5.2-codex",
+  "label": "s7_openai_gpt_5_2_codex",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 400,
+  "slug": "apodex/apodex-1.1-mini-20261001",
+  "label": "s7_apodex_apodex_1_1_mini_20261001",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 402,
+  "slug": "google/gemini-3.1-pro-preview-customtools",
+  "label": "s7_google_gemini_3_1_pro_preview_customtools",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 403,
+  "slug": "mistralai/mistral-medium-3",
+  "label": "s7_mistralai_mistral_medium_3",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 404,
+  "slug": "nvidia/llama-nemotron-embed-vl-1b-v2-20260224",
+  "label": "s7_nvidia_llama_nemotron_embed_vl_1b_v2_20260224",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 405,
+  "slug": "x-ai/grok-imagine-image-2.0-20260811",
+  "label": "s7_x_ai_grok_imagine_image_2_0_20260811",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 406,
+  "slug": "sao10k/l3.1-euryale-70b",
+  "label": "s7_sao10k_l3_1_euryale_70b",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 1.49
+ },
+ {
+  "rank": 407,
+  "slug": "sakana/fugu-ultra-v2",
+  "label": "s7_sakana_fugu_ultra_v2",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 42.58
+ },
+ {
+  "rank": 408,
+  "slug": "black-forest-labs/flux.2-klein-4b",
+  "label": "s7_black_forest_labs_flux_2_klein_4b",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 409,
+  "slug": "arcee-ai/trinity-large-thinking",
+  "label": "s7_arcee_ai_trinity_large_thinking",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 410,
+  "slug": "openai/o3-mini",
+  "label": "s7_openai_o3_mini",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 411,
+  "slug": "black-forest-labs/flux.2-pro",
+  "label": "s7_black_forest_labs_flux_2_pro",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 412,
+  "slug": "openai/gpt-4o-mini-transcribe",
+  "label": "s7_openai_gpt_4o_mini_transcribe",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 413,
+  "slug": "minimax/minimax-m2.1",
+  "label": "s7_minimax_minimax_m2_1",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 414,
+  "slug": "openai/gpt-audio-mini",
+  "label": "s7_openai_gpt_audio_mini",
+  "eligible": false,
+  "reason": "rule 1: not a general-purpose chat model"
+ },
+ {
+  "rank": 417,
+  "slug": "deepseek/deepseek-r1",
+  "label": "s7_deepseek_deepseek_r1",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 418,
+  "slug": "mistralai/codestral-embed-2505",
+  "label": "s7_mistralai_codestral_embed_2505",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 419,
+  "slug": "openai/gpt-image-2.6-sunburst-20261104",
+  "label": "s7_openai_gpt_image_2_6_sunburst_20261104",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 421,
+  "slug": "mistralai/mistral-small-3.1-24b-instruct",
+  "label": "s7_mistralai_mistral_small_3_1_24b_instruct",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 422,
+  "slug": "nousresearch/hermes-3-llama-3.1-405b",
+  "label": "s7_nousresearch_hermes_3_llama_3_1_405b",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 423,
+  "slug": "z-ai/glm-4.5v",
+  "label": "s7_z_ai_glm_4_5v",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 425,
+  "slug": "bytedance/ui-tars-1.5-7b",
+  "label": "s7_bytedance_ui_tars_1_5_7b",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 0.31
+ },
+ {
+  "rank": 426,
+  "slug": "mistralai/mistral-large",
+  "label": "s7_mistralai_mistral_large",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 427,
+  "slug": "ibm-granite/granite-4.0-h-micro",
+  "label": "s7_ibm_granite_granite_4_0_h_micro",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 428,
+  "slug": "nace-ai/drex-max-finance-20261110",
+  "label": "s7_nace_ai_drex_max_finance_20261110",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 429,
+  "slug": "minimax/minimax-m2",
+  "label": "s7_minimax_minimax_m2",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 430,
+  "slug": "bytedance-seed/seed-2.0-code-20260730",
+  "label": "s7_bytedance_seed_seed_2_0_code_20260730",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 431,
+  "slug": "cohere/embed-5-pro-20261029",
+  "label": "s7_cohere_embed_5_pro_20261029",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 433,
+  "slug": "black-forest-labs/flux-3-image-20261001",
+  "label": "s7_black_forest_labs_flux_3_image_20261001",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 434,
+  "slug": "openai/gpt-5-image-mini",
+  "label": "s7_openai_gpt_5_image_mini",
+  "eligible": false,
+  "reason": "rule 1: not a general-purpose chat model"
+ },
+ {
+  "rank": 435,
+  "slug": "sentence-transformers/all-minilm-l12-v2-20251117",
+  "label": "s7_sentence_transformers_all_minilm_l12_v2_20251117",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 437,
+  "slug": "perceptron/perceptron-mk1",
+  "label": "s7_perceptron_perceptron_mk1",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 2.09
+ },
+ {
+  "rank": 438,
+  "slug": "respan/span-01-20260925",
+  "label": "s7_respan_span_01_20260925",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 439,
+  "slug": "cohere/embed-5-fast-20261029",
+  "label": "s7_cohere_embed_5_fast_20261029",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 440,
+  "slug": "baai/bge-large-en-v1.5-20251117",
+  "label": "s7_baai_bge_large_en_v1_5_20251117",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 441,
+  "slug": "cloudflare/clairic-20261029",
+  "label": "s7_cloudflare_clairic_20261029",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 442,
+  "slug": "amazon/nova-pro-v1",
+  "label": "s7_amazon_nova_pro_v1",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 443,
+  "slug": "thedrummer/unslopnemo-12b",
+  "label": "s7_thedrummer_unslopnemo_12b",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 0.7
+ },
+ {
+  "rank": 444,
+  "slug": "krea/k3-edit-20260914",
+  "label": "s7_krea_k3_edit_20260914",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 445,
+  "slug": "thedrummer/skyfall-36b-v2",
+  "label": "s7_thedrummer_skyfall_36b_v2",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 1.3
+ },
+ {
+  "rank": 447,
+  "slug": "perplexity/sonar-pro-search",
+  "label": "s7_perplexity_sonar_pro_search",
+  "eligible": false,
+  "reason": "rule 1: not a general-purpose chat model"
+ },
+ {
+  "rank": 448,
+  "slug": "anthracite-org/magnum-v4-72b",
+  "label": "s7_anthracite_org_magnum_v4_72b",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 7.77
+ },
+ {
+  "rank": 450,
+  "slug": "perceptron/perceptron-mk1.5",
+  "label": "s7_perceptron_perceptron_mk1_5",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 2.09
+ },
+ {
+  "rank": 451,
+  "slug": "openai/gpt-5.1-codex-max",
+  "label": "s7_openai_gpt_5_1_codex_max",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 453,
+  "slug": "google/gemini-3.5-transcribe-20260827",
+  "label": "s7_google_gemini_3_5_transcribe_20260827",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 454,
+  "slug": "google/gemini-3.1-flash-tts-preview",
+  "label": "s7_google_gemini_3_1_flash_tts_preview",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 457,
+  "slug": "openai/gpt-4o-2024-05-13",
+  "label": "s7_openai_gpt_4o_2024_05_13",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 458,
+  "slug": "cohere/command-r7b-12-2024",
+  "label": "s7_cohere_command_r7b_12_2024",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 0.22
+ },
+ {
+  "rank": 459,
+  "slug": "openai/gpt-3.5-turbo",
+  "label": "s7_openai_gpt_3_5_turbo",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 460,
+  "slug": "google/gemma-2-27b-it",
+  "label": "s7_google_gemma_2_27b_it",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 461,
+  "slug": "meta-llama/llama-3.2-1b-instruct",
+  "label": "s7_meta_llama_llama_3_2_1b_instruct",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 462,
+  "slug": "sakana/fugu-ultra",
+  "label": "s7_sakana_fugu_ultra",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 42.58
+ },
+ {
+  "rank": 463,
+  "slug": "microsoft/wizardlm-2-8x22b",
+  "label": "s7_microsoft_wizardlm_2_8x22b",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 464,
+  "slug": "minimax/minimax-01",
+  "label": "s7_minimax_minimax_01",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 465,
+  "slug": "prism-ml/ternary-bonsai-2-27b",
+  "label": "s7_prism_ml_ternary_bonsai_2_27b",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 0.71
+ },
+ {
+  "rank": 466,
+  "slug": "x-ai/grok-imagine-image-quality-20260512",
+  "label": "s7_x_ai_grok_imagine_image_quality_20260512",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 468,
+  "slug": "google/lyria-3-pro-preview",
+  "label": "s7_google_lyria_3_pro_preview",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 469,
+  "slug": "openai/gpt-image-2.6-flare-20261104",
+  "label": "s7_openai_gpt_image_2_6_flare_20261104",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 470,
+  "slug": "nvidia/nemotron-3.5-embed-1b-20261021",
+  "label": "s7_nvidia_nemotron_3_5_embed_1b_20261021",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 471,
+  "slug": "qwen/qwen3-vl-30b-a3b-thinking",
+  "label": "s7_qwen_qwen3_vl_30b_a3b_thinking",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 472,
+  "slug": "openai/gpt-5.5-pro",
+  "label": "s7_openai_gpt_5_5_pro",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 473,
+  "slug": "nvidia/nemotron-3.5-embed-8b-20261021",
+  "label": "s7_nvidia_nemotron_3_5_embed_8b_20261021",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 475,
+  "slug": "perplexity/pplx-decider-v1.3-20261112",
+  "label": "s7_perplexity_pplx_decider_v1_3_20261112",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 476,
+  "slug": "sakana/sakana-namazu",
+  "label": "s7_sakana_sakana_namazu",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 477,
+  "slug": "prism-ml/ternary-bonsai-2-9b",
+  "label": "s7_prism_ml_ternary_bonsai_2_9b",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 0.21
+ },
+ {
+  "rank": 478,
+  "slug": "perplexity/sonar-reasoning-pro",
+  "label": "s7_perplexity_sonar_reasoning_pro",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 11.62
+ },
+ {
+  "rank": 479,
+  "slug": "qwen/qwen-image-2.1-turbo-20261016",
+  "label": "s7_qwen_qwen_image_2_1_turbo_20261016",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 480,
+  "slug": "mistralai/voxtral-small-24b-2507",
+  "label": "s7_mistralai_voxtral_small_24b_2507",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 481,
+  "slug": "unbiased/pareto-26.10-preview",
+  "label": "s7_unbiased_pareto_26_10_preview",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 4.65
+ },
+ {
+  "rank": 482,
+  "slug": "inference-net/schematron-v2-turbo",
+  "label": "s7_inference_net_schematron_v2_turbo",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 0.21
+ },
+ {
+  "rank": 483,
+  "slug": "undi95/remm-slerp-l2-13b",
+  "label": "s7_undi95_remm_slerp_l2_13b",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 0.8
+ },
+ {
+  "rank": 484,
+  "slug": "amazon/titan-embed-text-v2-20261026",
+  "label": "s7_amazon_titan_embed_text_v2_20261026",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 486,
+  "slug": "baidu/ernie-light-dt-1.0-intl",
+  "label": "s7_baidu_ernie_light_dt_1_0_intl",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 5.78
+ },
+ {
+  "rank": 487,
+  "slug": "cohere/command-r-08-2024",
+  "label": "s7_cohere_command_r_08_2024",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 0.87
+ },
+ {
+  "rank": 488,
+  "slug": "mistralai/mistral-large-2407",
+  "label": "s7_mistralai_mistral_large_2407",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 489,
+  "slug": "openai/gpt-3.5-turbo-0613",
+  "label": "s7_openai_gpt_3_5_turbo_0613",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 490,
+  "slug": "openai/gpt-audio",
+  "label": "s7_openai_gpt_audio",
+  "eligible": false,
+  "reason": "rule 1: not a general-purpose chat model"
+ },
+ {
+  "rank": 493,
+  "slug": "qwen/qwen-image-3-20260805",
+  "label": "s7_qwen_qwen_image_3_20260805",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 494,
+  "slug": "qwen/qwen-2.5-coder-32b-instruct",
+  "label": "s7_qwen_qwen_2_5_coder_32b_instruct",
+  "eligible": false,
+  "reason": "rule 1: not a general-purpose chat model"
+ },
+ {
+  "rank": 495,
+  "slug": "tencent/hunyuan-a13b-instruct",
+  "label": "s7_tencent_hunyuan_a13b_instruct",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 497,
+  "slug": "bytedance-seed/seed-1.6-20250625",
+  "label": "s7_bytedance_seed_seed_1_6_20250625",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 498,
+  "slug": "morph/morph-v3-fast",
+  "label": "s7_morph_morph_v3_fast",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 1.94
+ },
+ {
+  "rank": 499,
+  "slug": "rekaai/reka-edge",
+  "label": "s7_rekaai_reka_edge",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 0.18
+ },
+ {
+  "rank": 500,
+  "slug": "perplexity/sonar-deep-research",
+  "label": "s7_perplexity_sonar_deep_research",
+  "eligible": false,
+  "reason": "rule 1: not a general-purpose chat model"
+ },
+ {
+  "rank": 502,
+  "slug": "thenlper/gte-base-20251117",
+  "label": "s7_thenlper_gte_base_20251117",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 503,
+  "slug": "cohere/command-a",
+  "label": "s7_cohere_command_a",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 504,
+  "slug": "moondream/moondream3.1-9b-a2b",
+  "label": "s7_moondream_moondream3_1_9b_a2b",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 3.5
+ },
+ {
+  "rank": 506,
+  "slug": "perplexity/pplx-decider-flash-v1.3-20261112",
+  "label": "s7_perplexity_pplx_decider_flash_v1_3_20261112",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 507,
+  "slug": "writer/palmyra-x5",
+  "label": "s7_writer_palmyra_x5",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 8.36
+ },
+ {
+  "rank": 508,
+  "slug": "liquid/lfm-2.5-embedding-350m-20260818",
+  "label": "s7_liquid_lfm_2_5_embedding_350m_20260818",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 509,
+  "slug": "mistralai/mixtral-8x22b-instruct",
+  "label": "s7_mistralai_mixtral_8x22b_instruct",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 511,
+  "slug": "relace/relace-apply-3",
+  "label": "s7_relace_relace_apply_3",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 2.03
+ },
+ {
+  "rank": 512,
+  "slug": "minimax/minimax-m1",
+  "label": "s7_minimax_minimax_m1",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 513,
+  "slug": "openai/gpt-image-1-mini",
+  "label": "s7_openai_gpt_image_1_mini",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 514,
+  "slug": "minimax/minimax-h3-image-20261110",
+  "label": "s7_minimax_minimax_h3_image_20261110",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 515,
+  "slug": "qwen/qwen-image-2.1-pro-20261016",
+  "label": "s7_qwen_qwen_image_2_1_pro_20261016",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 516,
+  "slug": "qwen/qwen-image-3-pro-20260805",
+  "label": "s7_qwen_qwen_image_3_pro_20260805",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 517,
+  "slug": "upstage/solar-pro-3",
+  "label": "s7_upstage_solar_pro_3",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 519,
+  "slug": "microsoft/mai-image-2.6-flash-20260904",
+  "label": "s7_microsoft_mai_image_2_6_flash_20260904",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 522,
+  "slug": "sao10k/l3.3-euryale-70b-v2.3",
+  "label": "s7_sao10k_l3_3_euryale_70b_v2_3",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 524,
+  "slug": "openai/gpt-4o-transcribe",
+  "label": "s7_openai_gpt_4o_transcribe",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 526,
+  "slug": "openai/gpt-4",
+  "label": "s7_openai_gpt_4",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 527,
+  "slug": "microsoft/mai-image-2.6-20260904",
+  "label": "s7_microsoft_mai_image_2_6_20260904",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 528,
+  "slug": "krea/krea-2-medium-turbo-20260720",
+  "label": "s7_krea_krea_2_medium_turbo_20260720",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 529,
+  "slug": "morph/morph-v3-large",
+  "label": "s7_morph_morph_v3_large",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 2.93
+ },
+ {
+  "rank": 530,
+  "slug": "rekaai/reka-flash-3",
+  "label": "s7_rekaai_reka_flash_3",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 0.31
+ },
+ {
+  "rank": 531,
+  "slug": "tencent/hy-mt2-1.8b",
+  "label": "s7_tencent_hy_mt2_1_8b",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 532,
+  "slug": "tencent/hy-mt2-7b",
+  "label": "s7_tencent_hy_mt2_7b",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 533,
+  "slug": "fish-audio/drama-3-20261013",
+  "label": "s7_fish_audio_drama_3_20261013",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 534,
+  "slug": "inference-net/schematron-v2-small",
+  "label": "s7_inference_net_schematron_v2_small",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 0.33
+ },
+ {
+  "rank": 535,
+  "slug": "black-forest-labs/flux.2-max",
+  "label": "s7_black_forest_labs_flux_2_max",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 536,
+  "slug": "openai/gpt-5-image",
+  "label": "s7_openai_gpt_5_image",
+  "eligible": false,
+  "reason": "rule 1: not a general-purpose chat model"
+ },
+ {
+  "rank": 537,
+  "slug": "cohere/command-r-plus-08-2024",
+  "label": "s7_cohere_command_r_plus_08_2024",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 539,
+  "slug": "mistralai/voxtral-mini-transcribe-2602",
+  "label": "s7_mistralai_voxtral_mini_transcribe_2602",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 541,
+  "slug": "hexgrad/kokoro-82m",
+  "label": "s7_hexgrad_kokoro_82m",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 542,
+  "slug": "openai/gpt-4-turbo",
+  "label": "s7_openai_gpt_4_turbo",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 543,
+  "slug": "microsoft/mai-image-2.5",
+  "label": "s7_microsoft_mai_image_2_5",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 546,
+  "slug": "sourceful/riverflow-v2.5-pro-20260605",
+  "label": "s7_sourceful_riverflow_v2_5_pro_20260605",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 547,
+  "slug": "mistralai/voxtral-small-transcribe-3-0-20261020",
+  "label": "s7_mistralai_voxtral_small_transcribe_3_0_20261020",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 548,
+  "slug": "openai/o4-mini-high-2025-04-16",
+  "label": "s7_openai_o4_mini_high_2025_04_16",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 551,
+  "slug": "moondream/moondream3-preview",
+  "label": "s7_moondream_moondream3_preview",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 3.5
+ },
+ {
+  "rank": 552,
+  "slug": "elevenlabs/eleven-v4-turbo-20260930",
+  "label": "s7_elevenlabs_eleven_v4_turbo_20260930",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 554,
+  "slug": "google/gemini-omni-1.2-flash",
+  "label": "s7_google_gemini_omni_1_2_flash",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 555,
+  "slug": "minimax/minimax-h3-image-highspeed-20261110",
+  "label": "s7_minimax_minimax_h3_image_highspeed_20261110",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 556,
+  "slug": "intfloat/e5-base-v2-20251117",
+  "label": "s7_intfloat_e5_base_v2_20251117",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 557,
+  "slug": "recraft/recraft-v4.1-20260514",
+  "label": "s7_recraft_recraft_v4_1_20260514",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 559,
+  "slug": "sourceful/riverflow-v2.6-pro-20261029",
+  "label": "s7_sourceful_riverflow_v2_6_pro_20261029",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 560,
+  "slug": "mancer/weaver",
+  "label": "s7_mancer_weaver",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 0.8
+ },
+ {
+  "rank": 562,
+  "slug": "black-forest-labs/flux.2-flex",
+  "label": "s7_black_forest_labs_flux_2_flex",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 564,
+  "slug": "qwen/qwen3-reranker-0.6b",
+  "label": "s7_qwen_qwen3_reranker_0_6b",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 565,
+  "slug": "intfloat/e5-large-v2-20251117",
+  "label": "s7_intfloat_e5_large_v2_20251117",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 567,
+  "slug": "recraft/recraft-v4.1-pro-20260514",
+  "label": "s7_recraft_recraft_v4_1_pro_20260514",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 568,
+  "slug": "recraft/recraft-v4.1-vector-20260514",
+  "label": "s7_recraft_recraft_v4_1_vector_20260514",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 570,
+  "slug": "openai/gpt-5.4-pro",
+  "label": "s7_openai_gpt_5_4_pro",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 571,
+  "slug": "qwen/qwen3-next-80b-a3b-thinking-2509",
+  "label": "s7_qwen_qwen3_next_80b_a3b_thinking_2509",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 572,
+  "slug": "elevenlabs/eleven-v4-20260930",
+  "label": "s7_elevenlabs_eleven_v4_20260930",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 573,
+  "slug": "openai/gpt-3.5-turbo-16k",
+  "label": "s7_openai_gpt_3_5_turbo_16k",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 574,
+  "slug": "aion-labs/aion-rp-llama-3.1-8b",
+  "label": "s7_aion_labs_aion_rp_llama_3_1_8b",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 575,
+  "slug": "openai/gpt-5.2-pro",
+  "label": "s7_openai_gpt_5_2_pro",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 576,
+  "slug": "mistralai/mistral-saba",
+  "label": "s7_mistralai_mistral_saba",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 577,
+  "slug": "x-ai/grok-voice-tts-1.0",
+  "label": "s7_x_ai_grok_voice_tts_1_0",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 578,
+  "slug": "sourceful/riverflow-v2.5-fast-20260605",
+  "label": "s7_sourceful_riverflow_v2_5_fast_20260605",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 580,
+  "slug": "fish-audio/s2.1-pro-free-20260729",
+  "label": "s7_fish_audio_s2_1_pro_free_20260729",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 582,
+  "slug": "google/gemini-4-carbon-eap-20261028",
+  "label": "s7_google_gemini_4_carbon_eap_20261028",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 583,
+  "slug": "heygen/heygen-voice-1-turbo-20261009",
+  "label": "s7_heygen_heygen_voice_1_turbo_20261009",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 584,
+  "slug": "thenlper/gte-large-20251117",
+  "label": "s7_thenlper_gte_large_20251117",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 585,
+  "slug": "openai/o3-pro",
+  "label": "s7_openai_o3_pro",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 586,
+  "slug": "mistralai/voxtral-mini-transcribe-3-0-20261020",
+  "label": "s7_mistralai_voxtral_mini_transcribe_3_0_20261020",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 587,
+  "slug": "krea/krea-2-large-20260720",
+  "label": "s7_krea_krea_2_large_20260720",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 589,
+  "slug": "krea/krea-2-medium-20260720",
+  "label": "s7_krea_krea_2_medium_20260720",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 590,
+  "slug": "fish-audio/s2.1-pro-20260729",
+  "label": "s7_fish_audio_s2_1_pro_20260729",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 591,
+  "slug": "google/lyria-3-clip-preview",
+  "label": "s7_google_lyria_3_clip_preview",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 592,
+  "slug": "relace/relace-search",
+  "label": "s7_relace_relace_search",
+  "eligible": false,
+  "reason": "rule 1: not a general-purpose chat model"
+ },
+ {
+  "rank": 593,
+  "slug": "openai/gpt-5-pro",
+  "label": "s7_openai_gpt_5_pro",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 595,
+  "slug": "google/gemini-omni-1.1-flash",
+  "label": "s7_google_gemini_omni_1_1_flash",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 596,
+  "slug": "sourceful/riverflow-v2-fast-20260130",
+  "label": "s7_sourceful_riverflow_v2_fast_20260130",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 598,
+  "slug": "openai/gpt-image-1",
+  "label": "s7_openai_gpt_image_1",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 599,
+  "slug": "microsoft/mai-image-2.5-pro-20260723",
+  "label": "s7_microsoft_mai_image_2_5_pro_20260723",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 600,
+  "slug": "elevenlabs/eleven-v3-20260930",
+  "label": "s7_elevenlabs_eleven_v3_20260930",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 603,
+  "slug": "kt/midm-k-3.0-pro",
+  "label": "s7_kt_midm_k_3_0_pro",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 1.16
+ },
+ {
+  "rank": 604,
+  "slug": "amazon/titan-embed-text-v1-20261026",
+  "label": "s7_amazon_titan_embed_text_v1_20261026",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 606,
+  "slug": "recraft/recraft-v4.1-pro-vector-20260514",
+  "label": "s7_recraft_recraft_v4_1_pro_vector_20260514",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 607,
+  "slug": "recraft/recraft-v4-20260413",
+  "label": "s7_recraft_recraft_v4_20260413",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 608,
+  "slug": "elevenlabs/eleven-flash-v2.5-20260930",
+  "label": "s7_elevenlabs_eleven_flash_v2_5_20260930",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 609,
+  "slug": "sentence-transformers/paraphrase-minilm-l6-v2-20251117",
+  "label": "s7_sentence_transformers_paraphrase_minilm_l6_v2_20251117",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 610,
+  "slug": "recraft/recraft-v4-styles-vector-20260826",
+  "label": "s7_recraft_recraft_v4_styles_vector_20260826",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 612,
+  "slug": "recraft/recraft-v4-styles-20260826",
+  "label": "s7_recraft_recraft_v4_styles_20260826",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 613,
+  "slug": "recraft/recraft-v4.1-utility-20260514",
+  "label": "s7_recraft_recraft_v4_1_utility_20260514",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 615,
+  "slug": "sentence-transformers/multi-qa-mpnet-base-dot-v1-20251117",
+  "label": "s7_sentence_transformers_multi_qa_mpnet_base_dot_v1_20251117",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 617,
+  "slug": "bytedance-seed/seedream-5-5-20261112",
+  "label": "s7_bytedance_seed_seedream_5_5_20261112",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 618,
+  "slug": "baai/bge-m3",
+  "label": "s7_baai_bge_m3",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 620,
+  "slug": "recraft/recraft-v4-vector-20260514",
+  "label": "s7_recraft_recraft_v4_vector_20260514",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 622,
+  "slug": "recraft/recraft-v3-20260413",
+  "label": "s7_recraft_recraft_v3_20260413",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 623,
+  "slug": "microsoft/mai-voice-2",
+  "label": "s7_microsoft_mai_voice_2",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 624,
+  "slug": "openai/o1-2024-12-17",
+  "label": "s7_openai_o1_2024_12_17",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 625,
+  "slug": "motif-technologies/motif-3",
+  "label": "s7_motif_technologies_motif_3",
+  "eligible": true,
+  "reason": "",
+  "est_cost_usd": 1.74
+ },
+ {
+  "rank": 626,
+  "slug": "recraft/recraft-v4-styles-pro-20260826",
+  "label": "s7_recraft_recraft_v4_styles_pro_20260826",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 627,
+  "slug": "microsoft/mai-voice-2.1-flash-20261001",
+  "label": "s7_microsoft_mai_voice_2_1_flash_20261001",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 628,
+  "slug": "perplexity/pplx-embed-v1-0.6b",
+  "label": "s7_perplexity_pplx_embed_v1_0_6b",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 629,
+  "slug": "openai/o3-mini-high-2025-01-31",
+  "label": "s7_openai_o3_mini_high_2025_01_31",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 630,
+  "slug": "recraft/recraft-v4-pro-20260413",
+  "label": "s7_recraft_recraft_v4_pro_20260413",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 631,
+  "slug": "microsoft/mai-voice-2.1-20261001",
+  "label": "s7_microsoft_mai_voice_2_1_20261001",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 632,
+  "slug": "sourceful/riverflow-v2-pro-20260130",
+  "label": "s7_sourceful_riverflow_v2_pro_20260130",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 633,
+  "slug": "bytedance-seed/seed-audio-1-0-20260630",
+  "label": "s7_bytedance_seed_seed_audio_1_0_20260630",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 635,
+  "slug": "elevenlabs/eleven-multilingual-v2-20260930",
+  "label": "s7_elevenlabs_eleven_multilingual_v2_20260930",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 636,
+  "slug": "mistralai/voxtral-mini-tts-3-0-20261020",
+  "label": "s7_mistralai_voxtral_mini_tts_3_0_20261020",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 637,
+  "slug": "qwen/qwen-audio-3.0-tts-plus-20260723",
+  "label": "s7_qwen_qwen_audio_3_0_tts_plus_20260723",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 638,
+  "slug": "recraft/recraft-v4.1-utility-pro-20260514",
+  "label": "s7_recraft_recraft_v4_1_utility_pro_20260514",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 639,
+  "slug": "recraft/recraft-v4-pro-vector-20260514",
+  "label": "s7_recraft_recraft_v4_pro_vector_20260514",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 640,
+  "slug": "voyageai/voyage-4",
+  "label": "s7_voyageai_voyage_4",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 641,
+  "slug": "elevenlabs/eleven-turbo-v2.5-20260930",
+  "label": "s7_elevenlabs_eleven_turbo_v2_5_20260930",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 644,
+  "slug": "voyageai/voyage-code-4",
+  "label": "s7_voyageai_voyage_code_4",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 645,
+  "slug": "inclusionai/ling-3.0-flash-fin-20260827",
+  "label": "s7_inclusionai_ling_3_0_flash_fin_20260827",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 646,
+  "slug": "qwen/qwen-audio-3.0-tts-flash-20260723",
+  "label": "s7_qwen_qwen_audio_3_0_tts_flash_20260723",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 647,
+  "slug": "minimax/speech-2.8-hd-20260716",
+  "label": "s7_minimax_speech_2_8_hd_20260716",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 649,
+  "slug": "deepgram/aura-2-20260716",
+  "label": "s7_deepgram_aura_2_20260716",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 650,
+  "slug": "amazon/titan-embed-image-v1-20261026",
+  "label": "s7_amazon_titan_embed_image_v1_20261026",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 651,
+  "slug": "microsoft/mai-voice-2-flash-20260723",
+  "label": "s7_microsoft_mai_voice_2_flash_20260723",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 652,
+  "slug": "Qwen/Qwen3-Embedding-8B",
+  "label": "s7_qwen_qwen3_embedding_8b",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 653,
+  "slug": "mistralai/voxtral-mini-tts-2603",
+  "label": "s7_mistralai_voxtral_mini_tts_2603",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 654,
+  "slug": "minimax/speech-2.8-turbo-20260716",
+  "label": "s7_minimax_speech_2_8_turbo_20260716",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 656,
+  "slug": "nvidia/nemotron-3-embed-1b",
+  "label": "s7_nvidia_nemotron_3_embed_1b",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 657,
+  "slug": "recraft/recraft-v4-styles-pro-vector-20260826",
+  "label": "s7_recraft_recraft_v4_styles_pro_vector_20260826",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 658,
+  "slug": "heygen/heygen-voice-1-20261009",
+  "label": "s7_heygen_heygen_voice_1_20261009",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 659,
+  "slug": "elevenlabs/eleven-v3-conversational-20260930",
+  "label": "s7_elevenlabs_eleven_v3_conversational_20260930",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 662,
+  "slug": "inclusionai/ling-3.0-flash-sante-20260904",
+  "label": "s7_inclusionai_ling_3_0_flash_sante_20260904",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 665,
+  "slug": "canopylabs/orpheus-3b-0.1-ft",
+  "label": "s7_canopylabs_orpheus_3b_0_1_ft",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 670,
+  "slug": "openai/o1-pro",
+  "label": "s7_openai_o1_pro",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 671,
+  "slug": "deepgram/flux-tts-20260812",
+  "label": "s7_deepgram_flux_tts_20260812",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 672,
+  "slug": "fish-audio/s1-20260729",
+  "label": "s7_fish_audio_s1_20260729",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 673,
+  "slug": "assemblyai/assemblyai-tts-1-20261028",
+  "label": "s7_assemblyai_assemblyai_tts_1_20261028",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 675,
+  "slug": "text-embedding-3-large",
+  "label": "s7_text_embedding_3_large",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 677,
+  "slug": "fish-audio/s2-pro-20260729",
+  "label": "s7_fish_audio_s2_pro_20260729",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 678,
+  "slug": "openai/gpt-realtime-2.1",
+  "label": "s7_openai_gpt_realtime_2_1",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 679,
+  "slug": "qwen3-embedding-8b",
+  "label": "s7_qwen3_embedding_8b",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 680,
+  "slug": "elevenlabs/eleven-turbo-v2-20260930",
+  "label": "s7_elevenlabs_eleven_turbo_v2_20260930",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 681,
+  "slug": "elevenlabs/eleven-flash-v2-20260930",
+  "label": "s7_elevenlabs_eleven_flash_v2_20260930",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 683,
+  "slug": "speechify/simba-3.5-20261111",
+  "label": "s7_speechify_simba_3_5_20261111",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 684,
+  "slug": "nvidia/nemotron-3.5-embed-1b",
+  "label": "s7_nvidia_nemotron_3_5_embed_1b",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 685,
+  "slug": "sesame/csm-1b",
+  "label": "s7_sesame_csm_1b",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 687,
+  "slug": "gmicloud/ripple-65b-preview-20261104",
+  "label": "s7_gmicloud_ripple_65b_preview_20261104",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 690,
+  "slug": "text-embedding-3-small",
+  "label": "s7_text_embedding_3_small",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 692,
+  "slug": "intfloat/multilingual-e5-large",
+  "label": "s7_intfloat_multilingual_e5_large",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 693,
+  "slug": "unbiased/pareto-20260917",
+  "label": "s7_unbiased_pareto_20260917",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 696,
+  "slug": "openai/gpt-5.2-chat",
+  "label": "s7_openai_gpt_5_2_chat",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 698,
+  "slug": "voyageai/voyage-4-lite",
+  "label": "s7_voyageai_voyage_4_lite",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 699,
+  "slug": "amazon/nova-premier-v1",
+  "label": "s7_amazon_nova_premier_v1",
+  "eligible": false,
+  "reason": "rule 3: developer already has three models"
+ },
+ {
+  "rank": 700,
+  "slug": "bytedance/seedance-2.0-mini-20260811",
+  "label": "s7_bytedance_seedance_2_0_mini_20260811",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 701,
+  "slug": "microsoft/mai-transcribe-2-20260903",
+  "label": "s7_microsoft_mai_transcribe_2_20260903",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 702,
+  "slug": "minimax/hailuo-03-20260730",
+  "label": "s7_minimax_hailuo_03_20260730",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 703,
+  "slug": "cohere/rerank-4-fast",
+  "label": "s7_cohere_rerank_4_fast",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 704,
+  "slug": "alibaba/wan-2.6-20260327",
+  "label": "s7_alibaba_wan_2_6_20260327",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 705,
+  "slug": "bytedance/seedance-2.5-20260807",
+  "label": "s7_bytedance_seedance_2_5_20260807",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 706,
+  "slug": "bytedance/seedance-2.0-20260414",
+  "label": "s7_bytedance_seedance_2_0_20260414",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 707,
+  "slug": "cohere/rerank-4-pro",
+  "label": "s7_cohere_rerank_4_pro",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 708,
+  "slug": "google/veo-3.1-fast-20260320",
+  "label": "s7_google_veo_3_1_fast_20260320",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 709,
+  "slug": "google/veo-3.1-20260320",
+  "label": "s7_google_veo_3_1_20260320",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 710,
+  "slug": "minimax/hailuo-3-max-20260901",
+  "label": "s7_minimax_hailuo_3_max_20260901",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 711,
+  "slug": "black-forest-labs/flux-3-video-20260804",
+  "label": "s7_black_forest_labs_flux_3_video_20260804",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 712,
+  "slug": "microsoft/mai-transcribe-1.5",
+  "label": "s7_microsoft_mai_transcribe_1_5",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 713,
+  "slug": "assemblyai/universal-3-6-pro-20261014",
+  "label": "s7_assemblyai_universal_3_6_pro_20261014",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 714,
+  "slug": "google/veo-3.1-lite-20260331",
+  "label": "s7_google_veo_3_1_lite_20260331",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 715,
+  "slug": "alibaba/wan-3.0-prime-20260827",
+  "label": "s7_alibaba_wan_3_0_prime_20260827",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 716,
+  "slug": "black-forest-labs/flux-video-edit-20260910",
+  "label": "s7_black_forest_labs_flux_video_edit_20260910",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 717,
+  "slug": "x-ai/grok-imagine-video-1.5-lite-20261001",
+  "label": "s7_x_ai_grok_imagine_video_1_5_lite_20261001",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 718,
+  "slug": "fish-audio/transcribe-1-20260729",
+  "label": "s7_fish_audio_transcribe_1_20260729",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 719,
+  "slug": "runway/gen-4.5-20260729",
+  "label": "s7_runway_gen_4_5_20260729",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 720,
+  "slug": "mistralai/voxtral-mini-3b-2507-20260813",
+  "label": "s7_mistralai_voxtral_mini_3b_2507_20260813",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 721,
+  "slug": "x-ai/grok-imagine-video-1.5-20260719",
+  "label": "s7_x_ai_grok_imagine_video_1_5_20260719",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 722,
+  "slug": "nvidia/nemotron-3.5-asr-streaming-multilingual-0.6b-20260813",
+  "label": "s7_nvidia_nemotron_3_5_asr_streaming_multilingual_0_6b_20260813",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 723,
+  "slug": "alibaba/happyhorse-1.1-20260624",
+  "label": "s7_alibaba_happyhorse_1_1_20260624",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 724,
+  "slug": "alibaba/happyhorse-1.0-20260624",
+  "label": "s7_alibaba_happyhorse_1_0_20260624",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 725,
+  "slug": "tbc/mischief-1-20261023",
+  "label": "s7_tbc_mischief_1_20261023",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 726,
+  "slug": "openai/whisper-large-v3-turbo",
+  "label": "s7_openai_whisper_large_v3_turbo",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 727,
+  "slug": "elevenlabs/scribe-v2-medical-20260929",
+  "label": "s7_elevenlabs_scribe_v2_medical_20260929",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 728,
+  "slug": "qwen/qwen3-asr-0.6b-20260813",
+  "label": "s7_qwen_qwen3_asr_0_6b_20260813",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 729,
+  "slug": "openai/whisper-1",
+  "label": "s7_openai_whisper_1",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 730,
+  "slug": "assemblyai/universal-3-5-pro-20260914",
+  "label": "s7_assemblyai_universal_3_5_pro_20260914",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 731,
+  "slug": "kwaivgi/kling-v3.0-pro-20260429",
+  "label": "s7_kwaivgi_kling_v3_0_pro_20260429",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 732,
+  "slug": "deepgram/nova-3-20260714",
+  "label": "s7_deepgram_nova_3_20260714",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 733,
+  "slug": "minimax/hailuo-2.3-20260420",
+  "label": "s7_minimax_hailuo_2_3_20260420",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 734,
+  "slug": "nvidia/parakeet-tdt-0.6b-v3",
+  "label": "s7_nvidia_parakeet_tdt_0_6b_v3",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 735,
+  "slug": "black-forest-labs/flux-video-upscale-20260819",
+  "label": "s7_black_forest_labs_flux_video_upscale_20260819",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 736,
+  "slug": "kwaivgi/kling-v3.0-std-20260429",
+  "label": "s7_kwaivgi_kling_v3_0_std_20260429",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 737,
+  "slug": "elevenlabs/scribe-v2-20260929",
+  "label": "s7_elevenlabs_scribe_v2_20260929",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 738,
+  "slug": "alibaba/wan-3.0-20260824",
+  "label": "s7_alibaba_wan_3_0_20260824",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 739,
+  "slug": "alibaba/wan-2.7-20260414",
+  "label": "s7_alibaba_wan_2_7_20260414",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 740,
+  "slug": "x-ai/grok-stt-20260723",
+  "label": "s7_x_ai_grok_stt_20260723",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 741,
+  "slug": "mistralai/voxtral-small-24b-2507-stt-20260813",
+  "label": "s7_mistralai_voxtral_small_24b_2507_stt_20260813",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 742,
+  "slug": "openai/whisper-large-v3",
+  "label": "s7_openai_whisper_large_v3",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 743,
+  "slug": "kwaivgi/kling-video-o1-20260420",
+  "label": "s7_kwaivgi_kling_video_o1_20260420",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 744,
+  "slug": "nvidia/nemotron-3.5-transcribe-20261028",
+  "label": "s7_nvidia_nemotron_3_5_transcribe_20261028",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 745,
+  "slug": "openai/gpt-transcribe-20260805",
+  "label": "s7_openai_gpt_transcribe_20260805",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 746,
+  "slug": "fish-audio/transcribe-1-pro-20260924",
+  "label": "s7_fish_audio_transcribe_1_pro_20260924",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 747,
+  "slug": "runway/aleph-2-20260729",
+  "label": "s7_runway_aleph_2_20260729",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 748,
+  "slug": "bytedance/seedance-2.0-fast-20260414",
+  "label": "s7_bytedance_seedance_2_0_fast_20260414",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 749,
+  "slug": "heygen/avatar-iv-20260625",
+  "label": "s7_heygen_avatar_iv_20260625",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 750,
+  "slug": "qwen/qwen3-asr-1.7b-20260813",
+  "label": "s7_qwen_qwen3_asr_1_7b_20260813",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 751,
+  "slug": "google/chirp-3",
+  "label": "s7_google_chirp_3",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 752,
+  "slug": "moondream/parakeet-ultra-20261102",
+  "label": "s7_moondream_parakeet_ultra_20261102",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 753,
+  "slug": "x-ai/grok-imagine-video-20260512",
+  "label": "s7_x_ai_grok_imagine_video_20260512",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 754,
+  "slug": "x-ai/grok-stt-2.0-20260918",
+  "label": "s7_x_ai_grok_stt_2_0_20260918",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 755,
+  "slug": "heygen/heygen-video-1-20260930",
+  "label": "s7_heygen_heygen_video_1_20260930",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 756,
+  "slug": "meta/muse-voice-transcribe-1.0-20260903",
+  "label": "s7_meta_muse_voice_transcribe_1_0_20260903",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 757,
+  "slug": "cohere/rerank-v3.5",
+  "label": "s7_cohere_rerank_v3_5",
+  "eligible": false,
+  "reason": "not in the public model list"
+ },
+ {
+  "rank": 758,
+  "slug": "bytedance/seedance-1-5-pro-20260320",
+  "label": "s7_bytedance_seedance_1_5_pro_20260320",
+  "eligible": false,
+  "reason": "not in the public model list"
+ }
+]
