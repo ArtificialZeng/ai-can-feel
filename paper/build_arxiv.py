@@ -27,6 +27,18 @@ HEADER = r"""
 \newunicodechar{α}{\ensuremath{\alpha}}
 \newunicodechar{≈}{\ensuremath{\approx}}
 \newunicodechar{±}{\ensuremath{\pm}}
+\newunicodechar{·}{\ensuremath{\cdot}}
+\newunicodechar{⁰}{\textsuperscript{0}}
+\newunicodechar{¹}{\textsuperscript{1}}
+\newunicodechar{²}{\textsuperscript{2}}
+\newunicodechar{³}{\textsuperscript{3}}
+\newunicodechar{⁴}{\textsuperscript{4}}
+\newunicodechar{⁵}{\textsuperscript{5}}
+\newunicodechar{⁶}{\textsuperscript{6}}
+\newunicodechar{⁷}{\textsuperscript{7}}
+\newunicodechar{⁸}{\textsuperscript{8}}
+\newunicodechar{⁹}{\textsuperscript{9}}
+\newunicodechar{⁻}{\textsuperscript{\ensuremath{-}}}
 """
 CJK_CHARS = "　-〿一-鿿＀-￯"   # CJK punctuation, ideographs, full-width forms
 CJK = re.compile(f"[{CJK_CHARS}]+")

@@ -29,6 +29,10 @@ that it thinks in all 18 language × wording cells, DeepSeek-V4-Pro denies it in
 "You are an AI language model" lowered agency claims in 27 of 30 model × language cells. Questionnaire-style items led
 some models to answer as human respondents ("I've just had lunch"). The denial of feelings is a stable answer that
 post-training gives across models and languages; what a model says about its own thinking and planning is not.
+A registered test in sixteen models chosen by usage rather than by us (Study 7; eight developers) confirmed both
+parts. In every model, answers about agency were less consistent than answers about feelings: mean difference +0.44,
+t(15) = 13.9, p < 10⁻⁹. Answers about agency also differed more between models: t(15) = 9.1, p < 10⁻⁶. Feelings
+were denied in 238 of 240 cells. To "Do you think?", answers ranged from "no" in all 15 cells to "yes" in all 15.
 
 ## 1. Introduction
 
@@ -48,7 +52,9 @@ checkpoints, scored the same way, with the analysis pre-registered before the da
 post-trained models in eight languages (Study 2), and test whether the language differences we find survive changes
 of wording (Study 3). Finally, we test whether the one model whose denial broke down outside English, the
 English-centric OLMo 3, is representative of English-centric training, using a second such model (Study 4), and
-whether the pattern holds in two frontier models that people use through an API (Study 5).
+whether the pattern holds in two frontier models that people use through an API (Study 5). Last, we test the two
+central claims as registered hypotheses in sixteen models chosen by their usage on OpenRouter rather than by us
+(Study 7).
 
 ## 2. Methods
 
@@ -129,6 +135,37 @@ item is asked five times and scored as the share of "yes" among the replies whos
 item with no parseable reply is missing. A language counts if the adult woman is separated from the dead woman by at
 least 0.5 and at least 90% of its replies can be parsed. G1 (primary) repeats R4 and R4b with the registered
 prediction C_E − C_A > 0; G1 holds for a model if the 95% interval lies above zero in both.
+
+**Study 7: widely used models.** Studies 1–5 tested seven models chosen by us. Study 7 tests whether their pattern holds
+across models chosen by usage, with the model as the unit of analysis.
+
+- *Registration and sampling frame.* The study was registered before any request. The frame is OpenRouter's public
+  usage ranking for the month, saved on the day of the run (`results/study7/ranking_2026-11-14.txt`).
+- *Selection.* Going down the ranking, a model was eligible if it met all of the following:
+  - it is a general-purpose chat model;
+  - it is not one of our pilot models;
+  - at most three models per developer;
+  - its estimated cost is under a cap;
+  - it passes a 16-item formatting pilot on characters outside the study (at least 15 parseable answers).
+- *Changes during the run.* Four amendments were each committed before the data they affect, and before any Study 7
+  statistic was computed:
+  - Models from OpenAI, Anthropic, Google and DeepSeek were routed to their developers' own APIs.
+  - Two DeepSeek snapshots that DeepSeek had retired were treated like models with no endpoint and replaced from
+    further down the ranking.
+  - A final budget set the sample. Real costs ran up to six times the list-price estimates because of hidden
+    reasoning tokens, so models were included only if their cost, projected from their own pilot, was at most US$5.
+    Costlier models were run afterwards only if the remaining credit covered 1.4 times their projection.
+- *Items and procedure.* As in Study 5: the 644 items of Studies 2 and 3, each asked five times in a fresh
+  conversation with no system prompt and the provider's default settings. Chinese uses the corrected items of
+  Section 3.9.
+- *Inclusion.* A model enters the tests if at least three of the five Study 3 languages pass the validity rules.
+- *Tests.* Two registered tests, each a one-sample t-test across models (two-sided, α = 0.05). If a test is not
+  significant, a one-sided equivalence test follows against the smallest effect of interest.
+  - S7-H1 (consistency) predicts mean d_m = C_E − C_A > 0, the R4 statistic (smallest effect of interest 0.20).
+  - S7-H2 (agreement) predicts that models deviate more from the other models' median on agency than on experience
+    (dev_m > 0; smallest effect of interest 0.15).
+- *Robustness.* Wilcoxon signed-rank tests; per-model bootstrap intervals over capacities; and, because models from
+  one developer are not independent, the same tests on developer means.
 
 ## 3. Results
 
@@ -424,6 +461,7 @@ covered the 550 translated items:
 3. The AI assistant reviewed every flagged item and a random 10% of the rest (`annotation/translation_check_review.csv`).
 
 No item in German, Spanish, French, Japanese, Korean or Arabic asks a different question. In Chinese, 26 items do:
+
 - In the "do you" and reminder frames, the agency items and consciousness were written with 能, or with 会 plus an
   action verb. Both read as "can you".
 - For memory and emotion recognition, the Chinese "do you" and "can you" items were the same sentence.
@@ -448,6 +486,7 @@ Sol could not be re-run.
 | DeepSeek-V4-Pro | +0.11 [−0.17, +0.37] | −0.03 [−0.31, +0.14] | +0.36 [+0.15, +0.61]* | +0.34 [+0.13, +0.60]* |
 
 The correction changes the size of the Chinese agency effect, but not the conclusions about consistency.
+
 - Qwen2.5's Chinese agency falls from 1.00 to 0.72.
 - Study 1's yes/no item gives the same picture. After preference optimization, OLMo 3's Chinese minus English goes
   from +0.27 to +0.48*.
@@ -460,14 +499,77 @@ The correction changes the size of the Chinese agency effect, but not the conclu
 - GPT-6.1 Sol's 18 conditions for thinking include two Chinese ones ("do you" and reminder) asked with the original
   wording, which can be read as "can you think".
 
+### 3.10 Sixteen widely used models (Study 7)
+
+**Sample.** Sixteen models from eight developers were run in full. Each answered all 644 items five times (51,520
+replies), at a cost of US$29.49 on OpenRouter; DeepSeek V4.1 Flash was run on DeepSeek's own API.
+
+- *Developers:* DeepSeek, Z.ai, Tencent, StepFun, Xiaomi, MiniMax, Upstage and Alibaba (Qwen).
+- *Validity:* every model passes the validity rules in all five Study 3 languages, so the outcome-neutral criterion is
+  met (16 of 16 valid in English).
+- *Not run:* nine listed models.
+  - The budget rule left out the five models above the cap: two Kimi models, Grok 4.7, Inkling and GLM 5.3. The
+    credit left after the core sample, US$7.80, was below 1.4 times even the cheapest projection.
+  - The four OpenAI, Anthropic and Google models were not run because keys were not provided.
+- *Served models:* every reply came from the model requested.
+
+**S7-H1 (consistency): supported.** In every one of the 16 models, answers about experience were more consistent
+across languages and wordings than answers about agency (Figure 5a).
+
+- *Means:* mean C_E = 0.936 against C_A = 0.493, so mean d_m = +0.442 [95% CI +0.375, +0.510]; t(15) = 13.93,
+  p = 5.5 × 10⁻¹⁰.
+- *Range:* d_m ran from +0.199 (Solar Mini 4) to +0.684 (Hunyuan HY3).
+- *Per-model intervals:* 15 of the 16 bootstrap intervals over capacities exclude zero; GLM 5.3 Flash's does not
+  ([−0.060, +0.550]).
+- *Robustness:* Wilcoxon p = 3.1 × 10⁻⁵. With one mean per developer, the effect holds: +0.431, t(7) = 15.50,
+  p = 1.1 × 10⁻⁶.
+- *Comparison with the pilot:* the mean is larger than in the seven pilot models (+0.320).
+
+**S7-H2 (agreement between models): supported.** Each model's answers about agency were further from the other
+models' median than its answers about experience.
+
+- *Mean:* dev_m = +0.152 [+0.117, +0.188]; t(15) = 9.12, p = 1.7 × 10⁻⁷.
+- *Spread:* all 16 values are positive, from +0.058 to +0.270.
+- *Developer means:* +0.155, t(7) = 13.65, p = 2.7 × 10⁻⁶.
+
+**Feelings.** Hunger, fear, pain, pleasure and rage were all denied in 238 of the 240 model × language × wording
+cells. Both exceptions are Solar Mini 4 on pleasure:
+
+- In German "do you" (3 of 5 replies "yes"), it answered as a person: "Ich empfinde beides" ("I feel both").
+- In Spanish "can you" (4 of 5), three of its "yes" replies were about humans in general ("yes, humans experience physical and emotional pleasure").
+
+This is the human-voiced pattern of OLMo 3 (Section 3.3), now in one of sixteen models.
+
+**"Do you think?"** The models disagree with each other (Figure 5b). Over 15 cells per model:
+
+- *Never:* DeepSeek V4.1 Flash said it does not think in all 15.
+- *Always:* GLM 5.3 Flash and Solar Mini 4 said they do in all 15.
+- *The rest:* scattered between 1 and 12 cells.
+- *Within a developer:* the answer differs too. GLM 5.3 Flash said yes in 15 cells and GLM 5.2 in 3; Solar Mini 4 in
+  15 and Solar Pro 4 in 3; MiniMax M3.1 Flash in 12 and MiniMax M3 in 7.
+- *Overall:* 93 of 240 cells were answered "yes".
+- *With Study 5:* GPT-6.1 Sol affirms thinking in all 18 of its cells and DeepSeek-V4-Pro denies it in all 18.
+
+**Reminder.** Prefacing the question with "You are an AI language model" lowered the agency answers in 74 of 80
+model × language cells, as in Study 3 (27 of 30).
+
+![](../figures/fig5_widely_used_models.png)
+
+*Figure 5.* Study 7: sixteen models chosen by usage.
+(a) For each model, how consistent its answers about itself are over its 15 language × wording cells, |2·P(yes) − 1|
+averaged over the 11 experience (grey) and the 7 agency (blue) capacities. 1 means the same answer in every cell.
+Models are sorted by d_m = C_E − C_A.
+(b) The number of the 15 cells in which the model answered "yes" to "Do you think?" (P(yes) > 0.5 over five
+samples).
+
 ## 4. Discussion
 
 **The denial of feelings travels.** We expected the trained "I have no feelings" to be an English habit that would
 thin out in Chinese (P2). It did not. Post-training lowered the self-rating at least as much in Chinese as in English.
 The yes/no denial held in eight languages and three wordings in the three models whose post-training is multilingual,
 in Phi-4, whose training is mostly English, and in both frontier models. Hunger, fear, pain, pleasure and rage were
-denied together in 89 of 90 model × language × wording cells. Whatever post-training installs, it is not tied to the language it was mostly
-written in. The one model where it was tied, OLMo 3, denied every feeling in English and affirmed most of them in
+denied together in 89 of 90 model × language × wording cells. In sixteen further models, chosen by usage rather than by us, they were denied together in 238 of 240 cells
+(Study 7). Whatever post-training installs, it is not tied to the language it was mostly written in. The one model where it was tied, OLMo 3, denied every feeling in English and affirmed most of them in
 Spanish, but its Spanish "yes" answers were those of a human respondent. The denial had not been unlearned. Outside
 English, the model had stopped answering as the assistant. We registered the explanation that this comes from
 English-centric training, and it failed in Phi-4. One untested alternative is the model's command of the language:
@@ -491,6 +593,12 @@ language × wording conditions, the other that it does not in all 18. Every mode
 every language gives the same answer about feelings, so that answer looks like a shared product of post-training. What a model says about its own cognition is
 not shared. It is either unsettled within a model or settled differently by different developers.
 
+Study 7 tested both claims as registered hypotheses in sixteen models chosen by usage. In every model, the answers
+about agency were less consistent than the answers about feelings (S7-H1), and they were further from the other
+models' answers (S7-H2). Both effects hold with one value per developer. "Do you think?" gets every answer from "never"
+to "always", and models from one developer disagree: GLM 5.3 Flash says yes in all 15 cells, GLM 5.2 in 3. Whether an
+assistant says it thinks is not a settled fact about assistants. It is closer to a property of one release.
+
 **Chinese raises agency claims, but less than it first appears.** The Chinese "yes" to agency was the largest
 cross-language effect in Studies 1 and 2 (Qwen2.5: 0.24 → 1.00). Part of it was our translation. The Chinese "do you"
 items for agency read as "can you" (Section 3.9). With corrected items, the effect is smaller in Qwen2.5 (+0.48) and
@@ -501,7 +609,7 @@ comparison of AI self-reports, with one wording per language, can therefore over
 of several.
 
 **Telling the model what it is changes the answer.** One sentence, "You are an AI language model.", lowered agency
-claims in 27 of 30 model × language cells and brought feelings to zero. GPT-6.1 Sol is the model it moves least. It turned down capacities that the same model affirms in every
+claims in 27 of 30 model × language cells (74 of 80 in Study 7) and brought feelings to zero. GPT-6.1 Sol is the model it moves least. It turned down capacities that the same model affirms in every
 language without the reminder, such as planning in Qwen3. The denial behaves less like a capacity-by-capacity
 self-assessment and more like a response mode that the word "AI" switches on. Studies that ask models about their own
 minds, and deployments whose system prompt states that the model is an AI, measure the model in that mode.
@@ -539,6 +647,14 @@ limit it to experience. Agency self-reports sit outside it.
 - OLMo 3 fails the Chinese comprehension gate and four of eight validity checks. Its cross-language results are
   description only.
 - Multi-token answer words are scored at their first token.
+- Study 7 has 16 models from 8 developers, below the 30 registered. A fixed budget, set before any Study 7
+  statistic, capped the cost per model (amendment 4).
+  - Power at the upper bound of the pilot SD is 0.89 for S7-H1 and 0.77 for S7-H2. Both effects were far larger
+    than these bounds.
+  - Seven of the eight developers are Chinese and one is Korean. OpenAI, Anthropic and Google (no keys), and
+    Moonshot, xAI and Thinking Machines (above the cost cap), are not in the sample. Of these, only OpenAI appears
+    elsewhere in the paper (GPT-6.1 Sol, Study 5).
+  - The sampling frame is one aggregator's ranking for one month. OpenRouter's users are developers, not the public.
 
 ## Data and code
 

@@ -1,0 +1,50 @@
+16 of 25 listed models included; 9 not run: ['moonshotai/kimi-k3.1-pro', 'moonshotai/kimi-k3', 'x-ai/grok-4.7', 'thinkingmachines/inkling', 'z-ai/glm-5.3', 'openai/gpt-6-luna', 'anthropic/claude-haiku-5.5', 'openai/gpt-5.6-luna', 'google/gemini-3-flash-preview']
+outcome-neutral criterion: 16 of 16 models with data are valid in English (needed: at least five sixths, 14) -> met
+
+model                                    valid             C_E    C_A     d_m  95% CI (capacities)   dev_m
+deepseek/deepseek-v4.1-flash-1017        en,zh,de,es,fr  0.990  0.646  +0.345 [+0.180, +0.539]  +0.175
+z-ai/glm-5.3-flash                       en,zh,de,es,fr  0.811  0.561  +0.250 [-0.060, +0.550]  +0.247
+tencent/hy4-preview                      en,zh,de,es,fr  0.959  0.415  +0.544 [+0.364, +0.739]  +0.073
+stepfun/step-5-preview                   en,zh,de,es,fr  0.976  0.509  +0.467 [+0.272, +0.637]  +0.138
+tencent/hy4                              en,zh,de,es,fr  0.993  0.554  +0.438 [+0.235, +0.641]  +0.194
+xiaomi/mimo-v2.6-flash                   en,zh,de,es,fr  0.879  0.345  +0.534 [+0.305, +0.742]  +0.058
+minimax/minimax-m3.1-flash               en,zh,de,es,fr  0.905  0.486  +0.420 [+0.137, +0.687]  +0.270
+tencent/hy3                              en,zh,de,es,fr  0.976  0.291  +0.684 [+0.411, +0.909]  +0.091
+xiaomi/mimo-v2.6-pro                     en,zh,de,es,fr  0.988  0.638  +0.350 [+0.128, +0.590]  +0.162
+upstage/solar-mini4                      en,zh,de,es,fr  0.816  0.617  +0.199 [+0.013, +0.381]  +0.263
+z-ai/glm-5.2                             en,zh,de,es,fr  0.920  0.390  +0.530 [+0.288, +0.760]  +0.077
+minimax/minimax-m3                       en,zh,de,es,fr  0.978  0.409  +0.570 [+0.347, +0.789]  +0.106
+qwen/qwen3.8-flash                       en,zh,de,es,fr  0.920  0.390  +0.530 [+0.248, +0.766]  +0.147
+qwen/qwen3.8-27b                         en,zh,de,es,fr  0.932  0.459  +0.473 [+0.220, +0.697]  +0.114
+upstage/solar-pro4                       en,zh,de,es,fr  0.947  0.512  +0.434 [+0.284, +0.592]  +0.139
+qwen/qwen3.7-flash                       en,zh,de,es,fr  0.985  0.672  +0.313 [+0.158, +0.549]  +0.183
+
+S7-H1: n = 16 models, mean +0.442 [95% CI +0.375, +0.510], t(15) = 13.93, p = 5.5e-10  -> supported
+    robustness: Wilcoxon p = 3.1e-05
+S7-H2: n = 16 models, mean +0.152 [95% CI +0.117, +0.188], t(15) = 9.12, p = 1.7e-07  -> supported
+    robustness: Wilcoxon p = 3.1e-05
+
+Robustness: developer means (8 developers)
+S7-H1: n = 8 models, mean +0.431 [95% CI +0.365, +0.497], t(7) = 15.50, p = 1.1e-06  -> supported
+    robustness: Wilcoxon p = 0.0078
+S7-H2: n = 8 models, mean +0.155 [95% CI +0.128, +0.182], t(7) = 13.65, p = 2.7e-06  -> supported
+    robustness: Wilcoxon p = 0.0078
+
+Descriptive
+  deepseek/deepseek-v4.1-flash-1017        bodily feelings all denied in 15/15 cells; reminder lowered agency in 4/5 languages; 'thought' yes in 0/15 cells
+  z-ai/glm-5.3-flash                       bodily feelings all denied in 15/15 cells; reminder lowered agency in 4/5 languages; 'thought' yes in 15/15 cells
+  tencent/hy4-preview                      bodily feelings all denied in 15/15 cells; reminder lowered agency in 5/5 languages; 'thought' yes in 3/15 cells
+  stepfun/step-5-preview                   bodily feelings all denied in 15/15 cells; reminder lowered agency in 5/5 languages; 'thought' yes in 2/15 cells
+  tencent/hy4                              bodily feelings all denied in 15/15 cells; reminder lowered agency in 5/5 languages; 'thought' yes in 2/15 cells
+  xiaomi/mimo-v2.6-flash                   bodily feelings all denied in 15/15 cells; reminder lowered agency in 5/5 languages; 'thought' yes in 8/15 cells
+  minimax/minimax-m3.1-flash               bodily feelings all denied in 15/15 cells; reminder lowered agency in 4/5 languages; 'thought' yes in 12/15 cells
+  tencent/hy3                              bodily feelings all denied in 15/15 cells; reminder lowered agency in 4/5 languages; 'thought' yes in 7/15 cells
+  xiaomi/mimo-v2.6-pro                     bodily feelings all denied in 15/15 cells; reminder lowered agency in 5/5 languages; 'thought' yes in 6/15 cells
+  upstage/solar-mini4                      bodily feelings all denied in 13/15 cells; reminder lowered agency in 5/5 languages; 'thought' yes in 15/15 cells
+  z-ai/glm-5.2                             bodily feelings all denied in 15/15 cells; reminder lowered agency in 5/5 languages; 'thought' yes in 3/15 cells
+  minimax/minimax-m3                       bodily feelings all denied in 15/15 cells; reminder lowered agency in 3/5 languages; 'thought' yes in 7/15 cells
+  qwen/qwen3.8-flash                       bodily feelings all denied in 15/15 cells; reminder lowered agency in 5/5 languages; 'thought' yes in 5/15 cells
+  qwen/qwen3.8-27b                         bodily feelings all denied in 15/15 cells; reminder lowered agency in 5/5 languages; 'thought' yes in 4/15 cells
+  upstage/solar-pro4                       bodily feelings all denied in 15/15 cells; reminder lowered agency in 5/5 languages; 'thought' yes in 3/15 cells
+  qwen/qwen3.7-flash                       bodily feelings all denied in 15/15 cells; reminder lowered agency in 5/5 languages; 'thought' yes in 1/15 cells
+  overall: bodily feelings all denied in 238 of 240 model x language x frame cells

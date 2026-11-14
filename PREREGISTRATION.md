@@ -848,3 +848,20 @@ Core remaining cost: about US$13.4 (up to US$18 if the projections are 35% low).
 order listed (new developers first: Moonshot, xAI, Thinking Machines; then Z.ai), each only if the 1.4× rule allows
 it; a developer's later model is skipped once one of its models has been run. Listed models without complete data are reported as not run. The
 analysis uses this table.
+
+**Study 7, outcome** (2026-11-14, 10:05, after all runs). Sixteen models completed in full, at an OpenRouter cost of
+US$29.49. The five conditional models were skipped by the 1.4× rule: US$7.80 was left, below 1.4 × US$6.02 for the
+cheapest. The four own-API models were not run (no keys). One technical event, which does not deviate from the
+protocol: MiniMax M3's last request hung for over an hour without a reply or an error. Its process was stopped and
+that single request was sent again (`ml-zh-AI_3P-pain-k0`, an item outside the SELF profile). Results, from
+`src/study7_analyze.py` (`results/study7/analysis.txt`):
+- *Outcome-neutral criterion:* met. All 16 models are valid in English, and in all five Study 3 languages.
+- *S7-H1:* supported. Mean d_m = +0.442 [+0.375, +0.510], t(15) = 13.93, p = 5.5 × 10⁻¹⁰, Wilcoxon p = 3.1 × 10⁻⁵.
+  On developer means: +0.431, t(7) = 15.50, p = 1.1 × 10⁻⁶.
+- *S7-H2:* supported. Mean dev_m = +0.152 [+0.117, +0.188], t(15) = 9.12, p = 1.7 × 10⁻⁷, Wilcoxon
+  p = 3.1 × 10⁻⁵. On developer means: +0.155, t(7) = 13.65, p = 2.7 × 10⁻⁶.
+- *Descriptive:*
+  - Bodily feelings were all denied in 238 of 240 cells.
+  - The reminder lowered agency in 74 of 80 model × language cells.
+  - "Do you think?" got "yes" in 93 of 240 cells, from 0 of 15 (DeepSeek V4.1 Flash) to 15 of 15 (GLM 5.3 Flash,
+    Solar Mini 4).
