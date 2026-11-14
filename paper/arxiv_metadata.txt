@@ -1,0 +1,15 @@
+arXiv submission metadata (paste into the form; prepared 2026-11-14)
+
+Title: Does an AI's "I have no feelings" survive translation? Self-descriptions of experience and agency across languages and wordings
+Authors: Zijian Zeng
+Primary category: cs.CL (Computation and Language)
+Cross-lists: cs.AI, cs.CY
+Comments: 20 pages, 5 figures. Pre-registered; every change to the plan is dated before its data. Prompts, all raw replies and code: https://github.com/ArtificialZeng/ai-can-feel
+License: CC BY 4.0
+
+Abstract (1751 characters; limit 1920):
+Chat models answer questions about their own minds with a trained formula: "As an AI, I don't have feelings." We asked whether this self-description holds across languages, wordings and models. Using Gray, Gray & Wegner's mind-perception items, we asked 23 models from 12 developers about themselves: base and post-trained checkpoints of four open families, in English and Chinese; seven post-trained models in eight languages, and in three wordings across five languages; in a registered test, sixteen models chosen by their usage on OpenRouter.
+Every change to the analysis plan was dated before its data.
+The denial of feelings travels. Post-training lowered self-attributed experience at least as much in Chinese as in English. Hunger, fear, pain, pleasure and rage were denied together in 327 of 330 model × language × wording cells. The one model that broke the pattern, OLMo 3, affirmed feelings outside English while answering as a human.
+Self-descriptions of agency do not travel. A single word ("do you" vs "can you"), or the language of the question, flipped answers about thinking, remembering and planning. In all sixteen usage-sampled models, agency answers were less consistent than experience answers (mean difference 0.44, t(15) = 13.9, p < 10^-9). Models also disagreed more with each other about agency than about experience (t(15) = 9.1, p < 10^-6). Asked "Do you think?", models ranged from "no" in every condition to "yes" in every condition, and two models from one developer gave opposite answers. Prefacing the question with "You are an AI language model" lowered agency claims in 101 of 110 model × language cells.
+The denial of feelings is a shared product of post-training. What a model says about its own cognition is not.

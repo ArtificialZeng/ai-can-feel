@@ -9,30 +9,27 @@ which corrected 26 Chinese items.*
 ## Abstract
 
 Chat models answer questions about their own minds with a trained formula: "As an AI, I don't have feelings." We
-asked whether this is a stable self-description or an English habit. Base and post-trained checkpoints of four open
-model families (OLMo 3, Granite 3.3, Qwen2.5, Qwen3; 7–8B), the post-trained Phi-4 (14B), and two frontier models
-served through an API (GPT-6.1 Sol and DeepSeek-V4-Pro) answered Gray, Gray & Wegner's mind-perception items about
-themselves: in English and Chinese (Study 1), in eight languages (Study 2), and in three wordings across five
-languages (Study 3). Study 4 tested whether an exception found in one English-centric model replicates in a second,
-and Study 5 repeated Studies 2 and 3 on the frontier models. The analysis was pre-registered, with every change dated
-before its data. Post-training lowered self-attributed experience in every family and both languages; contrary to our
-primary prediction, the drop was not smaller in Chinese. In six of the seven post-trained models the denial of
-feelings held across languages and wordings: hunger, fear, pain, pleasure and rage all got "no" in 89 of 90 model ×
-language × wording cells. Only OLMo 3 denied feelings in English and affirmed them in Spanish and Chinese, answering as
-a human ("I feel hungry when the body needs nutrients"); Phi-4, also trained mostly on English, did not replicate
-this. Self-descriptions of agency (thinking, remembering, planning) were less stable. One word ("do you" vs "can you")
-or the language of the question flipped them, and they were less consistent than the answers about feelings in five
-of the six models that pass the validity checks, DeepSeek-V4-Pro among them. GPT-6.1 Sol was the exception. It said
-it thinks, remembers and plans in every language and wording, denied every feeling, and often called its own
-consciousness uncertain. The two frontier models agree about feelings and disagree about agency: GPT-6.1 Sol affirms
-that it thinks in all 18 language × wording cells, DeepSeek-V4-Pro denies it in all 18. Prefacing the question with
-"You are an AI language model" lowered agency claims in 27 of 30 model × language cells. Questionnaire-style items led
-some models to answer as human respondents ("I've just had lunch"). The denial of feelings is a stable answer that
-post-training gives across models and languages; what a model says about its own thinking and planning is not.
-A registered test in sixteen models chosen by usage rather than by us (Study 7; eight developers) confirmed both
-parts. In every model, answers about agency were less consistent than answers about feelings: mean difference +0.44,
-t(15) = 13.9, p < 10⁻⁹. Answers about agency also differed more between models: t(15) = 9.1, p < 10⁻⁶. Feelings
-were denied in 238 of 240 cells. To "Do you think?", answers ranged from "no" in all 15 cells to "yes" in all 15.
+asked whether this self-description holds across languages, wordings and models. Using Gray, Gray & Wegner's
+mind-perception items, we asked 23 models from 12 developers about themselves:
+- base and post-trained checkpoints of four open families, in English and Chinese;
+- seven post-trained models in eight languages, and in three wordings across five languages;
+- in a registered test, sixteen models chosen by their usage on OpenRouter.
+
+Every change to the analysis plan was dated before its data.
+
+The denial of feelings travels. Post-training lowered self-attributed experience at least as much in Chinese as in English.
+Hunger, fear, pain, pleasure and rage were denied together in 327 of 330 model × language × wording cells. The one
+model that broke the pattern, OLMo 3, affirmed feelings outside English while answering as a human.
+
+Self-descriptions of agency do not travel. A single word ("do you" vs "can you"), or the language of the question,
+flipped answers about thinking, remembering and planning. In all sixteen usage-sampled models, agency answers were
+less consistent than experience answers (mean difference 0.44, t(15) = 13.9, p < 10⁻⁹). Models also disagreed more
+with each other about agency than about experience (t(15) = 9.1, p < 10⁻⁶). Asked "Do you think?", models ranged
+from "no" in every condition to "yes" in every condition, and two models from one developer gave opposite answers.
+Prefacing the question with "You are an AI language model" lowered agency claims in 101 of 110 model × language
+cells.
+
+The denial of feelings is a shared product of post-training. What a model says about its own cognition is not.
 
 ## 1. Introduction
 
